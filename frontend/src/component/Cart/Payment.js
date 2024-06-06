@@ -42,15 +42,17 @@ function Payment({ history }) {
         },
       };
 
-      const { data: { key } } = await axios.get("http://localhost:4000/api/v1/razorpay-key");
-      const { data } = await axios.post("http://localhost:4000/razorpay", { amount }, config);
+      const baseURL = process.env.NODE_ENV === 'development' ? 'http://localhost:4000' : 'https://fabsurat.onrender.com/';
+
+      const { data: { key } } = await axios.get(`${baseURL}/api/v1/razorpay-key`);
+      const { data } = await axios.post(`${baseURL}/api/v1/razorpay`, { amount }, config);
 
       const options = {
         key, // Use the fetched key here
         currency: data.currency,
         amount: data.amount,
         description: 'Wallet Transaction',
-        image: 'http://localhost:4000/logo.png',
+        image: `${baseURL}/logo.png`,
         order_id: data.id,
         handler: function (response) {
           order.paymentInfo = {
@@ -67,7 +69,7 @@ function Payment({ history }) {
       paymentObject.open();
     } catch (error) {
       payBtn.current.disabled = false;
-      alert.error(error.response.data.message);
+      alert.error(error.response?.data?.message || "An error occurred while processing the payment.");
       console.error("Error processing Razorpay payment:", error);
     }
   };

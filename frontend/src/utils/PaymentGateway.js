@@ -1,37 +1,43 @@
 export default async function displayRazorpay() {
-    //simple post the node.js server
-    
-        
-    const data = await fetch("http://localhost:4000/razorpay", {
+    try {
+      // Determine base URL based on environment
+      const baseURL = process.env.NODE_ENV === 'PRODUCTION' ? 'http://localhost:4000' : 'https://fabsurat.onrender.com/';
+  
+      // Fetch Razorpay key and other necessary data
+      const { data: { key } } = await fetch(`${baseURL}/api/v1/razorpay-key`).then(response => response.json());
+      const { data } = await fetch(`${baseURL}/api/v1/razorpay`, {
         method: 'POST',
-    }).then((t) => t.json())
-    console.log(data)
-
-    //options
-
-    const options = {
-        key: "rzp_live_dhzrrUe3u21D7B",
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ amount: amount })  // Pass amount or other necessary data
+      }).then(response => response.json());
+  
+      // Options for Razorpay
+      const options = {
+        key, // Use the fetched key here
         currency: data.currency,
         amount: data.amount,
         description: 'Wallet Transaction',
-        image: 'http://localhost:4000/logo.png',
-        order_id : data.id,
-        handler: function() {
-            window.location.href = '/success';
-            // alert("PAYMENT ID: " + response.razorpay_payment_id)
-            // alert("ORDER ID: " + response.razorpay_order_id)
+        image: `${baseURL}/logo.png`,
+        order_id: data.id,
+        handler: function () {
+          window.location.href = '/success';
+          // You can also add more actions here, e.g., updating the order status in your database
         },
         // prefill: {
-        //     //fill out the details
-        //     name: 'Fabsurat',
-        //     email: 'fabsurat@gmail.com',
-        //     contact: '0000000000'
+        //   name: 'Fabsurat',
+        //   email: 'fabsurat@gmail.com',
+        //   contact: '0000000000'
         // }
-    };
-
-    // display the window on button click
-
-    const paymentObject = new window.Razorpay(options)
-
-    paymentObject.open()
-}
+      };
+  
+      // Display the Razorpay payment window
+      const paymentObject = new window.Razorpay(options);
+      paymentObject.open();
+    } catch (error) {
+      console.error("Error processing Razorpay payment:", error);
+      alert("An error occurred while processing the payment. Please try again.");
+    }
+  }
+  
