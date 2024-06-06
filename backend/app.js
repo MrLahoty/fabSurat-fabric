@@ -30,7 +30,7 @@ app.get('/logo.png', (req, res) => {
   res.sendFile(path.join(__dirname, "logo.png"));
 });
 
-app.post('/razorpay', async (req, res) => {
+app.post('/api/v1/razorpay', async (req, res) => {
   const payment_capture = 1;
   const amount = req.body.amount;
   const currency = 'INR';

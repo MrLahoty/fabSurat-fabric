@@ -5,7 +5,7 @@ export default async function displayRazorpay() {
   
       // Fetch Razorpay key and other necessary data
     //   const { data: { key } } = await fetch(`${baseURL}/api/v1/razorpay-key`).then(response => response.json());
-      const { data } = await fetch(`${baseURL}/razorpay`, {
+      const { data } = await fetch(`${baseURL}/api/v1/razorpay`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

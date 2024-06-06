@@ -45,7 +45,7 @@ function Payment({ history }) {
       const baseURL = process.env.NODE_ENV === 'PRODUCTION' ? 'http://localhost:4000' : 'https://fabsurat.onrender.com';
 
       const { data: { key } } = await axios.get(`${baseURL}/api/v1/razorpay-key`);
-      const { data } = await axios.post(`${baseURL}/razorpay`, { amount }, config);
+      const { data } = await axios.post(`${baseURL}/api/v1/razorpay`, { amount }, config);
 
       const options = {
         key, // Use the fetched key here
