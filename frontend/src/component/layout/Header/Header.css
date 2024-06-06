@@ -1,0 +1,176 @@
+.speedDial {
+  position: fixed;
+  right: 2vmax;
+  top: 1vmax;
+}
+
+.speedDialIcon {
+  width: 56px;
+  height: 56px;
+  border-radius: 100%;
+}
+
+.navbar{
+  height: 2.5vmax;
+}
+
+.logos {
+  text-decoration: none; /* Remove underline */
+  padding-left: 120px;
+  padding-top: 20px;
+  font-family: 'Montserrat', sans-serif; /* A modern and attractive font */
+  font-size: 23px; /* Adjust font size as needed */
+  color: #272727; /* Text color */
+  text-transform: uppercase; /* Uppercase text for emphasis */
+  letter-spacing: 2px; /* Increase letter spacing for a modern look */
+  overflow: hidden; /* Hide overflow text */
+  white-space: nowrap; /* Prevent text from wrapping */
+}
+
+.banner{
+ height:600px;
+ padding-top:54px;
+}
+
+.menuBurger{
+  padding-bottom: 0px;
+  padding-top: 8px;
+  padding-right: 47px;
+  padding-left: 25px;
+ }
+
+.burger-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.nav-search {
+  width: 45vw;
+  display: flex;
+  align-items: center;
+  background-color:  #e9f3ff;
+  border-radius: 50px;
+  padding: 5px 20px 5px 50px; 
+  position: absolute;
+  top: 17px;
+  right: 400px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+}
+
+.search-select,
+.search-input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  padding: 10px;
+  font: 300 1.1vmax cursive;
+}
+
+.search-select {
+  padding:  8px 18px 8px 0px; 
+  font: 300 1.1vmax cursive;
+}
+
+.search-select:hover{
+  color: rgb(41, 73, 162);
+}
+
+.search-input {
+  flex: 1;
+  font-size: 1rem;
+  font:300 1.1vmax cursive;
+}
+
+.search-input:hover {
+  color: #eb4034;
+}
+
+.search-icon {
+  background: transparent;
+  border: 0;
+  outline: 0;
+  color: rgb(62, 60, 60);
+  font-size: 23px;
+  cursor: pointer;
+  margin-left: 156px; 
+}
+
+.search-icon:hover {
+  color: #eb4034;
+}
+
+/* New mobile responsive styles */
+@media (max-width: 768px) {
+  .logos {
+    padding-left: 20px;
+    padding-top: 10px;
+    font-size: 18px; /* Adjust font size for smaller screens */
+    letter-spacing: 1px; /* Adjust letter spacing for smaller screens */
+  }
+
+  .logos p {
+    padding-right: 0;
+    padding-top: 0;
+    font-size: 17px; /* Adjust font size for smaller screens */
+    letter-spacing: 1px; /* Adjust letter spacing for smaller screens */
+    white-space: nowrap; /* Prevent text wrapping */
+    overflow: hidden; /* Hide overflow text */
+    text-align: center; /* Center align text */
+  }
+
+  .navbar {
+    height: auto;
+    justify-content: center;
+    padding: 20px 10px; /* Adjust padding for consistency */
+    margin-bottom: 0;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center align items */
+  }
+
+  .burger-icon {
+    position: relative;
+    margin-right: 0; /* Center align */
+    margin-bottom: 10px; /* Space below burger icon */
+  }
+  
+  .menuBurger {
+    padding: 8px 25px 0 25px; /* Adjust padding */
+    height: 25px; /* Auto height */
+    margin-top: 12px;
+  }
+
+  .nav-search {
+    position: static;
+    width: 100%; /* Full width with margin */
+    max-width: 400px; /* Adjust as needed */
+    margin: 8px auto; /* Center align with margin */
+    padding: 10px;
+    box-sizing: border-box; /* Include padding in width */
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space out children */
+    align-items: center; /* Center align items vertically */
+  }
+
+  .search-select {
+    font-size: 14px; /* Adjust font size for mobile */
+    width: 30%; /* Adjust width to fit within container */
+    margin-right: 10px; /* Add margin to the right */
+  }
+
+  .search-input {
+    font-size: 14px; /* Adjust font size for mobile */
+    width: calc(55% - 40px); /* Adjust width to fit within container */
+    margin-right: 80px; /* Add margin to the right */
+  }
+
+  .search-icon {
+    font-size: 20px; /* Adjust font size if needed */
+    margin-left: 0; /* Reset margin-left */
+  }
+}

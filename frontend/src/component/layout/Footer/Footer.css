@@ -1,0 +1,164 @@
+footer {
+  margin-top: 1vmax;
+  height: 28vmax; /* Adjust the height as needed */
+  padding: 2vmax;
+  background-color: rgb(34, 33, 33);
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+.leftFooter {
+  flex: 1;
+  padding-left: 30px;
+  color: #e9f3ff;
+  padding-bottom: 35px;
+}
+
+.leftFooter h4 {
+  color: #e9f3ff;
+  font-size: 20px;
+  margin-bottom: 20px;
+  text-decoration: underline;
+  font: 400 1.5vmax cursive;
+}
+
+.leftFooter p {
+  margin: 6px 2px;
+  font-size: 17px;
+}
+
+.leftFooter > p:hover {
+  color: #eb4034;
+}
+
+.leftFooter i {
+  margin-right: 7px;
+}
+
+.midFooter {
+  width: 60%;
+  text-align: center;
+  color: #e9f3ff;
+  padding-bottom: 44px;
+}
+
+.midFooter > h6,
+.midFooter > svg {
+  margin-top: 10px; /* Adjust the margin-top value to your preference */
+}
+
+.midFooter > h6:hover {
+  color: #eb4034;
+}
+
+.rightFooter {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #e9f3ff;
+  font: 500 1.5vmax cursive;
+  padding-bottom: 75px;
+}
+
+.rightFooter > h4 {
+  text-decoration: underline;
+  font: 500 1.6vmax cursive;
+  margin-bottom: 16px;
+  font-size: 24px;
+}
+
+.rightFooter > a {
+  text-decoration: none;
+  font-size: 1.7vmax;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  color: #e9f3ff;
+  transition: all 0.5s;
+  margin: 0.5vmax;
+}
+
+.rightFooter > a > svg {
+  margin-right: 5.5px; /* Adjust the margin as needed */
+}
+
+.rightFooter > a:hover {
+  transition: all 0.5s;
+}
+
+.rightFooter > a:hover svg.fa-instagram {
+  color: #eb4034;
+}
+
+.rightFooter > a:hover svg.fa-whatsapp {
+  color: green;
+}
+
+.whatsapp {
+  position: fixed;
+  bottom: 30px;
+  right: 05px; /* Adjust as needed */
+  background-color: #25d366; /* WhatsApp green */
+  border-radius: 50%;
+  padding: 9px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.whatsapp:hover {
+  transform: scale(1.1);
+}
+
+.whatsapp img {
+  width: 38px; /* Adjust as needed */
+  height: 38px; /* Adjust as needed */
+  border-radius: 50%;
+}
+/* Mobile Responsive Styling */
+@media screen and (max-width: 600px) {
+  footer {
+    flex-direction: column;
+    margin-top: 1vmax;
+    text-align: center;
+    padding: 20; /* Remove padding to avoid extra space */
+    height: auto; /* Adjust height to fit content */
+    width: 100vw; /* Ensure footer takes full viewport width */
+    box-sizing: border-box; /* Include padding/border in element's total width */
+  }
+
+  .leftFooter, .midFooter, .rightFooter {
+    padding: 10px;
+    text-align: center; /* Center text on mobile */
+    width: 100%; /* Make each section take full width on mobile */
+  }
+
+  .leftFooter h4, .midFooter h6, .rightFooter h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .leftFooter p {
+    text-align:center;
+  }
+
+   .rightFooter a {
+    font-size: 14px;
+    display: block; /* Ensure each p element is a block element */
+    margin: 4px 0; /* Add some margin for vertical spacing */
+  }
+
+  .rightFooter a {
+    font-size: 17px;
+  }
+
+  .whatsapp {
+    bottom: 10px; /* Adjust as needed */
+    right: 10px; /* Adjust as needed */
+    padding: 8px; /* Adjust padding for smaller screens */
+  }
+
+  .whatsapp img {
+    width: 32px; /* Adjust as needed */
+    height: 32px; /* Adjust as needed */
+  }
+}
