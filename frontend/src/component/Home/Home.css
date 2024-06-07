@@ -52,7 +52,7 @@ html, body {
   font-size: 1.2vmax;
   margin: 5px 0;
   font-weight: bold;
-  font-family: 'Lobster', cursive;
+  font-family: 'Lobster', 'RocknRoll One', sans-serif;
   line-height: 1.7; /* Adjust line-height for better spacing */
 }
 
@@ -708,7 +708,7 @@ border-radius: 10px}
   }
 
   .shop {
-    font-size: 3vw; /* Reduce font size */
+    font-size: 4vw; /* Reduce font size */
     width: 90%; /* Adjust width */
     margin: 5vw auto; /* Adjust margin */
 }
@@ -718,10 +718,11 @@ border-radius: 10px}
 }
 
 .box {
-    width: 45%; /* Reduce width to allow two boxes in a row */
+    width: 180px; /* Reduce width to allow two boxes in a row */
     margin: 2.5vw 2.5%; /* Adjust margin */
     display: inline-block; /* Allow boxes to sit side-by-side */
     vertical-align: top; /* Align boxes to the top */
+    height: 305px;
 }
 
 .box-img1,
@@ -738,8 +739,13 @@ border-radius: 10px}
 }
 
 .box-content p {
-    font-size: 2vw; /* Reduce font size */
+    font-size: 3vw; /* Reduce font size */
     margin-bottom: 2.5vw; /* Adjust margin */
+    margin-top: 2.4vw; /* Adjust margin */
+}
+
+.box-content h2{
+  font-size: 20px;
 }
 
 .see-more {

@@ -69,12 +69,12 @@
   border: none;
   outline: none;
   padding: 10px;
-  font: 300 1.1vmax cursive;
+  font: 300 1.1vmax "Roboto";
 }
 
 .search-select {
   padding:  8px 18px 8px 0px; 
-  font: 300 1.1vmax cursive;
+  font: 300 1.1vmax "Roboto";
 }
 
 .search-select:hover{
@@ -84,7 +84,7 @@
 .search-input {
   flex: 1;
   font-size: 1rem;
-  font:300 1.1vmax cursive;
+  font:300 1.1vmax "Roboto";
 }
 
 .search-input:hover {
@@ -108,21 +108,26 @@
 /* New mobile responsive styles */
 @media (max-width: 768px) {
   .logos {
-    padding-left: 20px;
+    padding-left: 10px;
     padding-top: 10px;
-    font-size: 18px; /* Adjust font size for smaller screens */
-    letter-spacing: 1px; /* Adjust letter spacing for smaller screens */
-  }
+    font-size: 19px; /* Adjust font size for smaller screens */
+    letter-spacing: 0.6px; /* Adjust letter spacing for smaller screens */
+    color: #000000; /* Darker color */
+    font-weight: 400; /* Adjusted font weight to match the screenshot */
+}
 
-  .logos p {
+.logos p {
     padding-right: 0;
     padding-top: 0;
-    font-size: 17px; /* Adjust font size for smaller screens */
-    letter-spacing: 1px; /* Adjust letter spacing for smaller screens */
+    font-size: 19px; /* Adjust font size for smaller screens */
+    letter-spacing: 0.6px; /* Adjust letter spacing for smaller screens */
     white-space: nowrap; /* Prevent text wrapping */
     overflow: hidden; /* Hide overflow text */
     text-align: center; /* Center align text */
-  }
+    color: #000000; /* Darker color */
+    font-weight: 400; /* Adjusted font weight to match the screenshot */
+}
+
 
   .navbar {
     height: auto;
@@ -167,6 +172,8 @@
     font-size: 14px; /* Adjust font size for mobile */
     width: calc(55% - 40px); /* Adjust width to fit within container */
     margin-right: 80px; /* Add margin to the right */
+    color: #000000;
+    font-family: 'RocknRoll One', sans-serif;
   }
 
   .search-icon {
