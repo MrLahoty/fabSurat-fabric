@@ -69,12 +69,12 @@
   border: none;
   outline: none;
   padding: 10px;
-  font: 300 1.1vmax cursive;
+  font: 300 1.1vmax "Roboto";
 }
 
 .search-select {
   padding:  8px 18px 8px 0px; 
-  font: 300 1.1vmax cursive;
+  font: 300 1.1vmax "Roboto";
 }
 
 .search-select:hover{
@@ -84,7 +84,7 @@
 .search-input {
   flex: 1;
   font-size: 1rem;
-  font:300 1.1vmax cursive;
+  font:300 1.1vmax "Roboto";
 }
 
 .search-input:hover {

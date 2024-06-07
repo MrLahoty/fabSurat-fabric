@@ -154,11 +154,11 @@ footer {
   .whatsapp {
     bottom: 10px; /* Adjust as needed */
     right: 10px; /* Adjust as needed */
-    padding: 8px; /* Adjust padding for smaller screens */
+    padding: 9px; /* Adjust padding for smaller screens */
   }
 
   .whatsapp img {
-    width: 36px; /* Adjust as needed */
-    height: 36px; /* Adjust as needed */
+    width: 37px; /* Adjust as needed */
+    height: 37px; /* Adjust as needed */
   }
 }
