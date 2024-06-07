@@ -32,7 +32,7 @@ const About = () => {
               Visit Instagram
             </Button>
             <h6>
-              This is a sample website For FabSurat
+              This is a website for FabSurat Textile By House Of Fashion
             </h6>
           </div>
           <div className="aboutSectionContainer2">
