@@ -37,7 +37,7 @@
 
 .profileContainer > div:first-child > a {
   border: none;
-  background-color: tomato;
+  background-color: #3b4b64;
   font: 400 1vmax "Roboto";
   color: white;
   text-decoration: none;
@@ -66,7 +66,7 @@
 
 .profileContainer > div:last-child > div > p {
   color: rgba(0, 0, 0, 0.418);
-  font: 400 1vmax cursive;
+  font: 400 1vmax "Roboto";
   margin: 0.2vmax;
 }
 
@@ -78,7 +78,7 @@
 
 .profileContainer > div:last-child > div:last-child > a {
   border: none;
-  background-color: rgb(68, 68, 68);
+  background-color: #3b4b64;
   font: 400 1vmax "Roboto";
   color: white;
   text-decoration: none;
@@ -95,35 +95,126 @@
 @media screen and (max-width: 600px) {
   .profileContainer {
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    padding: 3vmax;
+    width: 100vw;
+    height: 120vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    max-width: 100%;
   }
 
+  .profileContainer > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+  }
+
+ 
   .profileContainer > div:first-child > h1 {
-    font: 500 3.2vmax "Roboto";
-    transform: translateY(-2vmax);
+    font: 500 3.3vmax "Roboto";
+    color: rgba(0, 0, 0, 1); /* Darker font for profile heading */
+    margin-bottom: 2.7vmax;
+    padding-bottom: 11px;
+    width: fit-content; /* Adjust width to fit content */
+    margin: 10 auto; /* Center the heading */
+    position: relative; /* Needed for the pseudo-element positioning */
+    padding-left: 130px; /* Adjust this value as needed */
+}
+
+.profileContainer > div:first-child > h1::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -3px; /* Position the underline */
+    left: 77%; /* Start at the center of the h1 */
+    transform: translateX(-50%); /* Center the underline */
+    width: 60%; /* Adjust the width of the underline */
+    border-bottom: 1.2px solid rgba(19, 19, 19, 0.425); /* Underline style */
+}
+
+  .profileContainer > div:first-child > img {
+    width: 20vmax;
+    border-radius: 100%;
+    transition: all 0.5s;
+    margin-bottom: 1vmax;
+  }
+
+  .profileContainer > div:first-child > img:hover {
+    transform: scale(1.05);
   }
 
   .profileContainer > div:first-child > a {
+    border: none;
+    background-color: #3b4b64; /* Brighter tomato color for better contrast */
     font: 400 1.7vmax "Roboto";
+    color: white;
+    text-decoration: none;
     padding: 1vmax;
+    width: 60%;
+    text-align: center;
+    transition: all 0.5s;
+    margin-top: 1vmax;
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+  }
+
+  .profileContainer > div:first-child > a:hover {
+    background-color: #3b4b64; /* Slightly darker on hover */
   }
 
   .profileContainer > div:last-child {
     text-align: center;
     align-items: center;
+    padding: 2vmax;
+    box-sizing: border-box;
   }
 
+  .profileContainer > div:last-child > div {
+    margin-bottom: 2vmax; /* Adds gap between each section */
+  }
+  
   .profileContainer > div:last-child > div > h4 {
     font: 400 2.5vmax "Roboto";
+    color: rgba(0, 0, 0, 1); /* Darker font for name, email, etc. */
+    margin-bottom: 0.5vmax; /* Reduced space below headings */
   }
-
+  
   .profileContainer > div:last-child > div > p {
-    font: 400 2vmax cursive;
+    font: 400 2vmax "Roboto";
+    color: rgba(0, 0, 0, 0.7); /* Darker font for details */
     margin: 0.5vmax 0;
+  }
+  
+
+  .profileContainer > div:last-child > div:last-child {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
   }
 
   .profileContainer > div:last-child > div:last-child > a {
+    border: none;
+    background-color: #4b6584; /* Attractive background color for buttons */
     font: 400 1.8vmax "Roboto";
+    color: white;
+    text-decoration: none;
     padding: 1vmax;
+    text-align: center;
+    transition: all 0.5s;
     margin: 2vmax 0;
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+  }
+
+  .profileContainer > div:last-child > div:last-child > a:hover {
+    background-color: #3b4b64; /* Slightly darker on hover */
   }
 }
