@@ -22,7 +22,7 @@ const Profile = ({ history }) => {
           <MetaData title={`${user.name}'s Profile`} />
           <div className="profileContainer">
             <div>
-              <h1>My Profile</h1>
+              <h2>My Profile</h2>
               <img src={user.avatar.url} alt={user.name} />
               <Link to="/me/update">Edit Profile</Link>
             </div>

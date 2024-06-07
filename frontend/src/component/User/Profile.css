@@ -102,7 +102,7 @@
     width: 100vw;
     height: 120vh;
     position: fixed;
-    top: 0;
+    top: -10%;;
     left: 0;
     max-width: 100%;
   }
@@ -117,28 +117,7 @@
     max-width: 100%;
   }
 
- 
-  .profileContainer > div:first-child > h1 {
-    font: 500 3.3vmax "Roboto";
-    color: rgba(0, 0, 0, 1); /* Darker font for profile heading */
-    margin-bottom: 2.7vmax;
-    padding-bottom: 11px;
-    width: fit-content; /* Adjust width to fit content */
-    margin: 10 auto; /* Center the heading */
-    position: relative; /* Needed for the pseudo-element positioning */
-    padding-left: 160px; /* Adjust this value as needed */
-}
 
-.profileContainer > div:first-child > h1::after {
-    content: "";
-    display: block;
-    position: absolute;
-    bottom: -3px; /* Position the underline */
-    left: 75%; /* Start at the center of the h1 */
-    transform: translateX(-50%); /* Center the underline */
-    width: 60%; /* Adjust the width of the underline */
-    border-bottom: 1.2px solid rgba(19, 19, 19, 0.425); /* Underline style */
-}
 
   .profileContainer > div:first-child > img {
     width: 20vmax;
@@ -153,12 +132,12 @@
 
   .profileContainer > div:first-child > a {
     border: none;
-    background-color: #3b4b64; /* Brighter tomato color for better contrast */
+    background-color: #4b6584; /* Brighter tomato color for better contrast */
     font: 400 1.7vmax "Roboto";
     color: white;
     text-decoration: none;
     padding: 1vmax;
-    width: 60%;
+    width: 70%;
     text-align: center;
     transition: all 0.5s;
     margin-top: 1vmax;
@@ -167,7 +146,7 @@
   }
 
   .profileContainer > div:first-child > a:hover {
-    background-color: #3b4b64; /* Slightly darker on hover */
+    background-color: #4b6584; /* Slightly darker on hover */
   }
 
   .profileContainer > div:last-child {

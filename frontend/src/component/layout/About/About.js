@@ -3,6 +3,7 @@ import "./aboutSection.css";
 import { Button, Typography, Avatar } from "@material-ui/core";
 import InstagramIcon from "@material-ui/icons/Instagram";
 import WhatsAppIcon from "@material-ui/icons/WhatsApp";
+import founderImage from "../../../images/logo.png"; // Import your image file
 
 const About = () => {
   const visitInstagram = () => {
@@ -22,7 +23,8 @@ const About = () => {
         <div>
           <div>
             <Avatar
-              style={{ width: "10vmax", height: "10vmax", margin: "2vmax 0" }}
+               src={founderImage} // Set the source of the image
+              style={{ width: "15vmax", height: "11vmax", margin: "2vmax 0" }}
               alt="Founder"
             />
             <h6>Welcome to FabSurat By House Of Fashion</h6>
