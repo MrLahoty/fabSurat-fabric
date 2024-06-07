@@ -126,7 +126,7 @@
     width: fit-content; /* Adjust width to fit content */
     margin: 10 auto; /* Center the heading */
     position: relative; /* Needed for the pseudo-element positioning */
-    padding-left: 130px; /* Adjust this value as needed */
+    padding-left: 160px; /* Adjust this value as needed */
 }
 
 .profileContainer > div:first-child > h1::after {
@@ -134,7 +134,7 @@
     display: block;
     position: absolute;
     bottom: -3px; /* Position the underline */
-    left: 77%; /* Start at the center of the h1 */
+    left: 75%; /* Start at the center of the h1 */
     transform: translateX(-50%); /* Center the underline */
     width: 60%; /* Adjust the width of the underline */
     border-bottom: 1.2px solid rgba(19, 19, 19, 0.425); /* Underline style */

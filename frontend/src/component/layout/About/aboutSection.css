@@ -104,6 +104,7 @@
 @media screen and (max-width: 600px) {
   .aboutSectionContainer > div {
     display: block;
+    padding-bottom: 30px;
   }
 
   .aboutSectionContainer > h1 {
@@ -125,7 +126,7 @@
   }
 
   .aboutSectionContainer2 > h2 {
-    font: 100 3vmax "Roboto";
+    font: 100 2.3vmax "Roboto";
     margin: 2vmax;
   }
 
@@ -133,4 +134,10 @@
     font-size: 6vmax;
     margin: 1vmax;
   }
+
+  .aboutSectionContainer2 .whatsappSvgIcon {
+    font-size: 6vmax;
+    color: #075E54;
+  }
+  
 }
