@@ -722,7 +722,7 @@ border-radius: 10px}
     margin: 2.5vw 2.5%; /* Adjust margin */
     display: inline-block; /* Allow boxes to sit side-by-side */
     vertical-align: top; /* Align boxes to the top */
-    height: 300px;
+    height: 295px;
 }
 
 .box-img1,
