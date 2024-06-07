@@ -718,7 +718,7 @@ border-radius: 10px}
 }
 
 .box {
-    width: 170px; /* Reduce width to allow two boxes in a row */
+    width: 160px; /* Reduce width to allow two boxes in a row */
     margin: 2.5vw 2.5%; /* Adjust margin */
     display: inline-block; /* Allow boxes to sit side-by-side */
     vertical-align: top; /* Align boxes to the top */
