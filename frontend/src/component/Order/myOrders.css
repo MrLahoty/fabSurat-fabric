@@ -58,7 +58,8 @@
 @media screen and (max-width: 600px) {
   .myOrdersPage {
     padding: 0;
-    height: 93vh;
+    height: 100vh;
+    margin-top: 75px;
   }
 
   #myOrdersHeading {
@@ -75,6 +76,6 @@
   }
 
   .MuiDataGrid-columnHeader div {
-    font: 500 5vw "Roboto" !important;
+    font: 500 4vw "Roboto" !important;
   }
 }
