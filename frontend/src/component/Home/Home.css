@@ -52,7 +52,7 @@ html, body {
   font-size: 1.2vmax;
   margin: 5px 0;
   font-weight: bold;
-  font-family: "Roboto";
+  font-family: 'Lobster', cursive;
   line-height: 1.7; /* Adjust line-height for better spacing */
 }
 
