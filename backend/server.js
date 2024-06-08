@@ -1,5 +1,5 @@
 const app = require("./app");
-const cloudinary = require("cloudinary").v2;
+const cloudinary = require("cloudinary");
 const connectDatabase = require("./config/database");
 
 //Handling Uncaught Exception
