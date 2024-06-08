@@ -18,6 +18,9 @@ import {
   ORDER_DETAILS_SUCCESS,
   ORDER_DETAILS_FAIL,
   CLEAR_ERRORS,
+ CANCEL_ORDER_REQUEST, 
+ CANCEL_ORDER_SUCCESS,
+  CANCEL_ORDER_FAIL, 
 } from "../constants/orderConstants";
 
 import axios from "axios";
@@ -127,6 +130,22 @@ export const getOrderDetails = (id) => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: ORDER_DETAILS_FAIL,
+      payload: error.response.data.message,
+    });
+  }
+};
+
+// Cancel Order
+export const cancelOrder = (id) => async (dispatch) => {
+  try {
+    dispatch({ type: CANCEL_ORDER_REQUEST });
+
+    const { data } = await axios.put(`/api/v1/order/${id}/cancel`);
+
+    dispatch({ type: CANCEL_ORDER_SUCCESS, payload: data.success });
+  } catch (error) {
+    dispatch({
+      type: CANCEL_ORDER_FAIL,
       payload: error.response.data.message,
     });
   }

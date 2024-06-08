@@ -1,18 +1,19 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useState } from "react";
 import "./orderDetails.css";
 import { useSelector, useDispatch } from "react-redux";
 import MetaData from "../layout/MetaData";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { Typography } from "@material-ui/core";
-import { getOrderDetails, clearErrors } from "../../actions/orderAction";
+import { getOrderDetails, clearErrors, cancelOrder } from "../../actions/orderAction";
 import Loader from "../layout/Loader/Loader";
 import { useAlert } from "react-alert";
 
 const OrderDetails = ({ match }) => {
   const { order, error, loading } = useSelector((state) => state.orderDetails);
-
   const dispatch = useDispatch();
   const alert = useAlert();
+  const history = useHistory();
+  const [showConfirmation, setShowConfirmation] = useState(false);
 
   useEffect(() => {
     if (error) {
@@ -22,6 +23,22 @@ const OrderDetails = ({ match }) => {
 
     dispatch(getOrderDetails(match.params.id));
   }, [dispatch, alert, error, match.params.id]);
+
+  const cancelOrderHandler = () => {
+    setShowConfirmation(true);
+  };
+
+  const handleCancelConfirm = () => {
+    setShowConfirmation(false);
+    dispatch(cancelOrder(order._id));
+    history.push("/");
+    alert.success("Order cancelled successfully");
+  };
+
+  const handleCancelCancel = () => {
+    setShowConfirmation(false);
+  };
+
   return (
     <>
       {loading ? (
@@ -90,9 +107,21 @@ const OrderDetails = ({ match }) => {
                   >
                     {order.orderStatus && order.orderStatus}
                   </p>
+                  {order.orderStatus !== "Delivered" && (
+                    <button onClick={cancelOrderHandler} className="cancelOrderButton">
+                      Cancel Order
+                    </button>
+                  )}
                 </div>
               </div>
             </div>
+            {showConfirmation && (
+            <div className="confirmationDialog">
+              <p>Are you sure you want to cancel your order?</p>
+              <button className="yes" onClick={handleCancelConfirm}>Yes</button>
+              <button className="no" onClick={handleCancelCancel}>No</button>
+            </div>
+          )}
 
             <div className="orderDetailsCartItems">
               <Typography>Order Items:</Typography>

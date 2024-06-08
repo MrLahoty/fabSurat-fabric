@@ -3,6 +3,27 @@ const Product = require("../models/productModel");
 const ErrorHander = require("../utils/errorhander");
 const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 
+// Cancel Order
+exports.cancelOrder = catchAsyncErrors(async (req, res, next) => {
+    const order = await Order.findById(req.params.id);
+  
+    if (!order) {
+      return next(new ErrorHandler("Order not found with this ID", 404));
+    }
+  
+    if (order.orderStatus === "Delivered") {
+      return next(new ErrorHandler("You cannot cancel a delivered order", 400));
+    }
+  
+    order.orderStatus = "Cancelled";
+    await order.save();
+  
+    res.status(200).json({
+      success: true,
+      message: "Order cancelled successfully",
+    });
+  });
+
 // Create new Order
 exports.newOrder = catchAsyncErrors(async (req, res, next) => {
     const {

@@ -20,6 +20,9 @@ import {
   ORDER_DETAILS_SUCCESS,
   ORDER_DETAILS_FAIL,
   CLEAR_ERRORS,
+  CANCEL_ORDER_REQUEST,
+  CANCEL_ORDER_SUCCESS,
+  CANCEL_ORDER_FAIL,
 } from "../constants/orderConstants";
 
 export const newOrderReducer = (state = {}, action) => {
@@ -151,6 +154,7 @@ export const orderReducer = (state = {}, action) => {
         ...state,
         isDeleted: false,
       };
+
     case CLEAR_ERRORS:
       return {
         ...state,
@@ -180,6 +184,27 @@ export const orderDetailsReducer = (state = { order: {} }, action) => {
         loading: false,
         error: action.payload,
       };
+
+      case CANCEL_ORDER_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      };
+
+    case CANCEL_ORDER_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        isCancelled: action.payload,
+      };
+
+    case CANCEL_ORDER_FAIL:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
+
     case CLEAR_ERRORS:
       return {
         ...state,

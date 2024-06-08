@@ -1,8 +1,10 @@
 const express = require("express");
-const { newOrder, getSingleOrder, myOrders, getAllOrders, updateOrder, deleteOrder } = require("../controllers/orderController");
+const { newOrder, getSingleOrder, myOrders, getAllOrders, updateOrder, deleteOrder, cancelOrder } = require("../controllers/orderController");
 const router = express.Router();
 
 const { isAuthenticatedUser, authorizeRoles } = require("../middleware/auth");
+
+router.route("/order/:id/cancel").put(isAuthenticatedUser, cancelOrder);
 
 router.route("/order/new").post( isAuthenticatedUser, newOrder);
 

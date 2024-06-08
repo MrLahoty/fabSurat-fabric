@@ -69,6 +69,57 @@
   color: #5e5e5e;
 }
 
+/* Styles for the cancel order button */
+.cancelOrderButton {
+  margin-left: auto;
+  padding: 10px 20px;
+  background-color: tomato;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.cancelOrderButton:hover {
+  background-color: lightcoral;
+}
+
+
+/* Styles for the confirmation dialog */
+.confirmationDialog {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.confirmationDialog p {
+  font-size: large;
+}
+
+.confirmationDialog button {
+  margin: 0 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.confirmationDialog button.yes {
+  background-color: green;
+  color: white;
+}
+
+.confirmationDialog button.no {
+  background-color: red;
+  color: white;
+}
+
+.confirmationDialog button:hover {
+  opacity: 0.8;
+}
+
 @media screen and (max-width: 600px) {
   .orderDetailsContainer > p {
     font: 400 6vw "Roboto";
@@ -105,5 +156,12 @@
 
   .orderDetailsCartItemsContainer > div > span {
     font: 100 4vw "Roboto";
+  }
+
+  .cancelOrderButton {
+    width: 50%;
+    margin: 50px 0 0 -110px; /* Adjusted margin to move the button left and down */
+    padding: 8px;
+    text-align: center;
   }
 }

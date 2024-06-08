@@ -711,18 +711,25 @@ border-radius: 10px}
     font-size: 4vw; /* Reduce font size */
     width: 90%; /* Adjust width */
     margin: 5vw auto; /* Adjust margin */
+    padding-bottom: 10px;
 }
 
 .shop-section {
     padding: 5vw 2.5vw; /* Reduce padding */
+    padding-bottom: 30px;
 }
-
+ 
 .box {
-    width: 160px; /* Reduce width to allow two boxes in a row */
-    margin: 2.5vw 2.5%; /* Adjust margin */
-    display: inline-block; /* Allow boxes to sit side-by-side */
-    vertical-align: top; /* Align boxes to the top */
-    height: 295px;
+  width: 48%; /* Adjust width for mobile view to fit two boxes side by side */
+  margin: 1%; /* Small margin to separate boxes slightly */
+  margin-bottom: 19px; /* Margin at the bottom for spacing between rows */
+  display: inline-block; /* To place boxes side by side */
+  vertical-align: top; /* Align the boxes to the top */
+  height: 295px; /* Height of the box */
+  border: 1px solid #ddd; /* Optional: border to see the box outline */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: shadow for visual appeal */
+  padding: 10px; /* Optional: inner padding for content spacing */
+  background-color: #fff; /* Optional: background color */
 }
 
 .box-img1,
