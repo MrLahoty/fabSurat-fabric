@@ -1,36 +1,41 @@
+const cloudinary = require("cloudinary").v2;
 const ErrorHander = require("../utils/errorhander");
 const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 const User = require("../models/userModel");
 const sendToken = require("../utils/jwtToken");
 const sendEmail = require("../utils/sendEmail");
 const crypto = require("crypto");
-const cloudinary = require("cloudinary");
 
 // Register a User
+exports.registerUser = catchAsyncErrors(async (req, res, next) => {
+  const { name, email, password, avatar } = req.body;
 
-exports.registerUser = catchAsyncErrors( async(req,res,next) => {
+  if (!avatar) {
+    return next(new ErrorHander("Please upload an avatar", 400));
+  }
 
-    const myCloud = await cloudinary.v2.uploader.upload(req.body.avatar, {
-        folder: "avatars",
-        width: 150,
-        crop: "scale",
+  try {
+    const myCloud = await cloudinary.uploader.upload(avatar, {
+      folder: "avatars",
+      width: 150,
+      crop: "scale",
     });
-
-    const { name, email, password } = req.body;
 
     const user = await User.create({
-        name,
-        email,
-        password,
-        avatar: {
-            public_id: myCloud.public_id,
-            url: myCloud.secure_url,
-        },
+      name,
+      email,
+      password,
+      avatar: {
+        public_id: myCloud.public_id,
+        url: myCloud.secure_url,
+      },
     });
-    
-    sendToken(user,201,res);
-});
 
+    sendToken(user, 201, res);
+  } catch (error) {
+    return next(new ErrorHander("Image upload failed", 500));
+  }
+});
 //Login User
 exports.loginUser = catchAsyncErrors (async (req,res,next) => {
 
