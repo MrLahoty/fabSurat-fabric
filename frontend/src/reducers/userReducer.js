@@ -1,4 +1,5 @@
 import {
+  // Import existing action types
   LOGIN_REQUEST,
   LOGIN_FAIL,
   LOGIN_SUCCESS,
@@ -47,6 +48,7 @@ export const userReducer = (state = { user: {} }, action) => {
     case REGISTER_USER_REQUEST:
     case LOAD_USER_REQUEST:
       return {
+        ...state,
         loading: true,
         isAuthenticated: false,
       };
@@ -62,6 +64,7 @@ export const userReducer = (state = { user: {} }, action) => {
 
     case LOGOUT_SUCCESS:
       return {
+        ...state,
         loading: false,
         user: null,
         isAuthenticated: false,
@@ -78,6 +81,7 @@ export const userReducer = (state = { user: {} }, action) => {
 
     case LOAD_USER_FAIL:
       return {
+        ...state,
         loading: false,
         isAuthenticated: false,
         user: null,
