@@ -13,7 +13,9 @@ const LoginSignUp = ({ history, location }) => {
   const dispatch = useDispatch();
   const alert = useAlert();
 
-  const { error, loading, isAuthenticated } = useSelector((state) => state.user);
+  const { error, loading, isAuthenticated } = useSelector(
+    (state) => state.user
+  );
 
   const loginTab = useRef(null);
   const registerTab = useRef(null);
@@ -26,12 +28,12 @@ const LoginSignUp = ({ history, location }) => {
     name: "",
     email: "",
     password: "",
-    avatar: null, // Add avatar state to handle file upload
   });
 
-  const [avatarPreview, setAvatarPreview] = useState(null); // Define avatarPreview state
+  const { name, email, password } = user;
 
-  const { name, email, password, avatar } = user;
+  const [avatar, setAvatar] = useState("/Profile.png");
+  const [avatarPreview, setAvatarPreview] = useState("/Profile.png");
 
   const loginSubmit = (e) => {
     e.preventDefault();
@@ -41,21 +43,27 @@ const LoginSignUp = ({ history, location }) => {
   const registerSubmit = (e) => {
     e.preventDefault();
 
-    const formData = new FormData();
-    formData.append("name", name);
-    formData.append("email", email);
-    formData.append("password", password);
-    formData.append("avatar", avatar); // Append avatar file to form data
+    const myForm = new FormData();
 
-    dispatch(register(formData));
+    myForm.set("name", name);
+    myForm.set("email", email);
+    myForm.set("password", password);
+    myForm.set("avatar", avatar);
+    dispatch(register(myForm));
   };
 
   const registerDataChange = (e) => {
     if (e.target.name === "avatar") {
-      setUser({ ...user, avatar: e.target.files[0] }); // Set avatar file directly
+      const reader = new FileReader();
 
-      // Preview avatar image
-      setAvatarPreview(URL.createObjectURL(e.target.files[0]));
+      reader.onload = () => {
+        if (reader.readyState === 2) {
+          setAvatarPreview(reader.result);
+          setAvatar(reader.result);
+        }
+      };
+
+      reader.readAsDataURL(e.target.files[0]);
     } else {
       setUser({ ...user, [e.target.name]: e.target.value });
     }
