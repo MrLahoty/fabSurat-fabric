@@ -7,24 +7,31 @@ const crypto = require("crypto");
 const cloudinary = require("cloudinary");
 
 // Register a User
-exports.registerUser = async (req, res, next) => {
-    const { name, email, password } = req.body;
-  
-    // Check if the avatar was provided, if not, set the default avatar
-    const avatar = req.body.avatar || {
-      public_id: 'default_avatar',
-      url: '/Profile.png'
-    };
-  
-    const user = await User.create({
-      name,
-      email,
-      password,
-      avatar
+
+exports.registerUser = catchAsyncErrors( async(req,res,next) => {
+
+    const myCloud = await cloudinary.v2.uploader.upload(req.body.avatar, {
+        folder: "avatars",
+        width: 200,
+        crop: "scale",
+        quality: "auto",
+        fetch_format: "auto",
     });
-  
-    sendToken(user, 201, res);
-  };
+
+    const { name, email, password } = req.body;
+
+    const user = await User.create({
+        name,
+        email,
+        password,
+        avatar: {
+            public_id: myCloud.public_id,
+            url: myCloud.secure_url,
+        },
+    });
+    
+    sendToken(user,201,res);
+});
 
 //Login User
 exports.loginUser = catchAsyncErrors (async (req,res,next) => {

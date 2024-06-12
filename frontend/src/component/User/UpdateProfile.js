@@ -28,7 +28,7 @@ const UpdateProfile = ({ history }) => {
 
     myForm.set("name", name);
     myForm.set("email", email);
-    myForm.set("avatar", avatar || "/Profile.png");
+    myForm.set("avatar", avatar);
     dispatch(updateProfile(myForm));
   };
 
@@ -68,7 +68,6 @@ const UpdateProfile = ({ history }) => {
       });
     }
   }, [dispatch, error, alert, history, user, isUpdated]);
-
   return (
     <>
       {loading ? (
