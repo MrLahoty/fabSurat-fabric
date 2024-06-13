@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import MailOutlineIcon from "@material-ui/icons/MailOutline";
 import LockOpenIcon from "@material-ui/icons/LockOpen";
 import FaceIcon from "@material-ui/icons/Face";
+import InfoIcon from "@material-ui/icons/Info";
 import { useDispatch, useSelector } from "react-redux";
 import { clearErrors, login, register } from "../../actions/userAction";
 import { useAlert } from "react-alert";
@@ -54,6 +55,11 @@ const LoginSignUp = ({ history, location }) => {
 
   const registerDataChange = (e) => {
     if (e.target.name === "avatar") {
+      const file = e.target.files[0];
+      if (file.size > 800000) {
+        alert.error("Avatar size should not exceed 800kb");
+        return;
+      }
       const reader = new FileReader();
 
       reader.onload = () => {
@@ -63,7 +69,7 @@ const LoginSignUp = ({ history, location }) => {
         }
       };
 
-      reader.readAsDataURL(e.target.files[0]);
+      reader.readAsDataURL(file);
     } else {
       setUser({ ...user, [e.target.name]: e.target.value });
     }
@@ -187,6 +193,12 @@ const LoginSignUp = ({ history, location }) => {
                     onChange={registerDataChange}
                   />
                 </div>
+                
+                <div className="avatarSizeInfo">
+                  <InfoIcon />
+                  <p>Avatar size should not exceed 800kb</p>
+                </div>
+
                 <input type="submit" value="Register" className="signUpBtn" />
               </form>
             </div>

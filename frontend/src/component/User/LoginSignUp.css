@@ -166,6 +166,25 @@ html, body {
   transform: translateX(100%);
 }
 
+.avatarSizeInfo {
+  display: flex;
+  align-items: center;
+  margin: 10px; /* Consistent margin around the container */
+  color: rgb(50, 50, 50); /* Adjust color as needed */
+}
+
+.avatarSizeInfo p {
+  margin: 0; /* Reset margin to avoid unexpected spacing */
+  padding-left: 35px; /* Adjust as needed for proper spacing */
+  font-size: small;
+}
+
+.avatarSizeInfo svg {
+  margin-right: 10px; /* Space between svg and the text */
+  padding-right: 5px; /* Remove padding to avoid misalignment */
+}
+
+
 @media screen and (max-width: 600px) {
   .LoginSignUpContainer {
     background-color: white;
