@@ -211,7 +211,7 @@
   /* Your existing styles */
   .logos {
     margin-top: 10px;
-    padding-left: 25px;
+    padding-left: 10px;
     padding-top: 8px;
     font-size: 20px; /* Adjust font size for smaller screens */
     letter-spacing: 0.6px; /* Adjust letter spacing for smaller screens */
@@ -246,25 +246,27 @@
   .burger-icon {
     position: relative;
     margin-right: 0; /* Center align */
-    margin-bottom: 20px; /* Space below burger icon */
+    margin-bottom: 14px; /* Space below burger icon */
   }
   
   .menuBurger {
     padding: 8px 25px 0 25px; /* Adjust padding */
     height: 25px; /* Auto height */
-    margin-top: 25px;
+    margin-top: 23px;
   }
 
   .nav-search {
     position: static;
     width: 100%; /* Full width */
     max-width: 100%; /* Adjust as needed */
-    margin: 8px 10% -25px 6px; /* Center align with more margin on the left */
+    margin: 8px 14% -25px 7px; /* Center align with more margin on the left */
     padding: 10px; /* Adjust padding as needed */
     box-sizing: border-box; /* Include padding in width calculation */
     display: flex; /* Use flexbox for layout */
     justify-content: space-between; /* Space out children */
     align-items: center; /* Center align items vertically */
+    padding-right: -11px;
+    padding-left: 6px;
   }
   
 
@@ -276,8 +278,8 @@
 
   .search-input {
     font-size: 14px; /* Adjust font size for mobile */
-    width: calc(55% - 40px); /* Adjust width to fit within container */
-    margin-right: 85px; /* Add margin to the right */
+    width: calc(60% - 40px); /* Adjust width to fit within container */
+    margin-right: 60px; /* Add margin to the right */
     color: #000000;
     font-family: 'RocknRoll One', sans-serif;
   }
@@ -291,7 +293,7 @@
     justify-content: flex-end; /* Move items to the right end of the container */
     margin-left: auto; /* Push auth buttons to the right */
     order: -1;
-    margin-left: 330px;
+    margin-left: 280px;
     margin-top: -120px;
   }
   
