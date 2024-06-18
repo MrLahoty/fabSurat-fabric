@@ -205,12 +205,12 @@
 
   /* Adjusted styles for .speedDial and .speedDialIcon */
   .speedDial {
-    margin-top: 18px; /* Adjust as needed for spacing */
+    margin-top: 16px; /* Adjust as needed for spacing */
   }
 
   /* Your existing styles */
   .logos {
-    margin-top: 10px;
+    margin-top: 12px;
     padding-left: 10px;
     padding-top: 8px;
     font-size: 20px; /* Adjust font size for smaller screens */
@@ -271,7 +271,7 @@
   
   .search-select {
     font-size: 13px; /* Adjust font size for mobile */
-    width: 46%; /* Adjust width to fit within container */
+    width: 48%; /* Adjust width to fit within container */
     margin-right: 2px; /* Add margin to the right */
   }
 
