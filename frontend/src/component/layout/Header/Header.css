@@ -269,7 +269,6 @@
     padding-left: 6px;
   }
   
-
   .search-select {
     font-size: 14px; /* Adjust font size for mobile */
     width: 41%; /* Adjust width to fit within container */
@@ -294,7 +293,7 @@
     margin-left: auto; /* Push auth buttons to the right */
     order: -1;
     margin-left: 280px;
-    margin-top: -120px;
+    margin-top: -117px;
   }
   
   .auth-button {
