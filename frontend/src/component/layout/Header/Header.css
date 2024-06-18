@@ -270,9 +270,9 @@
   }
   
   .search-select {
-    font-size: 14px; /* Adjust font size for mobile */
-    width: 41%; /* Adjust width to fit within container */
-    margin-right: 10px; /* Add margin to the right */
+    font-size: 13px; /* Adjust font size for mobile */
+    width: 46%; /* Adjust width to fit within container */
+    margin-right: 2px; /* Add margin to the right */
   }
 
   .search-input {
