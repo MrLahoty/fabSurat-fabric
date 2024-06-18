@@ -22,6 +22,11 @@ import {
 import { Rating } from "@material-ui/lab";
 import { NEW_REVIEW_RESET } from "../../constants/productConstants";
 
+// Importing Material-UI Icons
+import LocalShippingIcon from '@material-ui/icons/LocalShipping';
+import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
+import ReplayIcon from '@material-ui/icons/Replay';
+
 const ProductDetails = ({ match }) => {
   const dispatch = useDispatch();
   const alert = useAlert();
@@ -61,12 +66,16 @@ const ProductDetails = ({ match }) => {
   };
 
   const addToCartHandler = () => {
+    if (product.Stock < 2.5) {
+      alert.error("Product is out of stock");
+      return;
+    }
     dispatch(addItemsToCart(match.params.id, quantity));
     alert.success("Item Added To Cart");
   };
 
   const submitReviewToggle = () => {
-    open ? setOpen(false) : setOpen(true);
+    setOpen(!open);
   };
 
   const reviewSubmitHandler = () => {
@@ -134,7 +143,7 @@ const ProductDetails = ({ match }) => {
                 </span>
               </div>
               <div className="detailsBlock-3">
-                <h1>{`₹${product.price} per meter`}</h1>
+                <h1>{`₹${product.price} /meter`}</h1>
                 <div className="detailsBlock-3-1">
                   <div className="detailsBlock-3-1-1">
                     <button onClick={decreaseQuantity}>-</button>
@@ -142,7 +151,7 @@ const ProductDetails = ({ match }) => {
                     <button onClick={increaseQuantity}>+</button>
                   </div>
                   <button
-                    disabled={product.Stock < 1 ? true : false}
+                    disabled={product.Stock < 2.5}
                     onClick={addToCartHandler}
                   >
                     Add to Cart
@@ -151,14 +160,29 @@ const ProductDetails = ({ match }) => {
 
                 <p>
                   Status:
-                  <b className={product.Stock < 1 ? "redColor" : "greenColor"}>
-                    {product.Stock < 1 ? "OutOfStock" : "InStock"}
+                  <b className={product.Stock < 2.5 ? "redColor" : "greenColor"}>
+                    {product.Stock < 2.5 ? "OutOfStock" : "InStock"}
                   </b>
                 </p>
               </div>
 
               <div className="detailsBlock-4">
                 Description : <p>{product.description}</p>
+              </div>
+
+              <div className="additionalInfo">
+                <div className="infoItem">
+                  <LocalShippingIcon />
+                  <span>Free delivery <br/> over 1500+</span>
+                </div>
+                <div className="infoItem">
+                  <VerifiedUserIcon />
+                  <span>Assured quality</span>
+                </div>
+                <div className="infoItem">
+                  <ReplayIcon />
+                  <span>7 days return</span>
+                </div>
               </div>
 
               <button onClick={submitReviewToggle} className="submitReview">

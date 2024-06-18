@@ -7,12 +7,49 @@ html, body {
   overflow-x: hidden; /* Temporarily hidden to diagnose */
 }
 
+.feature-section {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 50px;
+  flex-wrap: wrap; /* Added for better responsiveness */
+  gap: 20px;
+}
+
+.feature-box {
+  display: flex;
+  align-items: center; /* Align items horizontally */
+  padding: 10px;
+  border: 1px solid #ABB747;
+  border-radius: 5px;
+  transition: transform 0.3s;
+  max-width: 300px; /* Added to prevent boxes from getting too wide */
+  margin: 10px; /* Added margin for spacing between boxes */
+}
+
+.feature-box img {
+  max-width: 30px;
+  margin-right: 10px; /* Adjusted for horizontal spacing */
+}
+
+.feature-box p {
+  margin: 0;
+  font-weight: normal;
+  font-size: 1rem; /* Adjust font size if needed */
+  color: #333; /* Adjust color for better readability */
+}
+
+.feature-box:hover {
+  transform: scale(1.05);
+  border-color: #ABB747;
+}
+
+
 .slider {
-  height: calc(100vh - 60px);
+  height: calc(90vh - 80px);
   width: 100vw;
   position: relative;
   overflow: hidden;
-  margin-top: 30px;
+  margin-top: -40px;
 }
 
 .slider .container {
@@ -36,7 +73,7 @@ html, body {
 
 .welcomeText {
   position: absolute;
-  top: 30%;
+  top: 25%;
   right: 6%;
   color: #e9f3ff;
   text-align: center; /* Center align the text */
@@ -77,7 +114,7 @@ html, body {
   display: flex;
   position: absolute;
   right: 13%; /* Position closer to welcomeText */
-  bottom: 25%; /* Adjusted to be closer to welcomeText */
+  bottom: 20%; /* Adjusted to be closer to welcomeText */
   padding-bottom: 20px;
   gap: 10px;
   flex-direction: column; /* Stack the buttons vertically */
@@ -109,7 +146,7 @@ html, body {
   border-bottom: 0.8px solid rgba(21, 21, 21, 0.5);
   width: 17vmax;
   padding: 1vmax;
-  margin: 4vmax auto;
+  margin: 2vmax auto; /* Adjusted the top margin to move it up */
   color: rgba(0, 0, 0, 0.808);
 }
 
@@ -619,20 +656,60 @@ border-radius: 10px}
 
 @media screen and (max-width: 600px) {
 
+  .feature-section {
+    grid-template-columns: repeat(2, 1fr); /* Two columns on mobile */
+    display: grid;
+    gap: 20px;
+    padding-right: 5px;
+    padding-left: 12px;
+    margin-right: 10px;
+  }
+
+  .feature-box {
+    display: flex; /* Ensure flexbox is used */
+    flex-direction: row; /* Horizontal alignment */
+    align-items: center; /* Center items vertically */
+    padding: 15px;
+    border: 1px solid #ABB747;
+    border-radius: 5px;
+    transition: transform 0.3s;
+    max-width: 200px; /* Ensure boxes are responsive */
+    margin: 0; /* Remove margin for grid layout */
+  }
+
+  .feature-box img {
+    max-width: 25px;
+    margin-right: 10px; /* Adjust for horizontal spacing */
+  }
+
+  .feature-box p {
+    margin: 0;
+    font-weight: normal;
+    font-size: 0.9rem; /* Adjust font size if needed */
+    color: #333; /* Adjust color for better readability */
+  }
+
+  .feature-box:hover {
+    transform: scale(1.05);
+    border-color: #ABB747;
+  }
+  .slider{
+    height: 400px;
+  }
   .welcomeText {
     top: 25%;
     right: 2%;
-    padding: 10px 20px;
+    padding: 7px 8px;
   }
 
   .welcomeText p {
-    font-size: 2.7vw;
+    font-size: 2.4vw;
     margin: 3px 0; /* Adjusted margin for spacing */
   }
 
   .icons {
-    right: 10%; /* Adjusted position */
-    bottom: 20%; /* Adjusted position */
+    right: 7%; /* Adjusted position */
+    bottom: 15%; /* Adjusted position */
     gap: 5px; /* Reduced gap */
   }
 
@@ -677,7 +754,7 @@ border-radius: 10px}
   .homeHeading {
     font-size: 4.5vw;
     width: auto;
-    margin: 10vw auto;
+    margin: 8vw auto;
   }
 
   .container {

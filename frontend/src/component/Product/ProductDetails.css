@@ -1,8 +1,47 @@
+.additionalInfo {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 20px 0;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  margin: 10px 0;
+  gap: 17px;
+}
+
+.infoItem {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  position: relative;
+  padding: 0 10px;
+}
+
+.infoItem::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 50%;
+  width: 1px;
+  background-color: #ddd;
+}
+
+.infoItem:last-child::after {
+  display: none;
+}
+
+.infoItem svg {
+  font-size: 24px;
+  color: #4caf50; /* Adjust the color as needed */
+}
+
 .ProductDetails {
   background-color: rgb(255, 255, 255);
   width: 100vw;
   max-width: 100%;
-  padding: 6vmax;
+  padding: 1vmax;
   box-sizing: border-box;
   display: flex;
 }
@@ -105,7 +144,7 @@
   color: white;
   transition: all 0.5s;
   background-color: tomato;
-  font: 500 0.7vmax "Roboto";
+  font: 500 0.8vmax "Roboto";
   border-radius: 20px;
   padding: 0.5vmax 2vmax;
   margin: 1vmax;
@@ -139,7 +178,7 @@
 .submitReview {
   border: none;
   background-color: tomato;
-  font: 500 0.7vmax "Roboto";
+  font: 500 0.9vmax "Roboto";
   border-radius: 20px;
   padding: 0.6vmax 2vmax;
   margin: 1vmax 0;
@@ -209,7 +248,45 @@
   color: rgba(0, 0, 0, 0.548);
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
+
+  .additionalInfo {
+    flex-direction: row;
+    gap: 16px;
+    padding-top: 20px;
+    height: 120px;
+  }
+
+  .infoItem {
+    width: 100%;
+    justify-content: center;
+    padding: 4px;
+    text-align: center;
+  }
+
+  .infoItem::after {
+  content: '';
+  position: absolute;
+  right: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 80%;
+  width: 1.3px;
+  background-color: #ddd;
+  }
+
+  .infoItem span {
+    display: inline-block;
+  }
+
+  .infoItem:nth-child(1) span {
+    white-space: nowrap; /* Prevent line break for "Free delivery over 1500+" */
+  }
+
+  .infoItem:nth-child(3) span {
+    white-space: nowrap; /* Prevent line break for "7 days return" */
+  }
+
   .ProductDetails {
     flex-direction: column;
     height: unset;
@@ -281,7 +358,7 @@
   }
 
   .detailsBlock-4 > p {
-    font: 300 1.9vmax sans-serif;
+    font: 300 2vmax "Roboto";
   }
 
   .submitReview {
@@ -296,5 +373,8 @@
   }
   .reviewCardComment {
     font: 300 5vw cursive;
+  }
+  .reviewsHeading {
+    font-size: medium;
   }
 }

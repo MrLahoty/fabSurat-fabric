@@ -279,4 +279,3 @@ exports.deleteUser = catchAsyncErrors(async (req, res, next) => {
     });
   });
 
-

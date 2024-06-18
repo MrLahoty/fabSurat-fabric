@@ -9,6 +9,13 @@ import Loader from "../layout/Loader/Loader";
 import { useAlert } from "react-alert";
 import { Link } from "react-router-dom";
 
+import MakeInIndia from "../../images/india_map.webp";
+import Quality from "../../images/ThumbsUp.png";
+import COD from "../../images/cash_on_delivery.png";
+import FastShipping from "../../images/Fast_Delivery.png";
+import EasyReturns from "../../images/Package.png";
+import CustomPainting from "../../images/Customized_printing.webp";
+
 const Home = () => {
   const [currentSlide] = useState(0);
   const handleShopNowClick = () => {
@@ -60,6 +67,33 @@ const Home = () => {
               <button className="shopnowbutton" onClick={handleShopNowClick}>
                 Shop Now
               </button>
+            </div>
+          </div>
+
+          <div className="feature-section">
+            <div className="feature-box">
+              <img src={MakeInIndia} alt="Make in India" />
+              <p>Make in India</p>
+            </div>
+            <div className="feature-box">
+              <img src={Quality} alt="Assured Quality" />
+              <p>Assured Quality</p>
+            </div>
+            <div className="feature-box">
+              <img src={COD} alt="Cash On Delivery" />
+              <p>Cash On Delivery</p>
+            </div>
+            <div className="feature-box">
+              <img src={FastShipping} alt="Fast Shipping" />
+              <p>Fast Shipping</p>
+            </div>
+            <div className="feature-box">
+              <img src={EasyReturns} alt="Easy Returns" />
+              <p>Easy Returns</p>
+            </div>
+            <div className="feature-box">
+              <img src={CustomPainting} alt="Custom Printing" />
+              <p>Custom Printing</p>
             </div>
           </div>
 

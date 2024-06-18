@@ -1,7 +1,33 @@
+.marquee-container {
+  overflow: hidden; /* Hide any content that overflows */
+  background-color: #e9f3ff;
+  padding: 8px 0;
+  text-align: center; /* Center align content within the container */
+}
+
+.marquee-content {
+  color: black;
+  font-size: 1rem;
+  font-family:sans-serif;
+  white-space: nowrap; /* Prevent text from wrapping */
+  overflow: hidden; /* Hide any overflow */
+  position: relative; /* Position relative for absolute positioning */
+  animation: marquee 30s linear infinite; /* Animation properties */
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
 .speedDial {
   position: fixed;
-  right: 2vmax;
-  top: 1vmax;
+  right: 2.5vmax;
+  top: 1.5vmax;
 }
 
 .speedDialIcon {
@@ -12,6 +38,7 @@
 
 .navbar{
   height: 2.5vmax;
+  margin-top: -6px;
 }
 
 .logos {
@@ -37,6 +64,7 @@
   padding-top: 8px;
   padding-right: 47px;
   padding-left: 25px;
+  margin-top: -5px;
  }
 
 .burger-icon {
@@ -105,19 +133,94 @@
   color: #eb4034;
 }
 
+.auth-buttons {
+  display: flex;
+  align-items: center;
+  gap: 1vmax;
+}
+
+.auth-button {
+  padding: 0.5vmax 1vmax;
+  background-color: #2d752f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 1vmax;
+  transition: background-color 0.3s;
+  margin-right: 40px;
+}
+
+.auth-button:hover {
+  background-color: #19311a;
+}
+
+/* Add this to your CSS file */
+.category-links {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 50px 0;
+  background-color: white;
+  margin-top: 10px;
+}
+
+.category-links a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #333;
+}
+
+.category-links img {
+  border: 3px solid #ffc0cb; /* Light pink border color for a softer look */
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1); /* Soft, elegant shadow */
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  margin-bottom: 8px;
+}
+
+.category-links span {
+  font-size: 0.9rem;
+  text-align: center;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
 /* New mobile responsive styles */
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
+
+  .marquee-content {
+    font-size: 0.8rem; /* Adjust font size for smaller screens */
+    animation-duration: 20s; /* Shorten animation duration for smaller screens */
+   
+  }
+
+  .marquee-container {
+    padding: 8px 0; /* Adjust padding for smaller screens */
+    margin-top: -52px; /* Adjust margin for spacing */
+  }
+
+  /* Adjusted styles for .speedDial and .speedDialIcon */
+  .speedDial {
+    margin-top: 18px; /* Adjust as needed for spacing */
+  }
+
+  /* Your existing styles */
   .logos {
-    padding-left: 10px;
-    padding-top: 10px;
-    font-size: 19px; /* Adjust font size for smaller screens */
+    margin-top: 10px;
+    padding-left: 25px;
+    padding-top: 8px;
+    font-size: 20px; /* Adjust font size for smaller screens */
     letter-spacing: 0.6px; /* Adjust letter spacing for smaller screens */
     color: #000000; /* Darker color */
     font-weight: 400; /* Adjusted font weight to match the screenshot */
-}
-
-.logos p {
-    padding-right: 0;
+  }
+  
+  .logos p {
+    padding-right: 65px;
     padding-top: 0;
     font-size: 19px; /* Adjust font size for smaller screens */
     letter-spacing: 0.6px; /* Adjust letter spacing for smaller screens */
@@ -126,41 +229,44 @@
     text-align: center; /* Center align text */
     color: #000000; /* Darker color */
     font-weight: 400; /* Adjusted font weight to match the screenshot */
-}
-
+  }
+  
 
   .navbar {
     height: auto;
     justify-content: center;
-    padding: 20px 10px; /* Adjust padding for consistency */
+    padding: 10px 10px; /* Adjust padding for consistency */
     margin-bottom: 0;
     flex-direction: column; /* Stack items vertically */
     align-items: center; /* Center align items */
+    margin-right: 20px; /* Move the navbar a bit to the left */
   }
+  
 
   .burger-icon {
     position: relative;
     margin-right: 0; /* Center align */
-    margin-bottom: 10px; /* Space below burger icon */
+    margin-bottom: 20px; /* Space below burger icon */
   }
   
   .menuBurger {
     padding: 8px 25px 0 25px; /* Adjust padding */
     height: 25px; /* Auto height */
-    margin-top: 12px;
+    margin-top: 25px;
   }
 
   .nav-search {
     position: static;
-    width: 100%; /* Full width with margin */
-    max-width: 400px; /* Adjust as needed */
-    margin: 8px auto; /* Center align with margin */
-    padding: 10px;
-    box-sizing: border-box; /* Include padding in width */
+    width: 100%; /* Full width */
+    max-width: 100%; /* Adjust as needed */
+    margin: 8px 10% -25px 6px; /* Center align with more margin on the left */
+    padding: 10px; /* Adjust padding as needed */
+    box-sizing: border-box; /* Include padding in width calculation */
     display: flex; /* Use flexbox for layout */
     justify-content: space-between; /* Space out children */
     align-items: center; /* Center align items vertically */
   }
+  
 
   .search-select {
     font-size: 14px; /* Adjust font size for mobile */
@@ -179,5 +285,39 @@
   .search-icon {
     font-size: 20px; /* Adjust font size if needed */
     margin-left: 0; /* Reset margin-left */
+  }
+  .auth-buttons {
+    display: flex; /* Use flexbox for layout */
+    justify-content: flex-end; /* Move items to the right end of the container */
+    margin-left: auto; /* Push auth buttons to the right */
+    order: -1;
+    margin-left: 330px;
+    margin-top: -120px;
+  }
+  
+  .auth-button {
+    width: 80%; /* Smaller width */
+    margin-bottom: -105px; /* Adjust space below each button */
+    text-align: center; /* Center align text */
+    padding: 9px 9px; /* Increase padding for larger button size */
+    font-size: 0.7rem;
+    background-color: #ABB747;
+  }
+  .category-links {
+    flex-wrap: nowrap;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    padding: 25px 0;
+  }
+
+  .category-links a {
+    flex: 0 0 auto; /* Prevent items from shrinking */
+    margin: 17px 10px; /* Add margin between items for spacing */
+  }
+
+  .category-links img {
+    border: 2.3px solid #ffc3cd; /* Reduce border width for mobile */
+    width: 70px; /* Reduce image width for mobile */
+    height: 70px; /* Reduce image height for mobile */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1); /* Soft, elegant shadow */
   }
 }
