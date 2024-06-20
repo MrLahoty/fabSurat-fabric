@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import MailOutlineIcon from "@material-ui/icons/MailOutline";
 import LockOpenIcon from "@material-ui/icons/LockOpen";
 import FaceIcon from "@material-ui/icons/Face";
-import InfoIcon from "@material-ui/icons/Info";
 import { useDispatch, useSelector } from "react-redux";
 import { clearErrors, login, register } from "../../actions/userAction";
 import { useAlert } from "react-alert";
@@ -33,9 +32,6 @@ const LoginSignUp = ({ history, location }) => {
 
   const { name, email, password } = user;
 
-  const [avatar, setAvatar] = useState("/Profile.png");
-  const [avatarPreview, setAvatarPreview] = useState("/Profile.png");
-
   const loginSubmit = (e) => {
     e.preventDefault();
     dispatch(login(loginEmail, loginPassword));
@@ -49,30 +45,13 @@ const LoginSignUp = ({ history, location }) => {
     myForm.set("name", name);
     myForm.set("email", email);
     myForm.set("password", password);
-    myForm.set("avatar", avatar);
+    myForm.set("avatar", "/Profile.png"); // Set default avatar
+
     dispatch(register(myForm));
   };
 
   const registerDataChange = (e) => {
-    if (e.target.name === "avatar") {
-      const file = e.target.files[0];
-      if (file.size > 800000) {
-        alert.error("Avatar size should not exceed 800kb");
-        return;
-      }
-      const reader = new FileReader();
-
-      reader.onload = () => {
-        if (reader.readyState === 2) {
-          setAvatarPreview(reader.result);
-          setAvatar(reader.result);
-        }
-      };
-
-      reader.readAsDataURL(file);
-    } else {
-      setUser({ ...user, [e.target.name]: e.target.value });
-    }
+    setUser({ ...user, [e.target.name]: e.target.value });
   };
 
   const redirect = location.search ? location.search.split("=")[1] : "/account";
@@ -182,21 +161,6 @@ const LoginSignUp = ({ history, location }) => {
                     value={password}
                     onChange={registerDataChange}
                   />
-                </div>
-
-                <div id="registerImage">
-                  <img src={avatarPreview} alt="Avatar Preview" />
-                  <input
-                    type="file"
-                    name="avatar"
-                    accept="image/*"
-                    onChange={registerDataChange}
-                  />
-                </div>
-                
-                <div className="avatarSizeInfo">
-                  <InfoIcon />
-                  <p>Avatar size should not exceed 800kb</p>
                 </div>
 
                 <input type="submit" value="Register" className="signUpBtn" />

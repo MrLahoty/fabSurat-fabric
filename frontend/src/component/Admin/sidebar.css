@@ -47,3 +47,10 @@
 .MuiTypography-root {
   background-color: #fff !important;
 }
+
+@media screen and (max-width: 600px) {
+  .sidebar > a > img {
+    width: 55%;
+    transition: all 0.5s;
+  }
+}

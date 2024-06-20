@@ -12,8 +12,8 @@ import {
   LOGOUT_FAIL,
   UPDATE_PROFILE_REQUEST,
   UPDATE_PROFILE_SUCCESS,
-  UPDATE_PROFILE_FAIL,
   UPDATE_PROFILE_RESET,
+  UPDATE_PROFILE_FAIL,
   UPDATE_PASSWORD_REQUEST,
   UPDATE_PASSWORD_SUCCESS,
   UPDATE_PASSWORD_RESET,
@@ -59,12 +59,11 @@ export const userReducer = (state = { user: {} }, action) => {
         isAuthenticated: true,
         user: action.payload,
       };
-
     case LOGOUT_SUCCESS:
       return {
         loading: false,
-        user: null,
         isAuthenticated: false,
+        user: null,
       };
     case LOGIN_FAIL:
     case REGISTER_USER_FAIL:
@@ -75,7 +74,6 @@ export const userReducer = (state = { user: {} }, action) => {
         user: null,
         error: action.payload,
       };
-
     case LOAD_USER_FAIL:
       return {
         loading: false,
@@ -83,20 +81,17 @@ export const userReducer = (state = { user: {} }, action) => {
         user: null,
         error: action.payload,
       };
-
     case LOGOUT_FAIL:
       return {
         ...state,
         loading: false,
         error: action.payload,
       };
-
     case CLEAR_ERRORS:
       return {
         ...state,
         error: null,
       };
-
     default:
       return state;
   }
@@ -120,15 +115,24 @@ export const profileReducer = (state = {}, action) => {
         loading: false,
         isUpdated: action.payload,
       };
-
     case DELETE_USER_SUCCESS:
       return {
         ...state,
         loading: false,
-        isDeleted: action.payload.success,
-        message: action.payload.message,
+        isDeleted: action.payload,
       };
-
+    case UPDATE_PROFILE_RESET:
+    case UPDATE_PASSWORD_RESET:
+    case UPDATE_USER_RESET:
+      return {
+        ...state,
+        isUpdated: false,
+      };
+    case DELETE_USER_RESET:
+      return {
+        ...state,
+        isDeleted: false,
+      };
     case UPDATE_PROFILE_FAIL:
     case UPDATE_PASSWORD_FAIL:
     case UPDATE_USER_FAIL:
@@ -138,27 +142,11 @@ export const profileReducer = (state = {}, action) => {
         loading: false,
         error: action.payload,
       };
-
-    case UPDATE_PROFILE_RESET:
-    case UPDATE_PASSWORD_RESET:
-    case UPDATE_USER_RESET:
-      return {
-        ...state,
-        isUpdated: false,
-      };
-
-    case DELETE_USER_RESET:
-      return {
-        ...state,
-        isDeleted: false,
-      };
-
     case CLEAR_ERRORS:
       return {
         ...state,
         error: null,
       };
-
     default:
       return state;
   }
@@ -179,14 +167,12 @@ export const forgotPasswordReducer = (state = {}, action) => {
         loading: false,
         message: action.payload,
       };
-
     case RESET_PASSWORD_SUCCESS:
       return {
         ...state,
         loading: false,
         success: action.payload,
       };
-
     case FORGOT_PASSWORD_FAIL:
     case RESET_PASSWORD_FAIL:
       return {
@@ -194,13 +180,11 @@ export const forgotPasswordReducer = (state = {}, action) => {
         loading: false,
         error: action.payload,
       };
-
     case CLEAR_ERRORS:
       return {
         ...state,
         error: null,
       };
-
     default:
       return state;
   }
@@ -219,20 +203,17 @@ export const allUsersReducer = (state = { users: [] }, action) => {
         loading: false,
         users: action.payload,
       };
-
     case ALL_USERS_FAIL:
       return {
         ...state,
         loading: false,
         error: action.payload,
       };
-
     case CLEAR_ERRORS:
       return {
         ...state,
         error: null,
       };
-
     default:
       return state;
   }
@@ -251,20 +232,17 @@ export const userDetailsReducer = (state = { user: {} }, action) => {
         loading: false,
         user: action.payload,
       };
-
     case USER_DETAILS_FAIL:
       return {
         ...state,
         loading: false,
         error: action.payload,
       };
-
     case CLEAR_ERRORS:
       return {
         ...state,
         error: null,
       };
-
     default:
       return state;
   }

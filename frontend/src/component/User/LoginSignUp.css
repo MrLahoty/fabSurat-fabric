@@ -184,6 +184,25 @@ html, body {
   padding-right: 5px; /* Remove padding to avoid misalignment */
 }
 
+/* Add styles for the new components */
+.otpInput {
+  display: flex;
+  align-items: center;
+}
+
+.otpInput input {
+  margin-left: 1rem;
+}
+
+.verifyOtpForm {
+  display: none;
+}
+
+/* Show the verify OTP form when needed */
+.showOtpForm {
+  display: block;
+}
+
 
 @media screen and (max-width: 600px) {
   .LoginSignUpContainer {

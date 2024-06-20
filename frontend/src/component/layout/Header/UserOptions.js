@@ -60,7 +60,7 @@ const UserOptions = ({ user }) => {
     dispatch(logout());
     alert.success("Logout Successfully");
     history.push("/"); // Redirect to the home page after logout
-  }  
+  }
 
   return (
     <>
@@ -76,7 +76,7 @@ const UserOptions = ({ user }) => {
         icon={
           <img
             className="speedDialIcon"
-            src={user.avatar.url ? user.avatar.url : "/Profile.png"}
+            src="/Profile.png"
             alt="Profile"
           />
         }
