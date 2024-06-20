@@ -1,29 +1,3 @@
-.marquee-container {
-  overflow: hidden; /* Hide any content that overflows */
-  background-color: #e9f3ff;
-  padding: 8px 0;
-  text-align: center; /* Center align content within the container */
-}
-
-.marquee-content {
-  color: black;
-  font-size: 1rem;
-  font-family:sans-serif;
-  white-space: nowrap; /* Prevent text from wrapping */
-  overflow: hidden; /* Hide any overflow */
-  position: relative; /* Position relative for absolute positioning */
-  animation: marquee 30s linear infinite; /* Animation properties */
-}
-
-@keyframes marquee {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
 .speedDial {
   position: fixed;
   right: 2.5vmax;
@@ -158,7 +132,8 @@
 /* Add this to your CSS file */
 .category-links {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center; /* Center the items */
+  gap: 25px; /* Decrease gap between items */
   padding: 50px 0;
   background-color: white;
   margin-top: 10px;
@@ -191,17 +166,6 @@
 
 /* New mobile responsive styles */
 @media screen and (max-width: 768px) {
-
-  .marquee-content {
-    font-size: 0.8rem; /* Adjust font size for smaller screens */
-    animation-duration: 20s; /* Shorten animation duration for smaller screens */
-   
-  }
-
-  .marquee-container {
-    padding: 8px 0; /* Adjust padding for smaller screens */
-    margin-top: -52px; /* Adjust margin for spacing */
-  }
 
   /* Adjusted styles for .speedDial and .speedDialIcon */
   .speedDial {
@@ -305,6 +269,7 @@
     background-color: #ABB747;
   }
   .category-links {
+    justify-content: space-evenly;
     flex-wrap: nowrap;
     overflow-x: auto; /* Enable horizontal scrolling */
     padding: 25px 0;
@@ -312,7 +277,7 @@
 
   .category-links a {
     flex: 0 0 auto; /* Prevent items from shrinking */
-    margin: 17px 10px; /* Add margin between items for spacing */
+    margin: 17px 3px; /* Add margin between items for spacing */
   }
 
   .category-links img {

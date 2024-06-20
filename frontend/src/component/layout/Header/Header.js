@@ -3,6 +3,8 @@ import { ReactNavbar } from "overlay-navbar";
 import logo from "../../../images/logo.png";
 import { Link } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
+import { useSelector } from "react-redux";
+import { useLocation } from "react-router-dom";
 
 // Sample category images
 import FabricsImage from "../../../images/box1.jpg";
@@ -12,7 +14,6 @@ import JacketImage from "../../../images/box5.jpg";
 import MensWearImage from "../../../images/box6.jpg";
 import Fabric from "../../../images/box6.jpg";
 import Cotton from "../../../images/box1.jpg";
-import { useSelector } from "react-redux";
 
 const options = {
   burgerColorHover: "#eb4034",
@@ -49,8 +50,8 @@ const options = {
 };
 
 const Header = () => {
-
-  const {isAuthenticated} = useSelector((state) => state.user); // Adjust the path according to your store structure
+  const location = useLocation(); // Use useLocation to get the current path
+  const { isAuthenticated } = useSelector((state) => state.user); // Adjust the path according to your store structure
 
   const handleCategoryChange = (event) => {
     if (["All Categories", "Cotton Fabric", "Embroidered", "Silk"].includes(event.target.value)) {
@@ -60,18 +61,11 @@ const Header = () => {
 
   return (
     <div>
-      {/* <div class="marquee-container">
-  <p class="marquee-content" >
-    💕 Welcome to FabSurat! Enjoy our wide range of fabrics and textiles.
-  </p>
-</div> */}
-
-      
       <div className="navbar">
         <div className="burger-icon">
           <ReactNavbar {...options} />
         </div>
-      
+
         <a href="/" className="logos">
           <p>F A B S U R A T</p>
         </a>
@@ -92,47 +86,47 @@ const Header = () => {
         </div>
 
         <div>
-  {!isAuthenticated && (
-    <div className="auth-buttons">
-      <Link to="/login" className="auth-button">Login/SignUp</Link>
-    </div>
-  )}
-</div>
-</div>
-
-
-      
-      {/* New category links section */}
-      <div className="category-links">
-        <a href="/products">
-          <img src={FabricsImage} alt="Fabrics" />
-          <span>Fabrics</span>
-        </a>
-        <a href="/products">
-          <img src={SareesImage} alt="Sarees" />
-          <span>Sarees</span>
-        </a>
-        <a href="/products">
-          <img src={BlousesImage} alt="Blouses" />
-          <span>Blouses</span>
-        </a>
-        <a href="/products">
-          <img src={JacketImage} alt="Jacket" />
-          <span>Jacket</span>
-        </a>
-        <a href="/products">
-          <img src={MensWearImage} alt="Men's Wear" />
-          <span>Men's Wear</span>
-        </a>
-        <a href="/products">
-          <img src={Fabric} alt="Fabric" />
-          <span>Fabric</span>
-        </a>
-        <a href="/products">
-          <img src={Cotton} alt="Cotton" />
-          <span>Cotton</span>
-        </a>
+          {!isAuthenticated && (
+            <div className="auth-buttons">
+              <Link to="/login" className="auth-button">Login/SignUp</Link>
+            </div>
+          )}
+        </div>
       </div>
+
+      {/* Conditionally render category links only on the homepage */}
+      {location.pathname === "/" && (
+        <div className="category-links">
+          <a href="/products">
+            <img src={FabricsImage} alt="Fabrics" />
+            <span>Fabrics</span>
+          </a>
+          <a href="/products">
+            <img src={SareesImage} alt="Sarees" />
+            <span>Sarees</span>
+          </a>
+          <a href="/products">
+            <img src={BlousesImage} alt="Blouses" />
+            <span>Blouses</span>
+          </a>
+          <a href="/products">
+            <img src={JacketImage} alt="Jacket" />
+            <span>Jacket</span>
+          </a>
+          <a href="/products">
+            <img src={MensWearImage} alt="Men's Wear" />
+            <span>Men's Wear</span>
+          </a>
+          <a href="/products">
+            <img src={Fabric} alt="Fabric" />
+            <span>Fabric</span>
+          </a>
+          <a href="/products">
+            <img src={Cotton} alt="Cotton" />
+            <span>Cotton</span>
+          </a>
+        </div>
+      )}
     </div>
   );
 };

@@ -1,5 +1,5 @@
 .productsHeading {
-  margin: 0.6vmax auto;
+  margin: 2.5vmax auto;
   width: 15vw;
   border-bottom: 1px solid rgba(0, 0, 0, 0.171);
   padding: 2vmax;
@@ -73,7 +73,7 @@
 .filterBox {
   width: 10vmax;
   position: absolute;
-  top: 21vmax;
+  top: 14vmax;
   left: 3vmax;
 }
 

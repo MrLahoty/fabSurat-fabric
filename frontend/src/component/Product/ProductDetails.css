@@ -52,7 +52,7 @@
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  padding: 2vmax;
+  padding: 4vmax;
   box-sizing: border-box;
   border: 1px solid white;
 }
@@ -62,7 +62,7 @@
 }
 
 .CarouselImage {
-  width: 20vmax;
+  width: 29vmax;
 }
 
 .react-material-ui-carousel__arrow {
@@ -297,7 +297,7 @@
   }
 
   .CarouselImage {
-    width: 30vmax;
+    width: 33vmax;
   }
 
   .detailsBlock-1 > h2 {
