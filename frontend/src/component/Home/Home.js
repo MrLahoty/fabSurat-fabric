@@ -43,6 +43,14 @@ const Home = () => {
     product.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+  const handleOrderNowClick = () => {
+    const phoneNumber = "917003798513"; // Replace with your WhatsApp number
+    const message = encodeURIComponent("Hello, I'm interested in placing a bulk order.");
+    const whatsappLink = `https://wa.me/${phoneNumber}?text=${message}`;
+    window.open(whatsappLink, '_blank');
+  };
+
+
   return (
     <>
       {loading ? (
@@ -301,6 +309,16 @@ const Home = () => {
             </div>
           </div>
          
+          <div className="bulk-orders-section">
+      <h2>We take <span className="highlight">Bulk Orders</span> too!</h2>
+      <p>
+        Looking for bulk fabric orders? Look no further! Our extensive selection features <strong>premium quality</strong> materials, including luxurious silks, durable cottons, versatile blends, and more, all designed to elevate your creations. Whether you're crafting elegant evening wear, comfortable everyday outfits, or bespoke home decor, we have the perfect fabric to bring your vision to life. Enjoy exceptional customer service, fast shipping, and competitive prices that make it easy to get exactly what you need. Don't miss out on the opportunity to transform your projects with the best fabrics available—order now and experience the difference!
+      </p>
+      <p><strong>Order now</strong> and get the best fabric for your needs!</p>
+      
+      <button className="order-now-button" onClick={handleOrderNowClick}>Order Now</button>
+    </div>
+
           <div
   className="foot-panel1"
   style={{ cursor: "pointer" }}

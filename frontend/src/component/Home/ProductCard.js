@@ -19,7 +19,7 @@ const ProductCard = ({ product }) => {
         <Rating {...options} />
           ({product.numOfReviews} Reviews)
         </div>
-        <div className="col-12">   <span className="col-12">{`₹${product.price}`}</span></div>
+        <div className="col-12">   <span className="col-12">{`₹${product.price} /meter`}</span></div>
       </div>
     
     </Link>

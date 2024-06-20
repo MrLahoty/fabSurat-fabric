@@ -607,6 +607,47 @@ html, body {
   transition: transform 0.3s ease; 
 }
 
+.bulk-orders-section {
+  background-color: #f5f5dc; /* Light beige color */
+  padding: 20px;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.bulk-orders-section h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.bulk-orders-section .highlight {
+  font-weight: bold;
+  font-style: italic;
+}
+
+.bulk-orders-section p {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 1rem 0; /* Adjust the margin as needed */
+  font-family: Arial, sans-serif; /* Ensure the font family is appropriate */
+  margin-right: 300px;
+  margin-left: 300px;
+}
+
+.bulk-orders-section .order-now-button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #ABB747;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.bulk-orders-section .order-now-button:hover {
+  background-color: #a9ba9d;
+}
+
 
 footer {
   margin-top: 15px; 
@@ -655,6 +696,17 @@ box-shadow: -10px 0px 30px -12px rgba(189,189,189,1);
 border-radius: 10px}
 
 @media screen and (max-width: 600px) {
+
+  .bulk-orders-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+  }
+
+  .bulk-orders-section p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 1rem 0;
+  }
 
   .feature-section {
     grid-template-columns: repeat(2, 1fr); /* Two columns on mobile */
