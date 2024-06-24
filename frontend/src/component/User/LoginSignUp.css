@@ -71,11 +71,12 @@ html, body {
   display: flex;
   width: 100%;
   align-items: center;
+  position: relative; /* Add this */
 }
 .loginForm > div > input,
 .signUpForm > div > input {
   padding: 1vmax 4vmax;
-  padding-right: 1vmax;
+  padding-right: 2.5vmax; /* Adjust this */
   width: 100%;
   box-sizing: border-box;
   border: 1px solid rgba(0, 0, 0, 0.267);
@@ -203,6 +204,17 @@ html, body {
   display: block;
 }
 
+.passwordToggleIcon {
+  position: absolute;
+  right: 1vmax;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.623);
+  font-size: 1.2vmax; /* Adjust this value to increase the size */
+}
+
+.passwordToggleIcon:hover {
+  color: #595e2e;
+}
 
 @media screen and (max-width: 600px) {
   .LoginSignUpContainer {

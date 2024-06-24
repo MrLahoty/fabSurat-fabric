@@ -71,12 +71,12 @@
   border: none;
   outline: none;
   padding: 10px;
-  font: 300 1.1vmax "Roboto";
+  font: 300 1.1vmax "playfair display";
 }
 
 .search-select {
   padding:  8px 18px 8px 0px; 
-  font: 300 1.1vmax "Roboto";
+  font: 300 1.1vmax "playfair display";
 }
 
 .search-select:hover{
@@ -86,7 +86,7 @@
 .search-input {
   flex: 1;
   font-size: 1rem;
-  font:300 1.1vmax "Roboto";
+  font:300 1.1vmax "playfair display";
 }
 
 .search-input:hover {
@@ -160,7 +160,7 @@
 .category-links span {
   font-size: 0.9rem;
   text-align: center;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: "playfair display";
 }
 
 
@@ -244,7 +244,7 @@
     width: calc(60% - 40px); /* Adjust width to fit within container */
     margin-right: 60px; /* Add margin to the right */
     color: #000000;
-    font-family: 'RocknRoll One', sans-serif;
+    font-family: "playfair display";
   }
 
   .search-icon {

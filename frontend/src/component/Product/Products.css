@@ -4,7 +4,7 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.171);
   padding: 2vmax;
   color: rgba(0, 0, 0, 0.731);
-  font: 500 1.6vmax "Roboto";
+  font: 500 1.6vmax "playfair display";
   text-align: center;
   font-weight: bold;
 }
@@ -111,6 +111,7 @@
     width: 20vmax;
     position: static;
     margin: auto;
+    margin-top: 20px;
   }
 
   .page-link {
@@ -119,6 +120,7 @@
 
   .category-link {
     font: 400 1.8vmax "Roboto";
+    margin-top: 10px;
   }
 
   /* Ensure the page covers full width without extra white space */
@@ -127,4 +129,5 @@
     padding: 0;
     overflow-x: hidden; /* Prevent horizontal scroll */
   }
+  
 }

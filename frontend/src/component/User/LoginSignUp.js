@@ -8,6 +8,7 @@ import FaceIcon from "@material-ui/icons/Face";
 import { useDispatch, useSelector } from "react-redux";
 import { clearErrors, login, register } from "../../actions/userAction";
 import { useAlert } from "react-alert";
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai"; // Add this import
 
 const LoginSignUp = ({ history, location }) => {
   const dispatch = useDispatch();
@@ -23,12 +24,14 @@ const LoginSignUp = ({ history, location }) => {
 
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
+  const [showLoginPassword, setShowLoginPassword] = useState(false); // Add this state
 
   const [user, setUser] = useState({
     name: "",
     email: "",
     password: "",
   });
+  const [showRegisterPassword, setShowRegisterPassword] = useState(false); // Add this state
 
   const { name, email, password } = user;
 
@@ -113,12 +116,22 @@ const LoginSignUp = ({ history, location }) => {
                 <div className="loginPassword">
                   <LockOpenIcon />
                   <input
-                    type="password"
+                    type={showLoginPassword ? "text" : "password"}
                     placeholder="Password"
                     required
                     value={loginPassword}
                     onChange={(e) => setLoginPassword(e.target.value)}
                   />
+                  <span
+                    className="passwordToggleIcon"
+                    onClick={() => setShowLoginPassword(!showLoginPassword)}
+                  >
+                    {showLoginPassword ? (
+                      <AiOutlineEyeInvisible />
+                    ) : (
+                      <AiOutlineEye />
+                    )}
+                  </span>
                 </div>
                 <Link to="/password/forgot">Forget Password ?</Link>
                 <input type="submit" value="Login" className="loginBtn" />
@@ -154,13 +167,23 @@ const LoginSignUp = ({ history, location }) => {
                 <div className="signUpPassword">
                   <LockOpenIcon />
                   <input
-                    type="password"
+                    type={showRegisterPassword ? "text" : "password"}
                     placeholder="Password"
                     required
                     name="password"
                     value={password}
                     onChange={registerDataChange}
                   />
+                  <span
+                    className="passwordToggleIcon"
+                    onClick={() => setShowRegisterPassword(!showRegisterPassword)}
+                  >
+                    {showRegisterPassword ? (
+                      <AiOutlineEyeInvisible />
+                    ) : (
+                      <AiOutlineEye />
+                    )}
+                  </span>
                 </div>
 
                 <input type="submit" value="Register" className="signUpBtn" />

@@ -89,7 +89,7 @@ html, body {
   font-size: 1.2vmax;
   margin: 5px 0;
   font-weight: bold;
-  font-family: 'Lobster', 'RocknRoll One', sans-serif;
+  font-family: "playfair display";
   line-height: 1.7; /* Adjust line-height for better spacing */
 }
 
@@ -128,7 +128,7 @@ html, body {
   padding: 1.3vmax 5vmax; /* Adjusted padding */
   transition: all 0.5s;
   width: auto; /* Adjust width to fit text */
-  font: 580 1.3vmax "Roboto";
+  font: 580 1.3vmax "playfair display";
   cursor: pointer;
   color: #333;
 }
@@ -141,7 +141,7 @@ html, body {
 
 .homeHeading {
   text-align: center;
-  font-family: 'RocknRoll One', sans-serif;
+  font-family: "playfair display";
   font-size: 1.7vmax;
   border-bottom: 0.8px solid rgba(21, 21, 21, 0.5);
   width: 17vmax;
@@ -253,11 +253,11 @@ html, body {
 
 .productCardSpan {
   margin: 0.5vmax;
-  font: 300 0.7vmax "Roboto";
+  font: 300 0.7vmax "playfair display";
 }
 
 .productCard > p {
-  font-family: "Roboto";
+  font-family: "playfair display";
   font-size: 1.2vmax;
   margin: 1vmax 0.5vmax;
   margin-bottom: 0;
@@ -266,7 +266,7 @@ html, body {
 .productCard > span {
   margin: 0.5vmax;
   color: tomato;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-family: "playfair display";
   font-size: 1vmax;
 }
 
@@ -295,7 +295,7 @@ html, body {
 
 .shop {
   text-align: center;
-  font-family: 'RocknRoll One', sans-serif;
+  font-family: "playfair display";
   font-size: 1.6vmax;
   border-bottom: 0.8px solid rgba(21, 21, 21, 0.5);
   width: 17vmax;
@@ -628,7 +628,7 @@ html, body {
   font-size: 1rem;
   line-height: 1.5;
   margin: 1rem 0; /* Adjust the margin as needed */
-  font-family: Arial, sans-serif; /* Ensure the font family is appropriate */
+  font-family: "playfair display"; /* Ensure the font family is appropriate */
   margin-right: 300px;
   margin-left: 300px;
 }
