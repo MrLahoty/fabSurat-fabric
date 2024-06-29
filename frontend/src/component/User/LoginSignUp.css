@@ -217,6 +217,11 @@ html, body {
 }
 
 @media screen and (max-width: 600px) {
+
+  .passwordToggleIcon {
+    font-size:large;
+  }
+
   .LoginSignUpContainer {
     background-color: white;
   }

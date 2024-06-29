@@ -101,6 +101,12 @@
 
 @media screen and (max-width: 600px) {
 
+  .products{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr); /* 2 columns of equal width */
+    width: auto;
+  }
+
   .productsHeading {
     padding-right: 70px;
     font-size: 17px;
