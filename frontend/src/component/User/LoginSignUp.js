@@ -1,3 +1,4 @@
+// LoginSignUp.js
 import React, { useRef, useState, useEffect } from "react";
 import "./LoginSignUp.css";
 import Loader from "../layout/Loader/Loader";
@@ -8,7 +9,8 @@ import FaceIcon from "@material-ui/icons/Face";
 import { useDispatch, useSelector } from "react-redux";
 import { clearErrors, login, register } from "../../actions/userAction";
 import { useAlert } from "react-alert";
-import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai"; // Add this import
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+import { FcGoogle } from "react-icons/fc";
 
 const LoginSignUp = ({ history, location }) => {
   const dispatch = useDispatch();
@@ -24,14 +26,14 @@ const LoginSignUp = ({ history, location }) => {
 
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
-  const [showLoginPassword, setShowLoginPassword] = useState(false); // Add this state
+  const [showLoginPassword, setShowLoginPassword] = useState(false);
 
   const [user, setUser] = useState({
     name: "",
     email: "",
     password: "",
   });
-  const [showRegisterPassword, setShowRegisterPassword] = useState(false); // Add this state
+  const [showRegisterPassword, setShowRegisterPassword] = useState(false);
 
   const { name, email, password } = user;
 
@@ -48,7 +50,7 @@ const LoginSignUp = ({ history, location }) => {
     myForm.set("name", name);
     myForm.set("email", email);
     myForm.set("password", password);
-    myForm.set("avatar", "/Profile.png"); // Set default avatar
+    myForm.set("avatar", "/Profile.png");
 
     dispatch(register(myForm));
   };
@@ -133,8 +135,18 @@ const LoginSignUp = ({ history, location }) => {
                     )}
                   </span>
                 </div>
-                <Link to="/password/forgot">Forget Password ?</Link>
+                <Link to="/password/forgot">Lost your password?</Link>
                 <input type="submit" value="Login" className="loginBtn" />
+                <div className="login">
+                  <button
+                    initial={{ y: "-100vh" }}
+                    animate={{ y: 0 }}
+                    className="googleBtn"
+                  >
+                    <FcGoogle />
+                    Login with Google
+                  </button>
+                </div>
               </form>
               <form
                 className="signUpForm"
@@ -185,8 +197,17 @@ const LoginSignUp = ({ history, location }) => {
                     )}
                   </span>
                 </div>
-
                 <input type="submit" value="Register" className="signUpBtn" />
+                <div className="login1">
+                  <button
+                    initial={{ y: "-100vh" }}
+                    animate={{ y: 0 }}
+                    className="googleBtn"
+                  >
+                    <FcGoogle />
+                    Register with Google
+                  </button>
+                </div>
               </form>
             </div>
           </div>

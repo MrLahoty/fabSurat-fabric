@@ -42,7 +42,7 @@
 }
 
 .MuiDataGrid-columnHeader {
-  background-color: tomato;
+  background-color: #222222;
   padding: 1vmax !important;
 }
 
@@ -59,7 +59,7 @@
   .myOrdersPage {
     padding: 0;
     height: 100vh;
-    margin-top: 75px;
+    margin-top: 88px;
   }
 
   #myOrdersHeading {
