@@ -139,52 +139,61 @@ const ProcessOrder = ({ history, match }) => {
                           <Link to={`/product/${item.product}`}>
                             {item.name}
                           </Link>{" "}
+                          {item.size && (
+                            <div className="orderItemSize">
+                              <span>Size: {item.size}</span>
+                            </div>
+                          )}
                           <span>
                             {item.quantity} X ₹{item.price} ={" "}
                             <b>₹{item.price * item.quantity}</b>
                           </span>
+                          
                         </div>
                       ))}
                   </div>
                 </div>
               </div>
-              {/*  */}
-              <div
-                style={{
-                  display: order.orderStatus === "Delivered" ? "none" : "block",
-                }}
-              >
-                <form
-                  className="updateOrderForm"
-                  onSubmit={updateOrderSubmitHandler}
+
+              {/* Status Update Section */}
+              {order.orderStatus !== "Delivered" && (
+                <div
+                  style={{
+                    display: order.orderStatus === "Delivered" ? "none" : "block",
+                  }}
                 >
-                  <h1>Process Order</h1>
-
-                  <div>
-                    <AccountTreeIcon />
-                    <select onChange={(e) => setStatus(e.target.value)}>
-                      <option value="">Choose Category</option>
-                      {order.orderStatus === "Processing" && (
-                        <option value="Shipped">Shipped</option>
-                      )}
-
-                      {order.orderStatus === "Shipped" && (
-                        <option value="Delivered">Delivered</option>
-                      )}
-                    </select>
-                  </div>
-
-                  <Button
-                    id="createProductBtn"
-                    type="submit"
-                    disabled={
-                      loading ? true : false || status === "" ? true : false
-                    }
+                  <form
+                    className="updateOrderForm"
+                    onSubmit={updateOrderSubmitHandler}
                   >
-                    Process
-                  </Button>
-                </form>
-              </div>
+                    <h1>Process Order</h1>
+
+                    <div>
+                      <AccountTreeIcon />
+                      <select onChange={(e) => setStatus(e.target.value)}>
+                        <option value="">Choose Category</option>
+                        {order.orderStatus === "Processing" && (
+                          <option value="Shipped">Shipped</option>
+                        )}
+
+                        {order.orderStatus === "Shipped" && (
+                          <option value="Delivered">Delivered</option>
+                        )}
+                      </select>
+                    </div>
+
+                    <Button
+                      id="createProductBtn"
+                      type="submit"
+                      disabled={
+                        loading ? true : false || status === "" ? true : false
+                      }
+                    >
+                      Process
+                    </Button>
+                  </form>
+                </div>
+              )}
             </div>
           )}
         </div>

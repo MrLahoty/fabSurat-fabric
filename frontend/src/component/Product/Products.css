@@ -85,7 +85,7 @@
 .category-link {
   list-style: none;
   color: rgba(0, 0, 0, 0.753);
-  font: 700 0.8vmax "Roboto";
+  font: 720 1vmax "Roboto";
   margin: 0.8vmax;
   cursor: pointer;
   transition: all 0.5s;
@@ -125,7 +125,7 @@
   }
 
   .category-link {
-    font: 400 1.8vmax "Roboto";
+    font: 420 2vmax "Roboto";
     margin-top: 10px;
   }
 

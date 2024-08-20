@@ -3,7 +3,6 @@ import { Link, useLocation } from "react-router-dom";
 import { FaInstagram, FaWhatsapp } from "react-icons/fa";
 import '@fortawesome/fontawesome-free/css/all.css';
 import "./Footer.css";
-import whatsappLogo from "../../../images/whatsapp1.png";
 import Logo from "../../../images/logo.png";
 
 const Footer = () => {
@@ -11,7 +10,6 @@ const Footer = () => {
   const [whatsappColor, setWhatsappColor] = useState("white");
   const [instagramTextColor, setInstagramTextColor] = useState("white");
   const [whatsappTextColor, setWhatsappTextColor] = useState("white");
-  const whatsappMessage = encodeURIComponent("Welcome to FabSurat, your ultimate destination for premium quality fabrics! 🌟 We're delighted to have you here. I'm here to help you every step of the way.");
   const phoneNumber = "+917003798513";
   const emailAddress = "mohit80132@gmail.com";
   const addressUrl = "https://maps.app.goo.gl/qEM4PxPP3q62CjKD7";
@@ -86,13 +84,6 @@ const Footer = () => {
           WhatsApp
         </a>
       </div>
-          
-    <div className="whatsapp">
-      <a href={`https://wa.me/917003798513?text=${whatsappMessage}`} target="_blank" rel="noreferrer">
-          <img src={whatsappLogo} width="50" alt="Whatsapp"/>
-        </a>
-    </div>
-    
     </footer>
   );
 };

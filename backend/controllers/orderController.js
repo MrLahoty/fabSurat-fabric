@@ -36,9 +36,15 @@ exports.newOrder = catchAsyncErrors(async (req, res, next) => {
         totalPrice,
     } = req.body;
 
+    // Ensure each order item includes a size if it's a readymade product
+    const updatedOrderItems = orderItems.map(item => ({
+        ...item,
+        size: item.size || null, // Add size only if it's provided (i.e., for readymade products)
+    }));
+
     const order = await Order.create({
         shippingInfo,
-        orderItems,
+        orderItems: updatedOrderItems,
         paymentInfo,
         itemsPrice,
         taxPrice,

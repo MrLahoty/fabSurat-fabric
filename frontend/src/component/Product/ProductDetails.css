@@ -1,3 +1,53 @@
+/* Container for size selection */
+.detailsBlock-3 {
+  margin-top: 10px;
+}
+
+/* Header for size selection */
+.detailsBlock-3 h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+/* Container for size options */
+.sizeOptions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* Style for each size button */
+.sizeButton {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px 15px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  outline: none;
+}
+
+/* Style for the active size button */
+.sizeButton.active {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+}
+
+/* Hover effect for size buttons */
+.sizeButton:hover {
+  background-color: #4caf50;
+  border-color: #bbb;
+}
+
+/* Focus effect for size buttons */
+.sizeButton:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(38, 143, 255, 0.3);
+}
+
 .additionalInfo {
   display: flex;
   justify-content: space-evenly;
@@ -55,6 +105,7 @@
   padding: 4vmax;
   box-sizing: border-box;
   border: 1px solid white;
+  margin-top: 20px;
 }
 
 .ProductDetails > div:last-child {
@@ -62,7 +113,8 @@
 }
 
 .CarouselImage {
-  width: 29vmax;
+  width: 37vmax;
+  margin-bottom: 20px;
 }
 
 .react-material-ui-carousel__arrow {
@@ -166,13 +218,14 @@
 }
 
 .detailsBlock-4 {
+  margin-top: 15px;
   color: rgba(0, 0, 0, 0.897);
-  font: 500 1.2vmax sans-serif;
+  font: 550 1.2vmax sans-serif;
 }
 
 .detailsBlock-4 > p {
   color: rgba(0, 0, 0, 0.534);
-  font: 300 1vmax sans-serif;
+  font: 450 1.2vmax sans-serif;
 }
 
 .submitReview {
@@ -250,6 +303,29 @@
 
 @media screen and (max-width: 768px) {
 
+
+  .detailsBlock-3 {
+    margin-top: 10px; /* Same margin for consistency */
+  }
+
+  .detailsBlock-3 h3 {
+    font-size: 1.25rem; /* Slightly smaller font size */
+    margin-left: 55px;
+  }
+
+  .sizeOptions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Maintain consistent spacing */
+    justify-content: center; /* Center buttons */
+  }
+
+  .sizeButton {
+    padding: 10px 15px; /* Maintain same padding */
+    font-size: 1rem; /* Same font size */
+    max-width: 100px; /* Optional: restrict button width for better fit */
+  }
+
   .additionalInfo {
     flex-direction: row;
     gap: 16px;
@@ -297,7 +373,7 @@
   }
 
   .CarouselImage {
-    width: 33vmax;
+    width: 40vmax;
   }
 
   .detailsBlock-1 > h2 {
@@ -354,11 +430,12 @@
   }
 
   .detailsBlock-4 {
-    font: 500 2.5vmax sans-serif;
+    font: 550 2.5vmax sans-serif;
+    margin-top: 20px;
   }
 
   .detailsBlock-4 > p {
-    font: 300 2vmax "Roboto";
+    font: 400 2.5vmax "Roboto";
   }
 
   .submitReview {

@@ -5,23 +5,67 @@
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
+    <meta name="description" content="Web site created using create-react-app" />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-    crossorigin="anonymous"
-  />
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
     <title>FABSURAT</title>
+
+    <style>
+      /* WhatsApp Icon Style */
+    .whatsapp-icon {
+     position: fixed;
+     bottom: 30px;
+     right: 22px;
+     background-color: #25d366; 
+     border-radius: 50%;
+     padding: 10px; /* Increased padding for a larger icon */
+     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+     transition: transform 0.2s ease-in-out;
+     z-index: 1000; /* Ensure it stays on top of other elements */
+    }
+
+   .whatsapp-icon img {
+    width: 48px; /* Increased width */
+    height: 48px; /* Increased height */
+    border-radius: 50%;
+   }
+
+  .whatsapp-icon:hover {
+    transform: scale(1.1);
+  }
+
+@media screen and (max-width: 600px) {
+  .whatsapp-icon {
+    bottom: 10px;
+    right: 10px; 
+    padding: 10px; 
+  }
+
+  .whatsapp-icon img {
+    width: 37px; 
+    height: 37px; 
+  }
+}
+
+    </style>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
+
+    <!-- WhatsApp Icon -->
+    <a href="https://wa.me/917003798513?text=Welcome%20to%20FabSurat%2C%20your%20ultimate%20destination%20for%20premium%20quality%20fabrics%21%20%F0%9F%8C%9F%20We%27re%20delighted%20to%20have%20you%20here.%20I%27m%20here%20to%20help%20you%20every%20step%20of%20the%20way." 
+       class="whatsapp-icon" 
+       target="_blank" 
+       aria-label="Chat with us on WhatsApp">
+      <img src="%PUBLIC_URL%\Whatsapp1.png" alt="WhatsApp">
+    </a>
+
     <div id="root"></div>
   </body>
 </html>

@@ -27,11 +27,15 @@ const NewProduct = ({ history }) => {
   const [images, setImages] = useState([]);
   const [imagesPreview, setImagesPreview] = useState([]);
 
-  const categories = [
-    "Cotton Fabric",
-    "Embroidered fabric",
-    "Silk",
-  ];
+  // Sizes state
+  const [sizes, setSizes] = useState({
+    M: false,
+    L: false,
+    XL: false,
+    XXL: false,
+  });
+
+  const categories = ["Fabric", "Readymade"];
 
   useEffect(() => {
     if (error) {
@@ -57,9 +61,13 @@ const NewProduct = ({ history }) => {
     myForm.set("category", category);
     myForm.set("Stock", Stock);
 
+    // Add selected sizes
+    myForm.set("sizes", JSON.stringify(sizes));
+
     images.forEach((image) => {
       myForm.append("images", image);
     });
+
     dispatch(createProduct(myForm));
   };
 
@@ -81,6 +89,12 @@ const NewProduct = ({ history }) => {
 
       reader.readAsDataURL(file);
     });
+  };
+
+  // Handle size change
+  const handleSizeChange = (e) => {
+    const { name, checked } = e.target;
+    setSizes({ ...sizes, [name]: checked });
   };
 
   return (
@@ -114,11 +128,11 @@ const NewProduct = ({ history }) => {
                 required
                 onChange={(e) => setPrice(e.target.value)}
               />
+              <span>{category === "Fabric" ? `/meter` : ""}</span>
             </div>
 
             <div>
               <DescriptionIcon />
-
               <textarea
                 placeholder="Product Description"
                 value={description}
@@ -139,6 +153,25 @@ const NewProduct = ({ history }) => {
                 ))}
               </select>
             </div>
+
+            {category === "Readymade" && (
+              <div>
+                <label>Available Sizes:</label>
+                <div className="sizesCheckbox">
+                  {["M", "L", "XL", "XXL"].map((size) => (
+                    <label key={size}>
+                      <input
+                        type="checkbox"
+                        name={size}
+                        checked={sizes[size]}
+                        onChange={handleSizeChange}
+                      />
+                      {size}
+                    </label>
+                  ))}
+                </div>
+              </div>
+            )}
 
             <div>
               <StorageIcon />

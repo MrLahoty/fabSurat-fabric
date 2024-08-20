@@ -35,7 +35,14 @@ export const createOrder = (order) => async (dispatch) => {
         "Content-Type": "application/json",
       },
     };
-    const { data } = await axios.post("/api/v1/order/new", order, config);
+
+    // If any order item has a size, include it in the request
+    const updatedOrderItems = order.orderItems.map(item => ({
+      ...item,
+      size: item.size || null, // Ensure size is included for readymade products
+    }));
+
+    const { data } = await axios.post("/api/v1/order/new", { ...order, orderItems: updatedOrderItems }, config);
 
     dispatch({ type: CREATE_ORDER_SUCCESS, payload: data });
   } catch (error) {

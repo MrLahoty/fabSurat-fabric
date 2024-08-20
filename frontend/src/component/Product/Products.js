@@ -11,9 +11,8 @@ import Typography from "@material-ui/core/Typography";
 import MetaData from "../layout/MetaData";
 
 const categories = [
-  "Cotton Fabric",
-  "Embroidered fabric",
-  "Silk",
+  "Fabric",
+  "Readymade",
 ];
 
 const Products = ({ match }) => {
@@ -110,6 +109,7 @@ const Products = ({ match }) => {
               />
             </fieldset>
           </div>
+          
           {resultPerPage < count && (
             <div className="paginationBox">
               <Pagination

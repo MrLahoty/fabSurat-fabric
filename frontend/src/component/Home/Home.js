@@ -129,7 +129,7 @@ const Home = () => {
       <div className="shop-section">
         <div className="box">
           <div className="box-content">
-            <h2>Fabric11</h2>
+            <h2>Silk</h2>
             <Link to="/product/661fb9bfc8635135460c6e8f">
               <div className="box-i1"></div>
               <p>See more</p>

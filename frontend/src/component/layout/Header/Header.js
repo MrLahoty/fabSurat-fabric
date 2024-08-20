@@ -54,7 +54,7 @@ const Header = () => {
   const { isAuthenticated } = useSelector((state) => state.user); // Adjust the path according to your store structure
 
   const handleCategoryChange = (event) => {
-    if (["All Categories", "Cotton Fabric", "Embroidered", "Silk"].includes(event.target.value)) {
+    if (["All Categories", "Fabric", "Readymade"].includes(event.target.value)) {
       window.location.href = "/products";
     }
   };
@@ -73,9 +73,8 @@ const Header = () => {
         <div className="nav-search">
           <select className="search-select" onChange={handleCategoryChange}>
             <option>All Categories</option>
-            <option>Cotton Fabric</option>
-            <option>Embroidered</option>
-            <option>Silk</option>
+            <option>Fabric</option>
+            <option>Readymade</option>
           </select>
           <Link to="/search">
             <input placeholder="Search..." className="search-input" />
@@ -102,8 +101,8 @@ const Header = () => {
             <span>Fabrics</span>
           </a>
           <a href="/products">
-            <img src={SareesImage} alt="Sarees" />
-            <span>Sarees</span>
+            <img src={SareesImage} alt="Kurti" />
+            <span>Readymade</span>
           </a>
           <a href="/products">
             <img src={BlousesImage} alt="Blouses" />

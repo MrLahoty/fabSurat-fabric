@@ -1,4 +1,4 @@
-import React, {} from "react";
+import React from "react";
 import "./Cart.css";
 import CartItemCard from "./CartItemCard";
 import { useSelector, useDispatch } from "react-redux";
@@ -11,24 +11,40 @@ const Cart = ({ history }) => {
   const dispatch = useDispatch();
   const { cartItems } = useSelector((state) => state.cart);
 
-  const increaseQuantity = (id, quantity, stock) => {
-    const newQty = quantity + 0.5;
-    if (stock <= quantity) {
+  const isReadymade = (size) => !!size;
+
+  const increaseQuantity = (id, quantity, stock, size) => {
+    const newQty = isReadymade(size) ? quantity + 1 : quantity + 0.5;
+
+    if (isReadymade(size) && stock < newQty) {
       return;
     }
-    dispatch(addItemsToCart(id, newQty));
+
+    if (!isReadymade(size) && newQty > 0) {
+      dispatch(addItemsToCart(id, newQty, size));
+    }
+
+    if (isReadymade(size) && newQty >= 1) {
+      dispatch(addItemsToCart(id, newQty, size));
+    }
   };
 
-  const decreaseQuantity = (id, quantity) => {
-    const newQty = quantity - 0.5;
-    if (2.5 >= quantity) {
+  const decreaseQuantity = (id, quantity, size) => {
+    const newQty = isReadymade(size) ? quantity - 1 : quantity - 0.5;
+
+    if (isReadymade(size) && newQty < 1) {
       return;
     }
-    dispatch(addItemsToCart(id, newQty));
+
+    if (!isReadymade(size) && newQty < 2.5) {
+      return;
+    }
+
+    dispatch(addItemsToCart(id, newQty, size));
   };
 
-  const deleteCartItems = (id) => {
-    dispatch(removeItemsFromCart(id));
+  const deleteCartItems = (id, size) => {
+    dispatch(removeItemsFromCart(id, size));
   };
 
   const checkoutHandler = () => {
@@ -40,7 +56,6 @@ const Cart = ({ history }) => {
       {cartItems.length === 0 ? (
         <div className="emptyCart">
           <RemoveShoppingCartIcon />
-
           <Typography>No Product in Your Cart</Typography>
           <Link to="/products">View Products</Link>
         </div>
@@ -55,12 +70,16 @@ const Cart = ({ history }) => {
 
             {cartItems &&
               cartItems.map((item) => (
-                <div className="cartContainer" key={item.product}>
+                <div className="cartContainer" key={`${item.product}-${item.size || "fabric"}`}>
                   <CartItemCard item={item} deleteCartItems={deleteCartItems} />
                   <div className="cartInput">
                     <button
                       onClick={() =>
-                        decreaseQuantity(item.product, item.quantity)
+                        decreaseQuantity(
+                          item.product,
+                          item.quantity,
+                          item.size
+                        )
                       }
                     >
                       -
@@ -71,7 +90,8 @@ const Cart = ({ history }) => {
                         increaseQuantity(
                           item.product,
                           item.quantity,
-                          item.stock
+                          item.stock,
+                          item.size
                         )
                       }
                     >

@@ -9,34 +9,45 @@ exports.createProduct = catchAsyncErrors(async (req, res, next) => {
     let images = [];
   
     if (typeof req.body.images === "string") {
-      images.push(req.body.images);
+        images.push(req.body.images);
     } else {
-      images = req.body.images;
+        images = req.body.images;
     }
   
     const imagesLinks = [];
   
     for (let i = 0; i < images.length; i++) {
-      const result = await cloudinary.v2.uploader.upload(images[i], {
-        folder: "products",
-      });
+        const result = await cloudinary.v2.uploader.upload(images[i], {
+            folder: "products",
+        });
   
-      imagesLinks.push({
-        public_id: result.public_id,
-        url: result.secure_url,
-      });
+        imagesLinks.push({
+            public_id: result.public_id,
+            url: result.secure_url,
+        });
     }
   
     req.body.images = imagesLinks;
     req.body.user = req.user.id;
+
+    // Parse sizes
+    if (req.body.sizes) {
+        try {
+            req.body.sizes = JSON.parse(req.body.sizes); // Ensure sizes is an object
+        } catch (error) {
+            return next(new ErrorHander("Invalid sizes format", 400));
+        }
+    } else {
+        req.body.sizes = {}; // Default to an empty object if sizes are not provided
+    }
   
     const product = await Product.create(req.body);
   
     res.status(201).json({
-      success: true,
-      product,
+        success: true,
+        product,
     });
-  });
+});
 
 //Get All Products
 exports.getAllProducts = catchAsyncErrors(async (req, res, next) => {
@@ -44,8 +55,8 @@ exports.getAllProducts = catchAsyncErrors(async (req, res, next) => {
     const productsCount = await Product.countDocuments();
 
     const apiFeature = new ApiFeatures(Product.find(), req.query)
-    .search()
-    .filter();
+        .search()
+        .filter();
 
     let products = await apiFeature.query.clone();
 
@@ -69,8 +80,8 @@ exports.getAdminProducts = catchAsyncErrors(async (req, res, next) => {
     const products = await Product.find();
   
     res.status(200).json({
-      success: true,
-      products,
+        success: true,
+        products,
     });
 });
 
@@ -125,6 +136,15 @@ exports.updateProduct = catchAsyncErrors(async (req, res, next) => {
         }
 
         req.body.images = imagesLinks;
+    }
+
+    // Parse sizes
+    if (req.body.sizes) {
+        try {
+            req.body.sizes = JSON.parse(req.body.sizes); // Ensure sizes is an object
+        } catch (error) {
+            return next(new ErrorHander("Invalid sizes format", 400));
+        }
     }
 
     product = await Product.findByIdAndUpdate(req.params.id, req.body, {

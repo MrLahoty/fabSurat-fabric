@@ -37,11 +37,15 @@ const UpdateProduct = ({ history, match }) => {
   const [oldImages, setOldImages] = useState([]);
   const [imagesPreview, setImagesPreview] = useState([]);
 
-  const categories = [
-    "Cotton Fabric",
-    "Embroidered fabric",
-    "Silk",
-  ];
+  // Sizes state
+  const [sizes, setSizes] = useState({
+    M: false,
+    L: false,
+    XL: false,
+    XXL: false,
+  });
+
+  const categories = ["Fabric", "Readymade"];
 
   const productId = match.params.id;
 
@@ -50,12 +54,14 @@ const UpdateProduct = ({ history, match }) => {
       dispatch(getProductDetails(productId));
     } else {
       setName(product.name);
-      setDescription(product.description);
       setPrice(product.price);
+      setDescription(product.description);
       setCategory(product.category);
       setStock(product.Stock);
       setOldImages(product.images);
+      setSizes(product.sizes || {});
     }
+
     if (error) {
       alert.error(error);
       dispatch(clearErrors());
@@ -93,9 +99,13 @@ const UpdateProduct = ({ history, match }) => {
     myForm.set("category", category);
     myForm.set("Stock", Stock);
 
+    // Add selected sizes
+    myForm.set("sizes", JSON.stringify(sizes));
+
     images.forEach((image) => {
       myForm.append("images", image);
     });
+
     dispatch(updateProduct(productId, myForm));
   };
 
@@ -104,7 +114,6 @@ const UpdateProduct = ({ history, match }) => {
 
     setImages([]);
     setImagesPreview([]);
-    setOldImages([]);
 
     files.forEach((file) => {
       const reader = new FileReader();
@@ -120,9 +129,15 @@ const UpdateProduct = ({ history, match }) => {
     });
   };
 
+  // Handle size change
+  const handleSizeChange = (e) => {
+    const { name, checked } = e.target;
+    setSizes({ ...sizes, [name]: checked });
+  };
+
   return (
     <>
-      <MetaData title="Create Product" />
+      <MetaData title="Update Product" />
       <div className="dashboard">
         <SideBar />
         <div className="newProductContainer">
@@ -131,7 +146,7 @@ const UpdateProduct = ({ history, match }) => {
             encType="multipart/form-data"
             onSubmit={updateProductSubmitHandler}
           >
-            <h1>Create Product</h1>
+            <h1>Update Product</h1>
 
             <div>
               <SpellcheckIcon />
@@ -150,13 +165,12 @@ const UpdateProduct = ({ history, match }) => {
                 placeholder="Price"
                 required
                 onChange={(e) => setPrice(e.target.value)}
-                value={price}
               />
+              <span>{category === "Fabric" ? `/meter` : ""}</span>
             </div>
 
             <div>
               <DescriptionIcon />
-
               <textarea
                 placeholder="Product Description"
                 value={description}
@@ -168,10 +182,7 @@ const UpdateProduct = ({ history, match }) => {
 
             <div>
               <AccountTreeIcon />
-              <select
-                value={category}
-                onChange={(e) => setCategory(e.target.value)}
-              >
+              <select onChange={(e) => setCategory(e.target.value)}>
                 <option value="">Choose Category</option>
                 {categories.map((cate) => (
                   <option key={cate} value={cate}>
@@ -181,6 +192,25 @@ const UpdateProduct = ({ history, match }) => {
               </select>
             </div>
 
+            {category === "Readymade" && (
+              <div>
+                <label>Available Sizes:</label>
+                <div className="sizesCheckbox">
+                  {["M", "L", "XL", "XXL"].map((size) => (
+                    <label key={size}>
+                      <input
+                        type="checkbox"
+                        name={size}
+                        checked={sizes[size]}
+                        onChange={handleSizeChange}
+                      />
+                      {size}
+                    </label>
+                  ))}
+                </div>
+              </div>
+            )}
+
             <div>
               <StorageIcon />
               <input
@@ -188,7 +218,6 @@ const UpdateProduct = ({ history, match }) => {
                 placeholder="Stock"
                 required
                 onChange={(e) => setStock(e.target.value)}
-                value={Stock}
               />
             </div>
 
@@ -207,9 +236,7 @@ const UpdateProduct = ({ history, match }) => {
                 oldImages.map((image, index) => (
                   <img key={index} src={image.url} alt="Old Product Preview" />
                 ))}
-            </div>
 
-            <div id="createProductFormImage">
               {imagesPreview.map((image, index) => (
                 <img key={index} src={image} alt="Product Preview" />
               ))}
@@ -220,7 +247,7 @@ const UpdateProduct = ({ history, match }) => {
               type="submit"
               disabled={loading ? true : false}
             >
-              Create
+              Update
             </Button>
           </form>
         </div>

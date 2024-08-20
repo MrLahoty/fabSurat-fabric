@@ -7,7 +7,7 @@ import {
   getProductDetails,
   newReview,
 } from "../../actions/productAction";
-import ReviewCard from "./ReviewCard.js";
+import ReviewCard from "./ReviewCard";
 import Loader from "../layout/Loader/Loader";
 import { useAlert } from "react-alert";
 import MetaData from "../layout/MetaData";
@@ -23,21 +23,16 @@ import { Rating } from "@material-ui/lab";
 import { NEW_REVIEW_RESET } from "../../constants/productConstants";
 
 // Importing Material-UI Icons
-import LocalShippingIcon from '@material-ui/icons/LocalShipping';
-import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
-import ReplayIcon from '@material-ui/icons/Replay';
+import LocalShippingIcon from "@material-ui/icons/LocalShipping";
+import VerifiedUserIcon from "@material-ui/icons/VerifiedUser";
+import ReplayIcon from "@material-ui/icons/Replay";
 
 const ProductDetails = ({ match }) => {
   const dispatch = useDispatch();
   const alert = useAlert();
 
-  const { product, loading, error } = useSelector(
-    (state) => state.productDetails
-  );
-
-  const { success, error: reviewError } = useSelector(
-    (state) => state.newReview
-  );
+  const { product, loading, error } = useSelector((state) => state.productDetails);
+  const { success, error: reviewError } = useSelector((state) => state.newReview);
 
   const options = {
     size: "large",
@@ -46,49 +41,19 @@ const ProductDetails = ({ match }) => {
     precision: 0.5,
   };
 
-  const [quantity, setQuantity] = useState(2.5);
+  const [quantity, setQuantity] = useState(product.category === "Fabric" ? 2.5 : 1);
+  const [size, setSize] = useState("");
   const [open, setOpen] = useState(false);
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState("");
 
-  const increaseQuantity = () => {
-    if (product.Stock <= quantity) return;
-
-    const qty = quantity + 0.5;
-    setQuantity(qty);
-  };
-
-  const decreaseQuantity = () => {
-    if (2.5 >= quantity) return;
-
-    const qty = quantity - 0.5;
-    setQuantity(qty);
-  };
-
-  const addToCartHandler = () => {
-    if (product.Stock < 2.5) {
-      alert.error("Product is out of stock");
-      return;
+  useEffect(() => {
+    if (product.category === "Fabric") {
+      setQuantity(2.5);
+    } else if (product.category === "Readymade") {
+      setQuantity(1);
     }
-    dispatch(addItemsToCart(match.params.id, quantity));
-    alert.success("Item Added To Cart");
-  };
-
-  const submitReviewToggle = () => {
-    setOpen(!open);
-  };
-
-  const reviewSubmitHandler = () => {
-    const myForm = new FormData();
-
-    myForm.set("rating", rating);
-    myForm.set("comment", comment);
-    myForm.set("productId", match.params.id);
-
-    dispatch(newReview(myForm));
-
-    setOpen(false);
-  };
+  }, [product.category]);
 
   useEffect(() => {
     if (error) {
@@ -107,6 +72,57 @@ const ProductDetails = ({ match }) => {
     }
     dispatch(getProductDetails(match.params.id));
   }, [dispatch, match.params.id, error, alert, reviewError, success]);
+
+  const increaseQuantity = () => {
+    if (product.category === "Fabric") {
+      if (product.Stock <= quantity) return;
+      setQuantity(quantity + 0.5);
+    } else if (product.category === "Readymade") {
+      if (product.Stock <= quantity) return;
+      setQuantity(quantity + 1);
+    }
+  };
+
+  const decreaseQuantity = () => {
+    const minQty = product.category === "Fabric" ? 2.5 : 1;
+    if (quantity <= minQty) return;
+
+    if (product.category === "Fabric") {
+      setQuantity(quantity - 0.5);
+    } else if (product.category === "Readymade") {
+      setQuantity(quantity - 1);
+    }
+  };
+
+  const addToCartHandler = () => {
+    const minQty = product.category === "Fabric" ? 2.5 : 1;
+    if (product.Stock < minQty) {
+      alert.error("Product is out of stock");
+      return;
+    }
+    if (product.category === "Readymade" && !size) {
+      alert.error("Please select a size");
+      return;
+    }
+    dispatch(addItemsToCart(match.params.id, quantity, size));
+    alert.success("Item Added To Cart");
+  };
+
+  const submitReviewToggle = () => {
+    setOpen(!open);
+  };
+
+  const reviewSubmitHandler = () => {
+    const myForm = new FormData();
+
+    myForm.set("rating", rating);
+    myForm.set("comment", comment);
+    myForm.set("productId", match.params.id);
+
+    dispatch(newReview(myForm));
+
+    setOpen(false);
+  };
 
   return (
     <>
@@ -138,12 +154,15 @@ const ProductDetails = ({ match }) => {
               <div className="detailsBlock-2">
                 <Rating {...options} />
                 <span className="detailsBlock-2-span">
-                  {" "}
                   ({product.numOfReviews} Reviews)
                 </span>
               </div>
               <div className="detailsBlock-3">
-                <h1>{`₹${product.price} /meter`}</h1>
+                <h1>
+                  {product.category === "Fabric"
+                    ? `₹${product.price} /meter`
+                    : `₹${product.price}`}
+                </h1>
                 <div className="detailsBlock-3-1">
                   <div className="detailsBlock-3-1-1">
                     <button onClick={decreaseQuantity}>-</button>
@@ -151,7 +170,11 @@ const ProductDetails = ({ match }) => {
                     <button onClick={increaseQuantity}>+</button>
                   </div>
                   <button
-                    disabled={product.Stock < 2.5}
+                    disabled={
+                      product.category === "Fabric"
+                        ? product.Stock < 2.5
+                        : product.Stock < 1
+                    }
                     onClick={addToCartHandler}
                   >
                     Add to Cart
@@ -160,11 +183,49 @@ const ProductDetails = ({ match }) => {
 
                 <p>
                   Status:
-                  <b className={product.Stock < 2.5 ? "redColor" : "greenColor"}>
-                    {product.Stock < 2.5 ? "OutOfStock" : "InStock"}
+                  <b
+                    className={
+                      product.category === "Fabric"
+                        ? product.Stock < 2.5
+                          ? "redColor"
+                          : "greenColor"
+                        : product.Stock < 1
+                        ? "redColor"
+                        : "greenColor"
+                    }
+                  >
+                    {product.category === "Fabric"
+                      ? product.Stock < 2.5
+                        ? "OutOfStock"
+                        : "InStock"
+                      : product.Stock < 1
+                      ? "OutOfStock"
+                      : "InStock"}
                   </b>
                 </p>
               </div>
+
+              {product.category === "Readymade" && (
+                <div className="detailsBlock-3">
+                  <h3>Select Size:</h3>
+                  <div className="sizeOptions">
+                    {Object.keys(product.sizes).map(
+                      (sizeOption) =>
+                        product.sizes[sizeOption] && (
+                          <button
+                            key={sizeOption}
+                            className={`sizeButton ${
+                              size === sizeOption ? "active" : ""
+                            }`}
+                            onClick={() => setSize(sizeOption)}
+                          >
+                            {sizeOption}
+                          </button>
+                        )
+                    )}
+                  </div>
+                </div>
+              )}
 
               <div className="detailsBlock-4">
                 Description : <p>{product.description}</p>
@@ -173,7 +234,7 @@ const ProductDetails = ({ match }) => {
               <div className="additionalInfo">
                 <div className="infoItem">
                   <LocalShippingIcon />
-                  <span>Free delivery <br/> over 1500+</span>
+                  <span>Free delivery <br /> over 1500+</span>
                 </div>
                 <div className="infoItem">
                   <VerifiedUserIcon />
@@ -226,10 +287,9 @@ const ProductDetails = ({ match }) => {
 
           {product.reviews && product.reviews[0] ? (
             <div className="reviews">
-              {product.reviews &&
-                product.reviews.map((review) => (
-                  <ReviewCard key={review._id} review={review} />
-                ))}
+              {product.reviews.map((review) => (
+                <ReviewCard review={review} key={review._id} />
+              ))}
             </div>
           ) : (
             <p className="noReviews">No Reviews Yet</p>

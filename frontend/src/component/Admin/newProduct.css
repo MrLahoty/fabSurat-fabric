@@ -1,3 +1,4 @@
+/* General container for product form */
 .newProductContainer {
   width: 100%;
   box-sizing: border-box;
@@ -5,8 +6,10 @@
   border-left: 1px solid rgba(0, 0, 0, 0.158);
   display: flex;
   flex-direction: column;
-  height: 120vh;
+  height: auto;
 }
+
+/* Header styling */
 .newProductContainer h1 {
   color: rgba(0, 0, 0, 0.733);
   font: 400 1.5rem "Roboto";
@@ -14,24 +17,31 @@
   border-bottom: 2px solid rgba(11, 10, 10, 0.171);
 }
 
+/* Product form styling */
 .createProductForm {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: auto;
-  padding: 3vmax;
-  justify-content: space-evenly;
-  height: 80%;
-  width: 60vh;
-  background-color: white;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.267);
+  padding: 2.5vmax;
+  justify-content: space-between;
+  height: auto;
+  max-width: 80vh;
+  background-color: #f9f9f9;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  margin-top: 60px;
+  margin-bottom: 200px;
+  gap: 1.5vmax;
 }
 
+/* Ensures consistency in spacing and alignment */
 .createProductForm > div {
   display: flex;
   width: 100%;
   align-items: center;
 }
+
 .createProductForm > div > input,
 .createProductForm > div > select,
 .createProductForm > div > textarea {
@@ -52,6 +62,7 @@
   color: rgba(0, 0, 0, 0.623);
 }
 
+/* File input styling */
 #createProductFormFile > input {
   display: flex;
   padding: 0%;
@@ -84,6 +95,8 @@
   width: 3vmax;
   margin: 0 0.5vmax;
 }
+
+/* Submit button styling */
 #createProductBtn {
   border: none;
   background-color: #222222;
@@ -102,15 +115,61 @@
   background-color: rgb(77, 75, 75);
 }
 
+/* Styling the available sizes section */
+.sizesCheckbox {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 10px 0;
+}
+
+/* Style for each size option */
+.sizesCheckbox label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 500;
+  color: #333;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+/* Checkbox styling */
+.sizesCheckbox input[type="checkbox"] {
+  margin-right: 10px;
+  accent-color: #007bff;
+  transform: scale(1.2);
+}
+
+.sizesCheckbox label:hover {
+  color: #0056b3;
+  transform: scale(1.05);
+}
+
+.sizesCheckbox input[type="checkbox"]:checked + span {
+  font-weight: bold;
+  color: #007bff;
+}
+
+.sizesCheckbox input[type="checkbox"]:checked {
+  border: 2px solid #007bff;
+  border-radius: 4px;
+  background: #e7f0ff;
+}
+
+/* Responsive styles for smaller screens */
 @media screen and (max-width: 600px) {
-  
   .newProductContainer {
     background-color: rgb(255, 255, 255);
     margin-bottom: 10px;
   }
+
   .createProductForm {
-    padding: 7vmax;
-    padding-left: 18px;
+    padding: 7vmax 18px;
+    height: auto;
+    max-width: 90vw;
+    margin: 20px auto;
+    gap: 2vmax;
   }
 
   .createProductForm > div > input,

@@ -94,27 +94,6 @@ footer {
   color: green;
 }
 
-.whatsapp {
-  position: fixed;
-  bottom: 30px;
-  right: 05px;
-  background-color: #25d366; 
-  border-radius: 50%;
-  padding: 9px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease-in-out;
-}
-
-.whatsapp:hover {
-  transform: scale(1.1);
-}
-
-.whatsapp img {
-  width: 38px;
-  height: 38px; 
-  border-radius: 50%;
-} 
-
 /* Mobile Responsive Styling */
 @media screen and (max-width: 600px) {
   footer {
@@ -151,16 +130,5 @@ footer {
 
   .rightFooter a {
     font-size: 19px;
-  }
-
-  .whatsapp {
-    bottom: 10px;
-    right: 10px; 
-    padding: 9px; 
-  }
-
-  .whatsapp img {
-    width: 37px; 
-    height: 37px; 
   }
 }

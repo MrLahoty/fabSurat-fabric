@@ -1,3 +1,58 @@
+.confirmCartItemsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Add spacing between items */
+}
+
+.confirmCartItemsContainer > div {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Spacing between image, name, size, and price */
+  border-bottom: 1px solid #ddd; /* Optional: Add a border to separate items */
+  padding: 10px 0;
+}
+
+.confirmCartItemsContainer img {
+  width: 80px; /* Adjust width as needed */
+  height: auto;
+  border-radius: 5px; /* Optional: Add rounded corners to images */
+}
+
+.confirmCartItemsContainer a {
+  flex: 1; /* Allow the link to take available space */
+  color: #333; /* Dark color for text */
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.orderItemSize {
+  flex: 0 0 auto; /* Prevent size container from growing or shrinking */
+  font-size: 14px; /* Adjusted font size for better readability */
+  color: #fff; /* White text color for better contrast on dark background */
+  padding: 0.5vmax 1vmax; /* Adjusted padding for balanced spacing */
+  background-color: #28a745; /* Bootstrap green color for better visual appeal */
+  border-radius: 4px; /* Rounded corners for a modern look */
+  font-size: 1vmax; /* Consistent font size */
+  text-align: center; /* Center text within the size container */
+  display: inline-block; /* Ensures the size container fits content */
+}
+
+.confirmCartItemsContainer span {
+  font-size: 14px;
+  color: #333; /* Dark color for text */
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Spacing between quantity and price */
+}
+
+.confirmCartItemsContainer b {
+  color: #000; /* Bold price color */
+}
+
+.newProductContainer{
+  height: fit-content;
+}
+
 .updateOrderForm {
   margin: 5vmax 0;
   padding: 3vmax;
@@ -27,17 +82,48 @@
   color: rgba(0, 0, 0, 0.623);
 }
 
+/* Mobile Styles */
 @media screen and (max-width: 600px) {
+  .confirmCartItemsContainer {
+    gap: 10px; /* Reduced spacing between items */
+  }
+
+  .confirmCartItemsContainer > div {
+    flex-direction: column; /* Stack items vertically */
+    align-items: flex-start; /* Align items to the start */
+    gap: 10px; /* Reduced spacing for mobile */
+    border-bottom: none; /* Remove border on mobile */
+    padding: 10px 0; /* Reduced padding */
+  }
+
+  .confirmCartItemsContainer img {
+    width: 60px; /* Smaller image width for mobile */
+  }
+
+  .confirmCartItemsContainer a {
+    font-size: 12px; /* Smaller font size for mobile */
+  }
+
+  .orderItemSize {
+    font-size: 12px; /* Smaller font size */
+    padding: 0.5vmax; /* Reduced padding */
+  }
+
+  .confirmCartItemsContainer span {
+    font-size: 12px; /* Smaller font size */
+    gap: 5px; /* Reduced spacing between elements */
+  }
+
   .updateOrderForm {
-    padding: 5vmax;
+    padding: 5vmax; /* Increased padding for mobile */
   }
 
   .updateOrderForm > div > select {
-    padding: 2.5vmax 5vmax;
-    font: 300 1.7vmax cursive;
+    padding: 2.5vmax 5vmax; /* Larger padding */
+    font: 300 1.7vmax cursive; /* Larger font size */
   }
 
   .updateOrderForm > div > svg {
-    font-size: 2.8vmax;
+    font-size: 2.8vmax; /* Larger icon size for mobile */
   }
 }

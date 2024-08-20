@@ -3,25 +3,25 @@ const mongoose = require("mongoose");
 const orderSchema = new mongoose.Schema({
     shippingInfo: {
         address: { 
-             type: String,
-             required: true,
-         },
+            type: String,
+            required: true,
+        },
         city: {
-             type: String,
-             required: true,
-         },
+            type: String,
+            required: true,
+        },
         state: {
-             type: String,
-             required: true,
-         },
+            type: String,
+            required: true,
+        },
         country: {
-             type: String,
-             required: true,
-         },
+            type: String,
+            required: true,
+        },
         pinCode: {
-             type: Number,
-             required: true,
-         },
+            type: Number,
+            required: true,
+        },
         phoneNo: {
             type: Number,
             required: true,
@@ -49,6 +49,9 @@ const orderSchema = new mongoose.Schema({
                 type: mongoose.Schema.ObjectId,
                 ref: "Product",
                 required: true,
+            },
+            size: { // New field for readymade product sizes
+                type: String,
             },
         },
     ],
