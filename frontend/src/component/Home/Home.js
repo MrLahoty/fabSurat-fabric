@@ -16,15 +16,11 @@ import FastShipping from "../../images/Fast_Delivery.png";
 import EasyReturns from "../../images/Package.png";
 import CustomPainting from "../../images/Customized_printing.webp";
 
-const Home = () => {
-  const [currentSlide] = useState(0);
-  const handleShopNowClick = () => {
-    window.location.href = "/products";
-  };
+import Image1 from '../../images/fab.avif';
+import Image2 from '../../images/fabs.avif';
+import Image3 from '../../images/fabss.avif';
 
-  const data = [
-    "https://images.pexels.com/photos/1549200/pexels-photo-1549200.jpeg?auto=compress&cs=tinysrgb&w=1600",
-  ];
+const Home = () => {
 
   const alert = useAlert();
   const dispatch = useDispatch();
@@ -44,12 +40,25 @@ const Home = () => {
   );
 
   const handleOrderNowClick = () => {
-    const phoneNumber = "917003798513"; // Replace with your WhatsApp number
-    const message = encodeURIComponent("Hello, I'm interested in placing a bulk order.");
-    const whatsappLink = `https://wa.me/${phoneNumber}?text=${message}`;
-    window.open(whatsappLink, '_blank');
+    // Navigate to the /products page
+    window.location.href = "/products";
   };
 
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+    const slides = [
+      { image: Image1, alt: 'Slide 1' },
+      { image: Image2, alt: 'Slide 2' },
+      { image: Image3, alt: 'Slide 3' }
+    ];
+
+  const nextSlide = () => {
+    setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
+};
+
+const prevSlide = () => {
+    setCurrentSlide((prevSlide) => (prevSlide - 1 + slides.length) % slides.length);
+};
 
   return (
     <>
@@ -58,23 +67,33 @@ const Home = () => {
       ) : (
         <>
           <MetaData title="FabSurat" />
-          <div className="slider">
-            <div className="container" style={{ transform: `translateX(-${currentSlide * 100}vw)` }}>
-              {data.map((src, index) => (
-                <div className="slide" key={index}>
-                  <img src={src} alt={`Slide ${index + 1}`} />
-                  <div className="welcomeText">
-                    <p>WELCOME TO FABSURAT TEXTILE</p>
-                    <h5>BY</h5>
-                    <p>HOUSE OF FASHION</p>
+
+          <div className="slideshow-container">
+            <div className="slides" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
+              {slides.map((slide, index) => (
+                <div
+                  className={`slide ${index === currentSlide ? 'active' : ''}`}
+                  key={index}
+                >
+                  <Link to="/products">
+                    <img src={slide.image} alt={slide.alt} />
+                  </Link>
+                  <div className="shop-now-button-container">
+                    <button onClick={handleOrderNowClick}>Shop Now</button>
                   </div>
                 </div>
               ))}
             </div>
-            <div className="icons">
-              <button className="shopnowbutton" onClick={handleShopNowClick}>
-                Shop Now
-              </button>
+            <button className="prev" onClick={prevSlide}>❮</button>
+            <button className="next" onClick={nextSlide}>❯</button>
+            <div className="dot-container">
+              {slides.map((_, index) => (
+                <span
+                  key={index}
+                  className={`dot ${index === currentSlide ? 'active-dot' : ''}`}
+                  onClick={() => setCurrentSlide(index)}
+                ></span>
+              ))}
             </div>
           </div>
 

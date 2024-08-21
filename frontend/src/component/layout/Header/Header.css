@@ -12,7 +12,7 @@
 
 .navbar{
   height: 2.5vmax;
-  margin-top: -6px;
+  margin-top: 40px;
 }
 
 .logos {
@@ -107,6 +107,7 @@
   color: #eb4034;
 }
 
+
 .auth-buttons {
   display: flex;
   align-items: center;
@@ -195,7 +196,6 @@
     font-weight: 400; /* Adjusted font weight to match the screenshot */
   }
   
-
   .navbar {
     height: auto;
     justify-content: center;
@@ -204,9 +204,9 @@
     flex-direction: column; /* Stack items vertically */
     align-items: center; /* Center align items */
     margin-right: 20px; /* Move the navbar a bit to the left */
+    margin-top: 30px;
   }
   
-
   .burger-icon {
     position: relative;
     margin-right: 0; /* Center align */

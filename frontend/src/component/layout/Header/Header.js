@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect, useMemo } from 'react';
 import { ReactNavbar } from "overlay-navbar";
 import logo from "../../../images/logo.png";
 import { Link } from "react-router-dom";
@@ -59,6 +59,36 @@ const Header = () => {
     }
   };
 
+  const [placeholderText, setPlaceholderText] = useState('');
+  const [textIndex, setTextIndex] = useState(0);
+  const [fullText, setFullText] = useState('Search for Fabrics...');
+  const [charIndex, setCharIndex] = useState(0);
+
+  const placeholderOptions = useMemo(() => [
+    'Search for Fabrics...',
+    'Search for Readymade...',
+  ], []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCharIndex((prevCharIndex) => {
+        const newCharIndex = (prevCharIndex + 1) % (fullText.length + 1);
+        if (newCharIndex === 0) {
+          setTextIndex((prevTextIndex) => (prevTextIndex + 1) % placeholderOptions.length);
+          setFullText(placeholderOptions[(textIndex + 1) % placeholderOptions.length]);
+        }
+        return newCharIndex;
+      });
+    }, 100); // Adjust speed as needed
+
+    return () => clearInterval(interval);
+  }, [charIndex, fullText, textIndex, placeholderOptions]);
+
+  useEffect(() => {
+    setPlaceholderText(fullText.substring(0, charIndex));
+  }, [charIndex, fullText]);
+
+
   return (
     <div>
       <div className="navbar">
@@ -71,18 +101,18 @@ const Header = () => {
         </a>
 
         <div className="nav-search">
-          <select className="search-select" onChange={handleCategoryChange}>
-            <option>All Categories</option>
-            <option>Fabric</option>
-            <option>Readymade</option>
-          </select>
-          <Link to="/search">
-            <input placeholder="Search..." className="search-input" />
-          </Link>
-          <div className="search-icon">
-            <FaSearch />
-          </div>
-        </div>
+      <select className="search-select" onChange={handleCategoryChange}>
+        <option>All Categories</option>
+        <option>Fabric</option>
+        <option>Readymade</option>
+      </select>
+      <Link to="/search">
+        <input placeholder={placeholderText} className="search-input" />
+      </Link>
+      <div className="search-icon">
+        <FaSearch />
+      </div>
+    </div>
 
         <div>
           {!isAuthenticated && (

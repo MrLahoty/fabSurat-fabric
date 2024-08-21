@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { useHistory } from "react-router-dom";
 import MetaData from "../layout/MetaData";
 import "./Search.css";
@@ -16,13 +16,41 @@ const Search = () => {
     }
   };
 
+  const [placeholderText, setPlaceholderText] = useState('');
+  const [textIndex, setTextIndex] = useState(0);
+  const [fullText, setFullText] = useState('Search for Fabrics...');
+  const [charIndex, setCharIndex] = useState(0);
+
+  const placeholderOptions = useMemo(() => [
+    'Search a Product...',
+  ], []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCharIndex((prevCharIndex) => {
+        const newCharIndex = (prevCharIndex + 1) % (fullText.length + 1);
+        if (newCharIndex === 0) {
+          setTextIndex((prevTextIndex) => (prevTextIndex + 1) % placeholderOptions.length);
+          setFullText(placeholderOptions[(textIndex + 1) % placeholderOptions.length]);
+        }
+        return newCharIndex;
+      });
+    }, 100); // Adjust speed as needed
+
+    return () => clearInterval(interval);
+  }, [charIndex, fullText, textIndex, placeholderOptions]);
+
+  useEffect(() => {
+    setPlaceholderText(fullText.substring(0, charIndex));
+  }, [charIndex, fullText]);
+
   return (
     <>
       <MetaData title="Search Product --- FabSurat" />
       <form className="searchBox" onSubmit={searchSubmitHandler}>
         <input
           type="text"
-          placeholder="Search a Product..."
+          placeholder={placeholderText}
           value={keyword}
           onChange={(e) => setKeyword(e.target.value)}
         />
