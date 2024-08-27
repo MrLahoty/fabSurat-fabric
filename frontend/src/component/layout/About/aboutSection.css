@@ -1,11 +1,12 @@
 .aboutSection {
-  height: 100vh;
+  height: 110vh;
   width: 100vw;
   max-width: 100%;
   background-color: white;
   display: grid;
   grid-template-columns: 4fr 4fr;
   position: fixed;
+  margin-top: -18px;
 }
 
 .aboutSectionGradient {
@@ -32,7 +33,7 @@
 
 .aboutSectionContainer > h1 {
   font: 400 3vmax "Roboto";
-  color: tomato;
+  color: #222222;
   margin: 2vmax;
 }
 
@@ -102,6 +103,11 @@
 }
 
 @media screen and (max-width: 600px) {
+
+  .aboutSection {
+    margin-top: -100px;
+  }
+
   .aboutSectionContainer > div {
     display: block;
     padding-bottom: 30px;

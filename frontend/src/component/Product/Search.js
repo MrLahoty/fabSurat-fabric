@@ -18,7 +18,7 @@ const Search = () => {
 
   const [placeholderText, setPlaceholderText] = useState('');
   const [textIndex, setTextIndex] = useState(0);
-  const [fullText, setFullText] = useState('Search for Fabrics...');
+  const [fullText, setFullText] = useState('Search a Product...');
   const [charIndex, setCharIndex] = useState(0);
 
   const placeholderOptions = useMemo(() => [

@@ -7,6 +7,88 @@ html, body {
   overflow-x: hidden; /* Temporarily hidden to diagnose */
 }
 
+#newsletter {
+  display: flex;
+  height: 230px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding: 40px 20px;
+  background-image: url("S:/Mern-Project-main/Mern-Project-main/frontend/src/images/b14.png");
+  background-repeat: no-repeat;
+  background-position: center right;
+  background-size: cover;
+  background-color: #041e42;
+  border-radius: 1px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+#newsletter h3 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 15px;
+  margin-left: 70px;
+}
+
+#newsletter p {
+  font-size: 17px;
+  font-weight: 600;
+  color: #d1d5db;
+  margin-bottom: 18px;
+  margin-left: 20px;
+}
+
+#newsletter p span {
+  color: #ffbd27;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+#newsletter p span:hover {
+  color: #ffe299;
+}
+
+#newsletter .form {
+  display: flex;
+  width: 100%;
+  max-width: 450px; /* Slightly increase the max-width for better proportion */
+  margin-top: 3px;
+  margin-right: 40px;
+}
+
+#newsletter input {
+  height: 50px;
+  padding: 0 25px; /* Increase left padding to make the input field larger from the left */
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px 0 0 4px;
+  outline: none;
+  transition: border-color 0.3s ease;
+  flex-grow: 1; /* Ensure the input takes up more space compared to the button */
+}
+
+#newsletter input:focus {
+  border-color: #088178;
+}
+
+#newsletter button {
+  background-color: #479b8d;
+  color: #fff;
+  font-size: 16px;
+  padding: 0 25px; /* Adjust the button padding to match the input */
+  border: none;
+  cursor: pointer;
+  border-radius: 0 4px 4px 0;
+  transition: background-color 0.3s ease;
+}
+
+#newsletter button:hover {
+  background-color: #222222;
+}
+
 /* Slideshow Container */
 .slideshow-container {
   position: relative;
@@ -686,12 +768,14 @@ html, body {
   background-color: #f5f5dc; /* Light beige color */
   padding: 20px;
   text-align: center;
-  margin: 20px 0;
+  margin: 0px 0;
+  height:450px;
 }
 
 .bulk-orders-section h2 {
   font-size: 2rem;
-  margin-bottom: 10px;
+  margin-bottom: 40px;
+  margin-top: 30px;
 }
 
 .bulk-orders-section .highlight {
@@ -723,54 +807,16 @@ html, body {
   background-color: #a9ba9d;
 }
 
-
-footer {
-  margin-top: 15px; 
-  background-color: #2d3436; 
-  color: #fff; 
-  padding: 20px; 
-  display: flex;
-  justify-content: space-between; 
-  align-items: center; 
-}
-
-.foot-panel1 {
-  background-color: linear-gradient(to right, #43a0d0, #3498db); 
-  color: #9b12c1; 
-  height: 50px; 
-  display: flex;
-  justify-content: center; 
-  align-items: center;
-  font-size: 1rem;
-  border-radius: 5px; 
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
-  transition: transform 0.3s ease, background-color 0.3s ease; 
-  border: 1px solid #fff; 
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2); 
-}
-
-.foot-panel1:hover {
-  background-color: linear-gradient(to right, #3b8de7, #2979bd); 
-  transform: translateY(-2px); 
-}
-
-.foot-left,
-.foot-right { 
-  display: flex; 
-  align-items: center; 
-}
-
-.foot-left p,
-.foot-right p {
-  margin: 0 5px; 
-}
-
 .productCard{-webkit-box-shadow : -10px 0px 30px -12px rgba(189,189,189,1);
 -moz-box-shadow: -10px 0px 30px -12px rgba(189,189,189,1);
 box-shadow: -10px 0px 30px -12px rgba(189,189,189,1);
 border-radius: 10px}
 
 @media screen and (max-width: 600px) {
+
+  .bulk-orders-section {
+    height: 620px;
+  }
 
   .bulk-orders-section h2 {
     font-size: 1.8rem;
@@ -959,5 +1005,47 @@ font-size: 0.7rem;
 
 .prev, .next{
   font-size: 16px;
+}
+
+#newsletter {
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 30px 20px; /* Adjust padding to increase height */
+  height: 300px;
+}
+
+#newsletter h3 {
+  font-size: 24px;
+  margin-left: 0;
+  margin-bottom: 15px; /* Add margin to increase gap */
+  text-align: center;
+  margin-top: 10px;
+}
+
+#newsletter p {
+  font-size: 15px;
+  text-align: center;
+  margin-bottom: 20px; /* Increase margin for a bigger gap */
+}
+
+#newsletter .form {
+  margin-bottom: 30px;
+  width: 100%;
+  max-width: 100%;
+  margin-top: 10px; /* Add margin-top for spacing */
+  margin-right: 0;
+  padding-right: 5px;
+}
+
+#newsletter input {
+  height: 55px; /* Increase height */
+  font-size: 14px;
+  padding: 0 20px; /* Adjust padding if necessary */
+}
+
+#newsletter button {
+  padding: 0 25px;
+  font-size: 14px;
+  height: 55px; /* Match the height of the input field */
 }
 }

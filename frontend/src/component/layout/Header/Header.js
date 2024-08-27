@@ -50,8 +50,8 @@ const options = {
 };
 
 const Header = () => {
-  const location = useLocation(); // Use useLocation to get the current path
-  const { isAuthenticated } = useSelector((state) => state.user); // Adjust the path according to your store structure
+  const location = useLocation(); 
+  const { isAuthenticated } = useSelector((state) => state.user); 
 
   const handleCategoryChange = (event) => {
     if (["All Categories", "Fabric", "Readymade"].includes(event.target.value)) {
@@ -61,32 +61,31 @@ const Header = () => {
 
   const [placeholderText, setPlaceholderText] = useState('');
   const [textIndex, setTextIndex] = useState(0);
-  const [fullText, setFullText] = useState('Search for Fabrics...');
   const [charIndex, setCharIndex] = useState(0);
 
   const placeholderOptions = useMemo(() => [
     'Search for Fabrics...',
-    'Search for Readymade...',
+    'Search for Readymades...',
   ], []);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCharIndex((prevCharIndex) => {
-        const newCharIndex = (prevCharIndex + 1) % (fullText.length + 1);
-        if (newCharIndex === 0) {
+      setCharIndex((prevCharIndex) => prevCharIndex + 1);
+
+      if (charIndex === placeholderOptions[textIndex].length) {
+        setTimeout(() => {
           setTextIndex((prevTextIndex) => (prevTextIndex + 1) % placeholderOptions.length);
-          setFullText(placeholderOptions[(textIndex + 1) % placeholderOptions.length]);
-        }
-        return newCharIndex;
-      });
-    }, 100); // Adjust speed as needed
+          setCharIndex(0);
+        }, 1000); // Pause before switching to the next text
+      }
+    }, 100); 
 
     return () => clearInterval(interval);
-  }, [charIndex, fullText, textIndex, placeholderOptions]);
+  }, [charIndex, textIndex, placeholderOptions]);
 
   useEffect(() => {
-    setPlaceholderText(fullText.substring(0, charIndex));
-  }, [charIndex, fullText]);
+    setPlaceholderText(placeholderOptions[textIndex].substring(0, charIndex));
+  }, [charIndex, textIndex, placeholderOptions]);
 
 
   return (

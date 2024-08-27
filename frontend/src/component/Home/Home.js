@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import "./Home.css";
 import ProductCard from "./ProductCard.js";
 import MetaData from "../layout/MetaData";
@@ -26,6 +26,34 @@ const Home = () => {
   const dispatch = useDispatch();
   const { loading, error, products = [] } = useSelector((state) => state.products);
   const [searchTerm] = useState("");
+
+  const [placeholderText, setPlaceholderText] = useState('');
+  const [textIndex, setTextIndex] = useState(0);
+  const [fullText, setFullText] = useState('Your email address...');
+  const [charIndex, setCharIndex] = useState(0);
+
+  const placeholderOptions = useMemo(() => [
+    'Your email address...',
+  ], []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCharIndex((prevCharIndex) => {
+        const newCharIndex = (prevCharIndex + 1) % (fullText.length + 1);
+        if (newCharIndex === 0) {
+          setTextIndex((prevTextIndex) => (prevTextIndex + 1) % placeholderOptions.length);
+          setFullText(placeholderOptions[(textIndex + 1) % placeholderOptions.length]);
+        }
+        return newCharIndex;
+      });
+    }, 100); // Adjust speed as needed
+
+    return () => clearInterval(interval);
+  }, [charIndex, fullText, textIndex, placeholderOptions]);
+
+  useEffect(() => {
+    setPlaceholderText(fullText.substring(0, charIndex));
+  }, [charIndex, fullText]);
 
   useEffect(() => {
     if (error) {
@@ -338,18 +366,16 @@ const prevSlide = () => {
       <button className="order-now-button" onClick={handleOrderNowClick}>Order Now</button>
     </div>
 
-          <div
-  className="foot-panel1"
-  style={{ cursor: "pointer" }}
-  onClick={() => {
-    const container = document.getElementById('container');
-    if (container) {
-      container.scrollIntoView({ behavior: 'smooth' });
-    }
-  }}
->
-  Back To Top
-</div>
+           <section id="newsletter">
+              <div className="newstext">
+                 <h3>Sign Up for Newsletters</h3>
+                 <p>Get Exclusive Offers On Your Email And Stay Updated</p>
+              </div>
+              <div className="form">
+                <input type="text" placeholder={placeholderText}></input>
+                <button className="normal">Subscribe</button>
+              </div>
+            </section>
 
     </>  
   );

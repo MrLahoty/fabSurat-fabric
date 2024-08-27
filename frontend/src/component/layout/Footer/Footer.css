@@ -1,134 +1,346 @@
 footer {
-  margin-top: 1vmax;
-  height: 28vmax; /* Adjust the height as needed */
+  margin-top: 0px;
+  height: 22vmax; /* Adjust the height as needed */
   padding: 2vmax;
-  background-color: rgb(34, 33, 33);
-  color: white;
+  background-color: rgb(207, 201, 201);
   display: flex;
   align-items: center;
 }
 
-.leftFooter {
-  flex: 1;
-  padding-left: 30px;
-  color: #e9f3ff;
-  padding-bottom: 35px;
+.leftFooter{
+display: flex;
+flex-direction: column;
+gap: 5px ;
+width: 400px;
+padding: 20px;
+border-radius: 8px;
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+animation: fadeInUp 1s ease-out;
 }
 
-.leftFooter h4 {
-  color: #e9f3ff;
-  font-size: 20px;
-  margin-bottom: 20px;
-  text-decoration: underline;
-  font: 400 1.5vmax "Roboto";
+.leftFooter:hover {
+  transform: translateY(-5px);
+  
+}
+
+.leftFooter h5 {
+  text-decoration:underline;
+  color: inherit;
+  margin-left: 40px;
 }
 
 .leftFooter p {
-  margin: 6px 2px;
-  font-size: 17px;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  color: #333;
+  margin: 8px;
+  transition: transform 0.3s ease, color 0.3s ease;
+  font-weight: 550;
+  gap: 10px;
 }
 
-.leftFooter > p:hover {
-  color: #eb4034;
+.leftFooter a {
+  text-decoration: none;
+  color: inherit;
+  margin-right: 10px;
+  font-size: 20px;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
-.leftFooter i {
-  margin-right: 7px;
+.leftFooter a:hover {
+  color: #007bff;
+  transform: scale(1.05);
+}
+
+.leftFooter .fas {
+  font-size: 24px;
+  transition: transform 0.3s ease;
+}
+
+.leftFooter .fas:hover {
+  animation: bounce 0.5s;
+}
+
+.leftFooter .fa-phone {
+  color: #28a745;
+}
+
+.leftFooter .fa-envelope {
+  color: #dc3545;
+}
+
+.leftFooter .fa-map-marker-alt {
+  color: #ffc107;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
 }
 
 .midFooter {
   width: 60%;
   text-align: center;
-  color: #e9f3ff;
-  padding-bottom: 44px;
+  color: #2c2c2c;
+  margin-bottom: 10px;
+  padding-bottom: 50px;
 }
 
-.midFooter > h6,
-.midFooter > svg {
-  margin-top: 10px; /* Adjust the margin-top value to your preference */
+.logoss {
+  text-decoration: none; /* Remove underline */
+  font-family: 'Montserrat', sans-serif; /* A modern and attractive font */
+  font-size: 26px; /* Adjust font size as needed */
+  color: #222222; /* Text color */
+  text-transform: uppercase; /* Uppercase text for emphasis */
+  letter-spacing: 2px; /* Increase letter spacing for a modern look */
+  overflow: hidden; /* Hide overflow text */
+  white-space: nowrap; /* Prevent text from wrapping */
+  display: flex;
+  align-items: center;
+  gap:20px;
+  font-weight: 700;
+  margin-left: 230px;
+  margin-top: 50px;
+  transition: color 0.3s ease, text-shadow 0.3s ease; /* Smooth transition */
 }
 
-.midFooter > h6:hover {
-  color: #eb4034;
+.logoss:hover {
+  color: #555; /* Text color on hover */
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Subtle glow effect */
+  }
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px 0;
+  background-color: rgb(207, 201, 201);
+  margin-bottom: 5px;
+  margin-right: 30px;
+  margin-top: -5px;
 }
 
-.rightFooter {
+.footer-links a {
+  text-decoration: none; 
+  color: #333;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease, text-decoration 0.3s ease;
+  display: flex; /* To align icon and text horizontally */
+  align-items: center; /* Center-align icon and text */
+}
+
+.footer-links a i {
+  margin-right: 8px; /* Space between icon and text */
+}
+
+.footer-links a:hover {
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: underline;
+}
+
+.footer-links a:hover i {
+  color: #fff; /* Ensures icon color matches text color on hover */
+}
+
+.svgs{
+  margin-right: 55px;
+}
+
+.svgs svg {
+  margin: 0 5px;
+}
+
+.copyrights {
+  text-align: center;
+  padding: 12px;
+  margin-right: 30px;
+}
+
+.copyrights h6 {
+  font: 550 1.3vmax 'Montserrat', sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  margin: 0;
+  padding: 2px 5px; /* Added padding for better text spacing */
+  transition: background-color 0.3s ease, color 0.3s ease; 
+  cursor: pointer;
+  display: inline-block; /* Make sure the background color only covers the text */
+}
+
+.copyrights h6:hover {
+  background-color: #007bff; /* Blue background on hover */
+  color: #fff; /* White text on hover */
+  padding: 5px 6px; /* Ensure padding remains consistent on hover */
+}
+
+.footer-social-icon {
   width: 20%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: #e9f3ff;
-  font: 500 1.5vmax "Roboto";
-  padding-bottom: 75px;
+  color: #2c2c2c;
+  font: 500 1.5vmax 'Montserrat', sans-serif;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeInUp 1s ease-out;
+  padding-bottom: 70px;
+  margin-right: 20px;
+  margin-top: 10px;
 }
 
-.rightFooter > h4 {
+.footer-social-icon:hover {
+  transform: translateY(-5px);
+}
+
+.footer-social-icon h5 {
+  color: #212529;
   text-decoration: underline;
-  font: 500 1.6vmax "Roboto";
   margin-bottom: 16px;
-  font-size: 24px;
+  font-size: 22px;
 }
 
-.rightFooter > a {
+.footer-social-icon a {
   text-decoration: none;
-  font-size: 1.7vmax;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  color: #e9f3ff;
-  transition: all 0.5s;
+  display: flex;
   margin: 0.5vmax;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, color 0.3s ease, font-size 0.3s ease, background-color 0.3s ease;
+  font-size: 23px; /* Default icon size */
+  gap: 5px;
+  background-color: rgb(207, 201, 201); /* Matches the footer background color */
+  padding: 5px; /* Adjust padding as needed */
 }
 
-.rightFooter > a > svg {
-  margin-right: 5.5px; /* Adjust the margin as needed */
+.footer-social-icon a:hover {
+  background-color: rgb(207, 201, 201); /* Keeps the same background color on hover */
+  transform: scale(1.05); /* Slightly increase the size */
 }
 
-.rightFooter > a:hover {
-  transition: all 0.5s;
+.footer-social-icon a svg {
+  transition: transform 0.3s ease;
+  color: #2c2c2c; /* Ensure the icon color is consistent */
 }
 
-.rightFooter > a:hover svg.fa-instagram {
-  color: #eb4034;
-}
-
-.rightFooter > a:hover svg.fa-whatsapp {
-  color: green;
+.footer-social-icon a:hover svg {
+  transform: rotate(20deg); /* Add a slight rotation effect on hover */
+  color: #2c2c2c; /* Ensure the icon color remains consistent on hover */
 }
 
 /* Mobile Responsive Styling */
 @media screen and (max-width: 600px) {
   footer {
     flex-direction: column;
-    margin-top: 1vmax;
+    margin-top: 0px;
     text-align: center;
     padding: 20; /* Remove padding to avoid extra space */
-    height: auto; /* Adjust height to fit content */
+    height: 820px; /* Adjust height to fit content */
     width: 100vw; /* Ensure footer takes full viewport width */
     box-sizing: border-box; /* Include padding/border in element's total width */
+    margin-bottom: 0px;
+    overflow: hidden;
   }
 
-  .leftFooter, .midFooter, .rightFooter {
+  .leftFooter {
     padding: 10px;
-    text-align: center; /* Center text on mobile */
-    width: 100%; /* Make each section take full width on mobile */
+    margin: 10px auto; /* Center horizontally */
+    max-width: 90%; /* Ensure it doesn't take up too much width */
+    width: 100%; /* Make sure it utilizes the available space */
+    box-sizing: border-box; /* Include padding within width */
+    display: flex;
+    flex-direction: column; /* Align content vertically */
+    align-items: flex-start; /* Align content to the start of the container */
   }
 
-  .leftFooter h4, .midFooter h6, .rightFooter h4 {
-    font-size: 18px;
-    margin-bottom: 10px;
-  }
-
-  .leftFooter p {
-    text-align:center;
-  }
-
-   .rightFooter a {
-    font-size: 14px;
-    display: block; /* Ensure each p element is a block element */
-    margin: 4px 0; /* Add some margin for vertical spacing */
-    margin-bottom: 10px; /* Add margin-bottom to create a gap */
-  }
-
-  .rightFooter a {
+  .leftFooter h5 {
+    margin-left: 65px;
     font-size: 19px;
+  }
+  .leftFooter p {
+    font-size: 15px;
+    margin-bottom: 8px; /* Add space between paragraphs */
+  }
+  
+  .leftFooter a {
+    font-size: 17px;
+    margin-right: 0; /* Remove margin to align properly */
+    word-wrap: break-word; /* Ensure long URLs wrap to the next line */
+    text-align: left; /* Align text to the left */
+    display: inline-block; /* Ensure it starts from the first word */
+    width: 100%; /* Ensure full width utilization */
+  }
+  
+  .leftFooter .fas {
+    font-size: 19px;
+    margin-right: 8px; /* Add space between the icon and text */
+  }
+  
+
+  .midFooter {
+    width: 90%;
+    padding-bottom: 30px;
+  }
+
+  .logoss {
+    font-size: 20px;
+    margin-left: 90px;
+    margin-top: 8px;
+    text-align: center;
+    letter-spacing: 1px;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: 4px;
+    margin-left: 12px;
+    margin-top: -15px;
+  }
+
+  .footer-links a {
+    font-size: 16px;
+    padding: 8px;
+  }
+
+  .svgs {
+    order: 2; /* Position below footer-social-icon */
+    margin-right: 0;
+    text-align: center;
+  }
+
+  .copyrights {
+    order: 3; /* Position below svgs */
+    margin-right: 0;
+    padding: 15px;
+  }
+
+  .footer-social-icon {
+    order: 1; /* Move this to the top in mobile view */
+    width: 100%;
+    margin-right: 0;
+    margin-top: -30px;
+  }
+
+  .footer-social-icon a {
+    font-size: 20px;
+    padding: 8px;
   }
 }

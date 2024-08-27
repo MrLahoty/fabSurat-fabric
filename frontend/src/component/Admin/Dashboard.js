@@ -80,7 +80,7 @@ const Dashboard = () => {
           </div>
           <div className="dashboardSummaryBox2">
             <Link to="/admin/products">
-              <p>Product</p>
+              <p>Products</p>
               <p>{products && products.length}</p>
             </Link>
             <Link to="/admin/orders">

@@ -1,28 +1,117 @@
-.contactContainer {
-  height: 100vh;
-  width: 100vw;
-  max-width: 100%;
-  display: grid;
-  place-items: center;
-  background-color: white;
-  position: fixed;
+.contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 15px ;
+  max-width: 600px;
+  width: 100%;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeInUp 1s ease-out;
+  margin-left: 400px;
+  margin-top: 200px;
+  margin-bottom: 200px;
 }
 
-.mailBtn {
+.contacts:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.contact-link {
   text-decoration: none;
-  transform: translateX(-100vw);
-  animation: mailBtnAnimation 2s forwards;
+  color: inherit;
 }
 
-.mailBtn > button {
+.contacts p {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  color: #333;
+  margin: 8px;
+  transition: transform 0.3s ease, color 0.3s ease;
+  font-weight: 550;
+  gap:10px;
+}
+
+.contacts a {
   text-decoration: none;
-  font: 200 2vmax "Roboto";
-  cursor: url("https://img.icons8.com/color/48/000000/edit--v2.png"), pointer;
-  padding: 2vmax;
+  color: inherit;
+  margin-right: 10px;
+  font-size: 20px;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
-@keyframes mailBtnAnimation {
-  to {
-    transform: translateX(0);
+.contacts a:hover {
+  color: #007bff;
+  transform: scale(1.05);
+}
+
+.contacts .fas {
+  font-size: 24px;
+  transition: transform 0.3s ease;
+}
+
+.contacts .fas:hover {
+  animation: bounce 0.5s;
+}
+
+.contacts .fa-phone {
+  color: #28a745;
+}
+
+.contacts .fa-envelope {
+  color: #dc3545;
+}
+
+.contacts .fa-map-marker-alt {
+  color: #ffc107;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .contacts {
+    padding: 12px;
+    margin: 25px; /* Center horizontally */
+    margin-top: 176px;
+    margin-bottom: 336px;
+    max-width: 90%; /* Ensure it doesn't take up too much width */
+    width: 100%; /* Make sure it utilizes the available space */
+    box-sizing: border-box; /* Include padding within width */
+    row-gap: 8px;
+    column-gap: 8px;
+  }
+
+  .contacts p {
+    font-size: 16px;
+  }
+
+  .contacts a {
+    font-size: 18px;
+  }
+
+  .contacts .fas {
+    font-size: 20px;
+  }
+}
+
