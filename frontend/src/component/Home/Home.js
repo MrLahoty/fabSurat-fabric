@@ -8,6 +8,7 @@ import { useSelector, useDispatch } from "react-redux";
 import Loader from "../layout/Loader/Loader";
 import { useAlert } from "react-alert";
 import { Link } from "react-router-dom";
+import axios from 'axios';
 
 import MakeInIndia from "../../images/india_map.webp";
 import Quality from "../../images/ThumbsUp.png";
@@ -27,6 +28,10 @@ const Home = () => {
   const { loading, error, products = [] } = useSelector((state) => state.products);
   const [searchTerm] = useState("");
 
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+  const [messageType, setMessageType] = useState(''); // Add state for message type
+ 
   const [placeholderText, setPlaceholderText] = useState('');
   const [textIndex, setTextIndex] = useState(0);
   const [fullText, setFullText] = useState('Your email address...');
@@ -46,7 +51,7 @@ const Home = () => {
         }
         return newCharIndex;
       });
-    }, 100); // Adjust speed as needed
+    }, 100);
 
     return () => clearInterval(interval);
   }, [charIndex, fullText, textIndex, placeholderOptions]);
@@ -54,6 +59,19 @@ const Home = () => {
   useEffect(() => {
     setPlaceholderText(fullText.substring(0, charIndex));
   }, [charIndex, fullText]);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const { data } = await axios.post('/api/v1/subscribers/subscribe', { email });
+      setMessage(data.msg);
+      setMessageType('success'); // Set message type to success
+      setEmail('');
+    } catch ({ response }) {
+      setMessage(response.data.msg);
+      setMessageType('error'); // Set message type to error
+    }
+  };
 
   useEffect(() => {
     if (error) {
@@ -365,18 +383,25 @@ const prevSlide = () => {
       
       <button className="order-now-button" onClick={handleOrderNowClick}>Order Now</button>
     </div>
-
-           <section id="newsletter">
-              <div className="newstext">
-                 <h3>Sign Up for Newsletters</h3>
-                 <p>Get Exclusive Offers On Your Email And Stay Updated</p>
-              </div>
-              <div className="form">
-                <input type="text" placeholder={placeholderText}></input>
-                <button className="normal">Subscribe</button>
-              </div>
-            </section>
-
+    <section id="newsletter">
+          <div className="newstext">
+            <h3>Sign Up for Newsletters</h3>
+            <p>Get Exclusive Offers On Your Email And Stay Updated</p>
+          </div>  
+          {message && (
+            <p className={`message ${messageType}`}>{message}</p>
+          )} 
+          <form className="form" onSubmit={handleSubmit}>
+            <input 
+              type="text" 
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder={placeholderText}
+            />
+            <button className="normal" type="submit">Subscribe</button>
+          </form>
+          
+        </section>
     </>  
   );
 };

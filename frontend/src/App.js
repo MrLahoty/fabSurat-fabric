@@ -44,6 +44,7 @@ import ProductReviews from "./component/Admin/ProductReviews";
 import Contact from "./component/layout/Contact/Contact";
 import About from "./component/layout/About/About";
 import 'bootstrap/dist/css/bootstrap.css';
+// import SubscribeForm from "./component/Home/SubscribeForm.js";
 
 function App() {
   
@@ -103,6 +104,9 @@ function App() {
 
       <Switch>
         <Route exact path="/" component={Home} />
+
+        {/* <Route exact path="/subscribers" component={SubscribeForm} /> */}
+        {/* <SubscribeForm/> */}
 
         <Route exact path="/product/:id" component={ProductDetails} />
 

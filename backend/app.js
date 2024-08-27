@@ -8,6 +8,7 @@ const cors = require('cors');
 const shortid = require('shortid');
 const Razorpay = require('razorpay');
 const couponRoute = require('./routes/couponRoute');
+const subscriberRoutes = require('./routes/subscriberRoutes');
 
 // Config
 if (process.env.NODE_ENV !== "PRODUCTION") {
@@ -69,6 +70,7 @@ app.use("/api/v1", product);
 app.use("/api/v1", user);
 app.use("/api/v1", order);
 app.use('/api/v1/coupon', couponRoute);
+app.use('/api/v1/subscribers', subscriberRoutes);
 
 app.use(express.static(path.join(__dirname, "../frontend/build")));
 

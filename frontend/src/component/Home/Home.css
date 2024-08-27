@@ -89,6 +89,39 @@ html, body {
   background-color: #222222;
 }
 
+.message {
+  margin-top: 30px;
+  font-size: 16px;
+  color: #fff; /* White text color for better contrast */
+  background-color: #222222; /* Darker background for better readability */
+  padding: 12px;
+  border-radius: 5px;
+  text-align: center; /* Center text */
+  display: inline-block;
+  width: 20%; /* Full width to fit container */
+}
+
+/* Show the message when needed */
+#newsletter .message.success,
+#newsletter .message.error {
+  display: block; /* Display the message only when it has content */
+}
+
+#newsletter .message.success {
+  color: #155724;
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+  margin-bottom: 31px;
+}
+
+#newsletter .message.error {
+  color: #721c24;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  margin-bottom: 31px;
+}
+
+
 /* Slideshow Container */
 .slideshow-container {
   position: relative;
@@ -1008,44 +1041,86 @@ font-size: 0.7rem;
 }
 
 #newsletter {
+  display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 30px 20px; /* Adjust padding to increase height */
-  height: 300px;
+  padding: 45px 20px;
+  height: auto;
 }
 
 #newsletter h3 {
   font-size: 24px;
   margin-left: 0;
-  margin-bottom: 15px; /* Add margin to increase gap */
+  margin-bottom: 15px;
   text-align: center;
   margin-top: 10px;
+  order: 1;
 }
 
 #newsletter p {
   font-size: 15px;
   text-align: center;
-  margin-bottom: 20px; /* Increase margin for a bigger gap */
+  margin-bottom: 20px;
+  order: 2;
 }
 
 #newsletter .form {
   margin-bottom: 30px;
   width: 100%;
   max-width: 100%;
-  margin-top: 10px; /* Add margin-top for spacing */
+  margin-top: 10px;
   margin-right: 0;
   padding-right: 5px;
+  display: flex;
+  flex-direction: column;
+  order: 3;
 }
 
 #newsletter input {
-  height: 55px; /* Increase height */
+  height: 55px;
   font-size: 14px;
-  padding: 0 20px; /* Adjust padding if necessary */
+  padding: 0 20px;
+  margin-bottom: 10px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 #newsletter button {
   padding: 0 25px;
   font-size: 14px;
-  height: 55px; /* Match the height of the input field */
+  height: 55px;
+  width: 100%;
+  box-sizing: border-box;
 }
+
+#newsletter .message {
+  font-size: 14px;
+  padding: 10px;
+  border-radius: 5px;
+  display: none; /* Hide the message by default */
+  width: 85%;
+  text-align: center;
+  order: 4;
+}
+
+/* Show the message when needed */
+#newsletter .message.success,
+#newsletter .message.error {
+  display: block; /* Display the message only when it has content */
+}
+
+#newsletter .message.success {
+  color: #155724;
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+  margin-bottom: 31px;
+}
+
+#newsletter .message.error {
+  color: #721c24;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  margin-bottom: 31px;
+}
+
 }
