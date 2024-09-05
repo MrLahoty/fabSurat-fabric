@@ -1,6 +1,5 @@
 import "./App.scss";
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import { useEffect, useState } from "react";
 import { useEffect} from "react";
 import Header from "./component/layout/Header/Header.js";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -25,10 +24,7 @@ import ResetPassword from "./component/User/ResetPassword";
 import Cart from "./component/Cart/Cart";
 import Shipping from "./component/Cart/Shipping";
 import ConfirmOrder from "./component/Cart/ConfirmOrder";
-// import axios from "axios";
 import Payment from "./component/Cart/Payment";
-// import { Elements } from "@stripe/react-stripe-js";
-// import { loadStripe } from "@stripe/stripe-js";
 import OrderSuccess from "./component/Cart/OrderSuccess";
 import MyOrders from "./component/Order/MyOrders";
 import OrderDetails from "./component/Order/OrderDetails";
@@ -44,7 +40,6 @@ import ProductReviews from "./component/Admin/ProductReviews";
 import Contact from "./component/layout/Contact/Contact";
 import About from "./component/layout/About/About";
 import 'bootstrap/dist/css/bootstrap.css';
-// import SubscribeForm from "./component/Home/SubscribeForm.js";
 
 function App() {
   
@@ -70,14 +65,6 @@ function App() {
     loadScript("https://checkout.razorpay.com/v1/checkout.js")
   })
 
-  // const [stripeApiKey, setStripeApiKey] = useState("");
-
-  // async function getStripeApiKey() {
-  // // const { data } = await axios.get("/api/v1/stripeapikey");
-
-  // setStripeApiKey(data.stripeApiKey);
-  // }
-
   useEffect(() => {
     WebFont.load({
       google: {
@@ -86,8 +73,6 @@ function App() {
     });
 
     store.dispatch(loadUser());
-
-    // getStripeApiKey();
   }, []);
 
   return (
@@ -97,16 +82,8 @@ function App() {
 
       {isAuthenticated && <UserOptions user={user} />}
 
-      {/* {stripeApiKey && (
-        <Elements stripe={loadStripe(stripeApiKey)}>
-          <ProtectedRoute exact path="/process/payment" component={Payment} />
-        </Elements> )} */}
-
       <Switch>
         <Route exact path="/" component={Home} />
-
-        {/* <Route exact path="/subscribers" component={SubscribeForm} /> */}
-        {/* <SubscribeForm/> */}
 
         <Route exact path="/product/:id" component={ProductDetails} />
 
@@ -163,8 +140,6 @@ function App() {
         <ProtectedRoute exact path="/admin/reviews" isAdmin={true} component={ProductReviews} />
 
         <ProtectedRoute exact path="/process/payment" component={Payment} />
-         
-        {/* <ProtectedRoute exact path="/process/payment" isAdmin={false} component={OrderSuccess} /> */}
         
       </Switch>
 

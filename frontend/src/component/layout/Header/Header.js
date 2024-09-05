@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { ReactNavbar } from "overlay-navbar";
-import logo from "../../../images/logo.png";
+import { FaSearch, FaShoppingCart, FaPhone, FaUser } from 'react-icons/fa';
 import { Link } from "react-router-dom";
-import { FaSearch } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
+import logo from "../../../images/logo.png";
 
 // Sample category images
 import FabricsImage from "../../../images/box1.jpg";
@@ -100,29 +100,45 @@ const Header = () => {
         </a>
 
         <div className="nav-search">
-      <select className="search-select" onChange={handleCategoryChange}>
-        <option>All Categories</option>
-        <option>Fabric</option>
-        <option>Readymade</option>
-      </select>
-      <Link to="/search">
-        <input placeholder={placeholderText} className="search-input" />
-      </Link>
-      <div className="search-icon">
-        <FaSearch />
-      </div>
-    </div>
+          <select className="search-select" onChange={handleCategoryChange}>
+            <option>All Categories</option>
+            <option>Fabric</option>
+            <option>Readymade</option>
+          </select>
+          <Link to="/search">
+            <input placeholder={placeholderText} className="search-input" />
+          </Link>
+          <Link to="/search">
+            <div className="search-icon">
+              <FaSearch />
+            </div>
+          </Link>
+        </div>
+
+        <div className="iconss">          
+          <a href="tel:+917003798513">
+            <div className="phone-icons">
+              <FaPhone />
+            </div>
+          </a>
+          <Link to="/cart">
+            <div className="cart-icons">
+              <FaShoppingCart />
+            </div>
+          </Link>
+        </div>
 
         <div>
           {!isAuthenticated && (
             <div className="auth-buttons">
-              <Link to="/login" className="auth-button">Login/SignUp</Link>
+              <Link to="/login" className="auth-button">
+              <FaUser />
+              </Link>
             </div>
           )}
         </div>
       </div>
 
-      {/* Conditionally render category links only on the homepage */}
       {location.pathname === "/" && (
         <div className="category-links">
           <a href="/products">

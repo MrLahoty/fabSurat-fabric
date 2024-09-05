@@ -12,7 +12,7 @@ html, body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(231, 231, 231);
+  background-color: white;
   position: fixed;
   top: 0%;
   left: 0;
@@ -20,24 +20,31 @@ html, body {
 
 .LoginSignUpBox {
   background-color: white;
-  width: 25vw;
+  width: 27vw;
   height: 70vh;
   box-sizing: border-box;
   overflow: hidden;
+  border: 1px solid transparent; /* Transparent border to maintain layout */
+  outline: 0.5px solid #cccccc; /* Light gray outline with a thin line */
+  outline-offset: 25px; /* Creates space between the box and the outline */
 }
+
+
 .login_signUp_toggle {
   display: flex;
   height: 3vmax;
 }
+
 .login_signUp_toggle > p {
-  color: rgba(0, 0, 0, 0.678);
-  font: 300 1vmax "Roboto";
+  color: #000000;
+  font: 300 18px "Playfair Display", serif;
   transition: all 0.5s;
   cursor: pointer;
   display: grid;
   place-items: center;
   width: 100%;
 }
+
 .login_signUp_toggle > p:hover {
   color: #222222;
 }
@@ -73,6 +80,7 @@ html, body {
   align-items: center;
   position: relative; /* Add this */
 }
+
 .loginForm > div > input,
 .signUpForm > div > input {
   padding: 1vmax 4vmax;
@@ -81,7 +89,7 @@ html, body {
   box-sizing: border-box;
   border: 1px solid rgba(0, 0, 0, 0.267);
   border-radius: 4px;
-  font: 300 1vmax "Roboto";
+  font: 300 1vmax "Playfair Display", serif;
   outline: none;
 }
 
@@ -98,7 +106,7 @@ html, body {
   text-decoration: none;
   align-self: flex-end;
   transition: all 0.5s;
-  font: 500 1vmax "Gill Sans";
+  font: 500 1vmax "Playfair Display", serif;
   margin-top: 10px;
   text-decoration: underline #222222;
 
@@ -112,6 +120,7 @@ html, body {
   width: 3vmax;
   border-radius: 100%;
 }
+
 #registerImage > input {
   display: flex;
   padding: 0%;
@@ -140,7 +149,7 @@ html, body {
   border: none;
   background-color: #222222;
   color: white;
-  font: 300 0.9vmax "Roboto";
+  font: 300 1vmax "Playfair Display", serif;
   width: 100%;
   padding: 0.8vmax;
   cursor: pointer;
@@ -156,7 +165,7 @@ html, body {
   background-color: rgb(90, 88, 88);
 }
 
-.googleBtn {
+/* .googleBtn {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -180,7 +189,7 @@ html, body {
 
 .googleBtn:hover {
   background-color: rgb(211, 210, 210);
-}
+} */
 
 .shiftToLeft {
   transform: translateX(-100%);
@@ -236,15 +245,20 @@ html, body {
   .LoginSignUpContainer {
     background-color: white;
   }
+
   .LoginSignUpBox {
     width: 100vw;
     height: 95vh;
+    border: none; /* Remove border for mobile view */
+    outline: none;
   }
+
   .login_signUp_toggle {
     height: 5vmax;
   }
+
   .login_signUp_toggle > p {
-    font: 300 1.5vmax "Roboto";
+    font: 300 1.6vmax "Playfair Display", serif;
   }
 
   .loginForm,
@@ -255,7 +269,7 @@ html, body {
   .loginForm > div > input,
   .signUpForm > div > input {
     padding: 2.5vmax 5vmax;
-    font: 300 1.7vmax "Roboto";
+    font: 300 1.7vmax "Playfair Display", serif;
   }
 
   .loginForm > div > svg,
@@ -264,7 +278,7 @@ html, body {
   }
 
   .loginForm > a {
-    font: 500 1.8vmax "Gill Sans";
+    font: 500 1.8vmax "Playfair Display", serif;
   }
 
   #registerImage > img {
@@ -279,16 +293,16 @@ html, body {
 
   .loginBtn,
   .signUpBtn {
-    font: 300 1.9vmax "Roboto";
+    font: 300 1.9vmax "Playfair Display", serif;
     padding: 1.8vmax;
   }
 
-  .googleBtn {
+  /* .googleBtn {
     font: 300 1.8vmax "Roboto";
     padding: 2.5vmax;
   }
 
   .googleBtn svg {
     font-size: 2.8vmax;
-  }
+  } */
 }

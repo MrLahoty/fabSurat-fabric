@@ -1,0 +1,209 @@
+.popup-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    z-index: 1000;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.social-icons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-icon {
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: #fff;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    animation: fadeInUp 1s ease-out; /* Optional: add this if you want the initial fade-in effect */
+}
+
+.social-icon i {
+    font-size: 21px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: scale(1.05); /* Slightly increase the size */
+}
+
+.social-icon:hover i {
+    color: #fff; /* Ensure the icon color is consistent on hover */
+    transform: rotate(20deg); /* Add a slight rotation effect on hover */
+}
+
+.social-icon[href*="whatsapp"] {
+    background-color: #25D366; /* WhatsApp green color */
+}
+
+.social-icon[href*="instagram"] {
+    background-color: #ff000084; /* Instagram custom color */
+}
+
+.social-icon[href*="whatsapp"] i {
+    color: white; /* Icon color for WhatsApp */
+}
+
+.social-icon[href*="instagram"] i {
+    color: white; /* Icon color for Instagram */
+}
+
+/* Optional: Animation keyframes for fadeInUp effect */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.popup-content {
+    position: relative; 
+    background: linear-gradient(135deg, #f3f4f6, #e0e0e0); /* Soft gradient from light gray to slightly darker gray */
+    padding: 20px; 
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    margin: 20px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    animation: slideDown 0.5s ease-out;
+    transition: height 0.3s ease; 
+}
+
+.close-button {
+    background: #fff; /* White background */
+    border: 2px solid #ccc; /* Light gray border */
+    color: #000; /* Black 'X' */
+    font-size: 1.2rem;
+    border-radius: 50%; /* Make it circular */
+    width: 35px; /* Slightly increase the width */
+    height: 35px; /* Slightly increase the height */
+    position: absolute; /* Position it inside the popup content */
+    top: -10px; /* Adjust the positioning to be inside the content */
+    right: -10px; /* Adjust the positioning to be inside the content */
+    display: flex; /* Center the 'X' inside the button */
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Add a smooth hover effect */
+    line-height: 1; /* Ensures the text is vertically centered */
+    z-index: 1100; /* Ensure it is above all other content */
+}
+
+.close-button:hover {
+    background-color: #ccc; /* Change background color on hover */
+}
+
+.popup-content h2 {
+    margin-top: 18px;
+    font-size: 1.8rem;
+    text-align: center;
+    font-family: 'Poppins', sans-serif; /* Apply the Poppins font */
+}
+
+.popup-content p {
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: 'Poppins', sans-serif; /* Apply the Poppins font */
+}
+
+.popup-content form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.popup-content input[type="email"] {
+    padding: 10px;
+    width: 80%;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+.popup-content button {
+    padding: 10px 20px;
+    background-color: #222222; /* Dark background color */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Initial shadow */
+}
+
+.popup-content button:hover {
+    background-color: #42464a; /* Dark green background on hover */
+    transform: scale(1.1); /* Slightly increase the size */
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow effect */
+}
+
+/* Optional: Add a subtle pulse effect on hover */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.popup-content button:focus {
+    outline: none;
+    animation: pulse 0.8s ease-in-out;
+}
+
+.message {
+    margin-top: 30px;
+    font-size: 15px;
+    color: #fff;
+    background-color: #222222;
+    padding: 12px;
+    border-radius: 5px;
+    text-align: center;
+    display: inline-block;
+    width: 100%; /* Ensure message takes full width */
+    box-sizing: border-box; /* Ensure padding and border are included in width */
+    margin-left: 0; /* Reset margin-left */
+}
+
+.message.success,
+.message.error {
+    display: block;
+}
+
+.message.success {
+    color: #155724;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    margin-bottom: 31px;
+}
+
+.message.error {
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    margin-bottom: 31px;
+}

@@ -1,0 +1,188 @@
+.best-collection-heading  {
+    margin-bottom: 50px;
+    margin-top: 25px;
+    padding-top: 0px;
+    text-align: center;
+    color: #000;
+    font-weight: 500px;
+    line-height: 30px;
+    font-size: 30px;
+    font-family: "Playfair Display", serif;
+}
+
+.best-collection-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+    margin-bottom: 60px;
+}
+
+.best-slide-show {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 25%;
+    transform: translateX(0);
+}
+
+.best-slide-show.sliding {
+    transition: transform 0.5s ease-in-out;
+}
+
+.best-slide {
+    flex: 0 0 25%;
+    text-align: center;
+    padding: 0 8px;
+    box-sizing: border-box;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.best-slide:hover {
+    opacity: 1;
+}
+
+.best-slide img {
+    cursor: pointer;
+    border-radius: 0px; 
+    width: 97%; 
+    height: 76%; 
+    object-fit: cover; 
+    transition: transform 0.3s ease;
+    margin-top: 0; 
+}
+
+.best-slide:hover img {
+    transform: scale(1.05); 
+}
+
+.best-slide-name {
+    font-family: "Roboto";
+    margin-top: 15px;
+    font-size: 15px;
+    color: #222222;
+    letter-spacing: 0.5px;
+    display:flex;
+    margin-left: 5px;
+}
+
+.product-price {
+    font-size: 15px;
+    color: #696969;
+    margin-top: -10px;
+    display: flex;
+}
+
+.original-price {
+    text-decoration: line-through;
+    margin-right: 5px;
+    color: #000000;
+}
+
+.discounted-price {
+    font-weight: bold;
+    color: #000000;
+}
+
+.discount {
+    color: #cb2432;
+    font-size: 15px;
+    margin-left: 5px;
+}
+
+.ratingss {
+    margin-top: -12px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  
+  .bestSellersratings {
+    font: 300 1vmax "Playfair Display", serif;
+  }
+
+.best-slide-nav {
+    background-color: #ffffff;
+    border: none;
+    color: #222222;
+    font-size: 20px;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 42%;
+    transform: translateY(-50%);
+    z-index: 10;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.best-slide-nav.prev {
+    left: 5px;
+}
+
+.best-slide-nav.next {
+    right: 5px;
+}
+
+.best-slide-nav:hover {
+    background-color: #707070;
+}
+
+.best-slide-nav:disabled {
+    opacity: 0.5;
+}
+
+@media (max-width: 768px) {
+
+    .best-collection-heading  {
+    font-size:20px;
+    font-family: "Playfair Display", serif;
+    }
+
+    .best-slide {
+        flex: 0 0 50%; 
+        padding: 6px ; 
+     }
+
+    .best-slide-show {
+        width: 50%; 
+    }
+
+    .best-slide img {
+        width: 100%; 
+        margin-top: -5px;
+    }
+
+    .best-slide-name {
+        font-family: "roboto";
+        font-size: 13px;
+    }
+
+    .product-price {
+        font-size: 14px;
+    }
+
+    .ratingss {
+        margin-top: -15px; 
+        margin-bottom: 36px;
+    }
+    
+    .bestSellersratings {
+        font-size: 11px;
+    }
+
+    .best-slide-nav {
+        font-size: small;
+    }
+
+    .best-slide-nav.prev {
+        left: 2px;
+    }
+    
+    .best-slide-nav.next {
+        right: 2px;
+    }
+}

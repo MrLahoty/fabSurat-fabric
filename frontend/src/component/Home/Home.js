@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useCallback } from "react";
 import "./Home.css";
 import ProductCard from "./ProductCard.js";
 import MetaData from "../layout/MetaData";
@@ -9,6 +9,9 @@ import Loader from "../layout/Loader/Loader";
 import { useAlert } from "react-alert";
 import { Link } from "react-router-dom";
 import axios from 'axios';
+import videoFile from '../../images/video.mp4';
+import videoFiles from '../../images/video1.mp4';
+
 
 import MakeInIndia from "../../images/india_map.webp";
 import Quality from "../../images/ThumbsUp.png";
@@ -21,6 +24,11 @@ import Image1 from '../../images/fab.avif';
 import Image2 from '../../images/fabs.avif';
 import Image3 from '../../images/fabss.avif';
 
+import NewsletterPopup from './NewsletterPopup';
+import LatestCollection from './LatestCollection'; // Import the new component
+import BestSellers from './BestSellers'; 
+
+
 const Home = () => {
 
   const alert = useAlert();
@@ -30,7 +38,7 @@ const Home = () => {
 
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
-  const [messageType, setMessageType] = useState(''); // Add state for message type
+  const [messageType, setMessageType] = useState(''); 
  
   const [placeholderText, setPlaceholderText] = useState('');
   const [textIndex, setTextIndex] = useState(0);
@@ -86,25 +94,30 @@ const Home = () => {
   );
 
   const handleOrderNowClick = () => {
-    // Navigate to the /products page
     window.location.href = "/products";
   };
 
   const [currentSlide, setCurrentSlide] = useState(0);
 
-    const slides = [
-      { image: Image1, alt: 'Slide 1' },
-      { image: Image2, alt: 'Slide 2' },
-      { image: Image3, alt: 'Slide 3' }
-    ];
+  const slides = [
+    { image: Image1, alt: 'Slide 1' },
+    { image: Image2, alt: 'Slide 2' },
+    { image: Image3, alt: 'Slide 3' }
+  ];
 
-  const nextSlide = () => {
+  const nextSlide = useCallback(() => {
     setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
-};
+  }, [slides.length]);
 
-const prevSlide = () => {
+  const prevSlide = () => {
     setCurrentSlide((prevSlide) => (prevSlide - 1 + slides.length) % slides.length);
-};
+  };
+
+  useEffect(() => {
+    const interval = setInterval(nextSlide, 4000); // 4 seconds interval
+
+    return () => clearInterval(interval);
+  }, [nextSlide]);
 
   return (
     <>
@@ -113,6 +126,8 @@ const prevSlide = () => {
       ) : (
         <>
           <MetaData title="FabSurat" />
+
+          <NewsletterPopup />
 
           <div className="slideshow-container">
             <div className="slides" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
@@ -189,84 +204,97 @@ const prevSlide = () => {
           </div>
         </>
       )}
+      
+      <BestSellers/>
 
-      <h2 className="shop">NEW ARRIVALS</h2>
+      <Link to = {"/products"}>
+     <div className="video-sections">
+        <video autoPlay muted loop playsInline>
+          <source src={videoFiles} type="video/mp4" />
+       </video>
+     </div>
+     </Link>
+
+      <LatestCollection/>
+     
+      <Link to = {"/products"}>
+     <div className="video-section">
+        <video autoPlay muted loop playsInline>
+          <source src={videoFile} type="video/mp4" />
+       </video>
+     </div>
+     </Link>
+
+
+      {/* <h2 className="shop">NEW ARRIVALS</h2>
       <div className="shop-section">
         <div className="box">
           <div className="box-content">
-            <h2>Silk</h2>
-            <Link to="/product/661fb9bfc8635135460c6e8f">
+          <Link to="/product/661fb9bfc8635135460c6e8f">
               <div className="box-i1"></div>
-              <p>See more</p>
             </Link>
+            <h2>Silk</h2>           
           </div>
         </div>
         <div className="box">
           <div className="box-content">
-            <h2>Fabric12</h2>
             <Link to="/product/661fc27ebacffa0ac73492f9">
               <div className="box-i2"></div>
-              <p>See more</p>
             </Link>
+            <h2>Fabric12</h2>
           </div>
         </div>
         <div className="box">
-          <div className="box-content">
-            <h2>Fabric13</h2>
+          <div className="box-content">           
             <Link to="/product/661fc3817b484217e77b5176">
               <div className="box-i3"></div>
-              <p>See more</p>
             </Link>
+            <h2>Fabric13</h2>
           </div>
         </div>
         <div className="box">
-          <div className="box-content">
-            <h2>Fabric14</h2>
+          <div className="box-content">          
             <Link to="/product/661fc4001e4226bc07a4805a">
               <div className="box-i4"></div>
-              <p>See more</p>
             </Link>
+            <h2>Fabric14</h2>
           </div>
         </div>
         <div className="box">
-          <div className="box-content">
-            <h2>Fabric15</h2>
+          <div className="box-content">           
             <Link to="/product/661fc650cdd55940cf1e8ec3">
               <div className="box-i5"></div>
-              <p>See more</p>
             </Link>
+            <h2>Fabric15</h2>
           </div>
         </div>
         <div className="box">
           <div className="box-content">
-            <h2>Fabric16</h2>
             <Link to="/product/661fc71c0bc3eb7b9408d89f">
               <div className="box-i6"></div>
-              <p>See more</p>
             </Link>
+            <h2>Fabric16</h2>
           </div>
         </div>
         <div className="box">
           <div className="box-content">
-            <h2>Fabric17</h2>
             <Link to="/product/661fc80ea040cb5b8debc656">
               <div className="box-i7"></div>
-              <p>See more</p>
             </Link>
+            <h2>Fabric17</h2>
           </div>
         </div>
         <div className="box">
           <div className="box-content">
-            <h2>Fabric18</h2>
             <Link to="/product/661fed3301b5cf7b14fc35ff">
               <div className="box-i8"></div>
-              <p>See more</p>
             </Link>
+            <h2>Fabric18</h2>
           </div>
         </div>
-      </div>
+      </div> */}
 
-      <h2 className="shop">BEST SELLERS</h2>
+      {/* <h2 className="shop">BEST SELLERS</h2>
       <div className="shop-section">
         <div className="box">
           <div className="box-content">
@@ -372,7 +400,7 @@ const prevSlide = () => {
              </Link>
               </div>
             </div>
-          </div>
+          </div> */}
          
           <div className="bulk-orders-section">
       <h2>We take <span className="highlight">Bulk Orders</span> too!</h2>
@@ -383,14 +411,17 @@ const prevSlide = () => {
       
       <button className="order-now-button" onClick={handleOrderNowClick}>Order Now</button>
     </div>
+
     <section id="newsletter">
+      
           <div className="newstext">
-            <h3>Sign Up for Newsletters</h3>
+            <h3>Subscribe to receive exciting offers!</h3>
             <p>Get Exclusive Offers On Your Email And Stay Updated</p>
           </div>  
           {message && (
             <p className={`message ${messageType}`}>{message}</p>
           )} 
+
           <form className="form" onSubmit={handleSubmit}>
             <input 
               type="text" 
@@ -401,7 +432,7 @@ const prevSlide = () => {
             <button className="normal" type="submit">Subscribe</button>
           </form>
           
-        </section>
+    </section>
     </>  
   );
 };

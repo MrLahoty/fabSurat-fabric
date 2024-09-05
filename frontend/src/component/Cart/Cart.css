@@ -2,7 +2,7 @@
   margin: auto;
   text-align: center;
   padding: 10vmax;
-  height: 50vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -23,6 +23,11 @@
   cursor: pointer;
   font: 400 1vmax "Roboto";
   text-decoration: none;
+}
+
+.emptyCart > a:hover {
+  background-color: rgb(102, 101, 101);
+  transform: scale(1.1);
 }
 
 .cartPage {
@@ -181,5 +186,22 @@
     padding: 2vmax 4vmax;
     width: 100%;
     font: 300 2vmax "Roboto";
+  }
+
+  .emptyCart {
+    padding: 4vmax;
+  }
+
+  .emptyCart > svg {
+    font-size: 8vmax;
+  }
+
+  .emptyCart > p {
+    font-size: 3vmax;
+  }
+
+  .emptyCart > a {
+    padding: 2vmax 4vmax;
+    font-size: 2vmax;
   }
 }

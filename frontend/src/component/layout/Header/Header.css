@@ -1,7 +1,7 @@
 .speedDial {
   position: fixed;
-  right: 2.5vmax;
-  top: 1.5vmax;
+  right: 1vmax;
+  top: 1.2vmax;
 }
 
 .speedDialIcon {
@@ -21,12 +21,18 @@
   padding-top: 20px;
   font-family: 'Montserrat', sans-serif; /* A modern and attractive font */
   font-size: 23px; /* Adjust font size as needed */
-  color: #272727; /* Text color */
+  color: #222222; /* Text color */
   text-transform: uppercase; /* Uppercase text for emphasis */
   letter-spacing: 2px; /* Increase letter spacing for a modern look */
   overflow: hidden; /* Hide overflow text */
   white-space: nowrap; /* Prevent text from wrapping */
+  font-weight: 500;
 }
+
+.logos:hover{
+  color: #555; /* Text color on hover */
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Subtle glow effect */
+  }
 
 .banner{
  height:600px;
@@ -51,13 +57,14 @@
   width: 45vw;
   display: flex;
   align-items: center;
-  background-color:  #e9f3ff;
-  border-radius: 50px;
+  background-color:  transparent;
+  border-radius: 40px;
   padding: 5px 20px 5px 50px; 
   position: absolute;
   top: 17px;
-  right: 400px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  right: 380px;
+  box-shadow: 0 0px 1.5px rgba(0, 0, 0, 0.1);
+  color: #222222;
 }
 
 .search-container {
@@ -90,44 +97,67 @@
 }
 
 .search-input:hover {
-  color: #eb4034;
+  color: #ABB747;
 }
 
 .search-icon {
-  background: transparent;
+  background-color: #000000; /* Black background similar to the screenshot */
   border: 0;
   outline: 0;
-  color: #222222;
-  font-size: 23px;
+  color: #f1f0f0; /* White color for the search icon */
+  font-size: 18px; /* Decreased font-size slightly to give a lighter appearance */
+  line-height: 1; /* Adjusted line-height for better alignment */
   cursor: pointer;
-  margin-left: 210px; 
+  padding: 13px 30px; /* Add padding for better alignment */
+  transition: all 0.3s ease; /* Smooth transition for hover effect */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 150px; /* Adjusted margin for better positioning */
+  transition: 0.35s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
 .search-icon:hover {
-  color: #eb4034;
+  color: #ABB747; /* Hover effect color */
+  letter-spacing: -0.5px; /* Tighten the spacing for a thinner appearance on hover */
 }
 
+.iconss {
+  display: flex;
+  align-items: center;
+  gap: 1.2vmax; /* Adjust gap between icons */
+  margin-left: 855px;
+}
+
+.cart-icons, .phone-icons {
+  font-size: 1.7vmax;
+  color: #222222;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.phone-icons {
+  transform: scaleX(-1);
+}
+
+
+.cart-icons:hover, .phone-icons:hover {
+  color: #ABB747;
+}
 
 .auth-buttons {
   display: flex;
   align-items: center;
-  gap: 1vmax;
 }
 
 .auth-button {
-  padding: 0.5vmax 1vmax;
-  background-color: #2d752f;
-  color: white;
+  padding: 0.1vmax 0.1vmax;
+  color: #222222;
   border: none;
   border-radius: 5px;
   text-decoration: none;
-  font-size: 1vmax;
-  transition: background-color 0.3s;
-  margin-right: 40px;
-}
-
-.auth-button:hover {
-  background-color: #19311a;
+  font-size: 1.7vmax;
+  margin-right: 100px;
 }
 
 /* Add this to your CSS file */
@@ -135,9 +165,9 @@
   display: flex;
   justify-content: center; /* Center the items */
   gap: 25px; /* Decrease gap between items */
-  padding: 50px 0;
+  padding: 30px 10px;
   background-color: white;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 .category-links a {
@@ -169,30 +199,33 @@
 
   /* Adjusted styles for .speedDial and .speedDialIcon */
   .speedDial {
-    margin-top: 16px; /* Adjust as needed for spacing */
+    margin-top: 27px; /* Adjust as needed for spacing */
+    margin-right: -2px;
+    width: 50px;
+    height: 50px;
   }
 
   /* Your existing styles */
   .logos {
-    margin-top: 12px;
+    margin-top: 13px;
     padding-left: 10px;
     padding-top: 8px;
     font-size: 20px; /* Adjust font size for smaller screens */
     letter-spacing: 0.6px; /* Adjust letter spacing for smaller screens */
-    color: #000000; /* Darker color */
-    font-weight: 400; /* Adjusted font weight to match the screenshot */
+    color: #222222; /* Darker color */
+    font-weight: 500; /* Adjusted font weight to match the screenshot */
   }
   
   .logos p {
-    padding-right: 65px;
+    padding-right: 490px;
     padding-top: 0;
     font-size: 19px; /* Adjust font size for smaller screens */
     letter-spacing: 0.6px; /* Adjust letter spacing for smaller screens */
     white-space: nowrap; /* Prevent text wrapping */
     overflow: hidden; /* Hide overflow text */
     text-align: center; /* Center align text */
-    color: #000000; /* Darker color */
-    font-weight: 400; /* Adjusted font weight to match the screenshot */
+    color: #222222; /* Darker color */
+    font-weight: 500; /* Adjusted font weight to match the screenshot */
   }
   
   .navbar {
@@ -204,6 +237,8 @@
     align-items: center; /* Center align items */
     margin-right: 20px; /* Move the navbar a bit to the left */
     margin-top: 30px;
+    color: #222222;
+    background-color: transparent;
   }
   
   .burger-icon {
@@ -222,14 +257,15 @@
     position: static;
     width: 100%; /* Full width */
     max-width: 100%; /* Adjust as needed */
-    margin: 8px 14% -25px 7px; /* Center align with more margin on the left */
-    padding: 10px; /* Adjust padding as needed */
+    margin: 8px 119% -25px 7px; /* Center align with more margin on the left */
+    padding: 10px 5px; /* Adjust padding as needed */
+    padding-left: 10px;
     box-sizing: border-box; /* Include padding in width calculation */
     display: flex; /* Use flexbox for layout */
     justify-content: space-between; /* Space out children */
     align-items: center; /* Center align items vertically */
     padding-right: -11px;
-    padding-left: 6px;
+    padding-left: 8px;
   }
   
   .search-select {
@@ -248,8 +284,9 @@
   }
   
   .search-icon {
-    font-size: 20px; /* Adjust font size if needed */
-    margin-left: 0; /* Reset margin-left */
+    font-size: 16px; /* Reduce the font size on mobile */
+    padding: 13px 23px; /* Adjust padding for mobile */
+    margin-left: 6px; /* Adjust margin for mobile */
   }
   
   .auth-buttons {
@@ -257,23 +294,36 @@
     justify-content: flex-end; /* Move items to the right end of the container */
     margin-left: auto; /* Push auth buttons to the right */
     order: -1;
-    margin-left: 280px;
-    margin-top: -117px;
+    margin-left: -232px;
+    margin-top: -99px;
   }
   
   .auth-button {
     width: 80%; /* Smaller width */
-    margin-bottom: -105px; /* Adjust space below each button */
+    margin-bottom: -15px; /* Adjust space below each button */
     text-align: center; /* Center align text */
     padding: 9px 9px; /* Increase padding for larger button size */
-    font-size: 0.7rem;
-    background-color: #ABB747;
+    font-size: 1.2rem;
+    margin-left: 200px;
   }
+
+  .iconss {
+    display: flex;
+    align-items: center;
+    gap: 1.2vmax; /* Adjust gap between icons */
+    margin-left: -230px;
+  }
+
+  .cart-icons, .phone-icons {
+    margin-top: -90px;
+    font-size: 1.2rem;
+  }
+
   .category-links {
     justify-content: space-evenly;
     flex-wrap: nowrap;
     overflow-x: auto; /* Enable horizontal scrolling */
-    padding: 25px 0;
+    padding: 2px 0;
   }
 
   .category-links a {

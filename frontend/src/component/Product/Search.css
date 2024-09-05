@@ -43,15 +43,23 @@
 }
 
 @media screen and (max-width: 600px) {
+
+  .searchBox {
+    height: 143vh;
+  }
+
   .searchBox > input[type="text"] {
     width: 100%;
     font: 300 4vw "Roboto";
-    height: 8%;
+    height: 6%; /* Increased height */
+    margin-bottom: 250px;
   }
 
   .searchBox > input[type="submit"] {
-    height: 8%;
+    height: 6%; /* Increased height */
     width: 30%;
     font: 300 4vw "Roboto";
+    padding: 2vmax;
+    margin-bottom: 250px;
   }
 }

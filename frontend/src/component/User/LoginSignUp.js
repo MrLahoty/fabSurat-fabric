@@ -10,7 +10,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { clearErrors, login, register } from "../../actions/userAction";
 import { useAlert } from "react-alert";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
-import { FcGoogle } from "react-icons/fc";
 
 const LoginSignUp = ({ history, location }) => {
   const dispatch = useDispatch();
@@ -109,7 +108,7 @@ const LoginSignUp = ({ history, location }) => {
                   <MailOutlineIcon />
                   <input
                     type="email"
-                    placeholder="Email"
+                    placeholder="Email *"
                     required
                     value={loginEmail}
                     onChange={(e) => setLoginEmail(e.target.value)}
@@ -119,7 +118,7 @@ const LoginSignUp = ({ history, location }) => {
                   <LockOpenIcon />
                   <input
                     type={showLoginPassword ? "text" : "password"}
-                    placeholder="Password"
+                    placeholder="Password *"
                     required
                     value={loginPassword}
                     onChange={(e) => setLoginPassword(e.target.value)}
@@ -137,7 +136,7 @@ const LoginSignUp = ({ history, location }) => {
                 </div>
                 <Link to="/password/forgot">Lost your password?</Link>
                 <input type="submit" value="Login" className="loginBtn" />
-                <div className="login">
+                {/* <div className="login">
                   <button
                     initial={{ y: "-100vh" }}
                     animate={{ y: 0 }}
@@ -146,7 +145,7 @@ const LoginSignUp = ({ history, location }) => {
                     <FcGoogle />
                     Login with Google
                   </button>
-                </div>
+                </div> */}
               </form>
               <form
                 className="signUpForm"
@@ -158,7 +157,7 @@ const LoginSignUp = ({ history, location }) => {
                   <FaceIcon />
                   <input
                     type="text"
-                    placeholder="Name"
+                    placeholder="Name *"
                     required
                     name="name"
                     value={name}
@@ -169,7 +168,7 @@ const LoginSignUp = ({ history, location }) => {
                   <MailOutlineIcon />
                   <input
                     type="email"
-                    placeholder="Email"
+                    placeholder="Email *"
                     required
                     name="email"
                     value={email}
@@ -180,7 +179,7 @@ const LoginSignUp = ({ history, location }) => {
                   <LockOpenIcon />
                   <input
                     type={showRegisterPassword ? "text" : "password"}
-                    placeholder="Password"
+                    placeholder="Password *"
                     required
                     name="password"
                     value={password}
@@ -198,7 +197,7 @@ const LoginSignUp = ({ history, location }) => {
                   </span>
                 </div>
                 <input type="submit" value="Register" className="signUpBtn" />
-                <div className="login1">
+                {/* <div className="login1">
                   <button
                     initial={{ y: "-100vh" }}
                     animate={{ y: 0 }}
@@ -207,7 +206,7 @@ const LoginSignUp = ({ history, location }) => {
                     <FcGoogle />
                     Register with Google
                   </button>
-                </div>
+                </div> */}
               </form>
             </div>
           </div>
