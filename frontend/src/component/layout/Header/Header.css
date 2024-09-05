@@ -265,7 +265,7 @@
     justify-content: space-between; /* Space out children */
     align-items: center; /* Center align items vertically */
     padding-right: -11px;
-    padding-left: 8px;
+    padding-left: 4px;
   }
   
   .search-select {
@@ -279,7 +279,7 @@
     width: calc(100% - 22px); /* Adjust width to fit within container considering the width of .search-select */
     color: #000000;
     font-family: "Playfair Display";
-    padding-left: 5px; /* Add some padding to bring text a bit to the left */
+    padding-left: 2px; /* Add some padding to bring text a bit to the left */
     box-sizing: border-box; /* Ensure padding is included in the width */
   }
   
@@ -295,7 +295,7 @@
     margin-left: auto; /* Push auth buttons to the right */
     order: -1;
     margin-left: -232px;
-    margin-top: -99px;
+    margin-top: -89px;
   }
   
   .auth-button {
@@ -315,7 +315,7 @@
   }
 
   .cart-icons, .phone-icons {
-    margin-top: -90px;
+    margin-top: -80px;
     font-size: 1.2rem;
   }
 
