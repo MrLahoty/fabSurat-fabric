@@ -1,5 +1,10 @@
+.productss{
+  height: 1150px;
+}
+
+/* Heading and general product styles */
 .productsHeading {
-  margin: 2.5vmax auto;
+  margin: 2.8vmax auto;
   width: 15vw;
   border-bottom: 1px solid rgba(0, 0, 0, 0.171);
   padding: 2vmax;
@@ -9,15 +14,192 @@
   font-weight: bold;
 }
 
-.products {
-  display: flex;
-  flex-wrap: wrap;
-  padding : 0 5vmax;
-  justify-content: center;
-  min-height: 30vh;
-  margin-left: 100px;
+/* Toggle button initial state */
+.categories-toggle {
+  background: transparent;
+  border: none;
+  font-size: 1.2vmax;
+  cursor: pointer;
+  transition: transform 0.3s ease; /* Smooth transition for rotation */
 }
 
+/* Rotate the toggle button when active */
+.categories-toggle.rotate {
+  transform: rotate(180deg); /* Rotate 180 degrees */
+}
+
+/* Categories container and toggle button */
+.categories-container {
+  position: fixed; /* Keep it fixed relative to the viewport */
+  top: 7%; /* Adjust as needed */
+  right: 3%; /* Adjust the horizontal position */
+  display: flex;
+  align-items: center;
+  z-index: 1000; /* Ensure it stays above other elements */
+}
+
+.categories-heading {
+  cursor: pointer;
+  font-size: 1.2vmax;
+  font: 700 1.2vmax "Playfair Display", serif; /* Make font bolder */
+  margin-right: 9px;
+  margin-left: 8px;
+  color: whitesmoke; /* Slightly darker color */
+  transition: color 0.3s;
+}
+
+/* Square box styles */
+.square-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #004d40; /* Deep Teal */
+  border: 1px solid #dee2e6; /* Border color for the square box */
+  border-radius: 8px; /* Rounded corners for the square box */
+  padding: 7px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for a 3D effect */
+  transition: background-color 0.3s, transform 0.3s; /* Transition effects */
+}
+
+.square-box:hover {
+  background-color: #00695c; /* Slightly lighter teal on hover */
+  transform: scale(1.05); /* Slightly enlarge the square box on hover */
+}
+
+.categories-toggle {
+  background: transparent;
+  border: none;
+  font-size: 1.2vmax;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.categories-toggle:hover {
+  transform: scale(1.2);
+  color: #ABB747;
+}
+
+/* Dropdown category box styles */
+.categoryBox {
+  list-style: none;
+  position: absolute;
+  top: 10%;
+  right: 3%;
+  background-color: #222222;
+  padding: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out;
+  width: 200px; /* Set a fixed width for better control */
+}
+
+.categoryBox.show {
+  max-height: 10vmax;
+}
+
+.categoryBox.hide {
+  max-height: 0;
+}
+
+.category-link {
+  padding: 10px 20px;
+  font: 800 1.1vmax "playfair display";
+  cursor: pointer;
+  color: #f8f9fa;
+  transition: color 0.3s;
+}
+
+.category-link:hover {
+  color: #ABB747;
+  background-color: #333333; /* Slightly lighter background color on hover */
+}
+
+/* Filter box styles */
+.filterBox {
+  position: fixed;
+  top: 8vmax;
+  left: 3vmax;
+  z-index: 999;
+}
+
+/* Filter Button styles */
+.filterBox > Button {
+  font: 1.1vmax "Playfair Display", serif;
+  background-color: #004d40;
+  color: whitesmoke;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filterBox > Button:hover {
+  background-color: #00695c;
+  transform: scale(1.05);
+}
+
+/* Sliding filter section */
+.filter {
+  position: fixed;
+  top: 12vmax;
+  left: -20vmax;
+  width: 18vmax;
+  height: 400px;
+  background-color: #f8f9fa;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: left 0.4s ease;
+  border-radius: 0 8px 8px 0;
+  z-index: 998;
+}
+
+.filter.show {
+  left: 0;
+}
+
+.price h3,
+.ratings h3 {
+  font-family:  "Playfair Display", serif;
+  color: #000000;
+  font-size: 1.2vmax;
+  margin-bottom: 5px;
+  margin-top: 30px;
+}
+
+.price {
+  margin-bottom: 20px;
+}
+
+.price p{
+  margin-top: 15px;
+}
+
+.ratings {
+  margin-bottom: 10px;
+}
+
+.ratings p{
+  margin-top: 10px;
+}
+
+/* Fieldset border removed */
+.filterBox fieldset {
+  border: none;
+}
+
+/* Product display section */
+.products {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 2 columns of equal width */
+  flex-wrap: wrap;
+  padding: 0 5vmax;
+  justify-content: center;
+  min-height: 30vh;
+  margin-left: 13px;
+}
+
+/* Pagination styles */
 .paginationBox {
   display: flex;
   justify-content: center;
@@ -86,58 +268,99 @@
   background-color: #f8f9fa;
 }
 
-.filterBox {
-  width: 10vmax;
-  position: absolute;
-  top: 14vmax;
-  left: 3.5vmax;
-}
+/* Responsive styles */
+@media screen and (max-width: 700px) {
 
+  .productss{
+    height: 1660px;
+  }
+
+  .categories-container {
+    top:7.1%;
+    right: 1%;
+  }
+
+  /* Dropdown category box styles */
 .categoryBox {
-  padding: 0%;
+  top: 8.2%;
+  right: 3%;
+  width: 150px; /* Set a fixed width for better control */
+  height: 280px;
 }
 
-.category-link {
-  list-style: none;
-  color: rgba(0, 0, 0, 0.959);
-  font: 800 1.1vmax  "playfair display";
-  margin: 0.8vmax;
+.categoryBox.show {
+  max-height: 14.5vmax;
+}
+
+.categoryBox.hide {
+  max-height: 0;
+}
+
+.categories-heading {
   cursor: pointer;
-  transition: all 0.5s;
+  font: 700 1.6vmax "Playfair Display", serif; /* Make font bolder */
+  margin-right: 9px;
+  margin-left: 8px;
+  color: whitesmoke; /* Slightly darker color */
+  transition: color 0.3s;
 }
-
-.category-link:hover {
-  color: tomato;
-}
-
-.filterBox > fieldset {
-  border: 1px solid rgba(0, 0, 0, 0);
-}
-
-@media screen and (max-width: 600px) {
 
   .products {
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* 2 columns of equal width */
-    gap: 8px; /* Adjust gap between rows and columns */
+    gap: 0px; /* Adjust gap between rows and columns */
     width: auto;
-    margin-right: 100px; /* Reduced margin to decrease overall width */
+    margin-right: 90px; /* Reduced margin to decrease overall width */
     padding: 3px; /* Reduced padding for smaller size */
-}
+    margin-left: 110px;
+    margin-top: 30px;
+  }
 
   .productsHeading {
     padding-right: 80px;
-    font-size: 17px;
+    font-size: 18px;
     margin-top: 35px;
     font-weight: bold;
+    width: 21vw;
+    border-bottom: 1.2px solid rgba(0, 0, 0, 0.171);
   }
-  
+
   .filterBox {
     width: 20vmax;
-    position: static;
-    margin: auto;
-    margin-top: 20px;
+    margin-top: 137px;
+    left: 1%;
   }
+
+  .filterBox > Button {
+    width: 95px;
+   height: 29px;
+   font: 700 1.5vmax "Playfair Display", serif; /* Make font bolder */
+  padding: 6px 17px;
+  }
+
+  /* Sliding filter section */
+.filter {
+  position: fixed;
+  top: 35vmax;
+  left: -40vmax;
+  width: 40vmax;
+  height: 340px;
+  background-color: #f8f9fa;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: left 0.4s ease;
+  border-radius: 0 8px 8px 0;
+  z-index: 998;
+}
+
+.price h3,
+.ratings h3 {
+  font-family:  "Playfair Display", serif;
+  color: #000000;
+  font-size: 1.9vmax;
+  margin-bottom: 5px;
+  margin-top: 30px;
+}
 
   .paginationBox {
     padding: 5px;
@@ -153,7 +376,7 @@
   }
 
   .category-link {
-    font: 420 2vmax "Roboto";
+    font: 420 2vmax "playfair display";
     margin-top: 10px;
   }
 
@@ -163,5 +386,4 @@
     padding: 0;
     overflow-x: hidden; /* Prevent horizontal scroll */
   }
-  
 }

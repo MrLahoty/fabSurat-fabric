@@ -7,8 +7,9 @@ import ProductCard from "../Home/ProductCard";
 import Pagination from "react-js-pagination";
 import Slider from "@material-ui/core/Slider";
 import { useAlert } from "react-alert";
-import Typography from "@material-ui/core/Typography";
 import MetaData from "../layout/MetaData";
+import { Button } from "@material-ui/core";
+import { FilterList } from "@material-ui/icons"; // Import filter icon
 
 const categories = [
   "Fabric",
@@ -17,12 +18,13 @@ const categories = [
 
 const Products = ({ match }) => {
   const dispatch = useDispatch();
-
   const alert = useAlert();
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [price, setPrice] = useState([0, 25000]);
+  const [price, setPrice] = useState([0, 10000]);
   const [category, setCategory] = useState("");
+  const [categoriesVisible, setCategoriesVisible] = useState(false);
+  const [showFilters, setShowFilters] = useState(false); // To toggle filters
 
   const [ratings, setRatings] = useState(0);
 
@@ -42,8 +44,15 @@ const Products = ({ match }) => {
   };
 
   const priceHandler = (event, newPrice) => {
-    setPrice(newPrice);
+    if (newPrice !== null) {
+      setPrice(newPrice); // Ensure newPrice is valid before updating
+    }
   };
+
+  const toggleFilters = () => {
+    setShowFilters(!showFilters);
+  };
+  
   let count = filteredProductsCount;
 
   useEffect(() => {
@@ -55,6 +64,15 @@ const Products = ({ match }) => {
     dispatch(getProduct(keyword, currentPage, price, category, ratings));
   }, [dispatch, keyword, currentPage, price, category, ratings, alert, error]);
 
+  const toggleCategories = () => {
+    setCategoriesVisible(!categoriesVisible);
+  };
+
+  const selectCategory = (selectedCategory) => {
+    setCategory(selectedCategory);
+    setCategoriesVisible(false); // Close the dropdown when a category is selected
+  };
+
   return (
     <>
       {loading ? (
@@ -62,7 +80,99 @@ const Products = ({ match }) => {
       ) : (
         <>
           <MetaData title="PRODUCTS -- FABSURAT" />
+          <div className="productss">
           <h2 className="productsHeading">Products</h2>
+
+      <div className="filterBox">
+        {/* Filter Button */}
+    <Button
+    variant="contained"
+    onClick={toggleFilters}
+    className="filterButton"
+    >
+    Filter
+    <FilterList style={{ marginLeft: "4px", fontSize: "14px" }} /> {/* Filter icon */}
+    </Button>
+
+  {/* Sliding filter section */}
+  <div className={`filter ${showFilters ? "show" : ""}`}>
+    <div className="price">
+      <h3>PRICE</h3>
+      {/* Only render the Slider component when price is available */}
+      {price && (
+        <>
+          <Slider
+            value={price}
+            onChange={priceHandler}
+            onChangeCommitted={(event, newValue) => setPrice(newValue)} // Handle final change on interaction commit
+            valueLabelDisplay="auto"
+            aria-labelledby="range-slider"
+            min={0}
+            max={10000}
+          />
+          {/* Display selected price range */}
+          <p>
+            Price: ₹ {price[0].toFixed(2)} — ₹ {price[1].toFixed(2)}
+          </p>
+        </>
+      )}
+    </div>
+
+    <div className="ratings">
+      <h3>RATING</h3>
+      {/* Only render the Slider component when ratings is available */}
+      {ratings !== null && (
+        <>
+          <Slider
+            value={ratings}
+            onChange={(e, newRating) => {
+              if (newRating !== null) {
+                setRatings(newRating);
+              }
+            }}
+            onChangeCommitted={(event, newValue) => setRatings(newValue)} // Handle final change on interaction commit
+            aria-labelledby="continuous-slider"
+            valueLabelDisplay="auto"
+            min={0}
+            max={5}
+          />
+          {/* Display selected rating */}
+          <p>
+            Rating: {ratings}
+          </p>
+        </>
+      )}
+    </div>
+  </div>
+</div>
+
+<div className="categories-container">
+  <div className="square-box">
+    <div className="categories-heading" onClick={toggleCategories}>
+      Categories
+    </div>
+    <button
+      className={`categories-toggle ${categoriesVisible ? "rotate" : ""}`}
+      onClick={toggleCategories}
+    >
+      ▼
+    </button>
+  </div>
+</div>
+
+{/* Toggle the category list */}
+<ul className={`categoryBox ${categoriesVisible ? "show" : "hide"}`}>
+  {categories.map((category) => (
+    <li
+      className="category-link"
+      key={category}
+      onClick={() => selectCategory(category)}
+    >
+      {category}
+     </li>
+    ))}
+  </ul>
+
 
           <div className="products">
             {products &&
@@ -71,45 +181,7 @@ const Products = ({ match }) => {
               ))}
           </div>
 
-          <div className="filterBox">
-            <Typography>Price</Typography>
-            <Slider
-              value={price}
-              onChange={priceHandler}
-              valueLabelDisplay="auto"
-              aria-labelledby="range-slider"
-              min={0}
-              max={25000}
-            />
-
-            <Typography>Categories</Typography>
-            <ul className="categoryBox">
-              {categories.map((category) => (
-                <li
-                  className="category-link"
-                  key={category}
-                  onClick={() => setCategory(category)}
-                >
-                  {category}
-                </li>
-              ))}
-            </ul>
-
-            <fieldset>
-              <Typography component="legend">Ratings Above</Typography>
-              <Slider
-                value={ratings}
-                onChange={(e, newRating) => {
-                  setRatings(newRating);
-                }}
-                aria-labelledby="continuous-slider"
-                valueLabelDisplay="auto"
-                min={0}
-                max={5}
-              />
-            </fieldset>
-          </div>
-          
+         
           {resultPerPage < count && (
             <div className="paginationBox">
               <Pagination
@@ -128,6 +200,7 @@ const Products = ({ match }) => {
               />
             </div>
           )}
+          </div>
         </>
       )}
     </>
