@@ -276,15 +276,15 @@
   }
 
   .categories-container {
-    top:7.3%;
+    top:7.5%;
     right: 1%;
   }
 
   /* Dropdown category box styles */
 .categoryBox {
-  top: 8.6%;
-  right: 3%;
-  width: 160px; /* Set a fixed width for better control */
+  top: 8.8%;
+  right: 1%;
+  width: 180px; /* Set a fixed width for better control */
   height: 280px;
 }
 
@@ -299,8 +299,8 @@
 .categories-heading {
   cursor: pointer;
   font: 700 1.6vmax "Playfair Display", serif; /* Make font bolder */
-  margin-right: 9px;
-  margin-left: 8px;
+  margin-right: 4px;
+  margin-left: 4px;
   color: whitesmoke; /* Slightly darker color */
   transition: color 0.3s;
 }
