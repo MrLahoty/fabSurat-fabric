@@ -27,6 +27,10 @@ const options = {
   link2Text: "Products",
   link3Text: "Login",
   link4Text: "About",
+  link1Font: "Playfair Display, serif", // Add font-family to link1
+  link2Font: "Playfair Display, serif", // Add font-family to link2
+  link3Font: "Playfair Display, serif", // Add font-family to link3
+  link4Font: "Playfair Display, serif", // Add font-family to link4
   link1Url: "/",
   link2Url: "/products",
   link3Url: "/login",
@@ -37,16 +41,25 @@ const options = {
   nav2justifyContent: "flex-end",
   nav3justifyContent: "flex-start",
   nav4justifyContent: "flex-start",
-  link1ColorHover: "#eb4034",
+  link1ColorHover:  "#ABB747",
   link1Margin: "1vmax",
   profileIconUrl: "/login",
   profileIconColor: "rgba(35, 35, 35,0.8)",
+  profileIconSize: "1.7vmax",
+  cartIconSize: "1.8vmax",
+  searchIconSize: "1.8vmax",
   searchIconColor: "rgba(35, 35, 35,0.8)",
   cartIconColor: "rgba(35, 35, 35,0.8)",
-  profileIconColorHover: "#eb4034",
-  searchIconColorHover: "#eb4034",
-  cartIconColorHover: "#eb4034",
-  cartIconMargin: "1vmax",
+  profileIconColorHover: "#ABB747",
+  searchIconColorHover: "#ABB747",
+  cartIconColorHover: "#ABB747",
+  cartIconMargin: "1.5vmax",
+  profileIcon: true,
+  ProfileIconElement: FaUser,  // Profile icon
+  searchIcon: true,
+  SearchIconElement: FaSearch,  // Search icon
+  cartIcon: true,
+  CartIconElement: FaShoppingCart  // Cart icon
 };
 
 const Header = () => {

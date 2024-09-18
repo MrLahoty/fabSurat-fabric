@@ -119,7 +119,8 @@ export const profileReducer = (state = {}, action) => {
       return {
         ...state,
         loading: false,
-        isDeleted: action.payload,
+        isDeleted: action.payload.success,
+        message: action.payload.message,
       };
     case UPDATE_PROFILE_RESET:
     case UPDATE_PASSWORD_RESET:

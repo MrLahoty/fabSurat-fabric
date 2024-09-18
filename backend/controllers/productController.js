@@ -172,11 +172,11 @@ exports.deleteProduct = catchAsyncErrors(async (req, res, next) => {
         await cloudinary.v2.uploader.destroy(product.images[i].public_id);
     }
 
-    await product.remove();
+    await Product.findByIdAndDelete(req.params.id);
 
     res.status(200).json({
         success: true,
-        message: "Product Delete Successfully",
+        message: "Product Deleted Successfully",
     });
 });
 

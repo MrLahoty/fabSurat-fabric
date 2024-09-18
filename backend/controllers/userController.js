@@ -230,7 +230,8 @@ exports.deleteUser = catchAsyncErrors(async (req, res, next) => {
         return next(new ErrorHander(`User does not exist with Id: ${req.params.id}`, 400));
     }
 
-    await user.remove();
+     // Updated to delete the user correctly
+     await User.findByIdAndDelete(req.params.id);
 
     res.status(200).json({
         success: true,

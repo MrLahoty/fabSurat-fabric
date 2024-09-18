@@ -27,6 +27,7 @@ html, body {
   border: 1px solid transparent; /* Transparent border to maintain layout */
   outline: 0.5px solid #cccccc; /* Light gray outline with a thin line */
   outline-offset: 25px; /* Creates space between the box and the outline */
+  margin-top: -70px;
 }
 
 
@@ -251,6 +252,7 @@ html, body {
     height: 95vh;
     border: none; /* Remove border for mobile view */
     outline: none;
+    margin-top: 20px;
   }
 
   .login_signUp_toggle {
@@ -258,7 +260,7 @@ html, body {
   }
 
   .login_signUp_toggle > p {
-    font: 300 1.6vmax "Playfair Display", serif;
+    font: 300 1.8vmax "Playfair Display", serif;
   }
 
   .loginForm,
