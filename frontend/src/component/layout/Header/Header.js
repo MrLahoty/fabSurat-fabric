@@ -66,12 +66,6 @@ const Header = () => {
   const location = useLocation(); 
   const { isAuthenticated } = useSelector((state) => state.user); 
 
-  // const handleCategoryChange = (event) => {
-  //   if (["All Categories", "Fabric", "Readymade"].includes(event.target.value)) {
-  //     window.location.href = "/products";
-  //   }
-  // };
-
   const [placeholderText, setPlaceholderText] = useState('');
   const [textIndex, setTextIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
@@ -113,11 +107,6 @@ const Header = () => {
         </a>
 
         <div className="nav-search">
-          {/* <select className="search-select" onChange={handleCategoryChange}>
-            <option>All Categories</option>
-            <option>Fabric</option>
-            <option>Readymade</option>
-          </select> */}
           <Link to="/search">
             <input placeholder={placeholderText} className="search-input" />
           </Link>

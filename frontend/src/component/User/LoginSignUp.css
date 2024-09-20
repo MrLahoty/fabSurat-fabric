@@ -5,6 +5,59 @@ html, body {
   padding: 0;
 }
 
+/* Container for input and label */
+.inputContainer {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.inputContainer input {
+  width: 100%;
+  padding: 10px 10px 10px 40px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+}
+
+.inputContainer label {
+  position: absolute;
+  left: 50px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #222222;
+  transition: 0.2s all;
+  pointer-events: none; /* Disable label click */
+  font-size: 15px;
+  font-family: "Playfair Display", serif;
+}
+
+.inputContainer input:focus + label,
+.inputContainer input:not(:placeholder-shown) + label {
+  top: -3px;
+  left: 40px;
+  font-size: 14px;
+  color: #222222;
+  background-color: white; /* To create an effect that label moves inside the input */
+  padding: 0 5px;
+}
+
+
+.switchToRegister,
+.switchToLogin {
+  color: #000000;
+  font-size: 17px;
+  font-family: "Playfair Display", serif;
+  cursor: pointer;
+  text-align: center;
+  margin-top: 12px;
+  text-decoration: underline; /* Underline the text */
+}
+
+.switchToRegister:hover,
+.switchToLogin:hover {
+  color: #333; /* Optional: Change color on hover */
+}
+
 .LoginSignUpContainer {
   width: 100vw;
   height: 110vh;
@@ -64,9 +117,9 @@ html, body {
   flex-direction: column;
   align-items: center;
   margin: auto;
-  padding: 2vmax;
+  padding: 0.5vmax;
   justify-content: space-evenly;
-  height: 70%;
+  height: 80%;
   transition: all 0.5s;
 }
 
@@ -92,6 +145,16 @@ html, body {
   border-radius: 4px;
   font: 300 1vmax "Playfair Display", serif;
   outline: none;
+}
+
+.loginForm input:focus,
+.loginForm input:valid{
+  border: 1px solid #000000;
+}
+
+.signUpForm input:focus,
+.signUpForm input:valid{
+  border: 1px solid #000000;
 }
 
 .loginForm > div > svg,
@@ -166,35 +229,10 @@ html, body {
   background-color: rgb(90, 88, 88);
 }
 
-/* .googleBtn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  padding: 0.8vmax;
-  margin-top: 1vmax;
-  background-color: white;
-  color: rgb(0, 0, 0);
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font: 300 0.9vmax "Roboto";
-  outline: none;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.219);
-}
-
-.googleBtn svg {
-  margin-right: 0.5vmax;
-  font-size: 1.7vmax;
-}
-
-.googleBtn:hover {
-  background-color: rgb(211, 210, 210);
-} */
-
 .shiftToLeft {
   transform: translateX(-100%);
 }
+
 .shiftToNeutral {
   transform: translateX(0%);
 }
@@ -238,6 +276,28 @@ html, body {
 }
 
 @media screen and (max-width: 600px) {
+
+  .inputContainer label {
+    position: absolute;
+    left: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #222222;
+    transition: 0.2s all;
+    pointer-events: none; /* Disable label click */
+    font-size: 15px;
+    font-family: "Playfair Display", serif;
+  }
+
+  .inputContainer input:focus + label,
+.inputContainer input:not(:placeholder-shown) + label {
+  top: -3px;
+  left: 30px;
+  font-size: 14px;
+  color: #222222;
+  background-color: white; /* To create an effect that label moves inside the input */
+  padding: 0 5px;
+}
 
   .passwordToggleIcon {
     font-size:large;
@@ -299,12 +359,4 @@ html, body {
     padding: 1.8vmax;
   }
 
-  /* .googleBtn {
-    font: 300 1.8vmax "Roboto";
-    padding: 2.5vmax;
-  }
-
-  .googleBtn svg {
-    font-size: 2.8vmax;
-  } */
 }

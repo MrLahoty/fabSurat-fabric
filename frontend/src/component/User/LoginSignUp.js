@@ -1,4 +1,3 @@
-// LoginSignUp.js
 import React, { useRef, useState, useEffect } from "react";
 import "./LoginSignUp.css";
 import Loader from "../layout/Loader/Loader";
@@ -45,7 +44,6 @@ const LoginSignUp = ({ history, location }) => {
     e.preventDefault();
 
     const myForm = new FormData();
-
     myForm.set("name", name);
     myForm.set("email", email);
     myForm.set("password", password);
@@ -104,48 +102,47 @@ const LoginSignUp = ({ history, location }) => {
                 <button ref={switcherTab}></button>
               </div>
               <form className="loginForm" ref={loginTab} onSubmit={loginSubmit}>
-                <div className="loginEmail">
-                  <MailOutlineIcon />
-                  <input
-                    type="email"
-                    placeholder="Email *"
-                    required
-                    value={loginEmail}
-                    onChange={(e) => setLoginEmail(e.target.value)}
-                  />
-                </div>
-                <div className="loginPassword">
-                  <LockOpenIcon />
-                  <input
-                    type={showLoginPassword ? "text" : "password"}
-                    placeholder="Password *"
-                    required
-                    value={loginPassword}
-                    onChange={(e) => setLoginPassword(e.target.value)}
-                  />
-                  <span
-                    className="passwordToggleIcon"
-                    onClick={() => setShowLoginPassword(!showLoginPassword)}
-                  >
-                    {showLoginPassword ? (
-                      <AiOutlineEyeInvisible />
-                    ) : (
-                      <AiOutlineEye />
-                    )}
-                  </span>
-                </div>
+              <div className="inputContainer loginEmail">
+                <MailOutlineIcon />
+               <input
+                type="email"
+                id="loginEmail"
+                placeholder=" "
+                required
+                value={loginEmail}
+                onChange={(e) => setLoginEmail(e.target.value)}
+               />
+        <label htmlFor="loginEmail">Email *</label>
+      </div>
+  
+       <div className="inputContainer loginPassword">
+                <LockOpenIcon />
+               <input
+               type={showLoginPassword ? "text" : "password"}
+               id="loginPassword"
+               placeholder=" "
+               required
+               value={loginPassword}
+               onChange={(e) => setLoginPassword(e.target.value)}
+              />
+      <label htmlFor="loginPassword">Password *</label>
+      <span
+       className="passwordToggleIcon"
+       onClick={() => setShowLoginPassword(!showLoginPassword)}
+      >
+        {showLoginPassword ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
+      </span>
+    </div>
                 <Link to="/password/forgot">Lost your password?</Link>
                 <input type="submit" value="Login" className="loginBtn" />
-                {/* <div className="login">
-                  <button
-                    initial={{ y: "-100vh" }}
-                    animate={{ y: 0 }}
-                    className="googleBtn"
-                  >
-                    <FcGoogle />
-                    Login with Google
-                  </button>
-                </div> */}
+
+                {/* Create an Account link */}
+                <p
+                  className="switchToRegister"
+                  onClick={(e) => switchTabs(e, "register")}
+                >
+                  Create an account
+                </p>
               </form>
               <form
                 className="signUpForm"
@@ -153,60 +150,62 @@ const LoginSignUp = ({ history, location }) => {
                 encType="multipart/form-data"
                 onSubmit={registerSubmit}
               >
-                <div className="signUpName">
-                  <FaceIcon />
-                  <input
-                    type="text"
-                    placeholder="Name *"
-                    required
-                    name="name"
-                    value={name}
-                    onChange={registerDataChange}
-                  />
-                </div>
-                <div className="signUpEmail">
-                  <MailOutlineIcon />
-                  <input
-                    type="email"
-                    placeholder="Email *"
-                    required
-                    name="email"
-                    value={email}
-                    onChange={registerDataChange}
-                  />
-                </div>
-                <div className="signUpPassword">
-                  <LockOpenIcon />
-                  <input
-                    type={showRegisterPassword ? "text" : "password"}
-                    placeholder="Password *"
-                    required
-                    name="password"
-                    value={password}
-                    onChange={registerDataChange}
-                  />
-                  <span
-                    className="passwordToggleIcon"
-                    onClick={() => setShowRegisterPassword(!showRegisterPassword)}
-                  >
-                    {showRegisterPassword ? (
-                      <AiOutlineEyeInvisible />
-                    ) : (
-                      <AiOutlineEye />
-                    )}
-                  </span>
-                </div>
+                <div className="inputContainer signUpName">
+                <FaceIcon />
+            <input
+            type="text"
+            id="signUpName"
+            placeholder=" "
+            required
+            name="name"
+            value={name}
+            onChange={registerDataChange}
+            />
+          <label htmlFor="signUpName">Name *</label>
+       </div>
+
+        <div className="inputContainer signUpEmail">
+            <MailOutlineIcon />
+         <input
+         type="email"
+         id="signUpEmail"
+         placeholder=" "
+         required
+         name="email"
+         value={email}
+         onChange={registerDataChange}
+        />
+      <label htmlFor="signUpEmail">Email *</label>
+      </div>
+
+      <div className="inputContainer signUpPassword">
+       <LockOpenIcon />
+        <input
+        type={showRegisterPassword ? "text" : "password"}
+        id="signUpPassword"
+        placeholder=" "
+        required
+        name="password"
+        value={password}
+        onChange={registerDataChange}
+       />
+       <label htmlFor="signUpPassword">Password *</label>
+       <span
+        className="passwordToggleIcon"
+        onClick={() => setShowRegisterPassword(!showRegisterPassword)}
+       >
+        {showRegisterPassword ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
+      </span>
+      </div>
                 <input type="submit" value="Register" className="signUpBtn" />
-                {/* <div className="login1">
-                  <button
-                    initial={{ y: "-100vh" }}
-                    animate={{ y: 0 }}
-                    className="googleBtn"
-                  >
-                    <FcGoogle />
-                    Register with Google
-                  </button>
-                </div> */}
+
+                {/* Already has an Account link */}
+                <p
+                  className="switchToLogin"
+                  onClick={(e) => switchTabs(e, "login")}
+                >
+                  Already has an account?
+                </p>
               </form>
             </div>
           </div>
