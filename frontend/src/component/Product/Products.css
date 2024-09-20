@@ -35,7 +35,6 @@
   right: 3%; /* Adjust the horizontal position */
   display: flex;
   align-items: center;
-  z-index: 1000; /* Ensure it stays above other elements */
 }
 
 .categories-heading {
@@ -119,7 +118,6 @@
   position: fixed;
   top: 8vmax;
   left: 3vmax;
-  z-index: 999;
 }
 
 /* Filter Button styles */
