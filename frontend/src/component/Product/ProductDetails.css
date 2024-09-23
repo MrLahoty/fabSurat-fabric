@@ -1,3 +1,22 @@
+.meterssText{
+  font-weight: bold;
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.651);;
+}
+
+.stockInfo {
+  font-size: 18px; /* Adjust the font size */
+  font-weight: bold; /* Make it bold */
+  color: #333; /* Set text color */
+  margin-top: 10px; /* Add space above */
+}
+
+.metersText {
+  font-weight: 300;
+  color: #333; /* Set a different color for the "meters" text */
+  font-style: italic; /* Italicize the "meters" text */
+}
+
 /* Container for size selection */
 .detailsBlock-3 {
   margin-top: 10px;
@@ -209,12 +228,12 @@
 }
 
 .detailsBlock-3 > p {
-  border-top: 1px solid rgba(0, 0, 0, 0.205);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.205);
-  padding: 1vmax 0;
+  border-top: 0.5px solid rgba(0, 0, 0, 0.205);
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.205);
+  padding: 1.2vmax 0;
   color: rgba(0, 0, 0, 0.651);
-  font: 400 1vmax "Roboto";
-  margin: 1vmax 0;
+  font: 600 1.1vmax "Roboto";
+  margin: 0.8vmax 0;
 }
 
 .detailsBlock-4 {
@@ -424,9 +443,9 @@
   }
 
   .detailsBlock-3 > p {
-    padding: 2.5vmax 0;
+    padding: 2.3vmax 0;
     text-align: center;
-    font: 400 2vmax "Roboto";
+    font: 600 2vmax "Roboto";
   }
 
   .detailsBlock-4 {

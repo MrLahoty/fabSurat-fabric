@@ -42,7 +42,7 @@ const ProductDetails = ({ match }) => {
   };
 
   const [quantity, setQuantity] = useState(product.category === "Fabric" ? 2.5 : 1);
-  const [size, setSize] = useState("");
+  const [selectedSizes, setSelectedSizes] = useState([]); // Store multiple selected sizes
   const [open, setOpen] = useState(false);
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState("");
@@ -100,11 +100,11 @@ const ProductDetails = ({ match }) => {
       alert.error("Product is out of stock");
       return;
     }
-    if (product.category === "Readymade" && !size) {
-      alert.error("Please select a size");
+    if (product.category === "Readymade" && selectedSizes.length === 0) {
+      alert.error("Please select at least one size");
       return;
     }
-    dispatch(addItemsToCart(match.params.id, quantity, size));
+    dispatch(addItemsToCart(match.params.id, quantity, selectedSizes));
     alert.success("Item Added To Cart");
   };
 
@@ -122,6 +122,18 @@ const ProductDetails = ({ match }) => {
     dispatch(newReview(myForm));
 
     setOpen(false);
+  };
+
+  const toggleSizeSelection = (sizeOption) => {
+    if (selectedSizes.includes(sizeOption)) {
+      setSelectedSizes(selectedSizes.filter((size) => size !== sizeOption)); // Remove size if already selected
+    } else {
+      setSelectedSizes([...selectedSizes, sizeOption]); // Add size to the selected array
+    }
+  };
+
+  const handleOrderNowClick = () => {
+    window.location.href = "/products";
   };
 
   return (
@@ -182,7 +194,7 @@ const ProductDetails = ({ match }) => {
                 </div>
 
                 <p>
-                  Status:
+                  Status :
                   <b
                     className={
                       product.category === "Fabric"
@@ -203,11 +215,21 @@ const ProductDetails = ({ match }) => {
                       : "InStock"}
                   </b>
                 </p>
+
+              {/* Show stock quantity */}
+          <p className="stockInfo">
+          <span className="meterssText"> Available Stock : </span> 
+               <b style={{ color: product.Stock > 0 ? "green" : "red" }}>
+                {product.Stock}
+              </b>
+               {product.category === "Fabric" && <span className="metersText"> meters</span>}
+          </p>
+
               </div>
 
               {product.category === "Readymade" && (
                 <div className="detailsBlock-3">
-                  <h3>Select Size:</h3>
+                  <h3>Select Size(s):</h3>
                   <div className="sizeOptions">
                     {Object.keys(product.sizes).map(
                       (sizeOption) =>
@@ -215,9 +237,9 @@ const ProductDetails = ({ match }) => {
                           <button
                             key={sizeOption}
                             className={`sizeButton ${
-                              size === sizeOption ? "active" : ""
+                              selectedSizes.includes(sizeOption) ? "active" : ""
                             }`}
-                            onClick={() => setSize(sizeOption)}
+                            onClick={() => toggleSizeSelection(sizeOption)}
                           >
                             {sizeOption}
                           </button>
@@ -294,6 +316,15 @@ const ProductDetails = ({ match }) => {
           ) : (
             <p className="noReviews">No Reviews Yet</p>
           )}
+           <div className="bulk-orders-section">
+      <h2>We take <span className="highlight">Bulk Orders</span> too!</h2>
+      <p>
+        Looking for bulk fabric orders? Look no further! Our extensive selection features <strong>premium quality</strong> materials, including luxurious silks, durable cottons, versatile blends, and more, all designed to elevate your creations. Whether you're crafting elegant evening wear, comfortable everyday outfits, or bespoke home decor, we have the perfect fabric to bring your vision to life. Enjoy exceptional customer service, fast shipping, and competitive prices that make it easy to get exactly what you need. Don't miss out on the opportunity to transform your projects with the best fabrics available—order now and experience the difference!
+      </p>
+      <p><strong>Order now</strong> and get the best fabric for your needs!</p>
+      
+      <button className="order-now-button" onClick={handleOrderNowClick}>Order Now</button>
+    </div>
         </>
       )}
     </>

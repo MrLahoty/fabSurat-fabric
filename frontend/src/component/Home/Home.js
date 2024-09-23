@@ -12,7 +12,6 @@ import axios from 'axios';
 import videoFile from '../../images/video.mp4';
 import videoFiles from '../../images/video1.mp4';
 
-
 import MakeInIndia from "../../images/india_map.webp";
 import Quality from "../../images/ThumbsUp.png";
 import COD from "../../images/cash_on_delivery.png";
@@ -27,7 +26,6 @@ import Image3 from '../../images/fabss.avif';
 import NewsletterPopup from './NewsletterPopup';
 import LatestCollection from './LatestCollection'; // Import the new component
 import BestSellers from './BestSellers'; 
-
 
 const Home = () => {
 
