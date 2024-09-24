@@ -1,0 +1,205 @@
+.happy-customers-section {
+    text-align: center;
+    padding: 20px;
+}
+
+.happy-customers-heading {
+    font-size: 27px;
+    margin-bottom: 50px;
+    font-weight: bold;
+    position: relative; /* Position relative to allow absolute positioning of lines */
+    font-family: "Playfair Display", serif;
+}
+
+.happy-customers-heading::before,
+.happy-customers-heading::after {
+    content: ""; /* Necessary to make the pseudo-elements visible */
+    position: absolute; /* Position them absolutely */
+    top: 50%; /* Center them vertically */
+    width: 80px; /* Width of the lines */
+    height: 3px; /* Height of the lines */
+    background-color: #000000; /* Color of the lines */
+}
+
+.happy-customers-heading::before {
+    left: 470px; /* Position the left line */
+    margin-top: 1px; /* Center vertically */
+}
+
+.happy-customers-heading::after {
+    right: 470px; /* Position the right line */
+    margin-top: 1px; /* Center vertically */
+}
+
+.happy-customers-container {
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden; /* Hide overflowing items */
+    position: relative; /* For absolute positioning of items */
+    gap: 20px; /* Add gap between boxes */
+}
+
+.customer-box {
+    flex: 0 0 calc(33.333% - 20px); /* Adjust box size */
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px; /* Increased padding for a taller box */
+    transition: transform 0.3s, box-shadow 0.3s; /* Added shadow transition */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space between children */
+    align-items: flex-start; /* Align items to the start */
+    min-height: 400px; /* Set a minimum height for better appearance */
+    position: relative; /* For the child elements */
+}
+
+.customer-box:hover {
+    transform: translateY(-5px); /* Slight lift effect on hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Increased shadow on hover */
+}
+
+.customer-info {
+    flex: 1; /* Take the remaining space */
+    text-align: left; /* Align text to the left */
+}
+
+.customer-info h3 {
+    font-size: 18px; /* Smaller font size for the name */
+    margin-bottom: 15px; /* Space between name and rating */
+    margin-top: 15px;
+}
+
+.customer-ratings {
+    font-size:small; /* Font size for rating */
+    margin-top: 3px;
+}
+
+.comment {
+    font-family: Jost, sans-serif;
+    font-size: 15.5px; /* Smaller font size for the comment */
+    margin-top: 20px; /* Space above comments */
+    line-height: 1.5; /* Improve readability with line height */
+    max-height: 70px; /* Limit the height */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: max-height 0.3s ease;
+}
+
+.show-full {
+    max-height: none; /* Show full content */
+  }
+  
+  .show-less {
+    max-height: 90px; /* Limit content again */
+  }
+  
+  .show-more-btn {
+    background-color: transparent;
+    border: none;
+    color: rgb(96, 96, 146);
+    cursor: pointer;
+    padding: 5px 0;
+    font-size: 14px;
+    text-decoration: underline;
+  }
+
+.customer-box img {
+    max-width: 40%; /* Adjust width of the image */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 4px;
+    margin-left: 10px; /* Space between image and text */
+}
+
+.dots-container {
+    margin-top: 45px;
+    margin-bottom: 30px;
+}
+
+.dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #ccc;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.active-dot {
+    background-color: #333;
+}
+
+.customer-text {
+    position: absolute; /* Set position to absolute */
+    bottom: 15px; /* Adjust as needed */
+    left: 20px; /* Align to the left */
+    font-size: 16px; /* Font size for the Customer text */
+    color: #333; /* Text color */
+    margin: 0; /* Remove default margin */
+    border-top: 0.1px solid #aaa; /* Add a lighter top border */
+    width: 400px;
+    padding-top: 6px; /* Add some padding for spacing */
+}
+
+/* Media Query for Mobile Devices */
+@media (max-width: 768px) {
+    .happy-customers-container {
+        flex-direction: row; /* Stack the customer boxes vertically */
+        align-items: center; /* Center align the boxes */
+    }
+
+    .customer-box {
+        flex: 0 0 100%; /* Full width for customer boxes */
+        margin-bottom: 10px; /* Space between boxes */
+        min-height: 430px; /* Adjust minimum height for mobile */
+        background-color: #eaeaea;
+    }
+
+    .happy-customers-heading {
+        font-size: 22px; /* Adjust heading size for mobile */
+        font-family: "Playfair Display", serif;
+        margin-bottom: 40px;
+    }
+
+    .happy-customers-heading::before,
+    .happy-customers-heading::after {
+        width: 40px; /* Adjust width of the lines for mobile */
+    }
+
+    .happy-customers-heading::before {
+        left: 20px; /* Position the left line */
+        margin-top: -1.5px; /* Center vertically */
+    }
+
+    .happy-customers-heading::after {
+        right: 20px; /* Position the right line */
+        margin-top: -1.5px; /* Center vertically */
+    }
+
+    .customer-box img {
+        max-width: 40%; /* Adjust image width for mobile */
+        margin-left: 0; /* Remove margin */
+        margin-top: 13px;
+    }
+
+    .customer-text {
+        position: absolute; /* Set position to absolute */
+        bottom: 15px; /* Adjust as needed */
+        left: 20px; /* Align to the left */
+        font-size: 16px; /* Font size for the Customer text */
+        color: #333; /* Text color */
+        margin: 0; /* Remove default margin */
+        border-top: 0.1px solid #aaa; /* Add a lighter top border */
+        width: 300px;
+        padding-top: 6px; /* Add some padding for spacing */
+    }
+
+    .dots-container {
+        margin-top: 20px;
+        margin-bottom: 30px;
+    }
+
+    .show-less {
+        max-height: 115px; /* Limit content again */
+      }
+}

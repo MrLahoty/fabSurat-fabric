@@ -26,6 +26,7 @@ import Image3 from '../../images/fabss.avif';
 import NewsletterPopup from './NewsletterPopup';
 import LatestCollection from './LatestCollection'; // Import the new component
 import BestSellers from './BestSellers'; 
+import HappyCustomers from './HappyCustomers'; // Add this import
 
 const Home = () => {
 
@@ -214,6 +215,8 @@ const Home = () => {
      </Link>
 
       <LatestCollection/>
+
+      <HappyCustomers /> 
      
       <Link to = {"/products"}>
      <div className="video-section">

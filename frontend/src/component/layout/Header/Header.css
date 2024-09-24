@@ -131,6 +131,75 @@
   color: #ABB747;
 }
 
+/* Icon container styling */
+.iconss {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.phone-icons, .cart-icons, .auth-button {
+  font-size: 24px;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.phone-icons:hover, .cart-icons:hover, .auth-button:hover {
+  color: #555; /* Slightly changes the icon color when hovering */
+}
+
+/* Custom hover effect with a triangle tooltip */
+a[data-title]:hover::after {
+  content: attr(data-title);
+  position: absolute;
+  background-color: #000;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  top: 45px;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  font-size: 14px;
+  white-space: nowrap;
+  z-index: 10;
+  opacity: 0;
+  transition: all 0.3s ease;
+  animation: fadeInSlideUp 0.3s forwards;
+}
+
+/* Triangle shape */
+a[data-title]:hover::before {
+  content: "";
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid #000;
+  z-index: 9;
+  opacity: 0;
+  animation: fadeInSlideUp 0.3s forwards;
+}
+
+/* Positioning */
+a[data-title]:hover {
+  position: relative;
+}
+
+/* Fade-in and slide-up animation */
+@keyframes fadeInSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0px);
+  }
+}
+
 .auth-buttons {
   display: flex;
   align-items: center;

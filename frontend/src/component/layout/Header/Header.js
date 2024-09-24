@@ -118,28 +118,28 @@ const Header = () => {
         </div>
 
         <div className="iconss">          
-          <a href="tel:+917003798513">
-            <div className="phone-icons">
-              <FaPhone />
-            </div>
-          </a>
-          <Link to="/cart">
-            <div className="cart-icons">
-              <FaShoppingCart />
-            </div>
-          </Link>
-        </div>
+  <a href="tel:+917003798513" data-title="Call Us">
+    <div className="phone-icons">
+      <FaPhone />
+    </div>
+  </a>
+  <Link to="/cart" data-title="My Cart">
+    <div className="cart-icons">
+      <FaShoppingCart />
+    </div>
+  </Link>
+</div>
 
-        <div>
-          {!isAuthenticated && (
-            <div className="auth-buttons">
-              <Link to="/login" className="auth-button">
-              <FaUser />
-              </Link>
-            </div>
-          )}
-        </div>
-      </div>
+<div>
+  {!isAuthenticated && (
+    <div className="auth-buttons">
+      <Link to="/login" className="auth-button" data-title="Sign In">
+        <FaUser />
+      </Link>
+    </div>
+  )}
+</div>
+</div>
 
       {location.pathname === "/" && (
         <div className="category-links">
