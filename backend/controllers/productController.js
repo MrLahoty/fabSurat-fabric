@@ -7,30 +7,30 @@ const cloudinary = require("cloudinary");
 // Create Product -- Admin
 exports.createProduct = catchAsyncErrors(async (req, res, next) => {
     let images = [];
-  
+
     if (typeof req.body.images === "string") {
         images.push(req.body.images);
     } else {
         images = req.body.images;
     }
-  
+
     const imagesLinks = [];
-  
+
     for (let i = 0; i < images.length; i++) {
         const result = await cloudinary.v2.uploader.upload(images[i], {
             folder: "products",
         });
-  
+
         imagesLinks.push({
             public_id: result.public_id,
             url: result.secure_url,
         });
     }
-  
+
     req.body.images = imagesLinks;
     req.body.user = req.user.id;
 
-    // Parse sizes
+    // Parse sizes if present
     if (req.body.sizes) {
         try {
             req.body.sizes = JSON.parse(req.body.sizes); // Ensure sizes is an object
@@ -40,9 +40,19 @@ exports.createProduct = catchAsyncErrors(async (req, res, next) => {
     } else {
         req.body.sizes = {}; // Default to an empty object if sizes are not provided
     }
-  
+
+    // Handle fabric-specific fields
+    if (req.body.category === "Fabric") {
+        req.body.fabricType = req.body.fabricType || null;
+        req.body.work = req.body.work || null;
+        req.body.width = req.body.width || null;
+        req.body.color = req.body.color || null;
+        req.body.careInstructions = req.body.careInstructions || null;
+        req.body.disclaimer = req.body.disclaimer || null;
+    }
+
     const product = await Product.create(req.body);
-  
+
     res.status(201).json({
         success: true,
         product,
@@ -138,13 +148,23 @@ exports.updateProduct = catchAsyncErrors(async (req, res, next) => {
         req.body.images = imagesLinks;
     }
 
-    // Parse sizes
+    // Parse sizes if present
     if (req.body.sizes) {
         try {
             req.body.sizes = JSON.parse(req.body.sizes); // Ensure sizes is an object
         } catch (error) {
             return next(new ErrorHander("Invalid sizes format", 400));
         }
+    }
+
+    // Handle fabric-specific fields
+    if (req.body.category === "Fabric") {
+        req.body.fabricType = req.body.fabricType || product.fabricType;
+        req.body.work = req.body.work || product.work;
+        req.body.width = req.body.width || product.width;
+        req.body.color = req.body.color || product.color;
+        req.body.careInstructions = req.body.careInstructions || product.careInstructions;
+        req.body.disclaimer = req.body.disclaimer || product.disclaimer;
     }
 
     product = await Product.findByIdAndUpdate(req.params.id, req.body, {

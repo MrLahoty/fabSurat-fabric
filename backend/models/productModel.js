@@ -41,6 +41,30 @@ const productScheme = mongoose.Schema({
         maxLength: [4, "Stock cannot exceed 4 characters"],
         default: 1,
     },
+    fabricType: {
+        type: String,
+        default: null,
+    },
+    work: {
+        type: String,
+        default: null,
+    },
+    width: {
+        type: String,
+        default: null,
+    },
+    color: {
+        type: String,
+        default: null,
+    },
+    careInstructions: {
+        type: String,
+        default: null,
+    },
+    disclaimer: {
+        type: String,
+        default: null,
+    },
     numOfReviews: {
         type: Number,
         default: 0,

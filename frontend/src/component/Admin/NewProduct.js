@@ -27,6 +27,14 @@ const NewProduct = ({ history }) => {
   const [images, setImages] = useState([]);
   const [imagesPreview, setImagesPreview] = useState([]);
 
+  // New fields for fabric-related details
+  const [fabricType, setFabricType] = useState("");
+  const [work, setWork] = useState("");
+  const [width, setWidth] = useState("");
+  const [color, setColor] = useState("");
+  const [careInstructions, setCareInstructions] = useState("");
+  const [disclaimer, setDisclaimer] = useState("");
+
   // Sizes state
   const [sizes, setSizes] = useState({
     M: false,
@@ -60,6 +68,15 @@ const NewProduct = ({ history }) => {
     myForm.set("description", description);
     myForm.set("category", category);
     myForm.set("Stock", Stock);
+
+    if (category === "Fabric") {
+      myForm.set("fabricType", fabricType);
+      myForm.set("work", work);
+      myForm.set("width", width);
+      myForm.set("color", color);
+      myForm.set("careInstructions", careInstructions);
+      myForm.set("disclaimer", disclaimer);
+    }
 
     // Add selected sizes
     myForm.set("sizes", JSON.stringify(sizes));
@@ -171,6 +188,57 @@ const NewProduct = ({ history }) => {
                   ))}
                 </div>
               </div>
+            )}
+
+            {category === "Fabric" && (
+              <>
+                <div>
+                  <input
+                    type="text"
+                    placeholder="Fabric Type"
+                    value={fabricType}
+                    onChange={(e) => setFabricType(e.target.value)}
+                  />
+                </div>
+                <div>
+                  <input
+                    type="text"
+                    placeholder="Work"
+                    value={work}
+                    onChange={(e) => setWork(e.target.value)}
+                  />
+                </div>
+                <div>
+                  <input
+                    type="text"
+                    placeholder="Width"
+                    value={width}
+                    onChange={(e) => setWidth(e.target.value)}
+                  />
+                </div>
+                <div>
+                  <input
+                    type="text"
+                    placeholder="Color"
+                    value={color}
+                    onChange={(e) => setColor(e.target.value)}
+                  />
+                </div>
+                <div>
+                  <textarea
+                    placeholder="Care Instructions"
+                    value={careInstructions}
+                    onChange={(e) => setCareInstructions(e.target.value)}
+                  />
+                </div>
+                <div>
+                  <textarea
+                    placeholder="Disclaimer"
+                    value={disclaimer}
+                    onChange={(e) => setDisclaimer(e.target.value)}
+                  />
+                </div>
+              </>
             )}
 
             <div>

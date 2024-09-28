@@ -13,7 +13,6 @@ import BlousesImage from "../../../images/box4.jpg";
 import JacketImage from "../../../images/box5.jpg";
 import MensWearImage from "../../../images/box6.jpg";
 import Fabric from "../../../images/box6.jpg";
-import Cotton from "../../../images/box1.jpg";
 
 const options = {
   burgerColorHover: "#eb4034",
@@ -74,6 +73,20 @@ const Header = () => {
     'Search for Fabrics...',
     'Search for Readymades...',
   ], []);
+
+  const [isDesktop, setIsDesktop] = useState(window.innerWidth > 768); // Define state for desktop check
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth > 768); // Update state on resize
+    };
+
+    window.addEventListener('resize', handleResize); // Add event listener for window resize
+    handleResize(); // Call initially to set the state
+
+    return () => window.removeEventListener('resize', handleResize); // Cleanup listener on component unmount
+  }, []);
+  
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -141,38 +154,116 @@ const Header = () => {
 </div>
 </div>
 
-      {location.pathname === "/" && (
-        <div className="category-links">
-          <a href="/products">
-            <img src={FabricsImage} alt="Fabrics" />
-            <span>Fabrics</span>
-          </a>
-          <a href="/products">
-            <img src={SareesImage} alt="Kurti" />
-            <span>Readymade</span>
-          </a>
-          <a href="/products">
-            <img src={BlousesImage} alt="Blouses" />
-            <span>Blouses</span>
-          </a>
-          <a href="/products">
-            <img src={JacketImage} alt="Jacket" />
-            <span>Jacket</span>
-          </a>
-          <a href="/products">
-            <img src={MensWearImage} alt="Men's Wear" />
-            <span>Men's Wear</span>
-          </a>
-          <a href="/products">
-            <img src={Fabric} alt="Fabric" />
-            <span>Fabric</span>
-          </a>
-          <a href="/products">
-            <img src={Cotton} alt="Cotton" />
-            <span>Cotton</span>
-          </a>
+{location.pathname === "/" && (
+  <div className="category-links">
+    {isDesktop ? ( // Desktop view
+      <>
+        <div className="dropdown">
+          <button className="dropbtn">
+          POSITION PRINTS <span className="arrow"></span>
+          </button>
+          <div className="dropdown-content">
+            <a href="/fabric-sale">Muslin Position Prints</a>
+            <a href="/jacket-sale">Chinon Position Prints</a>
+            <a href="/blouse-sale">Georgette Position Prints</a>
+            <a href="/saree-sale">Opada Position Prints</a>
+            <a href="/saree-sale">Dola Silk Jacquard Position Prints</a>
+            <a href="/saree-sale">Organza Position Prints</a>
+            <a href="/saree-sale">Tissue Zari Position Prints</a>
+            <a href="/saree-sale">Crepe Position Prints</a>
+          </div>
         </div>
-      )}
+        <div className="dropdown">
+          <button className="dropbtn">
+          EMBROIDERED <span className="arrow"></span>
+          </button>
+          <div className="dropdown-content">
+            <a href="/fabric-sale">Chinon Embroidery</a>
+            <a href="/jacket-sale">Faux Georgette Embroidery</a>
+            <a href="/blouse-sale">Viscose Georgette Embroider</a>
+            <a href="/saree-sale">Silk Embroidery</a>
+            <a href="/saree-sale">Rayon Embroidery</a>
+            <a href="/saree-sale">Velvet Embroidery</a>
+            <a href="/saree-sale">Organza Embroidery</a>
+            <a href="/saree-sale">Cotton Embroidery</a>
+            <a href="/saree-sale">Shimmer Embroidery</a>
+          </div>
+        </div>
+        <div className="dropdown">
+          <button className="dropbtn">
+          PRINTS <span className="arrow"></span>
+          </button>
+          <div className="dropdown-content">
+            <a href="/fabric-sale">Satin Prints</a>
+            <a href="/jacket-sale">Georgette Prints</a>
+            <a href="/blouse-sale">Muslin Prints</a>
+            <a href="/saree-sale">Rayon Prints</a>
+            <a href="/saree-sale">Velvet Prints</a>
+            <a href="/saree-sale">Sugarcane Prints</a>
+            <a href="/saree-sale">Chinon Prints</a>
+          </div>
+        </div>
+        <div className="dropdown">
+          <button className="dropbtn">
+            PLAIN <span className="arrow"></span>
+          </button>
+          <div className="dropdown-content">
+            <a href="/fabric-sale">Dyeable</a>
+            <a href="/jacket-sale">Pure/Viscose</a>
+            <a href="/blouse-sale">Semi Pure</a>
+          </div>
+        </div>
+        <div className="dropdown">
+          <button className="dropbtn">
+          READYMADE <span className="arrow"></span>
+          </button>
+          <div className="dropdown-content">
+            <a href="/fabric-sale">Fabric On Sale</a>
+            <a href="/jacket-sale">Jacket On Sale</a>
+            <a href="/blouse-sale">Blouse On Sale</a>
+            <a href="/saree-sale">Saree On Sale</a>
+          </div>
+        </div>
+        <div className="dropdown">
+          <button className="dropbtn">
+            SALE <span className="arrow"></span>
+          </button>
+          <div className="dropdown-content">
+            <a href="/fabric-sale">Fabric On Sale</a>
+            <a href="/jacket-sale">Readymade On Sale</a>
+          </div>
+        </div>
+      </>
+    ) : ( // Mobile view (circle-style links)
+      <>
+        <a href="/products">
+          <img src={FabricsImage} alt="Position Prints" />
+          <span>Position Prints</span>
+        </a>
+        <a href="/products">
+          <img src={SareesImage} alt="Embroidered" />
+          <span>Embroidered</span>
+        </a>
+        <a href="/products">
+          <img src={BlousesImage} alt="Prints" />
+          <span>Prints</span>
+        </a>
+        <a href="/products">
+          <img src={JacketImage} alt="Plain" />
+          <span>Plain</span>
+        </a>
+        <a href="/products">
+          <img src={MensWearImage} alt="Readymade" />
+          <span>Readymade</span>
+        </a>
+        <a href="/products">
+          <img src={Fabric} alt="Sale" />
+          <span>Sale</span>
+        </a>
+      </>
+    )}
+  </div>
+)}
     </div>
   );
 };

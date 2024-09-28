@@ -28,6 +28,12 @@ import VerifiedUserIcon from "@material-ui/icons/VerifiedUser";
 import ReplayIcon from "@material-ui/icons/Replay";
 
 const ProductDetails = ({ match }) => {
+  const [isOpen, setIsOpen] = useState(false); // State to manage toggle
+
+  // Function to handle toggle
+  const handleToggle = () => {
+    setIsOpen(prev => !prev);
+  };
   const dispatch = useDispatch();
   const alert = useAlert();
 
@@ -144,20 +150,33 @@ const ProductDetails = ({ match }) => {
         <>
           <MetaData title={`${product.name} -- FabSurat`} />
           <div className="ProductDetails">
-            <div>
-              <Carousel>
-                {product.images &&
-                  product.images.map((item, i) => (
-                    <img
-                      className="CarouselImage"
-                      key={i}
-                      src={item.url}
-                      alt={`${i} Slide`}
-                    />
-                  ))}
-              </Carousel>
+           <div>
+            <Carousel>
+               {product.images &&
+                 product.images.map((item, i) => (
+                   <img
+                     className="CarouselImage"
+                     key={i}
+                     src={item.url}
+                     alt={`${i} Slide`}
+                   />
+                 ))}
+           </Carousel>
+  
+            {/* Thumbnails section */}
+            <div className="ThumbnailContainer">
+              {product.images &&
+                product.images.map((item, i) => (
+                  <img
+                    className="ThumbnailImage"
+                    key={i}
+                    src={item.url}
+                    alt={`Thumbnail ${i}`}
+                  />
+                ))}
             </div>
-
+            </div>
+  
             <div>
               <div className="detailsBlock-1">
                 <h2>{product.name}</h2>
@@ -249,9 +268,29 @@ const ProductDetails = ({ match }) => {
                 </div>
               )}
 
-              <div className="detailsBlock-4">
-                Description : <p>{product.description}</p>
-              </div>
+       <div className="detailsBlock-4" onClick={handleToggle}> {/* Move onClick here */}
+        <span>Description</span>
+        <button className="toggle-button">
+          {isOpen ? '-' : '+'}
+        </button>
+      </div>
+
+      {isOpen && (
+        <div className="details-content">
+          Description - <p>{product.description}</p>
+
+          {product.category === "Fabric" && (
+            <div className="detailsBlocks-3">
+              Fabric Type - <p>{product.fabricType}</p>
+             Work -  <p>{product.work}</p>
+              Width - <p>{product.width}</p>
+              Color - <p>{product.color}</p>
+              Care Instruction - <p>{product.careInstructions}</p>
+              Disclaimer - <p>{product.disclaimer}</p>
+            </div>
+          )}
+        </div>
+      )}
 
               <div className="additionalInfo">
                 <div className="infoItem">

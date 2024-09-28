@@ -11,6 +11,17 @@
   left: 0;
 }
 
+.search-logo {
+  width: 220px;
+  height: auto;
+  padding-right: 80px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease; /* Smooth transitions */
+}
+
+.search-logo:hover {
+  transform: scale(1.05); /* Slight grow on hover */
+}
+
 .searchBox > input[type="text"] {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.274);
   background-color: white;
@@ -36,6 +47,7 @@
   cursor: pointer;
   color: white;
   transition: all 0.5s;
+  margin-right: 30px;
 }
 
 .searchBox > input[type="submit"]:hover {
@@ -44,22 +56,51 @@
 
 @media screen and (max-width: 600px) {
 
+  .search-logo {
+    width: 290px;
+    height: auto;
+    margin: 20px auto; /* Center the logo horizontally */
+    padding-bottom: 130px; /* Adjust for spacing from the top */
+    display: block;
+    padding-left: 80px;
+  }
+
   .searchBox {
-    height: 143vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 150vh; /* Increased height for better centering */
+    padding: 20px;
   }
 
   .searchBox > input[type="text"] {
-    width: 100%;
-    font: 300 4.5vw "Playfair Display", serif;
-    height: 6%; /* Increased height */
-    margin-bottom: 250px;
+    width: 105%; /* Increased width for better visibility */
+    font: 300 5vw "Playfair Display", serif;
+    height: 5.5%; /* Adjusted for better appearance */
+    padding: 10px;
+    margin-bottom: 20px; /* Add margin for spacing */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.274);
+    background-color: white;
+    border: none;
+    color: rgba(0, 0, 0, 0.637);
+    border-radius: 5px;
   }
 
   .searchBox > input[type="submit"] {
-    height: 6%; /* Increased height */
-    width: 30%;
+    height: 5.5%;
+    width: 50%; /* Wider submit button */
     font: 400 4.5vw "Playfair Display", serif;
-    padding: 2vmax;
-    margin-bottom: 250px;
+    padding: 1.5vmax;
+    margin-bottom: 550px;
+    background-color: #222222;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .searchBox > input[type="submit"]:hover {
+    background-color: rgb(55, 97, 214);
   }
 }

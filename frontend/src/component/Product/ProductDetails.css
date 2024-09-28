@@ -134,6 +134,59 @@
 .CarouselImage {
   width: 37vmax;
   margin-bottom: 20px;
+  transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out; /* Smooth transition for hover effects */
+}
+
+.CarouselImage:hover {
+  transform: scale(1.1) rotate(1deg); /* Slight rotation and zoom effect */
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3); /* Add a soft shadow */
+  cursor: pointer;
+}
+
+/* Container for the thumbnails */
+.ThumbnailContainer {
+  display: flex;
+  justify-content: center;
+  gap: 12px; /* Adjust gap between thumbnails */
+  margin-top: 15px;
+  animation: fadeIn 1s ease-in-out; /* Add a fade-in animation */
+}
+
+/* Styling for the thumbnail images */
+.ThumbnailImage {
+  width: 10vmax;
+  height: auto;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: border 0.3s ease, transform 0.3s ease;
+  opacity: 0.8; /* Slight transparency for a sleek look */
+}
+
+/* On hover, add a border and slight zoom effect */
+.ThumbnailImage:hover {
+  border: 0.3px solid #ABB427; /* Add a green border on hover */
+  transform: scale(1.05); /* Increase zoom slightly */
+  opacity: 1; /* Make thumbnail fully opaque */
+}
+
+/* Animation for the fade-in effect */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px); /* Start from below */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* Return to original position */
+  }
+}
+
+.MuiSvgIcon-root.Carousel-indicatorIcon-17{
+  font-size: 12px;
+}
+
+.MuiSvgIcon-root.Carousel-indicatorIcon-17 :hover{
+  color: #4caf50;
 }
 
 .react-material-ui-carousel__arrow {
@@ -146,7 +199,6 @@
 .react-material-ui-carousel__arrow:hover {
   background-color: rgba(0, 0, 0, 0.8); /* Darken the background color on hover */
 }
-
 
 .detailsBlock-1 > h2 {
   color: rgb(54, 54, 54);
@@ -236,15 +288,73 @@
   margin: 0.8vmax 0;
 }
 
+/* Container for the description block */
 .detailsBlock-4 {
-  margin-top: 15px;
+  background-color: #222222;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex; /* Use flexbox for alignment */
+  justify-content: space-between; /* Space between elements */
+  align-items: center; /* Center vertically */
+  width: 90%; /* Adjust width as necessary */
+  transition: background-color 0.3s ease; /* Smooth background transition */
+  margin-top: 20px;
+}
+
+/* Hover effect for the description block */
+.detailsBlock-4:hover {
+  background-color: #333333; /* Slightly lighter background on hover */
+}
+
+/* Button styling */
+.toggle-button {
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+/* Hover effect for the button */
+.toggle-button:hover {
+  background-color: white; /* White background on hover */
+  color: #222222; /* Dark text on white background */
+}
+
+/* Content styling */
+.details-content {
+  margin-top: 20px; /* Optional margin for spacing */
   color: rgba(0, 0, 0, 0.897);
   font: 550 1.2vmax sans-serif;
 }
 
-.detailsBlock-4 > p {
-  color: rgba(0, 0, 0, 0.534);
-  font: 450 1.2vmax sans-serif;
+.details-content p {
+  color: rgb(54, 54, 54);
+  font: 500 1.2vmax sans-serif;
+  margin-top: 10px;
+}
+
+/* Additional styling for the details of the Fabric category */
+.detailsBlocks-3 {
+  margin-top: 20px; /* Optional margin for spacing */
+  color: rgba(0, 0, 0, 0.897);
+  font: 550 1.2vmax sans-serif;
+}
+
+/* Optional h3 styling for better visibility */
+.detailsBlocks-3 p {
+  color: rgb(54, 54, 54);
+  font: 500 1.2vmax sans-serif;
+  margin-top: 10px;
+}
+
+.detailsBlock-4 span{
+  margin-left: 10px;
 }
 
 .submitReview {
@@ -322,6 +432,54 @@
 
 @media screen and (max-width: 768px) {
 
+  /* Content styling */
+.details-content {
+  margin-top: 20px; /* Optional margin for spacing */
+  color: rgba(0, 0, 0, 0.897);
+  font: 550 1.7vmax sans-serif;
+}
+
+.details-content p {
+  color: rgb(54, 54, 54);
+  font: 500 1.6vmax sans-serif;
+  margin-top: 10px;
+}
+
+/* Additional styling for the details of the Fabric category */
+.detailsBlocks-3 {
+  margin-top: 30px; /* Optional margin for spacing */
+  color: rgba(0, 0, 0, 0.897);
+  font: 600 1.7vmax sans-serif;
+  margin-bottom: 30px; /* Optional margin for spacing */
+}
+
+/* Optional h3 styling for better visibility */
+.detailsBlocks-3 p {
+  color: rgb(54, 54, 54);
+  font: 500 1.6vmax sans-serif;
+  margin-top: 12px;
+}
+
+  /* Container for the description block */
+.detailsBlock-4 {
+  background-color: #222222;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex; /* Use flexbox for alignment */
+  justify-content: space-between; /* Space between elements */
+  align-items: center; /* Center vertically */
+  width: 100%; /* Adjust width as necessary */
+  transition: background-color 0.3s ease; /* Smooth background transition */
+  margin-top: 20px;
+}
+
+  .detailsBlock-4 span{
+    margin-left: 10px;
+    font-size: 14px;
+  }
+
 
   .detailsBlock-3 {
     margin-top: 10px; /* Same margin for consistency */
@@ -392,7 +550,7 @@
   }
 
   .CarouselImage {
-    width: 45vmax;
+    width: 50vmax;
   }
 
   .detailsBlock-1 > h2 {

@@ -37,6 +37,14 @@ const UpdateProduct = ({ history, match }) => {
   const [oldImages, setOldImages] = useState([]);
   const [imagesPreview, setImagesPreview] = useState([]);
 
+   // New fields for fabric-related details
+   const [fabricType, setFabricType] = useState("");
+   const [work, setWork] = useState("");
+   const [width, setWidth] = useState("");
+   const [color, setColor] = useState("");
+   const [careInstructions, setCareInstructions] = useState("");
+   const [disclaimer, setDisclaimer] = useState("");
+
   // Sizes state
   const [sizes, setSizes] = useState({
     M: false,
@@ -60,6 +68,15 @@ const UpdateProduct = ({ history, match }) => {
       setStock(product.Stock);
       setOldImages(product.images);
       setSizes(product.sizes || {});
+    }
+
+    if (product.category === "Fabric") {
+      setFabricType(product.fabricType);
+      setWork(product.work);
+      setWidth(product.width);
+      setColor(product.color);
+      setCareInstructions(product.careInstructions);
+      setDisclaimer(product.disclaimer);
     }
 
     if (error) {
@@ -98,6 +115,15 @@ const UpdateProduct = ({ history, match }) => {
     myForm.set("description", description);
     myForm.set("category", category);
     myForm.set("Stock", Stock);
+
+    if (category === "Fabric") {
+      myForm.set("fabricType", fabricType);
+      myForm.set("work", work);
+      myForm.set("width", width);
+      myForm.set("color", color);
+      myForm.set("careInstructions", careInstructions);
+      myForm.set("disclaimer", disclaimer);
+    }
 
     // Add selected sizes
     myForm.set("sizes", JSON.stringify(sizes));
@@ -209,6 +235,57 @@ const UpdateProduct = ({ history, match }) => {
                   ))}
                 </div>
               </div>
+            )}
+
+               {category === "Fabric" && (
+              <>
+                <div>
+                  <input
+                    type="text"
+                    placeholder="Fabric Type"
+                    value={fabricType}
+                    onChange={(e) => setFabricType(e.target.value)}
+                  />
+                </div>
+                <div>
+                  <input
+                    type="text"
+                    placeholder="Work"
+                    value={work}
+                    onChange={(e) => setWork(e.target.value)}
+                  />
+                </div>
+                <div>
+                  <input
+                    type="text"
+                    placeholder="Width"
+                    value={width}
+                    onChange={(e) => setWidth(e.target.value)}
+                  />
+                </div>
+                <div>
+                  <input
+                    type="text"
+                    placeholder="Color"
+                    value={color}
+                    onChange={(e) => setColor(e.target.value)}
+                  />
+                </div>
+                <div>
+                  <textarea
+                    placeholder="Care Instructions"
+                    value={careInstructions}
+                    onChange={(e) => setCareInstructions(e.target.value)}
+                  />
+                </div>
+                <div>
+                  <textarea
+                    placeholder="Disclaimer"
+                    value={disclaimer}
+                    onChange={(e) => setDisclaimer(e.target.value)}
+                  />
+                </div>
+              </>
             )}
 
             <div>

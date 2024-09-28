@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useMemo } from "react";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import MetaData from "../layout/MetaData";
 import "./Search.css";
+import logo from "../../images/logo.png";
 
 const Search = () => {
   const [keyword, setKeyword] = useState("");
@@ -47,7 +48,14 @@ const Search = () => {
   return (
     <>
       <MetaData title="Search Product --- FabSurat" />
+
       <form className="searchBox" onSubmit={searchSubmitHandler}>
+         {/* Add the logo that links to the home page */}
+      <div className="logo-container">
+        <Link to="/">
+          <img src={logo} alt="FabSurat Logo" className="search-logo" />
+        </Link>
+      </div>
         <input
           type="text"
           placeholder={placeholderText}
@@ -56,7 +64,6 @@ const Search = () => {
         />
         <input type="submit" value="Search" />
       </form>
-      
     </>
   );
 };
