@@ -57,7 +57,7 @@
 @media screen and (max-width: 600px) {
 
   .search-logo {
-    width: 290px;
+    width: 310px;
     height: auto;
     margin: 20px auto; /* Center the logo horizontally */
     padding-bottom: 130px; /* Adjust for spacing from the top */
@@ -76,8 +76,8 @@
 
   .searchBox > input[type="text"] {
     width: 105%; /* Increased width for better visibility */
-    font: 300 5vw "Playfair Display", serif;
-    height: 5.5%; /* Adjusted for better appearance */
+    font: 300 4vw "Playfair Display", serif;
+    height: 5%; /* Adjusted for better appearance */
     padding: 10px;
     margin-bottom: 20px; /* Add margin for spacing */
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.274);
@@ -88,16 +88,18 @@
   }
 
   .searchBox > input[type="submit"] {
-    height: 5.5%;
-    width: 50%; /* Wider submit button */
-    font: 400 4.5vw "Playfair Display", serif;
+    height: 4.5%;
+    width: 45%; /* Wider submit button */
+    font: 400 4vw "Playfair Display", serif;
     padding: 1.5vmax;
-    margin-bottom: 550px;
+    margin-bottom: 600px;
     background-color: #222222;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    margin-left: 30px;
+    margin-top: 10px;
   }
 
   .searchBox > input[type="submit"]:hover {

@@ -577,6 +577,10 @@ html, body {
   margin-bottom: 20px;
 }
 
+.col-12 span{
+  margin-left: 3px;
+}
+
 /* Home.css */
 .container {
   margin-top: 20px;

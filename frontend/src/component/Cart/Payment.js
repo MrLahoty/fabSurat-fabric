@@ -19,6 +19,11 @@ function Payment({ history }) {
   const { error, success } = useSelector((state) => state.newOrder);
   const { coupon, error: couponError } = useSelector((state) => state.coupon);
 
+  const formatPrice = (price) => {
+    const parsedPrice = parseFloat(price);
+    return isNaN(parsedPrice) ? price : `₹${parsedPrice.toFixed(2)}`;
+  };
+
   const calculateDiscountedTotal = () => {
     return orderInfo.totalPrice - (coupon ? coupon.discount : 0);
   };
@@ -151,7 +156,7 @@ function Payment({ history }) {
         </div>
 
         <button className="payment-submit" onClick={handlePayment} ref={payBtn}>
-          Pay Now - ₹{calculateDiscountedTotal()}
+        Pay Now - {formatPrice(calculateDiscountedTotal())}
         </button>
       </div>
     </>

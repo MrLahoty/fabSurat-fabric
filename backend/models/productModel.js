@@ -10,10 +10,15 @@ const productScheme = mongoose.Schema({
         type: String,
         required: [true, "Please Enter product Description"],
     },
-    price: {
+    price: { // This will represent the sale price
         type: Number,
         required: [true, "Please Enter product Price"],
         maxLength: [8, "Price cannot exceed 8 characters"],
+    },
+    mrp: { // This will represent the MRP
+        type: Number,
+        required: [true, "Please Enter product MRP"],
+        maxLength: [8, "MRP cannot exceed 8 characters"],
     },
     ratings: {
         type: Number,
@@ -53,10 +58,10 @@ const productScheme = mongoose.Schema({
         type: String,
         default: null,
     },
-    color: {
-        type: String,
-        default: null,
-    },
+    // color: {
+    //     type: String,
+    //     default: null,
+    // },
     careInstructions: {
         type: String,
         default: null,
@@ -104,6 +109,16 @@ const productScheme = mongoose.Schema({
         type: Date,
         default: Date.now,
     },
+});
+
+// Virtual property to format the sale price
+productScheme.virtual("formattedPrice").get(function () {
+    return parseFloat(this.price).toFixed(2); // Format the price to 2 decimal places
+});
+
+// Virtual property to format the MRP
+productScheme.virtual("formattedMRP").get(function () {
+    return parseFloat(this.mrp).toFixed(2); // Format the MRP to 2 decimal places
 });
 
 module.exports = mongoose.model("Product", productScheme);

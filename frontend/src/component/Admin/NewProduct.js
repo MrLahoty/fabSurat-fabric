@@ -10,6 +10,11 @@ import DescriptionIcon from "@material-ui/icons/Description";
 import StorageIcon from "@material-ui/icons/Storage";
 import SpellcheckIcon from "@material-ui/icons/Spellcheck";
 import AttachMoneyIcon from "@material-ui/icons/AttachMoney";
+import FiberManualRecordIcon from "@material-ui/icons/FiberManualRecord";
+import WorkIcon from "@material-ui/icons/Work";
+import StraightenIcon from "@material-ui/icons/Straighten";
+import InfoIcon from "@material-ui/icons/Info";
+import WarningIcon from "@material-ui/icons/Warning";
 import SideBar from "./Sidebar";
 import { NEW_PRODUCT_RESET } from "../../constants/productConstants";
 
@@ -20,7 +25,8 @@ const NewProduct = ({ history }) => {
   const { loading, error, success } = useSelector((state) => state.newProduct);
 
   const [name, setName] = useState("");
-  const [price, setPrice] = useState(0);
+  const [mrp, setMrp] = useState(0); // New MRP state
+  const [price, setPrice] = useState(0); // New Sale Price state
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
   const [Stock, setStock] = useState(0);
@@ -31,7 +37,7 @@ const NewProduct = ({ history }) => {
   const [fabricType, setFabricType] = useState("");
   const [work, setWork] = useState("");
   const [width, setWidth] = useState("");
-  const [color, setColor] = useState("");
+  // const [color, setColor] = useState("");
   const [careInstructions, setCareInstructions] = useState("");
   const [disclaimer, setDisclaimer] = useState("");
 
@@ -60,11 +66,12 @@ const NewProduct = ({ history }) => {
 
   const createProductSubmitHandler = (e) => {
     e.preventDefault();
-
+  
     const myForm = new FormData();
-
+  
     myForm.set("name", name);
-    myForm.set("price", price);
+    myForm.set("mrp", parseFloat(mrp).toFixed(2)); // Format MRP
+    myForm.set("price", parseFloat(price).toFixed(2)); // Format Sale Price
     myForm.set("description", description);
     myForm.set("category", category);
     myForm.set("Stock", Stock);
@@ -73,7 +80,7 @@ const NewProduct = ({ history }) => {
       myForm.set("fabricType", fabricType);
       myForm.set("work", work);
       myForm.set("width", width);
-      myForm.set("color", color);
+      // myForm.set("color", color);
       myForm.set("careInstructions", careInstructions);
       myForm.set("disclaimer", disclaimer);
     }
@@ -138,15 +145,26 @@ const NewProduct = ({ history }) => {
               />
             </div>
             <div>
-              <AttachMoneyIcon />
-              <input
-                type="number"
-                placeholder="Price"
-                required
-                onChange={(e) => setPrice(e.target.value)}
-              />
+            <AttachMoneyIcon />
+            <input
+              type="number"
+              placeholder="MRP"
+              required
+              onChange={(e) => setMrp(e.target.value)}
+            />
               <span>{category === "Fabric" ? `/meter` : ""}</span>
             </div>
+
+          <div>
+            <AttachMoneyIcon />
+            <input
+              type="number"
+              placeholder="Sale Price"
+              required
+              onChange={(e) => setPrice(e.target.value)}
+            />
+             <span>{category === "Fabric" ? `/meter` : ""}</span>
+          </div>
 
             <div>
               <DescriptionIcon />
@@ -190,9 +208,10 @@ const NewProduct = ({ history }) => {
               </div>
             )}
 
-            {category === "Fabric" && (
+              {category === "Fabric" && (
               <>
                 <div>
+                  <FiberManualRecordIcon />
                   <input
                     type="text"
                     placeholder="Fabric Type"
@@ -201,6 +220,7 @@ const NewProduct = ({ history }) => {
                   />
                 </div>
                 <div>
+                  <WorkIcon />
                   <input
                     type="text"
                     placeholder="Work"
@@ -209,6 +229,7 @@ const NewProduct = ({ history }) => {
                   />
                 </div>
                 <div>
+                  <StraightenIcon />
                   <input
                     type="text"
                     placeholder="Width"
@@ -217,21 +238,23 @@ const NewProduct = ({ history }) => {
                   />
                 </div>
                 <div>
-                  <input
-                    type="text"
-                    placeholder="Color"
-                    value={color}
-                    onChange={(e) => setColor(e.target.value)}
-                  />
-                </div>
-                <div>
+                  <InfoIcon />
                   <textarea
                     placeholder="Care Instructions"
                     value={careInstructions}
                     onChange={(e) => setCareInstructions(e.target.value)}
                   />
                 </div>
+                 {/* <div>
+                  <input
+                    type="text"
+                    placeholder="Color"
+                    value={color}
+                    onChange={(e) => setColor(e.target.value)}
+                  />
+                </div> */}
                 <div>
+                  <WarningIcon />
                   <textarea
                     placeholder="Disclaimer"
                     value={disclaimer}

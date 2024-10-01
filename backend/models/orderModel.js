@@ -106,4 +106,12 @@ const orderSchema = new mongoose.Schema({
     },
 });
 
+// Virtual property to get formatted order items with price
+orderSchema.virtual("formattedOrderItems").get(function () {
+    return this.orderItems.map((item) => ({
+        ...item,
+        formattedPrice: parseFloat(item.price).toFixed(2), // Format the price
+    }));
+});
+
 module.exports = mongoose.model("Order", orderSchema);

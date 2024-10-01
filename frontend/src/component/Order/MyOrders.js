@@ -66,13 +66,19 @@ const MyOrders = () => {
   ];
   const rows = [];
 
+   // Function to format price
+   const formatPrice = (price) => {
+    const parsedPrice = parseFloat(price);
+    return isNaN(parsedPrice) ? price : parsedPrice.toFixed(2);
+  };
+
   orders &&
     orders.forEach((item, index) => {
       rows.push({
         itemsQty: item.orderItems.length,
         id: item._id,
         status: item.orderStatus,
-        amount: item.totalPrice,
+        amount: formatPrice(item.totalPrice), // Use the formatting function here
       });
     });
 

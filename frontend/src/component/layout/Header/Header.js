@@ -131,33 +131,33 @@ const Header = () => {
         </div>
 
         <div className="iconss">          
-  <a href="tel:+917003798513" data-title="Call Us">
-    <div className="phone-icons">
-      <FaPhone />
-    </div>
-  </a>
-  <Link to="/cart" data-title="My Cart">
-    <div className="cart-icons">
-      <FaShoppingCart />
-    </div>
-  </Link>
-</div>
+          <a href="tel:+917003798513" data-title="Call Us">
+            <div className="phone-icons">
+              <FaPhone />
+            </div>
+          </a>
+          <Link to="/cart" data-title="My Cart">
+            <div className="cart-icons">
+              <FaShoppingCart />
+            </div>
+          </Link>
+        </div>
 
-<div>
-  {!isAuthenticated && (
-    <div className="auth-buttons">
-      <Link to="/login" className="auth-button" data-title="Sign In">
-        <FaUser />
-      </Link>
-    </div>
-  )}
-</div>
-</div>
+        <div>
+          {!isAuthenticated && (
+            <div className="auth-buttons">
+              <Link to="/login" className="auth-button" data-title="Sign In">
+                <FaUser />
+              </Link>
+            </div>
+          )}
+        </div>
+        </div>
 
-{location.pathname === "/" && (
-  <div className="category-links">
-    {isDesktop ? ( // Desktop view
-      <>
+    {location.pathname === "/" && (
+      <div className="category-links">
+        {isDesktop ? ( // Desktop view
+       <>
         <div className="dropdown">
           <button className="dropbtn">
           POSITION PRINTS <span className="arrow"></span>
@@ -194,6 +194,7 @@ const Header = () => {
           PRINTS <span className="arrow"></span>
           </button>
           <div className="dropdown-content">
+            <a href="/fabric-sale">Hakoba Prints</a>
             <a href="/fabric-sale">Satin Prints</a>
             <a href="/jacket-sale">Georgette Prints</a>
             <a href="/blouse-sale">Muslin Prints</a>
@@ -208,6 +209,7 @@ const Header = () => {
             PLAIN <span className="arrow"></span>
           </button>
           <div className="dropdown-content">
+            <a href="/fabric-sale">Hakoba</a>
             <a href="/fabric-sale">Dyeable</a>
             <a href="/jacket-sale">Pure/Viscose</a>
             <a href="/blouse-sale">Semi Pure</a>

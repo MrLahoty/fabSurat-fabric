@@ -14,9 +14,7 @@ const Dashboard = () => {
   const dispatch = useDispatch();
 
   const { products } = useSelector((state) => state.products);
-
   const { orders } = useSelector((state) => state.allOrders);
-
   const { users } = useSelector((state) => state.allUsers);
 
   let outOfStock = 0;
@@ -42,12 +40,12 @@ const Dashboard = () => {
 
   // Adjusted Doughnut Chart Data
   const doughnutState = {
-    labels: ["Out of Stock", "InStock"],
+    labels: ["Out of Stock", "In Stock"],
     datasets: [
       {
         backgroundColor: ["#00A6B4", "#6800B4"],
         hoverBackgroundColor: ["#4B5000", "#35014F"],
-        data: [outOfStock, Math.max(0, products.length - outOfStock - 2.5)], // Ensure no negative values
+        data: [outOfStock, Math.max(0, products.length - outOfStock)],
       },
     ],
   };
@@ -64,6 +62,13 @@ const Dashboard = () => {
     ],
   };
 
+  // Get formatted prices for display if needed
+  const formattedProducts = products.map((item) => ({
+    ...item,
+    formattedPrice: parseFloat(item.price).toFixed(2),
+    formattedMRP: parseFloat(item.mrp).toFixed(2),
+  }));
+
   return (
     <div className="dashboard">
       <MetaData title="Dashboard - Admin Panel" />
@@ -75,13 +80,13 @@ const Dashboard = () => {
         <div className="dashboardSummary">
           <div>
             <p>
-              Total Amount <br /> ₹{totalAmount}
+              Total Amount <br /> ₹{totalAmount.toFixed(2)}
             </p>
           </div>
           <div className="dashboardSummaryBox2">
             <Link to="/admin/products">
               <p>Products</p>
-              <p>{products && products.length}</p>
+              <p>{formattedProducts.length}</p>
             </Link>
             <Link to="/admin/orders">
               <p>Orders</p>

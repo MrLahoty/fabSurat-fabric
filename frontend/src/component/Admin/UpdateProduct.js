@@ -13,6 +13,11 @@ import DescriptionIcon from "@material-ui/icons/Description";
 import StorageIcon from "@material-ui/icons/Storage";
 import SpellcheckIcon from "@material-ui/icons/Spellcheck";
 import AttachMoneyIcon from "@material-ui/icons/AttachMoney";
+import FiberManualRecordIcon from "@material-ui/icons/FiberManualRecord";
+import WorkIcon from "@material-ui/icons/Work";
+import StraightenIcon from "@material-ui/icons/Straighten";
+import InfoIcon from "@material-ui/icons/Info";
+import WarningIcon from "@material-ui/icons/Warning";
 import SideBar from "./Sidebar";
 import { UPDATE_PRODUCT_RESET } from "../../constants/productConstants";
 
@@ -29,7 +34,8 @@ const UpdateProduct = ({ history, match }) => {
   } = useSelector((state) => state.product);
 
   const [name, setName] = useState("");
-  const [price, setPrice] = useState(0);
+  const [mrp, setMrp] = useState(0); // MRP state
+  const [price, setPrice] = useState(0); // Sale Price state
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
   const [Stock, setStock] = useState(0);
@@ -41,7 +47,7 @@ const UpdateProduct = ({ history, match }) => {
    const [fabricType, setFabricType] = useState("");
    const [work, setWork] = useState("");
    const [width, setWidth] = useState("");
-   const [color, setColor] = useState("");
+  //  const [color, setColor] = useState("");
    const [careInstructions, setCareInstructions] = useState("");
    const [disclaimer, setDisclaimer] = useState("");
 
@@ -62,7 +68,8 @@ const UpdateProduct = ({ history, match }) => {
       dispatch(getProductDetails(productId));
     } else {
       setName(product.name);
-      setPrice(product.price);
+      setMrp(parseFloat(product.mrp).toFixed(2)); // Format MRP
+      setPrice(parseFloat(product.price).toFixed(2)); // Format Sale Price
       setDescription(product.description);
       setCategory(product.category);
       setStock(product.Stock);
@@ -74,7 +81,7 @@ const UpdateProduct = ({ history, match }) => {
       setFabricType(product.fabricType);
       setWork(product.work);
       setWidth(product.width);
-      setColor(product.color);
+      // setColor(product.color);
       setCareInstructions(product.careInstructions);
       setDisclaimer(product.disclaimer);
     }
@@ -111,7 +118,8 @@ const UpdateProduct = ({ history, match }) => {
     const myForm = new FormData();
 
     myForm.set("name", name);
-    myForm.set("price", price);
+    myForm.set("mrp", mrp); // Add MRP
+    myForm.set("price", price); // Add Sale Price
     myForm.set("description", description);
     myForm.set("category", category);
     myForm.set("Stock", Stock);
@@ -120,7 +128,7 @@ const UpdateProduct = ({ history, match }) => {
       myForm.set("fabricType", fabricType);
       myForm.set("work", work);
       myForm.set("width", width);
-      myForm.set("color", color);
+      // myForm.set("color", color);
       myForm.set("careInstructions", careInstructions);
       myForm.set("disclaimer", disclaimer);
     }
@@ -185,15 +193,28 @@ const UpdateProduct = ({ history, match }) => {
               />
             </div>
             <div>
-              <AttachMoneyIcon />
-              <input
-                type="number"
-                placeholder="Price"
-                required
-                onChange={(e) => setPrice(e.target.value)}
-              />
+            <AttachMoneyIcon />
+             <input
+               type="number"
+               placeholder="MRP"
+               required
+               value={mrp}
+               onChange={(e) => setMrp(e.target.value)}
+             />
               <span>{category === "Fabric" ? `/meter` : ""}</span>
             </div>
+        <div>
+            <AttachMoneyIcon />
+            <input
+              type="number"
+              placeholder="Sale Price"
+              required
+              value={price}
+              onChange={(e) => setPrice(e.target.value)}
+            />
+            <span>{category === "Fabric" ? `/meter` : ""}</span>
+          
+        </div>
 
             <div>
               <DescriptionIcon />
@@ -240,6 +261,7 @@ const UpdateProduct = ({ history, match }) => {
                {category === "Fabric" && (
               <>
                 <div>
+                <FiberManualRecordIcon />
                   <input
                     type="text"
                     placeholder="Fabric Type"
@@ -248,6 +270,7 @@ const UpdateProduct = ({ history, match }) => {
                   />
                 </div>
                 <div>
+                <WorkIcon />
                   <input
                     type="text"
                     placeholder="Work"
@@ -256,6 +279,7 @@ const UpdateProduct = ({ history, match }) => {
                   />
                 </div>
                 <div>
+                <StraightenIcon />
                   <input
                     type="text"
                     placeholder="Width"
@@ -263,15 +287,16 @@ const UpdateProduct = ({ history, match }) => {
                     onChange={(e) => setWidth(e.target.value)}
                   />
                 </div>
-                <div>
+                {/* <div>
                   <input
                     type="text"
                     placeholder="Color"
                     value={color}
                     onChange={(e) => setColor(e.target.value)}
                   />
-                </div>
+                </div> */}
                 <div>
+                <InfoIcon />
                   <textarea
                     placeholder="Care Instructions"
                     value={careInstructions}
@@ -279,6 +304,7 @@ const UpdateProduct = ({ history, match }) => {
                   />
                 </div>
                 <div>
+                <WarningIcon />
                   <textarea
                     placeholder="Disclaimer"
                     value={disclaimer}

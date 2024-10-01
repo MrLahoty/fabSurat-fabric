@@ -10,6 +10,11 @@ const ConfirmOrder = ({history}) => {
   const { shippingInfo, cartItems } = useSelector((state) => state.cart);
   const { user } = useSelector((state) => state.user);
 
+  const formatPrice = (price) => {
+    const parsedPrice = parseFloat(price);
+    return isNaN(parsedPrice) ? price : `₹${parsedPrice.toFixed(2)}`;
+  };
+
   const subtotal = cartItems.reduce(
     (acc, item) => acc + item.quantity * item.price,
     0
@@ -68,8 +73,8 @@ const ConfirmOrder = ({history}) => {
                     {item.name}
                     </Link>{" "}
                     <span>
-                      {item.quantity} X ₹{item.price} ={" "}
-                      <b>₹{item.price * item.quantity}</b>
+                      {item.quantity} X {formatPrice(item.price)} ={" "}
+                      <b>{formatPrice(item.price * item.quantity)}</b>
                     </span>
                   </div>
                 ))}
@@ -79,19 +84,19 @@ const ConfirmOrder = ({history}) => {
         {/*  */}
         <div>
           <div className="orderSummary">
-            <Typography>Order Summary</Typography>
+          <Typography>Order Summary</Typography>
             <div>
               <div>
                 <p>Subtotal:</p>
-                <span>₹{subtotal}</span>
+                <span>{formatPrice(subtotal)}</span>
               </div>
               <div>
                 <p>Shipping Charges:</p>
-                <span>₹{shippingCharges}</span>
+                <span>{formatPrice(shippingCharges)}</span>
               </div>
               {/* <div>
                 <p>GST:</p>
-                <span>₹{tax}</span>
+                <span>{formatPrice(tax)}</span>
               </div> */}
             </div>
 
@@ -99,7 +104,7 @@ const ConfirmOrder = ({history}) => {
               <p>
                 <b>Total:</b>
               </p>
-              <span>₹{totalPrice}</span>
+              <span>{formatPrice(totalPrice)}</span>
             </div>
 
             <button onClick={proceedToPayment}>Proceed To Payment</button>

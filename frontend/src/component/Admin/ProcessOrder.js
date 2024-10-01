@@ -145,10 +145,9 @@ const ProcessOrder = ({ history, match }) => {
                             </div>
                           )}
                           <span>
-                            {item.quantity} X ₹{item.price} ={" "}
-                            <b>₹{item.price * item.quantity}</b>
+                            {item.quantity} X ₹{parseFloat(item.price).toFixed(2)} ={" "}
+                            <b>₹{parseFloat(item.price * item.quantity).toFixed(2)}</b>
                           </span>
-                          
                         </div>
                       ))}
                   </div>

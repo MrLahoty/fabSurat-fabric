@@ -45,9 +45,9 @@ exports.newOrder = catchAsyncErrors(async (req, res, next) => {
         shippingInfo,
         orderItems: updatedOrderItems,
         paymentInfo,
-        itemsPrice,
-        shippingPrice,
-        totalPrice,
+        itemsPrice: parseFloat(itemsPrice).toFixed(2), // Ensure price formatting
+        shippingPrice: parseFloat(shippingPrice).toFixed(2),
+        totalPrice: parseFloat(totalPrice).toFixed(2),
         paidAt: Date.now(),
         user: req.user._id,
     });
@@ -69,6 +69,11 @@ exports.getSingleOrder = catchAsyncErrors(async (req, res, next) => {
         return next(new ErrorHander("Order not found with this Id", 404));
     }
 
+       // Format the prices for each order item
+       order.orderItems.forEach(item => {
+        item.product.price = parseFloat(item.product.price).toFixed(2);
+    });
+
     res.status(200).json({
         success: true,
         order,
@@ -78,6 +83,13 @@ exports.getSingleOrder = catchAsyncErrors(async (req, res, next) => {
 //Get Logged in user Orders
 exports.myOrders = catchAsyncErrors(async (req, res, next) => {
     const orders = await Order.find({ user:req.user._id });
+
+      // Format the prices for each order item
+      orders.forEach(order => {
+        order.orderItems.forEach(item => {
+            item.product.price = parseFloat(item.product.price).toFixed(2);
+        });
+    });
 
     res.status(200).json({
         success: true,
@@ -92,15 +104,16 @@ exports.getAllOrders = catchAsyncErrors(async (req, res, next) => {
     let totalAmount = 0;
 
     orders.forEach((order) => {
-        totalAmount += order.totalPrice;
+        totalAmount += parseFloat(order.totalPrice).toFixed(2); // Ensure total price formatting
     });
 
     res.status(200).json({
         success: true,
-        totalAmount,
+        totalAmount: parseFloat(totalAmount).toFixed(2), // Format totalAmount as well
         orders,
     });
 });
+
 
 //Update Order Status -- Admin
 exports.updateOrder = catchAsyncErrors(async (req, res, next) => {

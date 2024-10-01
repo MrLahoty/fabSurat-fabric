@@ -142,6 +142,27 @@ const ProductDetails = ({ match }) => {
     window.location.href = "/products";
   };
 
+  function shareProduct(platform) {
+    const productUrl = window.location.href; // Get the current URL of the product page
+    let shareLink = '';
+ 
+    if (platform === 'whatsapp') {
+       shareLink = `https://wa.me/?text=${encodeURIComponent('Check out this product: ' + productUrl)}`;
+    } else if (platform === 'instagram') {
+       shareLink = `https://www.instagram.com/direct/new/?text=${encodeURIComponent('Check out this product: ' + productUrl)}`;
+    } else if (platform === 'facebook') {
+       shareLink = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(productUrl)}`;
+    }
+ 
+    window.open(shareLink, '_blank');
+ } 
+
+ // Function to format price
+ const formatPrice = (price) => {
+  const parsedPrice = parseFloat(price);
+  return isNaN(parsedPrice) ? price : `₹${parsedPrice.toFixed(2)}`;
+};
+
   return (
     <>
       {loading ? (
@@ -163,19 +184,23 @@ const ProductDetails = ({ match }) => {
                  ))}
            </Carousel>
   
-            {/* Thumbnails section */}
-            <div className="ThumbnailContainer">
-              {product.images &&
-                product.images.map((item, i) => (
-                  <img
-                    className="ThumbnailImage"
-                    key={i}
-                    src={item.url}
-                    alt={`Thumbnail ${i}`}
-                  />
-                ))}
-            </div>
-            </div>
+           {/* Thumbnails section */} 
+             <div className="ThumbnailContainer">
+               {product.images &&
+                 product.images.map((item, i) => (
+                   <div className="ThumbnailWrapper" key={i}>
+                     <img
+                       className="ThumbnailImage"
+                       src={item.url}
+                       alt={`Thumbnail ${i}`}
+                     />
+                     <div className="ZoomIconWrapper">
+                       <i className="fa fa-search-plus ZoomIcon"></i> {/* Font Awesome search icon */}
+                     </div>
+                   </div>
+                 ))}
+             </div>
+          </div>
   
             <div>
               <div className="detailsBlock-1">
@@ -189,11 +214,23 @@ const ProductDetails = ({ match }) => {
                 </span>
               </div>
               <div className="detailsBlock-3">
-                <h1>
-                  {product.category === "Fabric"
-                    ? `₹${product.price} /meter`
-                    : `₹${product.price}`}
+              <div className="price-container">
+                 {product.mrp && (
+                   <h2 className="crossed-out-price">
+                     <del>
+                       <span className="currency-symbol">₹</span> {formatPrice(product.mrp)}
+                     </del>
+                   </h2>
+                 )}
+              <h1 className="sale-price">
+               {product.category === "Fabric"
+                   ? `${formatPrice(product.price)} /meter`
+                   : formatPrice(product.price)}
                 </h1>
+                <p>(Incl. of All Taxes)</p>
+              </div>
+
+
                 <div className="detailsBlock-3-1">
                   <div className="detailsBlock-3-1-1">
                     <button onClick={decreaseQuantity}>-</button>
@@ -268,34 +305,42 @@ const ProductDetails = ({ match }) => {
                 </div>
               )}
 
-       <div className="detailsBlock-4" onClick={handleToggle}> {/* Move onClick here */}
-        <span>Description</span>
-        <button className="toggle-button">
-          {isOpen ? '-' : '+'}
-        </button>
-      </div>
-
-      {isOpen && (
-        <div className="details-content">
-          Description - <p>{product.description}</p>
-
-          {product.category === "Fabric" && (
-            <div className="detailsBlocks-3">
-              Fabric Type - <p>{product.fabricType}</p>
-             Work -  <p>{product.work}</p>
-              Width - <p>{product.width}</p>
-              Color - <p>{product.color}</p>
-              Care Instruction - <p>{product.careInstructions}</p>
-              Disclaimer - <p>{product.disclaimer}</p>
+             <div className="detailsBlock-4" onClick={handleToggle}> {/* Move onClick here */}
+              <span>Description</span>
+              <button className="toggle-button">
+                {isOpen ? '-' : '+'}
+              </button>
             </div>
-          )}
-        </div>
-      )}
-
-              <div className="additionalInfo">
-                <div className="infoItem">
-                  <LocalShippingIcon />
-                  <span>Free delivery <br /> over 1500+</span>
+     
+           {isOpen && (
+             <div className="details-content">
+               Description - <p>{product.description}</p>
+     
+               {product.category === "Fabric" && (
+                 <div className="detailsBlocks-3">
+                   Fabric Type - <p>{product.fabricType}</p>
+                  Work -  <p>{product.work}</p>
+                   Width - <p>{product.width}</p>
+                   {/* Color - <p>{product.color}</p> */}
+                   Care Instruction - <p>{product.careInstructions}</p>
+                   Disclaimer - <p>{product.disclaimer}</p>
+                 </div>
+               )}
+             </div>
+           )}
+     
+                  <button onClick={submitReviewToggle} className="submitReview">
+                    Submit Review
+                  </button>
+                 <div className="share-buttons">
+                   <button className="share-btn whatsapp" onClick={() => shareProduct('whatsapp')}>Share on WhatsApp</button>
+                   <button className="share-btn instagram" onClick={() => shareProduct('instagram')}>Share on Instagram</button>
+                   <button className="share-btn facebook" onClick={() => shareProduct('facebook')}>Share on Facebook</button>
+                </div>
+                <div className="additionalInfo">
+                     <div className="infoItem">
+                       <LocalShippingIcon />
+                       <span>Free delivery <br /> over 1500+</span>
                 </div>
                 <div className="infoItem">
                   <VerifiedUserIcon />
@@ -306,14 +351,11 @@ const ProductDetails = ({ match }) => {
                   <span>7 days return</span>
                 </div>
               </div>
-
-              <button onClick={submitReviewToggle} className="submitReview">
-                Submit Review
-              </button>
             </div>
           </div>
 
-          <h3 className="reviewsHeading">REVIEWS</h3>
+
+          <h3 className="reviewsHeading">CUSTOMER REVIEWS</h3>
 
           <Dialog
             aria-labelledby="simple-dialog-title"

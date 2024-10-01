@@ -110,7 +110,7 @@ const ProductList = ({ history }) => {
       rows.push({
         id: item._id,
         stock: item.Stock,
-        price: item.price,
+        price: parseFloat(item.price).toFixed(2), // Formatting price
         name: item.name,
       });
     });

@@ -39,6 +39,12 @@ const OrderDetails = ({ match }) => {
     setShowConfirmation(false);
   };
 
+   // Function to format price
+   const formatPrice = (price) => {
+    const parsedPrice = parseFloat(price);
+    return isNaN(parsedPrice) ? price : parsedPrice.toFixed(2);
+  };
+
   return (
     <>
       {loading ? (
@@ -91,7 +97,7 @@ const OrderDetails = ({ match }) => {
 
                 <div>
                   <p>Amount:</p>
-                  <span>{order.totalPrice && order.totalPrice}</span>
+                  <span>{order.totalPrice && formatPrice(order.totalPrice)}</span>
                 </div>
               </div>
 
@@ -139,8 +145,8 @@ const OrderDetails = ({ match }) => {
           </div>
         )}
         <span>
-          {item.quantity} X ₹{item.price} ={" "}
-          <b>₹{item.price * item.quantity}</b>
+        {item.quantity} X ₹{formatPrice(item.price)} ={" "}
+        <b>₹{formatPrice(item.price * item.quantity)}</b>
         </span>
       </div>
     ))}

@@ -41,12 +41,20 @@ exports.createProduct = catchAsyncErrors(async (req, res, next) => {
         req.body.sizes = {}; // Default to an empty object if sizes are not provided
     }
 
+            // Ensure prices are present and formatted
+        if (!req.body.price || !req.body.mrp) {
+            return next(new ErrorHander("Please enter both Sale Price and MRP", 400));
+        }
+        
+        req.body.price = parseFloat(req.body.price).toFixed(2);
+        req.body.mrp = parseFloat(req.body.mrp).toFixed(2);
+
     // Handle fabric-specific fields
     if (req.body.category === "Fabric") {
         req.body.fabricType = req.body.fabricType || null;
         req.body.work = req.body.work || null;
         req.body.width = req.body.width || null;
-        req.body.color = req.body.color || null;
+        // req.body.color = req.body.color || null;
         req.body.careInstructions = req.body.careInstructions || null;
         req.body.disclaimer = req.body.disclaimer || null;
     }
@@ -148,6 +156,15 @@ exports.updateProduct = catchAsyncErrors(async (req, res, next) => {
         req.body.images = imagesLinks;
     }
 
+   // Ensure prices are present and formatted
+     if (req.body.price || req.body.mrp) {
+     if (!req.body.price || !req.body.mrp) {
+        return next(new ErrorHander("Please enter both Sale Price and MRP", 400));
+    }
+    req.body.price = parseFloat(req.body.price).toFixed(2);
+    req.body.mrp = parseFloat(req.body.mrp).toFixed(2);
+   }
+
     // Parse sizes if present
     if (req.body.sizes) {
         try {
@@ -162,7 +179,7 @@ exports.updateProduct = catchAsyncErrors(async (req, res, next) => {
         req.body.fabricType = req.body.fabricType || product.fabricType;
         req.body.work = req.body.work || product.work;
         req.body.width = req.body.width || product.width;
-        req.body.color = req.body.color || product.color;
+        // req.body.color = req.body.color || product.color;
         req.body.careInstructions = req.body.careInstructions || product.careInstructions;
         req.body.disclaimer = req.body.disclaimer || product.disclaimer;
     }

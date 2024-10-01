@@ -20,12 +20,24 @@ const cartSchema = new mongoose.Schema({
       },
       size: {
         type: String,
-        required: function() {
+        required: function () {
           return this.category === "Readymade";
         },
       },
+      price: {
+        type: Number, // Add a price field to store the price of the product
+        required: true,
+      },
     },
   ],
+});
+
+// Virtual property to get formatted price for products in the cart
+cartSchema.virtual("formattedProducts").get(function () {
+  return this.products.map((item) => ({
+    ...item,
+    formattedPrice: parseFloat(item.price).toFixed(2), // Format the price
+  }));
 });
 
 module.exports = mongoose.model("Cart", cartSchema);

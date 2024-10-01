@@ -51,6 +51,11 @@ exports.getCart = catchAsyncErrors(async (req, res, next) => {
     return next(new ErrorHander('Cart not found', 404));
   }
 
+   // Format prices to always show two decimal places
+   cart.items.forEach(item => {
+    item.product.price = parseFloat(item.product.price).toFixed(2);
+  });
+
   res.status(200).json({ success: true, cart });
 });
 

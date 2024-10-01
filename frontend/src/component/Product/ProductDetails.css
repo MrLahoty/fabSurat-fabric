@@ -152,22 +152,58 @@
   animation: fadeIn 1s ease-in-out; /* Add a fade-in animation */
 }
 
-/* Styling for the thumbnail images */
-.ThumbnailImage {
+/* Wrapper for each thumbnail and its icon */
+.ThumbnailWrapper {
+  position: relative;
   width: 10vmax;
   height: auto;
-  border: 1px solid transparent;
   cursor: pointer;
+}
+
+/* Styling for the thumbnail images */
+.ThumbnailImage {
+  width: 100%;
+  height: 100%;
+  border: 1px solid transparent;
   transition: border 0.3s ease, transform 0.3s ease;
   opacity: 0.8; /* Slight transparency for a sleek look */
 }
 
 /* On hover, add a border and slight zoom effect */
-.ThumbnailImage:hover {
+.ThumbnailWrapper:hover .ThumbnailImage {
   border: 0.3px solid #ABB427; /* Add a green border on hover */
   transform: scale(1.05); /* Increase zoom slightly */
   opacity: 1; /* Make thumbnail fully opaque */
 }
+
+/* Zoom icon container */
+.ZoomIconWrapper {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white; /* White background */
+  border-radius: 50%; /* Circle background */
+  transition: opacity 0.3s ease;
+  opacity: 0; /* Hidden by default */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); /* Optional: Adds a slight shadow */
+}
+
+.ThumbnailWrapper:hover .ZoomIconWrapper {
+  opacity: 1; /* Show on hover */
+}
+
+/* Styling for the zoom icon */
+.ZoomIcon {
+  font-size: 0.8rem;
+  color: #555; /* Lighter gray color for a softer look */
+  font-weight: bold; /* Ensures the icon remains bold */
+}
+
 
 /* Animation for the fade-in effect */
 @keyframes fadeIn {
@@ -207,7 +243,7 @@
 
 .detailsBlock-1 > p {
   color: rgba(54, 54, 54, 0.582);
-  font: 200 0.8vmax cursive;
+  font: 200 0.9vmax "Playfair Display", serif;
 }
 
 .detailsBlock-2 {
@@ -221,7 +257,7 @@
 }
 
 .detailsBlock-2-span {
-  font: 200 0.8vmax cursive;
+  font: 200 1vmax "Playfair Display", serif;
   color: rgba(0, 0, 0, 0.699);
 }
 
@@ -314,7 +350,7 @@
   color: white;
   border: 1px solid white;
   border-radius: 5px;
-  padding: 5px 10px;
+  padding: 5px 13px;
   cursor: pointer;
   outline: none;
   transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
@@ -360,15 +396,17 @@
 .submitReview {
   border: none;
   background-color: #222222;
-  font: 500 0.9vmax "Roboto";
+  font: 500 1vmax "Roboto";
   border-radius: 20px;
   padding: 0.6vmax 2vmax;
-  margin: 1vmax 0;
+  margin: 2vmax 0;
   color: white;
   cursor: pointer;
   transition: all 0.5s;
   outline: none;
+  margin-top: 30px;
 }
+
 .submitReview:hover {
   background-color: rgb(102, 101, 101);
   transform: scale(1.1);
@@ -378,6 +416,7 @@
   display: flex;
   flex-direction: column;
 }
+
 .submitDialogTextArea {
   border: 1px solid rgba(0, 0, 0, 0.082);
   margin: 1vmax 0;
@@ -388,14 +427,15 @@
 
 .reviewsHeading {
   color: #000000be;
-  font: 500 1.4vmax "Roboto";
+  font: 500 1.4vmax "Roboto", sans-serif;
   text-align: center;
   border-bottom: 1px solid rgba(0, 0, 0, 0.226);
   padding: 1vmax;
-  width: 20vmax;
+  width: 22vmax;
   margin: auto;
   margin-bottom: 4vmax;
 }
+
 .reviews {
   display: flex;
   overflow: auto;
@@ -430,7 +470,172 @@
   color: rgba(0, 0, 0, 0.548);
 }
 
+.share-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+  margin-left: -3px;
+  margin-bottom: 20px;
+}
+
+.share-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.share-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translate(-50%, -50%) rotate(45deg);
+  transition: width 0.5s ease, height 0.5s ease;
+  border-radius: 50%;
+}
+
+.share-btn:hover::before {
+  width: 150%;
+  height: 150%;
+}
+
+.share-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Specific button colors */
+.whatsapp {
+  background-color: #25D366;
+}
+
+.instagram {
+  background-color: #E1306C;
+}
+
+.facebook {
+  background-color: #4267B2;
+}
+
+/* Hover color changes */
+.whatsapp:hover {
+  background-color: #20B45B;
+}
+
+.instagram:hover {
+  background-color: #D81E5B;
+}
+
+.facebook:hover {
+  background-color: #36589D;
+}
+
+/* Animating the appearance of buttons */
+@keyframes button-appear {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.share-btn {
+  animation: button-appear 0.4s ease;
+}
+
+.price-container {
+  display: flex; /* Use flexbox for alignment */
+  align-items: center; /* Center items vertically */
+  margin: 20px;
+  margin-left: -5px;
+  width: 150%;
+}
+
+.crossed-out-price {
+  color: grey; /* Or any color you prefer */
+  font-size: 20px; /* Adjust font size as needed */
+  text-decoration: line-through;
+  margin-right: 10px; /* Space between MRP and Sale Price */
+}
+
+.currency-symbol {
+  margin-right: 2px; /* Adjust as needed for spacing between currency and number */
+}
+
+.sale-price {
+  font-size: 24px; /* Adjust font size for Sale Price as needed */
+}
+
+.price-container p{
+  font-size: 16px;
+  color: #222;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+/* Media Queries for Mobile Responsiveness */
+@media (max-width: 768px) {
+  .share-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .share-btn {
+    padding: 8px 18px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .share-buttons {
+    gap: 8px;
+  }
+
+  .share-btn {
+    padding: 6px 16px;
+    font-size: 12px;
+    border-radius: 30px;
+  }
+}
+
 @media screen and (max-width: 768px) {
+
+  .price-container{
+    display: flex; /* Use flexbox for alignment */
+    width: 180%;
+    margin-left: -48px;
+    margin-bottom: -8px;
+    margin-top: 10px;
+  }
+
+  .price-row {
+    justify-content: flex-start; /* Keep MRP and Sale Price aligned to the left */
+  }
+
+  .crossed-out-price {
+    font-size: 18px; /* Slightly smaller font size for mobile */
+  }
+
+  .sale-price {
+    font-size: 20px; /* Slightly smaller Sale Price for mobile */
+  }
+
+  .price-container p {
+    font-size: 14px;
+  }
 
   /* Content styling */
 .details-content {
@@ -560,12 +765,13 @@
 
   .detailsBlock-1 > p {
     text-align: center;
-    font-size: 1vmax;
+    font-size: 1.1vmax;
   }
 
   .detailsBlock-2 {
     justify-content: center;
   }
+
   .detailsBlock-2 > span {
     font-size: 1.5vmax;
   }
@@ -622,13 +828,32 @@
     margin: 3vmax 0;
   }
 
+  .share-buttons {
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  .share-btn {
+    padding: 8px 36px;
+    font-size: 13px;
+  }
+
+
   .reviewCard > p {
     font: 600 3vw "Roboto";
   }
+
   .reviewCardComment {
     font: 300 5vw cursive;
   }
+
   .reviewsHeading {
     font-size: medium;
+  }
+
+  .noReviews {
+    font: 400 1.4vmax "Gill Sans";
+    text-align: center;
+    color: rgba(0, 0, 0, 0.548);
   }
 }

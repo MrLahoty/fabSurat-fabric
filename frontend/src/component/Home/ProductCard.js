@@ -9,25 +9,36 @@ const ProductCard = ({ product }) => {
     precision: 0.5,
   };
 
+  // Function to format price
+  const formatPrice = (price) => {
+    const parsedPrice = parseFloat(price);
+    return isNaN(parsedPrice) ? price : `₹${parsedPrice.toFixed(2)}`;
+  };
+
   return (
     <Link className="productCard" to={`/product/${product._id}`}>
-    <img src={product.images[0].url} alt={product.name} />
-    <p>{product.name}</p>
-    <div>
-      <Rating {...options} />{" "}
-      <span className="productCardSpan">
-        {" "}
-        ({product.numOfReviews} Reviews)
-      </span>
-    </div>
-          <div className="col-12">
-            <span className="col-12">
-              {product.category === "Fabric"
-                ? `₹${product.price} /meter`
-                : `₹${product.price}`}
-            </span>
-          </div>
-      </Link>
+      <img src={product.images[0].url} alt={product.name} />
+      <p>{product.name}</p>
+      <div>
+        <Rating {...options} />{" "}
+        <span className="productCardSpan">
+          {" "}
+          ({product.numOfReviews} Reviews)
+        </span>
+      </div>
+      <div className="col-12">
+        <span className="col-12">
+          <span style={{ textDecoration: 'line-through', color: 'grey' }}>
+            {formatPrice(product.mrp)}
+          </span>{" "}
+          <span>
+            {product.category === "Fabric"
+              ? `${formatPrice(product.price)} /meter`
+              : formatPrice(product.price)}
+          </span>
+        </span>
+      </div>
+    </Link>
   );
 };
 
