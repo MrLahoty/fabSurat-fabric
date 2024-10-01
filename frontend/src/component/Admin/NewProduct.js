@@ -27,6 +27,7 @@ const NewProduct = ({ history }) => {
   const [name, setName] = useState("");
   const [mrp, setMrp] = useState(0); // New MRP state
   const [price, setPrice] = useState(0); // New Sale Price state
+  const [discount, setDiscount] = useState(0); // Discount state
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
   const [Stock, setStock] = useState(0);
@@ -62,7 +63,12 @@ const NewProduct = ({ history }) => {
       history.push("/admin/dashboard");
       dispatch({ type: NEW_PRODUCT_RESET });
     }
-  }, [dispatch, alert, error, history, success]);
+      // Calculate discount whenever MRP or Sale Price changes
+      if (mrp && price) {
+        const calculatedDiscount = ((mrp - price) / mrp) * 100;
+        setDiscount(calculatedDiscount.toFixed(2)); // Set discount percentage
+      }
+  }, [dispatch, alert, error, history, success,  mrp, price]);
 
   const createProductSubmitHandler = (e) => {
     e.preventDefault();
@@ -165,6 +171,13 @@ const NewProduct = ({ history }) => {
             />
              <span>{category === "Fabric" ? `/meter` : ""}</span>
           </div>
+          {/* Discount section */}
+          <div>
+              <label>Discount: </label>
+              <span style={{ color: "red" }}>
+                {discount > 0 ? `-${discount}%` : "No discount"}
+              </span>
+            </div>
 
             <div>
               <DescriptionIcon />

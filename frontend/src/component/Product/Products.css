@@ -142,7 +142,7 @@
   position: fixed;
   top: 12vmax;
   left: -20vmax;
-  width: 18vmax;
+  width: 20vmax;
   height: 400px;
   background-color: #f8f9fa;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
@@ -270,11 +270,11 @@
 @media screen and (max-width: 700px) {
 
   .productss{
-    height: 1660px;
+    height: 1900px;
   }
 
   .categories-container {
-    top:7.6%;
+    top:7.2%;
     right: 1%;
   }
 

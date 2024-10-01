@@ -480,8 +480,10 @@
 }
 
 .share-btn {
-  padding: 10px 20px;
-  font-size: 16px;
+  display: flex;
+  align-items: center;
+  padding: 6px 22px;
+  font-size: 15px;
   color: white;
   border: none;
   border-radius: 50px;
@@ -489,6 +491,12 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
   overflow: hidden;
+}
+
+.share-btn i {
+  margin-top:3px;
+  font-size: 28px; /* Adjust size as needed */
+  margin-right: -8px;
 }
 
 .share-btn::before {
@@ -520,7 +528,7 @@
 }
 
 .instagram {
-  background-color: #E1306C;
+  background: linear-gradient(45deg, #fdc468, #fa709a, #d62976, #962fbf, #4f5bd5);
 }
 
 .facebook {
@@ -558,7 +566,8 @@
 
 .price-container {
   display: flex; /* Use flexbox for alignment */
-  align-items: center; /* Center items vertically */
+  flex-direction: row; /* Stack items vertically */
+  align-items: center; /* Center items horizontally */
   margin: 20px;
   margin-left: -5px;
   width: 150%;
@@ -579,10 +588,20 @@
   font-size: 24px; /* Adjust font size for Sale Price as needed */
 }
 
-.price-container p{
+.sony{
+  margin-top: -22px;
+}
+
+.tax-info { /* New class for the tax information */
   font-size: 16px;
   color: #222;
-  margin-top: 10px;
+  margin-top: 5px; /* Space above the text */
+}
+
+.discountpercentagess {
+  font-weight: bold;
+  color: #C84450; /* Adjust the color as needed */
+  font-size: 1.2rem; /* Set a suitable font size */
   margin-left: 10px;
 }
 
@@ -613,12 +632,29 @@
 
 @media screen and (max-width: 768px) {
 
+  .sony{
+    margin-top: 10px;
+  }
+
+  .tax-info { /* New class for the tax information */
+    font-size: 15px;
+    color: #222;
+    margin-top: 10px; /* Space above the text */
+    margin-left: 60px;
+  }
+
+  .discountpercentagess {
+    font-size: 4.5vw; /* Responsive font size for mobile */
+    margin-top: 2px; /* Increase spacing on mobile */
+    margin-left: 90px;
+  }
+
   .price-container{
     display: flex; /* Use flexbox for alignment */
-    width: 180%;
-    margin-left: -48px;
-    margin-bottom: -8px;
-    margin-top: 10px;
+    width: 200%;
+    margin-bottom: -6px;
+    margin-top: 15px;
+    margin-left: 8px;
   }
 
   .price-row {
@@ -830,14 +866,35 @@
 
   .share-buttons {
     flex-direction: row;
-    gap: 10px;
+    gap: 7px;
   }
 
   .share-btn {
-    padding: 8px 36px;
-    font-size: 13px;
+    padding: 7px 22px;
+    font-size: 14px;
   }
 
+  .share-buttons i{
+    font-size: 18px;
+  }
+
+ /* Specific button size */
+ .whatsapp i {
+  margin-right: 5px;
+  font-size: 23px;
+}
+
+.instagram i {
+ margin-right: 5px;
+ font-size: 23px;
+
+}
+
+.facebook i {
+  margin-right: 5px;
+  font-size: 23px;
+
+}
 
   .reviewCard > p {
     font: 600 3vw "Roboto";

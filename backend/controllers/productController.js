@@ -49,6 +49,10 @@ exports.createProduct = catchAsyncErrors(async (req, res, next) => {
         req.body.price = parseFloat(req.body.price).toFixed(2);
         req.body.mrp = parseFloat(req.body.mrp).toFixed(2);
 
+    // Calculate discount percentage
+    const discount = ((req.body.mrp - req.body.price) / req.body.mrp) * 100;
+    req.body.discountPercentage = `-${discount.toFixed(2)}%`;
+
     // Handle fabric-specific fields
     if (req.body.category === "Fabric") {
         req.body.fabricType = req.body.fabricType || null;
@@ -163,6 +167,9 @@ exports.updateProduct = catchAsyncErrors(async (req, res, next) => {
     }
     req.body.price = parseFloat(req.body.price).toFixed(2);
     req.body.mrp = parseFloat(req.body.mrp).toFixed(2);
+    // Calculate discount percentage
+    const discount = ((req.body.mrp - req.body.price) / req.body.mrp) * 100;
+    req.body.discountPercentage = `-${discount.toFixed(2)}%`;
    }
 
     // Parse sizes if present

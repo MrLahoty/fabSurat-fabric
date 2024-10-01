@@ -492,6 +492,10 @@ a[data-title]:hover {
     height: 70px; /* Reduce image height for mobile */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1); /* Soft, elegant shadow */
   }
+
+  .category-links span {
+    font-family: "Playfair Display", serif;;
+  }
 }
 
 @media (max-width: 768px) {

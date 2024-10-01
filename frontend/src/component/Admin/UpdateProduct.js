@@ -36,6 +36,7 @@ const UpdateProduct = ({ history, match }) => {
   const [name, setName] = useState("");
   const [mrp, setMrp] = useState(0); // MRP state
   const [price, setPrice] = useState(0); // Sale Price state
+  const [discount, setDiscount] = useState(null); // Discount state
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
   const [Stock, setStock] = useState(0);
@@ -62,6 +63,16 @@ const UpdateProduct = ({ history, match }) => {
   const categories = ["Fabric", "Readymade"];
 
   const productId = match.params.id;
+
+   // Calculate discount percentage
+   useEffect(() => {
+    if (mrp > 0 && price > 0 && price < mrp) {
+      const discountPercentage = Math.round(((mrp - price) / mrp) * 100);
+      setDiscount(discountPercentage);
+    } else {
+      setDiscount(null);
+    }
+  }, [mrp, price]);
 
   useEffect(() => {
     if (product && product._id !== productId) {
@@ -213,8 +224,15 @@ const UpdateProduct = ({ history, match }) => {
               onChange={(e) => setPrice(e.target.value)}
             />
             <span>{category === "Fabric" ? `/meter` : ""}</span>
-          
         </div>
+        <div>
+           {/* Display Discount */}
+           {discount !== null && (
+              <span style={{ color: "red" }}>
+                Discount: -{discount}%
+                </span>
+            )}
+            </div>
 
             <div>
               <DescriptionIcon />

@@ -15,16 +15,19 @@ const ProductCard = ({ product }) => {
     return isNaN(parsedPrice) ? price : `₹${parsedPrice.toFixed(2)}`;
   };
 
+  // Function to calculate discount percentage
+  const calculateDiscountPercentage = (mrp, price) => {
+    const discount = ((mrp - price) / mrp) * 100;
+    return Math.round(discount);
+  };
+
   return (
     <Link className="productCard" to={`/product/${product._id}`}>
       <img src={product.images[0].url} alt={product.name} />
       <p>{product.name}</p>
       <div>
         <Rating {...options} />{" "}
-        <span className="productCardSpan">
-          {" "}
-          ({product.numOfReviews} Reviews)
-        </span>
+        <span className="productCardSpan">({product.numOfReviews} Reviews)</span>
       </div>
       <div className="col-12">
         <span className="col-12">
@@ -36,6 +39,12 @@ const ProductCard = ({ product }) => {
               ? `${formatPrice(product.price)} /meter`
               : formatPrice(product.price)}
           </span>
+          {/* Display discount percentage if there's a discount */}
+          {product.price < product.mrp && (
+            <span className="discount-percentage" style={{ color: '#C84450', marginLeft: '8px', fontWeight: 'bold' }}>
+              {`(-${calculateDiscountPercentage(product.mrp, product.price)}%)`}
+            </span>
+          )}
         </span>
       </div>
     </Link>

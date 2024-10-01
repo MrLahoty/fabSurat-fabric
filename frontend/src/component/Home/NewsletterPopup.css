@@ -51,7 +51,7 @@
 }
 
 .social-icon[href*="instagram"] {
-    background-color: #ff000084; /* Instagram custom color */
+    background: linear-gradient(45deg, #fdc468, #fa709a, #d62976, #962fbf, #4f5bd5); /* Instagram custom color */
 }
 
 .social-icon[href*="whatsapp"] i {

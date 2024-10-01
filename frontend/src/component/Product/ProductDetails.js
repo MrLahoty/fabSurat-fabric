@@ -163,6 +163,12 @@ const ProductDetails = ({ match }) => {
   return isNaN(parsedPrice) ? price : `₹${parsedPrice.toFixed(2)}`;
 };
 
+const calculateDiscountPercentage = (mrp, price) => {
+  const discount = ((mrp - price) / mrp) * 100;
+  return Math.round(discount);
+};
+
+
   return (
     <>
       {loading ? (
@@ -214,22 +220,29 @@ const ProductDetails = ({ match }) => {
                 </span>
               </div>
               <div className="detailsBlock-3">
-              <div className="price-container">
-                 {product.mrp && (
-                   <h2 className="crossed-out-price">
-                     <del>
-                       <span className="currency-symbol">₹</span> {formatPrice(product.mrp)}
-                     </del>
-                   </h2>
-                 )}
-              <h1 className="sale-price">
-               {product.category === "Fabric"
-                   ? `${formatPrice(product.price)} /meter`
-                   : formatPrice(product.price)}
-                </h1>
-                <p>(Incl. of All Taxes)</p>
-              </div>
-
+                  <div className="price-container">
+                    {product.mrp && (
+                      <h2 className="crossed-out-price">
+                        <del>
+                          <span className="currency-symbol">₹</span> {formatPrice(product.mrp)}
+                        </del>
+                      </h2>
+                    )}
+                    <h1 className="sale-price">
+                      {product.category === "Fabric"
+                        ? `${formatPrice(product.price)} /meter`
+                        : formatPrice(product.price)}
+                    </h1>
+                  </div>     
+                  <div className="sony">
+                    {/* Calculate and display the discount percentage */}
+                    {product.price < product.mrp && (
+                      <span className="discountpercentagess">
+                        {`(-${calculateDiscountPercentage(product.mrp, product.price)}%)`}
+                      </span>
+                    )}
+                    <p className="tax-info">(Incl. of All Taxes)</p>
+                    </div>          
 
                 <div className="detailsBlock-3-1">
                   <div className="detailsBlock-3-1-1">
@@ -332,11 +345,18 @@ const ProductDetails = ({ match }) => {
                   <button onClick={submitReviewToggle} className="submitReview">
                     Submit Review
                   </button>
-                 <div className="share-buttons">
-                   <button className="share-btn whatsapp" onClick={() => shareProduct('whatsapp')}>Share on WhatsApp</button>
-                   <button className="share-btn instagram" onClick={() => shareProduct('instagram')}>Share on Instagram</button>
-                   <button className="share-btn facebook" onClick={() => shareProduct('facebook')}>Share on Facebook</button>
-                </div>
+                  <div className="share-buttons">
+                    <button className="share-btn whatsapp" onClick={() => shareProduct('whatsapp')}>
+                      <i className="fab fa-whatsapp"></i> Share on WhatsApp
+                    </button>
+                    <button className="share-btn instagram" onClick={() => shareProduct('instagram')}>
+                      <i className="fab fa-instagram"></i> Share on Instagram
+                    </button>
+                    <button className="share-btn facebook" onClick={() => shareProduct('facebook')}>
+                      <i className="fab fa-facebook"></i> Share on Facebook
+                    </button>
+                 </div>
+
                 <div className="additionalInfo">
                      <div className="infoItem">
                        <LocalShippingIcon />

@@ -520,7 +520,7 @@ html, body {
 }
 
 .productCard {
-  height:400px;
+  height:420px;
   width: 21vmax;
   display: flex;
   flex-direction: column;
@@ -578,7 +578,7 @@ html, body {
 }
 
 .col-12 span{
-  margin-left: 3px;
+  margin-left: 2px;
 }
 
 /* Home.css */
@@ -1136,31 +1136,49 @@ border-radius: 10px}
     width: 90vw;
   }
 
-  .productCard {
-    width: 200px;
-    margin: 3vw auto;
-    height: 350px;
-  }
-
-  .productCard > img {
-    height: 250px;
-    width: 200px;
-  }
-
-  .productCard > div {
-    margin: 1.5vw ;
-  }
-
-  .productCard > p {
-    font-size: 4vw;
-    margin: 5px;
-    display: flex;
-  }
-
-  .productCard > span {
-    font-size: 3vw;
-  }
-
+    .productCard {
+      width: 200px;
+      margin: 3vw auto;
+      height: 400px;
+    }
+  
+    .productCard > img {
+      height: 260px;
+      width: 200px;
+    }
+  
+    .productCard > div {
+      margin: 1.5vw;
+    }
+  
+    .productCard > p {
+      font-size: 3.2vw;
+      margin: 5px;
+      display: flex;
+    }
+  
+    .productCard > span {
+      font-size: 3vw;
+      display: inline-block; /* Ensures the spans stay in line on mobile */
+    }
+  
+    .col-12 {
+      display: flex; /* Use flex to keep MRP and Sale Price on the same line */
+      flex-direction: column; /* Stack the discount percentage below */
+    }
+  
+    .col-12 span {
+      margin-left: 2px;
+      margin-bottom: 4px;
+    }
+  
+    .discount-percentage {
+      margin-top: 0px; /* Add some spacing above the discount percentage */
+      font-size: 4vw; /* Adjust font size as needed for readability */
+      margin-bottom: -20px;
+    }
+  
+  
   .shop {
     font-size: 4vw; /* Reduce font size */
     width: 90%; /* Adjust width */
