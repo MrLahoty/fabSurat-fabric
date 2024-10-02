@@ -532,7 +532,7 @@ html, body {
 }
 
 .productCard > img {
-  height:270px;
+  height:282px;
   width: 21vmax;
   display: flex;
   flex-direction: column;

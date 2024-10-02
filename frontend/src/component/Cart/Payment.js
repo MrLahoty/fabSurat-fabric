@@ -9,9 +9,8 @@ import { createOrder, clearErrors } from "../../actions/orderAction";
 import { applyCoupon, removeCoupon } from '../../actions/couponActions';
 
 function Payment({ history }) {
-  const [paymentMethod, setPaymentMethod] = useState('online');
-  const [couponCode, setCouponCode] = useState('');
   const orderInfo = JSON.parse(sessionStorage.getItem("orderInfo"));
+  const [couponCode, setCouponCode] = useState('');
   const payBtn = useRef(null);
   const dispatch = useDispatch();
   const alert = useAlert();
@@ -83,12 +82,17 @@ function Payment({ history }) {
     e.preventDefault();
     payBtn.current.disabled = true;
 
-    if (paymentMethod === 'online') {
+    // Retrieve the payment method from sessionStorage
+    const selectedPaymentMethod = sessionStorage.getItem("paymentMethod");
+
+    if (selectedPaymentMethod === "online") {
+      // For online payment, proceed with Razorpay
       displayRazorpay();
-    } else if (paymentMethod === 'cod') {
+    } else if (selectedPaymentMethod === "COD") {
+      // For COD, create the order without Razorpay
       order.paymentInfo = {
-        id: 'COD',
-        status: 'Pending', // Initially marked as pending
+        id: "COD",
+        status: "Cash on Delivery",
       };
 
       dispatch(createOrder(order));
@@ -121,29 +125,7 @@ function Payment({ history }) {
       <MetaData title="Payment" />
       <CheckoutSteps activeStep={2} />
       <div className="payment-container">
-        <h2 className="payment-title">PAYMENT MODE</h2>
-        <div className="payment-options">
-          <label>
-            <input
-              type="radio"
-              name="paymentMethod"
-              value="online"
-              checked={paymentMethod === 'online'}
-              onChange={(e) => setPaymentMethod(e.target.value)}
-            />
-            Online Payment
-          </label>
-          <label>
-            <input
-              type="radio"
-              name="paymentMethod"
-              value="cod"
-              checked={paymentMethod === 'cod'}
-              onChange={(e) => setPaymentMethod(e.target.value)}
-            />
-            Cash on Delivery
-          </label>
-        </div>
+        <h2 className="payment-title">Payment</h2>
 
         <div className="coupon-container">
           <input
@@ -156,7 +138,7 @@ function Payment({ history }) {
         </div>
 
         <button className="payment-submit" onClick={handlePayment} ref={payBtn}>
-        Pay Now - {formatPrice(calculateDiscountedTotal())}
+          Pay Now - {formatPrice(calculateDiscountedTotal())}
         </button>
       </div>
     </>

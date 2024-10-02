@@ -2,6 +2,7 @@ const Order = require("../models/orderModel");
 const Product = require("../models/productModel");
 const ErrorHander = require("../utils/errorhander");
 const catchAsyncErrors = require("../middleware/catchAsyncErrors");
+const { sendOrderConfirmationEmail } = require("../utils/emailService");
 
 // Cancel Order
 exports.cancelOrder = catchAsyncErrors(async (req, res, next) => {
@@ -14,7 +15,12 @@ exports.cancelOrder = catchAsyncErrors(async (req, res, next) => {
     if (order.orderStatus === "Delivered") {
       return next(new ErrorHandler("You cannot cancel a delivered order", 400));
     }
-  
+
+     // Restore stock for each product in the order
+     for (const item of order.orderItems) {
+        await restoreStock(item.product, item.quantity);
+    }
+
     order.orderStatus = "Cancelled";
     await order.save();
   
@@ -22,7 +28,21 @@ exports.cancelOrder = catchAsyncErrors(async (req, res, next) => {
       success: true,
       message: "Order cancelled successfully",
     });
-  });
+});
+
+// Function to restore stock when an order is cancelled
+async function restoreStock(productId, quantity) {
+    const product = await Product.findById(productId);
+
+    if (!product) {
+      throw new ErrorHandler("Product not found", 404);
+    }
+
+    product.Stock += quantity;
+
+    await product.save({ validateBeforeSave: false });
+}
+
 
 // Create new Order
 exports.newOrder = catchAsyncErrors(async (req, res, next) => {
@@ -41,6 +61,7 @@ exports.newOrder = catchAsyncErrors(async (req, res, next) => {
         size: item.size || null, // Add size only if it's provided (i.e., for readymade products)
     }));
 
+    // Create order
     const order = await Order.create({
         shippingInfo,
         orderItems: updatedOrderItems,
@@ -52,11 +73,43 @@ exports.newOrder = catchAsyncErrors(async (req, res, next) => {
         user: req.user._id,
     });
 
+    // Decrease product stock as soon as the order is created
+    order.orderItems.forEach(async (item) => {
+        await updateStock(item.product, item.quantity);
+    });
+
+    // Send order confirmation email
+    const orderDetails = {
+        orderId: order._id,
+        orderItems: order.orderItems,
+        totalPrice: order.totalPrice,
+        shippingInfo: order.shippingInfo,
+    };
+
+    try {
+        await sendOrderConfirmationEmail(req.user.email, orderDetails); // Send email to the user
+    } catch (error) {
+        return next(new ErrorHander("Error sending email", 500));
+    }
+
     res.status(201).json({
         success: true,
         order,
     });
 });
+
+// Update stock immediately after order creation
+async function updateStock(id, quantity) {
+    const product = await Product.findById(id);
+
+    if (product.Stock < quantity) {
+        throw new ErrorHander("Insufficient stock for this product", 400);
+    }
+
+    product.Stock -= quantity;
+    await product.save({ validateBeforeSave: false });
+}
+
 
 //Get Single Order
 exports.getSingleOrder = catchAsyncErrors(async (req, res, next) => {

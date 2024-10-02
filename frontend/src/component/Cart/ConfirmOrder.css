@@ -1,5 +1,5 @@
 .confirmOrderPage {
-  height: 110vh;
+  height: 132vh;
   background-color: white;
   display: grid;
   grid-template-columns: 6fr 3fr;
@@ -78,6 +78,7 @@
 
 .orderSummary {
   padding: 7vmax;
+  margin-top: -30px;
 }
 
 .orderSummary > p {
@@ -123,6 +124,88 @@
 .orderSummary > button:hover {
   background-color: rgb(101, 101, 101);
   transform: scale(1.1);
+}
+
+.payment-method {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  margin: 10px auto;
+  transition: background-color 0.3s ease;
+  margin-bottom: 30px;
+  width: 300px;
+}
+
+.payment-method p {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.payment-method label {
+  display: block;
+  margin: 15px 0;
+  font-size: 1rem;
+  color: #555;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  position: relative;
+  padding-left: 35px;
+}
+
+.payment-method input[type="radio"] {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  appearance: none;
+  background-color: #fff;
+  border: 2px solid #999;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.payment-method input[type="radio"]:checked {
+  background-color: #4caf50;
+  border-color: #4caf50;
+}
+
+.payment-method label:hover {
+  transform: scale(1.05);
+}
+
+.payment-method input[type="radio"]:hover {
+  border-color: #4caf50;
+}
+
+.payment-method label:hover input[type="radio"] {
+  border-color: #4caf50;
+}
+
+.payment-method label::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 12px;
+  background: #fff;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.payment-method input[type="radio"]:checked + label::before {
+  background-color: #4caf50;
+}
+
+.payment-method label:focus-within {
+  box-shadow: 0 0 5px #4caf50;
 }
 
 @media screen and (max-width: 600px) {
