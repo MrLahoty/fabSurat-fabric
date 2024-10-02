@@ -78,7 +78,7 @@
   margin-bottom: 20px;
 }
 
-.coupon-container {
+/* .coupon-container {
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
@@ -103,7 +103,7 @@
 
 .coupon-container button:hover {
   background-color: #0056b3;
-}
+} */
 
 .payment-submit {
   width: 100%;

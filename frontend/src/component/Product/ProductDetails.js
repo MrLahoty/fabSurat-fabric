@@ -21,6 +21,8 @@ import {
 } from "@material-ui/core";
 import { Rating } from "@material-ui/lab";
 import { NEW_REVIEW_RESET } from "../../constants/productConstants";
+// import ProductCard from "../Home/ProductCard";  // Assuming you have a ProductCard component to display individual products
+// import { getCategoryProducts } from "../../actions/productAction"; // Assuming you have an action to fetch products by category
 
 // Importing Material-UI Icons
 import LocalShippingIcon from "@material-ui/icons/LocalShipping";
@@ -36,6 +38,8 @@ const ProductDetails = ({ match }) => {
   };
   const dispatch = useDispatch();
   const alert = useAlert();
+
+  // const [relatedProducts, setRelatedProducts] = useState([]);
 
   const { product, loading, error } = useSelector((state) => state.productDetails);
   const { success, error: reviewError } = useSelector((state) => state.newReview);
@@ -60,6 +64,18 @@ const ProductDetails = ({ match }) => {
       setQuantity(1);
     }
   }, [product.category]);
+
+   // Fetch related products
+  //  useEffect(() => {
+  //   if (product.category) {
+      // Fetch products based on the same category
+      // dispatch(getCategoryProducts(product.category)).then((related) => {
+        // Exclude the current product from related products
+  //       const filteredProducts = related.filter(p => p._id !== product._id);
+  //       setRelatedProducts(filteredProducts.slice(0, 3));
+  //     });
+  //   }
+  // }, [dispatch, product.category, product._id]);
 
   useEffect(() => {
     if (error) {
@@ -373,6 +389,20 @@ const calculateDiscountPercentage = (mrp, price) => {
               </div>
             </div>
           </div>
+
+          {/* After the Customer Reviews section */}
+      {/* <div className="related-products-section">
+        <h3>Related Products</h3>
+        <div className="related-products">
+          {relatedProducts.length > 0 ? (
+            relatedProducts.map((relatedProduct) => (
+              <ProductCard key={relatedProduct._id} product={relatedProduct} />
+            ))
+          ) : (
+            <p>No related products found.</p>
+          )}
+        </div>
+      </div> */}
 
 
           <h3 className="reviewsHeading">CUSTOMER REVIEWS</h3>

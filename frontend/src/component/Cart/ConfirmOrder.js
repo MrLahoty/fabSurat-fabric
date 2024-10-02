@@ -1,17 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import CheckoutSteps from "../Cart/CheckoutSteps";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import MetaData from "../layout/MetaData";
 import "./ConfirmOrder.css";
 import { Link } from "react-router-dom";
 import { Typography } from "@material-ui/core";
+import axios from 'axios';
+import { useAlert } from 'react-alert';
+import { createOrder, clearErrors } from "../../actions/orderAction";
+import { applyCoupon, removeCoupon } from '../../actions/couponActions';
 
 const ConfirmOrder = ({ history }) => {
   const { shippingInfo, cartItems } = useSelector((state) => state.cart);
   const { user } = useSelector((state) => state.user);
+  const { coupon, error: couponError } = useSelector((state) => state.coupon);
+  const dispatch = useDispatch();
+  const alert = useAlert();
+  const payBtn = useRef(null);
 
-  // Payment method state to track user's selection
   const [paymentMethod, setPaymentMethod] = useState("online");
+  const [couponCode, setCouponCode] = useState('');
 
   const formatPrice = (price) => {
     const parsedPrice = parseFloat(price);
@@ -23,7 +31,6 @@ const ConfirmOrder = ({ history }) => {
     0
   );
 
-  // Determine shipping charges based on subtotal and payment method
   let shippingCharges = 0;
 
   if (paymentMethod === "online") {
@@ -36,38 +43,98 @@ const ConfirmOrder = ({ history }) => {
     }
   }
 
-  // Apply discount based on subtotal range
-  let discount = 0;
-  if (subtotal >= 50000) {
-    discount = 4000;
-  } else if (subtotal >= 30000 && subtotal < 50000) {
-    discount = 2000;
-  } else if (subtotal >= 20000 && subtotal < 30000) {
-    discount = 1100;
-  } else if (subtotal >= 10000 && subtotal < 20000) {
-    discount = 500;
-  } else if (subtotal >= 5000 && subtotal < 10000) {
-    discount = 200;
-  }
+  let discount = coupon ? coupon.discount : 0; // Use discount from coupon
 
   const totalPrice = subtotal + shippingCharges - discount;
 
   const address = `${shippingInfo.address}, ${shippingInfo.city}, ${shippingInfo.state}, ${shippingInfo.pinCode}, ${shippingInfo.country}`;
 
-  const proceedToPayment = () => {
-    const data = {
-      subtotal,
-      shippingCharges,
-      discount, // Already calculated discount
-      totalPrice, // Total price after discount
-      paymentMethod, // Include selected payment method
-    };
-    sessionStorage.setItem("orderInfo", JSON.stringify(data));
-    // Save the selected payment method in sessionStorage
-    sessionStorage.setItem("paymentMethod", paymentMethod);
-    history.push("/process/payment");
+  const order = {
+    shippingInfo,
+    orderItems: cartItems,
+    itemsPrice: subtotal,
+    shippingPrice: shippingCharges,
+    totalPrice,
   };
-  
+
+  const displayRazorpay = async (amount) => {
+    try {
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      };
+
+      const baseURL = process.env.NODE_ENV === 'PRODUCTION' ? 'http://localhost:4000' : 'https://fabsurat.onrender.com';
+
+      const { data: { key } } = await axios.get(`${baseURL}/api/v1/razorpay-key`);
+      const paymentAmount = Math.round(amount * 100); // Convert to paise
+
+      const { data } = await axios.post(`${baseURL}/api/v1/razorpay`, { amount: paymentAmount }, config);
+
+      const options = {
+        key, // Use the fetched key here
+        currency: data.currency,
+        amount: data.amount,
+        description: 'Order Payment',
+        image: `${baseURL}/logo.png`,
+        order_id: data.id,
+        handler: function (response) {
+          order.paymentInfo = {
+            id: response.razorpay_payment_id,
+            status: 'succeeded',
+          };
+          // Create order after payment success
+          dispatch(createOrder(order));
+          history.push("/success");
+        },
+        prefill: {
+          name: user.name,
+          email: user.email,
+          contact: shippingInfo.phoneNo,
+        },
+      };
+
+      const paymentObject = new window.Razorpay(options);
+      paymentObject.open();
+    } catch (error) {
+      payBtn.current.disabled = false;
+      alert.error(error.response?.data?.message || "An error occurred while processing the payment.");
+    }
+  };
+
+  const handlePayment = (e) => {
+    e.preventDefault();
+    payBtn.current.disabled = true;
+
+    if (paymentMethod === "online") {
+      // Pay the total price including shipping charges for online
+      displayRazorpay(totalPrice);
+    } else if (paymentMethod === "COD") {
+      // Pay the shipping charges first
+      displayRazorpay(shippingCharges);
+    }
+  };
+
+  const applyCouponHandler = () => {
+    // Remove existing coupon before applying a new one
+    if (coupon) {
+      dispatch(removeCoupon());
+    }
+    dispatch(applyCoupon(couponCode));
+  };
+
+  const removeCouponHandler = () => {
+    dispatch(removeCoupon());
+    setCouponCode(''); // Clear coupon code input
+  };
+
+  useEffect(() => {
+    if (couponError) {
+      alert.error(couponError);
+      dispatch(clearErrors());
+    }
+  }, [dispatch, couponError, alert]);
 
   return (
     <>
@@ -136,6 +203,20 @@ const ConfirmOrder = ({ history }) => {
               <span>{formatPrice(totalPrice)}</span>
             </div>
 
+            {/* Coupon Code Section */}
+            <div className="coupon-container">
+              <input
+                type="text"
+                placeholder="Enter Coupon Code"
+                value={couponCode}
+                onChange={(e) => setCouponCode(e.target.value)}
+              />
+              <button onClick={applyCouponHandler}>Apply Coupon</button>
+              {coupon && (
+                <button onClick={removeCouponHandler}>Remove Coupon</button>
+              )}
+            </div>
+
             <div className="payment-method">
               <p>Choose Payment Method:</p>
               <label>
@@ -158,7 +239,9 @@ const ConfirmOrder = ({ history }) => {
               </label>
             </div>
 
-            <button onClick={proceedToPayment}>Proceed To Payment</button>
+            <button className="payment-submit" onClick={handlePayment} ref={payBtn}>
+              Pay Now - {formatPrice(paymentMethod === "online" ? totalPrice : shippingCharges)}
+            </button>
           </div>
         </div>
       </div>

@@ -24,7 +24,6 @@ const ProcessOrder = ({ history, match }) => {
     e.preventDefault();
 
     const myForm = new FormData();
-
     myForm.set("status", status);
 
     dispatch(updateOrder(match.params.id, myForm));
@@ -32,7 +31,6 @@ const ProcessOrder = ({ history, match }) => {
 
   const dispatch = useDispatch();
   const alert = useAlert();
-
   const [status, setStatus] = useState("");
 
   useEffect(() => {
@@ -51,6 +49,12 @@ const ProcessOrder = ({ history, match }) => {
 
     dispatch(getOrderDetails(match.params.id));
   }, [dispatch, alert, error, match.params.id, isUpdated, updateError]);
+
+  // Function to format price
+  const formatPrice = (price) => {
+    const parsedPrice = parseFloat(price);
+    return isNaN(parsedPrice) ? price : parsedPrice.toFixed(2);
+  };
 
   return (
     <>
@@ -96,21 +100,31 @@ const ProcessOrder = ({ history, match }) => {
                       <p
                         className={
                           order.paymentInfo &&
-                          order.paymentInfo.status === "succeeded"
+                          order.paymentInfo.status === "succeeded" &&
+                          order.orderStatus === "Delivered"
                             ? "greenColor"
                             : "redColor"
                         }
                       >
-                        {order.paymentInfo &&
-                        order.paymentInfo.status === "succeeded"
+                        {order.paymentInfo && order.paymentInfo.status === "succeeded" && order.orderStatus === "Delivered"
                           ? "PAID"
+                          : order.paymentMethod === "COD" && order.orderStatus !== "Delivered"
+                          ? "NOT PAID"
                           : "NOT PAID"}
                       </p>
                     </div>
 
                     <div>
-                      <p>Amount:</p>
-                      <span>{order.totalPrice && order.totalPrice}</span>
+                      <p>Item Total:</p>
+                      <span>{order.itemsPrice && formatPrice(order.itemsPrice)}</span>
+                    </div>
+                    <div>
+                      <p>Shipping Charges:</p>
+                      <span>{order.shippingPrice && formatPrice(order.shippingPrice)}</span>
+                    </div>
+                    <div>
+                      <p>Total Amount:</p>
+                      <span>{order.totalPrice && formatPrice(order.totalPrice)}</span>
                     </div>
                   </div>
 
@@ -145,8 +159,8 @@ const ProcessOrder = ({ history, match }) => {
                             </div>
                           )}
                           <span>
-                            {item.quantity} X ₹{parseFloat(item.price).toFixed(2)} ={" "}
-                            <b>₹{parseFloat(item.price * item.quantity).toFixed(2)}</b>
+                            {item.quantity} X ₹{formatPrice(item.price)} ={" "}
+                            <b>₹{formatPrice(item.price * item.quantity)}</b>
                           </span>
                         </div>
                       ))}
@@ -170,7 +184,7 @@ const ProcessOrder = ({ history, match }) => {
                     <div>
                       <AccountTreeIcon />
                       <select onChange={(e) => setStatus(e.target.value)}>
-                        <option value="">Choose Category</option>
+                        <option value="">Choose Status</option>
                         {order.orderStatus === "Processing" && (
                           <option value="Shipped">Shipped</option>
                         )}
@@ -185,7 +199,7 @@ const ProcessOrder = ({ history, match }) => {
                       id="createProductBtn"
                       type="submit"
                       disabled={
-                        loading ? true : false || status === "" ? true : false
+                        loading || status === ""
                       }
                     >
                       Process

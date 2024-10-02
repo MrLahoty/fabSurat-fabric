@@ -30,6 +30,16 @@ import {
   CLEAR_ERRORS,
 } from "../constants/productConstants";
 
+// actions/productAction.js
+// export const getCategoryProducts = (category) => async (dispatch) => {
+//   try {
+//     const { data } = await axios.get(`/api/v1/products?category=${category}`);
+//     return data.products;  // Return the list of products based on category
+//   } catch (error) {
+//     console.error("Error fetching related products", error);
+//   }
+// };
+
 // Get All Products
 export const getProduct =
   (keyword = "", currentPage = 1, price = [0, 25000], category, ratings = 0) =>

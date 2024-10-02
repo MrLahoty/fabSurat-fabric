@@ -39,8 +39,8 @@ const OrderDetails = ({ match }) => {
     setShowConfirmation(false);
   };
 
-   // Function to format price
-   const formatPrice = (price) => {
+  // Function to format price
+  const formatPrice = (price) => {
     const parsedPrice = parseFloat(price);
     return isNaN(parsedPrice) ? price : parsedPrice.toFixed(2);
   };
@@ -83,20 +83,30 @@ const OrderDetails = ({ match }) => {
                   <p
                     className={
                       order.paymentInfo &&
-                      order.paymentInfo.status === "succeeded"
+                      order.paymentInfo.status === "succeeded" &&
+                      order.orderStatus === "Delivered"
                         ? "greenColor"
                         : "redColor"
                     }
                   >
-                    {order.paymentInfo &&
-                    order.paymentInfo.status === "succeeded"
+                    {order.paymentInfo && order.paymentInfo.status === "succeeded" && order.orderStatus === "Delivered"
                       ? "PAID"
+                      : (order.paymentMethod === "COD" && order.orderStatus !== "Delivered") 
+                      ? "NOT PAID" 
                       : "NOT PAID"}
                   </p>
                 </div>
 
                 <div>
-                  <p>Amount:</p>
+                  <p>Item Total:</p>
+                  <span>{order.itemsPrice && formatPrice(order.itemsPrice)}</span>
+                </div>
+                <div>
+                  <p>Shipping Charges:</p>
+                  <span>{order.shippingPrice && formatPrice(order.shippingPrice)}</span>
+                </div>
+                <div>
+                  <p>Total Amount:</p>
                   <span>{order.totalPrice && formatPrice(order.totalPrice)}</span>
                 </div>
               </div>
@@ -122,35 +132,35 @@ const OrderDetails = ({ match }) => {
               </div>
             </div>
             {showConfirmation && (
-            <div className="confirmationDialog">
-              <p>Are you sure you want to cancel your order?</p>
-              <button className="yes" onClick={handleCancelConfirm}>Yes</button>
-              <button className="no" onClick={handleCancelCancel}>No</button>
-            </div>
-          )}
+              <div className="confirmationDialog">
+                <p>Are you sure you want to cancel your order?</p>
+                <button className="yes" onClick={handleCancelConfirm}>Yes</button>
+                <button className="no" onClick={handleCancelCancel}>No</button>
+              </div>
+            )}
 
             <div className="orderDetailsCartItems">
               <Typography>Order Items:</Typography>
               <div className="orderDetailsCartItemsContainer">
-  {order.orderItems &&
-    order.orderItems.map((item) => (
-      <div key={item.product}>
-        <img src={item.image} alt="Product" />
-        <Link to={`/product/${item.product}`}>
-          {item.name}
-        </Link>{" "}
-        {item.size && (
-          <div className="orderItemSizes">
-            <span>Size: {item.size}</span>
-          </div>
-        )}
-        <span>
-        {item.quantity} X ₹{formatPrice(item.price)} ={" "}
-        <b>₹{formatPrice(item.price * item.quantity)}</b>
-        </span>
-      </div>
-    ))}
-</div>
+                {order.orderItems &&
+                  order.orderItems.map((item) => (
+                    <div key={item.product}>
+                      <img src={item.image} alt="Product" />
+                      <Link to={`/product/${item.product}`}>
+                        {item.name}
+                      </Link>{" "}
+                      {item.size && (
+                        <div className="orderItemSizes">
+                          <span>Size: {item.size}</span>
+                        </div>
+                      )}
+                      <span>
+                        {item.quantity} X ₹{formatPrice(item.price)} ={" "}
+                        <b>₹{formatPrice(item.price * item.quantity)}</b>
+                      </span>
+                    </div>
+                  ))}
+              </div>
             </div>
           </div>
         </>
