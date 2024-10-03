@@ -104,6 +104,10 @@ const orderSchema = new mongoose.Schema({
         type: Date,
         default: Date.now,
     },
+    trackingId: { // Add this line for tracking ID
+        type: String,
+        default: null,
+    },
 });
 
 // Virtual property to get formatted order items with price

@@ -20,18 +20,33 @@ const ProcessOrder = ({ history, match }) => {
   const { order, error, loading } = useSelector((state) => state.orderDetails);
   const { error: updateError, isUpdated } = useSelector((state) => state.order);
 
+  const dispatch = useDispatch();
+  const alert = useAlert();
+  const [status, setStatus] = useState("");
+  const [trackingId, setTrackingId] = useState(""); // State for tracking ID
+
   const updateOrderSubmitHandler = (e) => {
     e.preventDefault();
 
     const myForm = new FormData();
     myForm.set("status", status);
+    myForm.set("trackingId", trackingId); // Add tracking ID to the form
 
     dispatch(updateOrder(match.params.id, myForm));
   };
 
-  const dispatch = useDispatch();
-  const alert = useAlert();
-  const [status, setStatus] = useState("");
+  const addTrackingIdHandler = () => {
+    if (trackingId.trim() === "") {
+      alert.error("Please enter a valid tracking ID");
+      return;
+    }
+    
+    const myForm = new FormData();
+    myForm.set("trackingId", trackingId); // Add tracking ID to the form
+
+    // Dispatch action to update tracking ID
+    dispatch(updateOrder(match.params.id, myForm));
+  };
 
   useEffect(() => {
     if (error) {
@@ -98,9 +113,9 @@ const ProcessOrder = ({ history, match }) => {
                   <div className="orderDetailsContainerBox">
                     <div>
                       <p
-                        className={
-                          order.paymentInfo &&
-                          order.paymentInfo.status === "succeeded" &&
+                        className={ 
+                          order.paymentInfo && 
+                          order.paymentInfo.status === "succeeded" && 
                           order.orderStatus === "Delivered"
                             ? "greenColor"
                             : "redColor"
@@ -166,47 +181,69 @@ const ProcessOrder = ({ history, match }) => {
                       ))}
                   </div>
                 </div>
-              </div>
+              </div>             
 
-              {/* Status Update Section */}
-              {order.orderStatus !== "Delivered" && (
-                <div
-                  style={{
-                    display: order.orderStatus === "Delivered" ? "none" : "block",
-                  }}
-                >
-                  <form
-                    className="updateOrderForm"
-                    onSubmit={updateOrderSubmitHandler}
-                  >
-                    <h1>Process Order</h1>
-
-                    <div>
-                      <AccountTreeIcon />
-                      <select onChange={(e) => setStatus(e.target.value)}>
-                        <option value="">Choose Status</option>
-                        {order.orderStatus === "Processing" && (
-                          <option value="Shipped">Shipped</option>
-                        )}
-
-                        {order.orderStatus === "Shipped" && (
-                          <option value="Delivered">Delivered</option>
-                        )}
-                      </select>
-                    </div>
-
-                    <Button
-                      id="createProductBtn"
-                      type="submit"
-                      disabled={
-                        loading || status === ""
-                      }
+              {/* Status Update and Tracking ID Section */}
+              <div className="processOrderTrackingContainer">
+                {/* Status Update Section */}
+                {order.orderStatus !== "Delivered" && (
+                  <div>
+                    <form
+                      className="updateOrderForm"
+                      onSubmit={updateOrderSubmitHandler}
                     >
-                      Process
+                      <h1>Process Order</h1>
+
+                      <div>
+                        <AccountTreeIcon />
+                        <select onChange={(e) => setStatus(e.target.value)}>
+                          <option value="">Choose Status</option>
+                          {order.orderStatus === "Processing" && (
+                            <option value="Shipped">Shipped</option>
+                          )}
+
+                          {order.orderStatus === "Shipped" && (
+                            <option value="Delivered">Delivered</option>
+                          )}
+                        </select>
+                      </div>
+
+                      <Button
+                        id="createProductBtn"
+                        type="submit"
+                        disabled={loading || status === ""}
+                      >
+                        Process
+                      </Button>
+                    </form>
+                  </div>
+                )}
+
+                {/* Tracking ID Section */}
+                <div className="trackingIdSection">
+                  <h1>Tracking ID:</h1>
+                  <div>
+                    <input
+                      type="text"
+                      placeholder="Enter Tracking ID"
+                      value={trackingId}
+                      onChange={(e) => setTrackingId(e.target.value)}
+                    />
+                    <Button
+                      onClick={addTrackingIdHandler}
+                      disabled={loading}
+                    >
+                      Add
                     </Button>
-                  </form>
+                  </div>
+                  {/* Display the tracking ID if it exists */}
+                    {order.trackingId && (
+                      <div className="trackingIdDisplay">
+                       <h3>This order's tracking ID is: <span>{order.trackingId}</span></h3>
+                      </div>
+                    )}
                 </div>
-              )}
+              </div>
             </div>
           )}
         </div>

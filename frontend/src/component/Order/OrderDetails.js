@@ -57,6 +57,12 @@ const OrderDetails = ({ match }) => {
               <Typography component="h1">
                 Order #{order && order._id}
               </Typography>
+              {/* Tracking ID Section */}
+              {order.trackingId && (
+                <div className="trackingIdSections">
+                  <h2>Tracking ID:  <span>{order.trackingId}</span> </h2>                
+                </div>
+              )}
               <Typography>Shipping Info</Typography>
               <div className="orderDetailsContainerBox">
                 <div>
@@ -130,7 +136,10 @@ const OrderDetails = ({ match }) => {
                   )}
                 </div>
               </div>
+
+              
             </div>
+
             {showConfirmation && (
               <div className="confirmationDialog">
                 <p>Are you sure you want to cancel your order?</p>

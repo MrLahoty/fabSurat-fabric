@@ -1,3 +1,77 @@
+.processOrderTrackingContainer {
+  flex-direction: column;
+  display: flex; /* Use flexbox to align elements */
+  margin-top: 10px; /* Add some space above */
+}
+
+.trackingIdSection {
+  flex-direction: column;
+  margin-left: 60px; /* Space between the two sections */
+  flex: 1; /* Allow it to take available space */
+  align-items: center; /* Align items vertically */
+  display: flex; /* Flexbox layout for alignment */
+  margin-bottom: 550px;
+}
+
+.trackingIdSection h1 {
+  margin: 1vmax 0;
+  padding: 1vmax;
+  background-color: white;
+  margin-right: 70px;
+}
+
+.trackingIdSection input {
+  display: flex;
+  width: 90%;
+  align-items: center;
+  margin-right: 150px;
+  padding: 10px;
+}
+
+/* Add button styles */
+.trackingIdSection button {
+  align-items: center;
+  margin-top: 10px;
+  margin-left: 90px;
+  background-color: #007bff; /* Primary button color */
+  color: white; /* Text color */
+  border: none; /* Remove default border */
+  padding: 8px 25px; /* Padding for the button */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor */
+  transition: background-color 0.3s ease; /* Smooth background transition */
+}
+
+.trackingIdSection button:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+}
+
+.trackingIdDisplay {
+  background-color: #f9f9f9; /* Light grey background */
+  border: 1px solid #ddd; /* Subtle border */
+  border-radius: 8px; /* Rounded corners */
+  padding: 15px; /* Spacing inside the container */
+  margin-top: 11px; /* Spacing above the section */
+  display: inline-block; /* Ensure the container fits content */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  margin-bottom: 20px;
+  margin-right: 20px;
+}
+
+.trackingIdDisplay h3 {
+  font-size: 1.2rem; /* Medium font size */
+  color: #333; /* Dark grey text */
+  font-weight: 700; /* Slightly bold for emphasis */
+  margin: 0; /* Remove margin to keep in one line */
+  display: inline-block; /* Keep the heading in the same line */
+}
+
+.trackingIdDisplay h2 span {
+  font-size: 1.25rem; /* Same size for the tracking ID */
+  color: #007bff; /* Blue color for the tracking ID */
+  font-weight: bold; /* Make the tracking ID bold */
+}
+
 .confirmCartItemsContainer {
   display: flex;
   flex-direction: column;
@@ -54,7 +128,7 @@
 }
 
 .updateOrderForm {
-  margin: 5vmax 0;
+  margin: 4vmax 0;
   padding: 3vmax;
   background-color: white;
 }

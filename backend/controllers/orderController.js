@@ -168,30 +168,35 @@ exports.getAllOrders = catchAsyncErrors(async (req, res, next) => {
 });
 
 
-//Update Order Status -- Admin
+// Update Order Status -- Admin
 exports.updateOrder = catchAsyncErrors(async (req, res, next) => {
     const order = await Order.findById(req.params.id);
 
-    if(!order) {
-        return next(new ErrorHander("Order not found with this Id", 404));
+    if (!order) {
+        return next(new ErrorHandler("Order not found with this Id", 404));
     }
 
-  if(order.orderStatus === "Delivered") {
-    return next(new ErrorHander("You have already delivered this order", 400));
-  }
+    if (order.orderStatus === "Delivered") {
+        return next(new ErrorHandler("You have already delivered this order", 400));
+    }
 
-  if(req.body.status === "Shipped") {
-    order.orderItems.forEach(async (o) => {
-    await updateStock(o.product, o.quantity);
-  });
-}
-  order.orderStatus = req.body.status;
+    // Update the status and tracking ID
+    order.orderStatus = req.body.status;
+    if (req.body.trackingId) { // Check if trackingId is provided
+        order.trackingId = req.body.trackingId; // Save tracking ID
+    }
 
-  if(req.body.status === "Delivered") {
-    order.deliveredAt = Date.now();
-  }
+    if (req.body.status === "Shipped") {
+        order.orderItems.forEach(async (o) => {
+            await updateStock(o.product, o.quantity);
+        });
+    }
 
-  await order.save({ validateBeforeSave: false });
+    if (req.body.status === "Delivered") {
+        order.deliveredAt = Date.now();
+    }
+
+    await order.save({ validateBeforeSave: false });
 
     res.status(200).json({
         success: true,
