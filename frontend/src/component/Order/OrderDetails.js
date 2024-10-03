@@ -55,7 +55,7 @@ const OrderDetails = ({ match }) => {
           <div className="orderDetailsPage">
             <div className="orderDetailsContainer">
               <Typography component="h1">
-                Order #{order && order._id}
+                Order ID: #{order && order._id}
               </Typography>
               {/* Tracking ID Section */}
               {order.trackingId && (
@@ -149,7 +149,7 @@ const OrderDetails = ({ match }) => {
             )}
 
             <div className="orderDetailsCartItems">
-              <Typography>Order Items:</Typography>
+              <h2>Order Items:</h2>
               <div className="orderDetailsCartItemsContainer">
                 {order.orderItems &&
                   order.orderItems.map((item) => (

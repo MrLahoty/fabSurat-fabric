@@ -163,14 +163,14 @@ const Header = () => {
           POSITION PRINTS <span className="arrow"></span>
           </button>
           <div className="dropdown-content">
-            <a href="/fabric-sale">Muslin Position Prints</a>
-            <a href="/jacket-sale">Chinon Position Prints</a>
-            <a href="/blouse-sale">Georgette Position Prints</a>
-            <a href="/saree-sale">Opada Position Prints</a>
-            <a href="/saree-sale">Dola Silk Jacquard Position Prints</a>
-            <a href="/saree-sale">Organza Position Prints</a>
-            <a href="/saree-sale">Tissue Zari Position Prints</a>
-            <a href="/saree-sale">Crepe Position Prints</a>
+            <a href="/products">Muslin Position Prints</a>
+            <a href="/products/">Chinon Position Prints</a>
+            <a href="/products/">Georgette Position Prints</a>
+            <a href="/products/">Opada Position Prints</a>
+            <a href="/products/">Dola Silk Jacquard Position Prints</a>
+            <a href="/products/">Organza Position Prints</a>
+            <a href="/products/">Tissue Zari Position Prints</a>
+            <a href="/products/">Crepe Position Prints</a>
           </div>
         </div>
         <div className="dropdown">
@@ -178,15 +178,15 @@ const Header = () => {
           EMBROIDERED <span className="arrow"></span>
           </button>
           <div className="dropdown-content">
-            <a href="/fabric-sale">Chinon Embroidery</a>
-            <a href="/jacket-sale">Faux Georgette Embroidery</a>
-            <a href="/blouse-sale">Viscose Georgette Embroider</a>
-            <a href="/saree-sale">Silk Embroidery</a>
-            <a href="/saree-sale">Rayon Embroidery</a>
-            <a href="/saree-sale">Velvet Embroidery</a>
-            <a href="/saree-sale">Organza Embroidery</a>
-            <a href="/saree-sale">Cotton Embroidery</a>
-            <a href="/saree-sale">Shimmer Embroidery</a>
+            <a href="/products">Chinon Embroidery</a>
+            <a href="/products">Faux Georgette Embroidery</a>
+            <a href="/products">Viscose Georgette Embroider</a>
+            <a href="/products">Silk Embroidery</a>
+            <a href="/products">Rayon Embroidery</a>
+            <a href="/products">Velvet Embroidery</a>
+            <a href="/products">Organza Embroidery</a>
+            <a href="/products">Cotton Embroidery</a>
+            <a href="/products">Shimmer Embroidery</a>
           </div>
         </div>
         <div className="dropdown">
@@ -194,14 +194,14 @@ const Header = () => {
           PRINTS <span className="arrow"></span>
           </button>
           <div className="dropdown-content">
-            <a href="/fabric-sale">Hakoba Prints</a>
-            <a href="/fabric-sale">Satin Prints</a>
-            <a href="/jacket-sale">Georgette Prints</a>
-            <a href="/blouse-sale">Muslin Prints</a>
-            <a href="/saree-sale">Rayon Prints</a>
-            <a href="/saree-sale">Velvet Prints</a>
-            <a href="/saree-sale">Sugarcane Prints</a>
-            <a href="/saree-sale">Chinon Prints</a>
+            <a href="/products">Hakoba Prints</a>
+            <a href="/products">Satin Prints</a>
+            <a href="/products">Georgette Prints</a>
+            <a href="/products">Muslin Prints</a>
+            <a href="/products">Rayon Prints</a>
+            <a href="/products">Velvet Prints</a>
+            <a href="/products">Sugarcane Prints</a>
+            <a href="/products">Chinon Prints</a>
           </div>
         </div>
         <div className="dropdown">
@@ -209,10 +209,10 @@ const Header = () => {
             PLAIN <span className="arrow"></span>
           </button>
           <div className="dropdown-content">
-            <a href="/fabric-sale">Hakoba</a>
-            <a href="/fabric-sale">Dyeable</a>
-            <a href="/jacket-sale">Pure/Viscose</a>
-            <a href="/blouse-sale">Semi Pure</a>
+            <a href="/products">Hakoba</a>
+            <a href="/products">Dyeable</a>
+            <a href="/products">Pure/Viscose</a>
+            <a href="/products">Semi Pure</a>
           </div>
         </div>
         <div className="dropdown">
@@ -220,10 +220,10 @@ const Header = () => {
           READYMADE <span className="arrow"></span>
           </button>
           <div className="dropdown-content">
-            <a href="/fabric-sale">Fabric On Sale</a>
-            <a href="/jacket-sale">Jacket On Sale</a>
-            <a href="/blouse-sale">Blouse On Sale</a>
-            <a href="/saree-sale">Saree On Sale</a>
+            <a href="/products">Fabric On Sale</a>
+            <a href="/products">Jacket On Sale</a>
+            <a href="/products">Blouse On Sale</a>
+            <a href="/products">Saree On Sale</a>
           </div>
         </div>
         <div className="dropdown">
@@ -231,8 +231,8 @@ const Header = () => {
             SALE <span className="arrow"></span>
           </button>
           <div className="dropdown-content">
-            <a href="/fabric-sale">Fabric On Sale</a>
-            <a href="/jacket-sale">Readymade On Sale</a>
+            <a href="/products">Fabric On Sale</a>
+            <a href="/products">Readymade On Sale</a>
           </div>
         </div>
       </>

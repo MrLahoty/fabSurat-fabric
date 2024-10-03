@@ -44,9 +44,9 @@
 }
 
 .orderDetailsContainer > h1 {
-  font: 300 3vmax "Roboto";
+  font: 300 2.5vmax "Playfair Display", serif;
   margin: 4vmax 0;
-  color: tomato;
+  color: #222222;
 }
 
 .orderDetailsContainer {
@@ -55,7 +55,7 @@
 }
 
 .orderDetailsContainer > p {
-  font: 400 1.8vmax "Roboto";
+  font: 400 1.8vmax "Playfair Display", serif;
 }
 
 .orderDetailsContainerBox,
@@ -72,10 +72,15 @@
   font: 400 1vmax "Roboto";
   color: black;
 }
+
 .orderDetailsContainerBox > div > span {
   margin: 0 1vmax;
   font: 100 1vmax "Roboto";
   color: #575757;
+}
+
+.orderDetailsCartItems h2{
+  font: 600 1.6vmax "Playfair Display", serif;
 }
 
 .orderDetailsCartItems > p {
@@ -128,7 +133,6 @@
   background-color: lightcoral;
 }
 
-
 /* Styles for the confirmation dialog */
 .confirmationDialog {
   text-align: center;
@@ -164,8 +168,27 @@
 }
 
 @media screen and (max-width: 600px) {
+
+  .trackingIdSections h2 {
+    font-size: 1rem; /* Medium font size */
+    color: #333; /* Dark grey text */
+    font-weight: 700; /* Slightly bold for emphasis */
+    margin: 0; /* Remove margin to keep in one line */
+    display: inline-block; /* Keep the heading in the same line */
+  }
+  
+  .trackingIdSections h2 span {
+    font-size: 1.10rem; /* Same size for the tracking ID */
+    color: #007bff; /* Blue color for the tracking ID */
+    font-weight: bold; /* Make the tracking ID bold */
+  }
+
   .orderDetailsContainer > p {
-    font: 400 6vw "Roboto";
+    font: 400 6vw "Playfair Display", serif;
+  }
+
+  .orderDetailsCartItems h2{
+    font: 600 2vmax "Playfair Display", serif;
   }
 
   .orderDetailsContainerBox > div {
