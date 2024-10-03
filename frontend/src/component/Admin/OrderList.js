@@ -80,7 +80,7 @@ const OrderList = ({ history }) => {
       valueFormatter: (params) => {
         // Format the amount to two decimal places
         const amount = parseFloat(params.value);
-        return isNaN(amount) ? "" : `$${amount.toFixed(2)}`;
+        return isNaN(amount) ? "" : `₹${amount.toFixed(2)}`;
       },
     },
 
@@ -118,8 +118,8 @@ const OrderList = ({ history }) => {
       rows.push({
         id: item._id,
         itemsQty: item.orderItems.length,
-         // Format the amount directly here
-      amount: parseFloat(item.totalPrice).toFixed(2), // Format to 2 decimal places
+        // Format the amount directly here
+        amount: parseFloat(item.totalPrice).toFixed(2), // Format to 2 decimal places
         status: item.orderStatus,
       });
     });
