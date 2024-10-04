@@ -1,0 +1,41 @@
+/* Dropdown category box styles */
+.categoryBoxs {
+    list-style: none;
+    position: absolute;
+    top: 10%;
+    right: 3%;
+    background-color: #222222;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+    width: 200px; /* Set a fixed width for better control */
+  }
+  
+  .categoryBoxs.show {
+    max-height: 15vmax;
+  }
+  
+  .categoryBoxs.hide {
+    max-height: 0;
+  }
+
+  /* Responsive styles */
+@media screen and (max-width: 700px) {
+    /* Dropdown category box styles */
+.categoryBoxs {
+    top: 8.6%;
+    right: 1%;
+    width: 180px; /* Set a fixed width for better control */
+    height: 350px;
+  }
+  
+  .categoryBoxs.show {
+    max-height: 25vmax;
+  }
+  
+  .categoryBoxs.hide {
+    max-height: 0;
+  }
+  
+}

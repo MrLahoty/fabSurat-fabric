@@ -30,6 +30,7 @@ const NewProduct = ({ history }) => {
   const [discount, setDiscount] = useState(0); // Discount state
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
+  const [subCategory, setSubCategory] = useState(""); // New state for sub-category
   const [Stock, setStock] = useState(0);
   const [images, setImages] = useState([]);
   const [imagesPreview, setImagesPreview] = useState([]);
@@ -50,7 +51,11 @@ const NewProduct = ({ history }) => {
     XXL: false,
   });
 
+  
   const categories = ["Fabric", "Readymade"];
+  const fabricSubCategories = ["Position Prints", "Embroidered", "Prints", "Plain"];
+  const readymadeSubCategories = ["Kurti Set", "Co-Ord Set"];
+
 
   useEffect(() => {
     if (error) {
@@ -80,6 +85,7 @@ const NewProduct = ({ history }) => {
     myForm.set("price", parseFloat(price).toFixed(2)); // Format Sale Price
     myForm.set("description", description);
     myForm.set("category", category);
+    myForm.set("subCategory", subCategory); // Add sub-category to form data
     myForm.set("Stock", Stock);
 
     if (category === "Fabric") {
@@ -201,6 +207,20 @@ const NewProduct = ({ history }) => {
                 ))}
               </select>
             </div>
+
+            {category && (
+              <div>
+                <AccountTreeIcon />
+                <select onChange={(e) => setSubCategory(e.target.value)} value={subCategory}>
+                  <option value="">Choose Sub-Category</option>
+                  {(category === "Fabric" ? fabricSubCategories : readymadeSubCategories).map((subCate) => (
+                    <option key={subCate} value={subCate}>
+                      {subCate}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            )}
 
             {category === "Readymade" && (
               <div>

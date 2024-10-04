@@ -163,14 +163,14 @@ const Header = () => {
           POSITION PRINTS <span className="arrow"></span>
           </button>
           <div className="dropdown-content">
-            <a href="/products">Muslin Position Prints</a>
-            <a href="/products/">Chinon Position Prints</a>
-            <a href="/products/">Georgette Position Prints</a>
-            <a href="/products/">Opada Position Prints</a>
-            <a href="/products/">Dola Silk Jacquard Position Prints</a>
-            <a href="/products/">Organza Position Prints</a>
-            <a href="/products/">Tissue Zari Position Prints</a>
-            <a href="/products/">Crepe Position Prints</a>
+            <a href="/fabrics">Muslin Position Prints</a>
+            <a href="/fabrics/">Chinon Position Prints</a>
+            <a href="/fabrics/">Georgette Position Prints</a>
+            <a href="/fabrics/">Opada Position Prints</a>
+            <a href="/fabrics/">Dola Silk Jacquard Position Prints</a>
+            <a href="/fabrics/">Organza Position Prints</a>
+            <a href="/fabrics/">Tissue Zari Position Prints</a>
+            <a href="/fabrics/">Crepe Position Prints</a>
           </div>
         </div>
         <div className="dropdown">
@@ -178,15 +178,15 @@ const Header = () => {
           EMBROIDERED <span className="arrow"></span>
           </button>
           <div className="dropdown-content">
-            <a href="/products">Chinon Embroidery</a>
-            <a href="/products">Faux Georgette Embroidery</a>
-            <a href="/products">Viscose Georgette Embroider</a>
-            <a href="/products">Silk Embroidery</a>
-            <a href="/products">Rayon Embroidery</a>
-            <a href="/products">Velvet Embroidery</a>
-            <a href="/products">Organza Embroidery</a>
-            <a href="/products">Cotton Embroidery</a>
-            <a href="/products">Shimmer Embroidery</a>
+            <a href="/fabrics">Chinon Embroidery</a>
+            <a href="/fabrics">Faux Georgette Embroidery</a>
+            <a href="/fabrics">Viscose Georgette Embroider</a>
+            <a href="/fabrics">Silk Embroidery</a>
+            <a href="/fabrics">Rayon Embroidery</a>
+            <a href="/fabrics">Velvet Embroidery</a>
+            <a href="/fabrics">Organza Embroidery</a>
+            <a href="/fabrics">Cotton Embroidery</a>
+            <a href="/fabrics">Shimmer Embroidery</a>
           </div>
         </div>
         <div className="dropdown">
@@ -194,14 +194,14 @@ const Header = () => {
           PRINTS <span className="arrow"></span>
           </button>
           <div className="dropdown-content">
-            <a href="/products">Hakoba Prints</a>
-            <a href="/products">Satin Prints</a>
-            <a href="/products">Georgette Prints</a>
-            <a href="/products">Muslin Prints</a>
-            <a href="/products">Rayon Prints</a>
-            <a href="/products">Velvet Prints</a>
-            <a href="/products">Sugarcane Prints</a>
-            <a href="/products">Chinon Prints</a>
+            <a href="/fabrics">Hakoba Prints</a>
+            <a href="/fabrics">Satin Prints</a>
+            <a href="/fabrics">Georgette Prints</a>
+            <a href="/fabrics">Muslin Prints</a>
+            <a href="/fabrics">Rayon Prints</a>
+            <a href="/fabrics">Velvet Prints</a>
+            <a href="/fabrics">Sugarcane Prints</a>
+            <a href="/fabrics">Chinon Prints</a>
           </div>
         </div>
         <div className="dropdown">
@@ -209,10 +209,10 @@ const Header = () => {
             PLAIN <span className="arrow"></span>
           </button>
           <div className="dropdown-content">
-            <a href="/products">Hakoba</a>
-            <a href="/products">Dyeable</a>
-            <a href="/products">Pure/Viscose</a>
-            <a href="/products">Semi Pure</a>
+            <a href="/fabrics">Hakoba</a>
+            <a href="/fabrics">Dyeable</a>
+            <a href="/fabrics">Pure/Viscose</a>
+            <a href="/fabrics">Semi Pure</a>
           </div>
         </div>
         <div className="dropdown">
@@ -220,10 +220,10 @@ const Header = () => {
           READYMADE <span className="arrow"></span>
           </button>
           <div className="dropdown-content">
-            <a href="/products">Fabric On Sale</a>
-            <a href="/products">Jacket On Sale</a>
-            <a href="/products">Blouse On Sale</a>
-            <a href="/products">Saree On Sale</a>
+            <a href="/readymades">Fabric On Sale</a>
+            <a href="/readymades">Jacket On Sale</a>
+            <a href="/readymades">Blouse On Sale</a>
+            <a href="/readymades">Saree On Sale</a>
           </div>
         </div>
         <div className="dropdown">
@@ -238,23 +238,23 @@ const Header = () => {
       </>
     ) : ( // Mobile view (circle-style links)
       <>
-        <a href="/products">
+        <a href="/fabrics">
           <img src={FabricsImage} alt="Position Prints" />
           <span>Position Prints</span>
         </a>
-        <a href="/products">
+        <a href="/fabrics">
           <img src={SareesImage} alt="Embroidered" />
           <span>Embroidered</span>
         </a>
-        <a href="/products">
+        <a href="/fabrics">
           <img src={BlousesImage} alt="Prints" />
           <span>Prints</span>
         </a>
-        <a href="/products">
+        <a href="/fabrics">
           <img src={JacketImage} alt="Plain" />
           <span>Plain</span>
         </a>
-        <a href="/products">
+        <a href="/readymades">
           <img src={MensWearImage} alt="Readymade" />
           <span>Readymade</span>
         </a>

@@ -105,15 +105,15 @@ const OrderDetails = ({ match }) => {
 
                 <div>
                   <p>Item Total:</p>
-                  <span>{order.itemsPrice && formatPrice(order.itemsPrice)}</span>
+                  <span>₹{order.itemsPrice && formatPrice(order.itemsPrice)}</span>
                 </div>
                 <div>
                   <p>Shipping Charges:</p>
-                  <span>{order.shippingPrice && formatPrice(order.shippingPrice)}</span>
+                  <span>₹{order.shippingPrice && formatPrice(order.shippingPrice)}</span>
                 </div>
                 <div>
                   <p>Total Amount:</p>
-                  <span>{order.totalPrice && formatPrice(order.totalPrice)}</span>
+                  <span>₹{order.totalPrice && formatPrice(order.totalPrice)}</span>
                 </div>
               </div>
 

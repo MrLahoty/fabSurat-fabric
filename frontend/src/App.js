@@ -40,6 +40,8 @@ import ProductReviews from "./component/Admin/ProductReviews";
 import Contact from "./component/layout/Contact/Contact";
 import About from "./component/layout/About/About";
 import 'bootstrap/dist/css/bootstrap.css';
+import FabricProducts from "./component/Product/FabricProducts.js";
+import ReadymadeProducts from "./component/Product/ReadymadeProducts.js";
 
 function App() {
   
@@ -107,6 +109,8 @@ function App() {
 
       <Switch>
         <Route exact path="/" component={Home} />
+        <Route path="/fabrics" component={FabricProducts} />
+        <Route path="/readymades" component={ReadymadeProducts} />
         <Route exact path="/product/:id" component={ProductDetails} />
         <Route exact path="/products" component={Products} />
         <Route exact path="/products/:keyword" component={Products} />

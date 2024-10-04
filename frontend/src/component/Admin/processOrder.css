@@ -18,6 +18,7 @@
   padding: 1vmax;
   background-color: white;
   margin-right: 70px;
+  font: 300 1.8vmax "Playfair Display", serif;
 }
 
 .trackingIdSection input {
@@ -72,6 +73,10 @@
   font-weight: bold; /* Make the tracking ID bold */
 }
 
+.processOrderTrackingContainer h1{
+  font:300 2vmax "Playfair Display", serif; 
+}
+
 .confirmCartItemsContainer {
   display: flex;
   flex-direction: column;
@@ -97,6 +102,14 @@
   color: #333; /* Dark color for text */
   text-decoration: none;
   font-weight: bold;
+}
+
+.confirmCartItems h2{
+  font:300 2.5vmax "Playfair Display", serif; 
+}
+
+.confirmshippingArea{
+  font:300 2.5vmax "Playfair Display", serif; 
 }
 
 .orderItemSize {
@@ -158,6 +171,15 @@
 
 /* Mobile Styles */
 @media screen and (max-width: 600px) {
+  
+  .confirmCartItems h2{
+    font:300 3.2vmax "Playfair Display", serif; 
+  }
+
+  .processOrderTrackingContainer h1{
+    font: 300 2.9vmax "Playfair Display", serif; 
+  }
+
   .confirmCartItemsContainer {
     gap: 10px; /* Reduced spacing between items */
   }

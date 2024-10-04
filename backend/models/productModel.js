@@ -39,6 +39,12 @@ const productScheme = mongoose.Schema({
     category: {
         type: String,
         required: [true, "Please Enter Product Category"],
+        enum: ["Fabric", "Readymade"], // Ensure only Fabric or Readymade can be selected
+    },
+    subCategory: {
+        type: String,
+        required: [true, "Please Enter Product Sub-Category"],
+        enum: ["Position Prints", "Embroidered", "Prints", "Plain", "Kurti Set", "Co-Ord Set"], // Enum for valid sub-categories
     },
     Stock: {
         type: Number,

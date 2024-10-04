@@ -39,18 +39,18 @@ const UpdateProduct = ({ history, match }) => {
   const [discount, setDiscount] = useState(null); // Discount state
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
+  const [subCategory, setSubCategory] = useState(""); // New state for sub-category
   const [Stock, setStock] = useState(0);
   const [images, setImages] = useState([]);
   const [oldImages, setOldImages] = useState([]);
   const [imagesPreview, setImagesPreview] = useState([]);
 
-   // New fields for fabric-related details
-   const [fabricType, setFabricType] = useState("");
-   const [work, setWork] = useState("");
-   const [width, setWidth] = useState("");
-  //  const [color, setColor] = useState("");
-   const [careInstructions, setCareInstructions] = useState("");
-   const [disclaimer, setDisclaimer] = useState("");
+  // New fields for fabric-related details
+  const [fabricType, setFabricType] = useState("");
+  const [work, setWork] = useState("");
+  const [width, setWidth] = useState("");
+  const [careInstructions, setCareInstructions] = useState("");
+  const [disclaimer, setDisclaimer] = useState("");
 
   // Sizes state
   const [sizes, setSizes] = useState({
@@ -61,11 +61,13 @@ const UpdateProduct = ({ history, match }) => {
   });
 
   const categories = ["Fabric", "Readymade"];
+  const fabricSubCategories = ["Position Prints", "Embroidered", "Prints", "Plain"];
+  const readymadeSubCategories = ["Kurti Set", "Co-Ord Set"];
 
   const productId = match.params.id;
 
-   // Calculate discount percentage
-   useEffect(() => {
+  // Calculate discount percentage
+  useEffect(() => {
     if (mrp > 0 && price > 0 && price < mrp) {
       const discountPercentage = Math.round(((mrp - price) / mrp) * 100);
       setDiscount(discountPercentage);
@@ -83,6 +85,7 @@ const UpdateProduct = ({ history, match }) => {
       setPrice(parseFloat(product.price).toFixed(2)); // Format Sale Price
       setDescription(product.description);
       setCategory(product.category);
+      setSubCategory(product.subCategory); // Set the sub-category
       setStock(product.Stock);
       setOldImages(product.images);
       setSizes(product.sizes || {});
@@ -92,7 +95,6 @@ const UpdateProduct = ({ history, match }) => {
       setFabricType(product.fabricType);
       setWork(product.work);
       setWidth(product.width);
-      // setColor(product.color);
       setCareInstructions(product.careInstructions);
       setDisclaimer(product.disclaimer);
     }
@@ -133,13 +135,13 @@ const UpdateProduct = ({ history, match }) => {
     myForm.set("price", price); // Add Sale Price
     myForm.set("description", description);
     myForm.set("category", category);
+    myForm.set("subCategory", subCategory); // Set the sub-category in the form
     myForm.set("Stock", Stock);
 
     if (category === "Fabric") {
       myForm.set("fabricType", fabricType);
       myForm.set("work", work);
       myForm.set("width", width);
-      // myForm.set("color", color);
       myForm.set("careInstructions", careInstructions);
       myForm.set("disclaimer", disclaimer);
     }
@@ -204,34 +206,34 @@ const UpdateProduct = ({ history, match }) => {
               />
             </div>
             <div>
-            <AttachMoneyIcon />
-             <input
-               type="number"
-               placeholder="MRP"
-               required
-               value={mrp}
-               onChange={(e) => setMrp(e.target.value)}
-             />
+              <AttachMoneyIcon />
+              <input
+                type="number"
+                placeholder="MRP"
+                required
+                value={mrp}
+                onChange={(e) => setMrp(e.target.value)}
+              />
               <span>{category === "Fabric" ? `/meter` : ""}</span>
             </div>
-        <div>
-            <AttachMoneyIcon />
-            <input
-              type="number"
-              placeholder="Sale Price"
-              required
-              value={price}
-              onChange={(e) => setPrice(e.target.value)}
-            />
-            <span>{category === "Fabric" ? `/meter` : ""}</span>
-        </div>
-        <div>
-           {/* Display Discount */}
-           {discount !== null && (
-              <span style={{ color: "red" }}>
-                Discount: -{discount}%
+            <div>
+              <AttachMoneyIcon />
+              <input
+                type="number"
+                placeholder="Sale Price"
+                required
+                value={price}
+                onChange={(e) => setPrice(e.target.value)}
+              />
+              <span>{category === "Fabric" ? `/meter` : ""}</span>
+            </div>
+            <div>
+              {/* Display Discount */}
+              {discount !== null && (
+                <span style={{ color: "red" }}>
+                  Discount: -{discount}%
                 </span>
-            )}
+              )}
             </div>
 
             <div>
@@ -257,6 +259,20 @@ const UpdateProduct = ({ history, match }) => {
               </select>
             </div>
 
+            {category && (
+              <div>
+                <AccountTreeIcon />
+                <select onChange={(e) => setSubCategory(e.target.value)} value={subCategory}>
+                  <option value="">Choose Sub-Category</option>
+                  {(category === "Fabric" ? fabricSubCategories : readymadeSubCategories).map((subCate) => (
+                    <option key={subCate} value={subCate}>
+                      {subCate}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            )}
+
             {category === "Readymade" && (
               <div>
                 <label>Available Sizes:</label>
@@ -276,10 +292,10 @@ const UpdateProduct = ({ history, match }) => {
               </div>
             )}
 
-               {category === "Fabric" && (
+            {category === "Fabric" && (
               <>
                 <div>
-                <FiberManualRecordIcon />
+                  <FiberManualRecordIcon />
                   <input
                     type="text"
                     placeholder="Fabric Type"
@@ -288,7 +304,7 @@ const UpdateProduct = ({ history, match }) => {
                   />
                 </div>
                 <div>
-                <WorkIcon />
+                  <WorkIcon />
                   <input
                     type="text"
                     placeholder="Work"
@@ -297,7 +313,7 @@ const UpdateProduct = ({ history, match }) => {
                   />
                 </div>
                 <div>
-                <StraightenIcon />
+                  <StraightenIcon />
                   <input
                     type="text"
                     placeholder="Width"
@@ -305,29 +321,25 @@ const UpdateProduct = ({ history, match }) => {
                     onChange={(e) => setWidth(e.target.value)}
                   />
                 </div>
-                {/* <div>
-                  <input
-                    type="text"
-                    placeholder="Color"
-                    value={color}
-                    onChange={(e) => setColor(e.target.value)}
-                  />
-                </div> */}
                 <div>
-                <InfoIcon />
+                  <InfoIcon />
                   <textarea
                     placeholder="Care Instructions"
                     value={careInstructions}
                     onChange={(e) => setCareInstructions(e.target.value)}
-                  />
+                    cols="30"
+                    rows="1"
+                  ></textarea>
                 </div>
                 <div>
-                <WarningIcon />
+                  <WarningIcon />
                   <textarea
                     placeholder="Disclaimer"
                     value={disclaimer}
                     onChange={(e) => setDisclaimer(e.target.value)}
-                  />
+                    cols="30"
+                    rows="1"
+                  ></textarea>
                 </div>
               </>
             )}
@@ -338,6 +350,7 @@ const UpdateProduct = ({ history, match }) => {
                 type="number"
                 placeholder="Stock"
                 required
+                value={Stock}
                 onChange={(e) => setStock(e.target.value)}
               />
             </div>
@@ -352,7 +365,7 @@ const UpdateProduct = ({ history, match }) => {
               />
             </div>
 
-            <div id="createProductFormImage">
+           <div id="createProductFormImage">
               {oldImages &&
                 oldImages.map((image, index) => (
                   <img key={index} src={image.url} alt="Old Product Preview" />
@@ -368,7 +381,7 @@ const UpdateProduct = ({ history, match }) => {
               type="submit"
               disabled={loading ? true : false}
             >
-              Update
+              Update Product
             </Button>
           </form>
         </div>

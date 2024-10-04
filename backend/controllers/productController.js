@@ -53,15 +53,24 @@ exports.createProduct = catchAsyncErrors(async (req, res, next) => {
     const discount = ((req.body.mrp - req.body.price) / req.body.mrp) * 100;
     req.body.discountPercentage = `-${discount.toFixed(2)}%`;
 
-    // Handle fabric-specific fields
-    if (req.body.category === "Fabric") {
-        req.body.fabricType = req.body.fabricType || null;
-        req.body.work = req.body.work || null;
-        req.body.width = req.body.width || null;
-        // req.body.color = req.body.color || null;
-        req.body.careInstructions = req.body.careInstructions || null;
-        req.body.disclaimer = req.body.disclaimer || null;
+   // Handle fabric-specific fields and sub-categories
+   if (req.body.category === "Fabric") {
+    const validSubCategories = ["Position Prints", "Embroidered", "Prints", "Plain"];
+    if (!validSubCategories.includes(req.body.subCategory)) {
+        return next(new ErrorHander("Invalid sub-category for Fabric", 400));
     }
+    req.body.fabricType = req.body.fabricType || null;
+    req.body.work = req.body.work || null;
+    req.body.width = req.body.width || null;
+    req.body.careInstructions = req.body.careInstructions || null;
+    req.body.disclaimer = req.body.disclaimer || null;
+} else if (req.body.category === "Readymade") {
+    const validSubCategories = ["Kurti Set", "Co-Ord Set"];
+    if (!validSubCategories.includes(req.body.subCategory)) {
+        return next(new ErrorHander("Invalid sub-category for Readymade", 400));
+    }
+    // Handle readymade-specific fields if needed
+}
 
     const product = await Product.create(req.body);
 
@@ -181,14 +190,23 @@ exports.updateProduct = catchAsyncErrors(async (req, res, next) => {
         }
     }
 
-    // Handle fabric-specific fields
+    // Handle fabric-specific fields and sub-categories
     if (req.body.category === "Fabric") {
+        const validSubCategories = ["Position Prints", "Embroidered", "Prints", "Plain"];
+        if (!validSubCategories.includes(req.body.subCategory)) {
+            return next(new ErrorHander("Invalid sub-category for Fabric", 400));
+        }
         req.body.fabricType = req.body.fabricType || product.fabricType;
         req.body.work = req.body.work || product.work;
         req.body.width = req.body.width || product.width;
-        // req.body.color = req.body.color || product.color;
         req.body.careInstructions = req.body.careInstructions || product.careInstructions;
         req.body.disclaimer = req.body.disclaimer || product.disclaimer;
+    } else if (req.body.category === "Readymade") {
+        const validSubCategories = ["Kurti Set", "Co-Ord Set"];
+        if (!validSubCategories.includes(req.body.subCategory)) {
+            return next(new ErrorHander("Invalid sub-category for Readymade", 400));
+        }
+        // Handle readymade-specific fields if needed
     }
 
     product = await Product.findByIdAndUpdate(req.params.id, req.body, {
