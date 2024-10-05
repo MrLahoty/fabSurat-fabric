@@ -80,7 +80,7 @@ const FabricProducts = ({ match }) => {
         <>
           <MetaData title="FABRIC PRODUCTS -- FABSURAT" />
           <div className="productss">
-            <h2 className="productsHeading">Fabric</h2>
+            <h2 className="productsHeadings">Fabric</h2>
 
             <div className="filterBox">
               <Button
@@ -135,7 +135,7 @@ const FabricProducts = ({ match }) => {
 
                 {/* Sub-category Toggle Section */}
                 <div className="subCategory-container">
-                  <div className="categories-container">
+                  <div className="categories-containers">
                     <div className="square-box" onClick={toggleSubCategories}>
                       <div className="categories-heading">
                         Categories

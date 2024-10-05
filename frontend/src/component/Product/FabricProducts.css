@@ -1,3 +1,36 @@
+/* Heading and general product styles */
+.productsHeadingss {
+  margin: 2.8vmax auto;
+  width: 15vw;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.171);
+  padding: 2vmax;
+  color: rgba(0, 0, 0, 0.731);
+  font: 500 1.6vmax "playfair display";
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Heading and general product styles */
+.productsHeadings {
+  margin: 2.8vmax auto;
+  width: 15vw;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.171);
+  padding: 2vmax;
+  color: rgba(0, 0, 0, 0.731);
+  font: 500 1.6vmax "playfair display";
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Categories container and toggle button */
+.categories-containers {
+  position: fixed; /* Keep it fixed relative to the viewport */
+  top: 7%; /* Adjust as needed */
+  right: 3%; /* Adjust the horizontal position */
+  display: flex;
+  align-items: center;
+}
+
 /* Dropdown category box styles */
 .categoryBoxs {
     list-style: none;
@@ -22,6 +55,30 @@
 
   /* Responsive styles */
 @media screen and (max-width: 700px) {
+
+  .productsHeadingss {
+    padding-right: 55px;
+    font-size: 19px;
+    margin-top: 38px;
+    font-weight: bold;
+    width: 31vw;
+    border-bottom: 1.2px solid rgba(0, 0, 0, 0.171);
+  }
+
+  .productsHeadings {
+    padding-right: 75px;
+    font-size: 19px;
+    margin-top: 38px;
+    font-weight: bold;
+    width: 22vw;
+    border-bottom: 1.2px solid rgba(0, 0, 0, 0.171);
+  }
+
+  .categories-containers {
+    top:7.1%;
+    right: 1%;
+  }
+
     /* Dropdown category box styles */
 .categoryBoxs {
     top: 8.6%;
