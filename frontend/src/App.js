@@ -42,6 +42,10 @@ import About from "./component/layout/About/About";
 import 'bootstrap/dist/css/bootstrap.css';
 import FabricProducts from "./component/Product/FabricProducts.js";
 import ReadymadeProducts from "./component/Product/ReadymadeProducts.js";
+import Embroidered from "./component/Product/Embroidered.js";
+import PositionPrints from "./component/Product/PositionPrints.js";
+import Prints from "./component/Product/Prints.js";
+import Plain from "./component/Product/Plain.js";
 
 function App() {
   
@@ -110,6 +114,10 @@ function App() {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/fabrics" component={FabricProducts} />
+        <Route path="/fabric/embroidered" component={Embroidered} />
+        <Route path="/fabric/positionprints" component={PositionPrints} />
+        <Route path="/fabric/prints" component={Prints} />
+        <Route path="/fabric/plain" component={Plain} />
         <Route path="/readymades" component={ReadymadeProducts} />
         <Route exact path="/product/:id" component={ProductDetails} />
         <Route exact path="/products" component={Products} />

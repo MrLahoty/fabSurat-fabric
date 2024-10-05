@@ -452,16 +452,19 @@
   margin: 1vmax;
   padding: 3vmax;
 }
+
 .reviewCard > img {
   width: 5vmax;
 }
+
 .reviewCard > p {
   color: rgba(0, 0, 0, 0.836);
-  font: 600 0.9vmax "Roboto";
+  font: 600 0.9vmax "Playfair Display", serif;
 }
+
 .reviewCardComment {
   color: rgba(0, 0, 0, 0.445);
-  font: 300 0.8vmax cursive;
+  font: 300 0.8vmax "Playfair Display", serif;
 }
 
 .noReviews {
@@ -470,85 +473,87 @@
   color: rgba(0, 0, 0, 0.548);
 }
 
+/* Main container for the share buttons */
 .share-buttons {
   display: flex;
   justify-content: center;
-  gap: 15px;
+  gap: 20px; /* Increase gap for better spacing */
   margin-top: 20px;
-  margin-left: -3px;
   margin-bottom: 20px;
 }
 
+/* Share text styling */
+.share-text {
+  font: 500 23px "Playfair Display", serif;
+  color: rgb(94, 94, 94); /* Set text color */
+  margin-left: 6px; /* Adds space between text and buttons */
+  align-self: center; /* Vertically center the text */
+}
+
+/* Circle buttons */
 .share-btn {
+  width: 50px; /* Circle diameter */
+  height: 50px;
+  padding: 0;
+  border-radius: 50%; /* Full circle */
   display: flex;
+  justify-content: center;
   align-items: center;
-  padding: 6px 22px;
-  font-size: 15px;
-  color: white;
-  border: none;
-  border-radius: 50px;
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
-  overflow: hidden;
+  background-color: transparent; /* No background by default */
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  animation: button-appear 0.4s ease; /* Animate button appearance */
+  border: 2px solid transparent; /* Ensure no black border by default */
 }
 
+/* Icon styling */
 .share-btn i {
-  margin-top:3px;
-  font-size: 28px; /* Adjust size as needed */
-  margin-right: -8px;
+  font-size: 26px;
+  color: white; /* White icons for a modern look */
+  margin: 0;
 }
 
-.share-btn::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 300%;
-  height: 300%;
-  background-color: rgba(255, 255, 255, 0.1);
-  transform: translate(-50%, -50%) rotate(45deg);
-  transition: width 0.5s ease, height 0.5s ease;
-  border-radius: 50%;
-}
-
-.share-btn:hover::before {
-  width: 150%;
-  height: 150%;
-}
-
+/* Button hover effect */
 .share-btn:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px); /* Lift effect on hover */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Soft shadow on hover */
 }
 
-/* Specific button colors */
+/* Specific button colors for different platforms */
 .whatsapp {
   background-color: #25D366;
+  border-color: #25D366; /* Match border color with WhatsApp background */
 }
 
 .instagram {
   background: linear-gradient(45deg, #fdc468, #fa709a, #d62976, #962fbf, #4f5bd5);
+  border: none; /* No border for Instagram */
+  padding: 0; /* Ensure no extra padding for Instagram */
 }
 
 .facebook {
   background-color: #4267B2;
+  border-color: #4267B2; /* Match border color with Facebook background */
 }
 
-/* Hover color changes */
+/* Hover color changes for each button */
 .whatsapp:hover {
   background-color: #20B45B;
+  border-color: #20B45B; /* Update border color on hover */
 }
 
 .instagram:hover {
-  background-color: #D81E5B;
+  background-color: #D81E5B; /* Slightly darker pink on hover */
+  border-color: transparent; /* For gradient, keep border transparent */
 }
 
 .facebook:hover {
-  background-color: #36589D;
+  background-color: #36589D; /* Darker Facebook blue on hover */
+  border-color: #36589D; /* Update border color on hover */
 }
 
-/* Animating the appearance of buttons */
+/* Animation for button appearance */
 @keyframes button-appear {
   0% {
     opacity: 0;
@@ -560,8 +565,23 @@
   }
 }
 
-.share-btn {
-  animation: button-appear 0.4s ease;
+/* Ripple effect on hover */
+.share-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background-color: rgba(255, 255, 255, 0.1); /* Light ripple color */
+  transform: translate(-50%, -50%) rotate(45deg);
+  transition: width 0.5s ease, height 0.5s ease;
+  border-radius: 50%; /* Keep ripple circular */
+}
+
+.share-btn:hover::before {
+  width: 150%;
+  height: 150%;
 }
 
 .price-container {
@@ -603,31 +623,6 @@
   color: #C84450; /* Adjust the color as needed */
   font-size: 1.2rem; /* Set a suitable font size */
   margin-left: 10px;
-}
-
-/* Media Queries for Mobile Responsiveness */
-@media (max-width: 768px) {
-  .share-buttons {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .share-btn {
-    padding: 8px 18px;
-    font-size: 14px;
-  }
-}
-
-@media (max-width: 480px) {
-  .share-buttons {
-    gap: 8px;
-  }
-
-  .share-btn {
-    padding: 6px 16px;
-    font-size: 12px;
-    border-radius: 30px;
-  }
 }
 
 @media screen and (max-width: 768px) {
@@ -864,53 +859,49 @@
     margin: 3vmax 0;
   }
 
-  .share-buttons {
-    flex-direction: row;
-    gap: 7px;
-  }
-
-  .share-btn {
-    padding: 7px 22px;
-    font-size: 14px;
-  }
-
-  .share-buttons i{
-    font-size: 18px;
-  }
-
- /* Specific button size */
- .whatsapp i {
-  margin-right: 5px;
-  font-size: 23px;
+ /* Reduce the size of the share buttons */
+ .share-btn {
+  width: 50px; /* Smaller circle diameter */
+  height: 50px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
-.instagram i {
- margin-right: 5px;
- font-size: 23px;
-
+/* Adjust icon size for mobile */
+.share-btn i {
+  font-size: 23px; /* Smaller icons for smaller buttons */
 }
 
-.facebook i {
-  margin-right: 5px;
-  font-size: 23px;
-
+/* Reduce the gap between buttons */
+.share-buttons {
+  gap: 12px; /* Reduce gap for mobile */
+  margin-right: 80px;
 }
 
-  .reviewCard > p {
-    font: 600 3vw "Roboto";
-  }
+/* Adjust the share text size for mobile */
+.share-text {
+  font-size: 19px; /* Smaller text for mobile */
+  margin-right: 15px; /* Adjust margin for balance */
+}
 
-  .reviewCardComment {
-    font: 300 5vw cursive;
-  }
+/* Button hover effects on mobile */
+.share-btn:hover {
+  transform: translateY(-3px); /* Less intense hover lift on mobile */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15); /* Slightly smaller shadow for mobile */
+}
 
-  .reviewsHeading {
-    font-size: medium;
-  }
-
-  .noReviews {
-    font: 400 1.4vmax "Gill Sans";
-    text-align: center;
-    color: rgba(0, 0, 0, 0.548);
-  }
+.reviewCard > p {
+   font: 600 3vw "Roboto";
+}
+.reviewCardComment {
+  font: 300 5vw cursive;
+}
+.reviewsHeading {
+  font-size: medium;
+}
+.noReviews {
+  font: 400 1.4vmax "Gill Sans";
+  text-align: center;
+  color: rgba(0, 0, 0, 0.548);
+}
 }

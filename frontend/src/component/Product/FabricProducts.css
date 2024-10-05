@@ -80,7 +80,7 @@
   }
 
     /* Dropdown category box styles */
-.categoryBoxs {
+  .categoryBoxs {
     top: 8.6%;
     right: 1%;
     width: 180px; /* Set a fixed width for better control */
@@ -88,7 +88,7 @@
   }
   
   .categoryBoxs.show {
-    max-height: 25vmax;
+    max-height: 28vmax;
   }
   
   .categoryBoxs.hide {

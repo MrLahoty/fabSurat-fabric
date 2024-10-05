@@ -53,12 +53,62 @@ exports.createProduct = catchAsyncErrors(async (req, res, next) => {
     const discount = ((req.body.mrp - req.body.price) / req.body.mrp) * 100;
     req.body.discountPercentage = `-${discount.toFixed(2)}%`;
 
-   // Handle fabric-specific fields and sub-categories
-   if (req.body.category === "Fabric") {
+  // Handle fabric-specific fields and sub-categories
+    if (req.body.category === "Fabric") {
     const validSubCategories = ["Position Prints", "Embroidered", "Prints", "Plain"];
+    
+    // Check if sub-category is valid for Fabric
     if (!validSubCategories.includes(req.body.subCategory)) {
         return next(new ErrorHander("Invalid sub-category for Fabric", 400));
     }
+    
+    // Sub-subcategories based on specific Fabric sub-categories
+    const subSubCategories = {
+        "Embroidered": [
+            "Chinon Embroidery", 
+            "Faux Georgette Embroidery", 
+            "Viscose Georgette Embroidery", 
+            "Silk Embroidery", 
+            "Rayon Embroidery", 
+            "Velvet Embroidery", 
+            "Organza Embroidery", 
+            "Cotton Embroidery", 
+            "Shimmer Embroidery"
+        ],
+        "Position Prints": [
+            "Muslin Position Prints", 
+            "Chinon Position Prints", 
+            "Georgette Position Prints", 
+            "Opada Position Prints", 
+            "Dola Silk Jacquard Position Prints", 
+            "Organza Position Prints", 
+            "Tissue Zari Position Prints", 
+            "Crepe Position Prints"
+        ],
+        "Prints": [
+            "Hakoba Prints", 
+            "Satin Prints", 
+            "Georgette Prints", 
+            "Muslin Prints", 
+            "Rayon Prints", 
+            "Velvet Prints", 
+            "Sugarcane Prints", 
+            "Chinon Prints"
+        ],
+        "Plain": [
+            "Hakoba", 
+            "Dyeable", 
+            "Pure/Viscose", 
+            "Semi Pure"
+        ]
+    };
+    
+    // Validate sub-subcategory
+    if (subSubCategories[req.body.subCategory] && !subSubCategories[req.body.subCategory].includes(req.body.subSubCategory)) {
+        return next(new ErrorHander(`Invalid sub-subcategory for ${req.body.subCategory}`, 400));
+    }
+    
+    // Set optional fabric fields to null if not provided
     req.body.fabricType = req.body.fabricType || null;
     req.body.work = req.body.work || null;
     req.body.width = req.body.width || null;
@@ -190,12 +240,60 @@ exports.updateProduct = catchAsyncErrors(async (req, res, next) => {
         }
     }
 
-    // Handle fabric-specific fields and sub-categories
+   // Handle fabric-specific fields and sub-categories
     if (req.body.category === "Fabric") {
-        const validSubCategories = ["Position Prints", "Embroidered", "Prints", "Plain"];
-        if (!validSubCategories.includes(req.body.subCategory)) {
-            return next(new ErrorHander("Invalid sub-category for Fabric", 400));
-        }
+    const validSubCategories = ["Position Prints", "Embroidered", "Prints", "Plain"];
+    
+    // Check if sub-category is valid for Fabric
+    if (!validSubCategories.includes(req.body.subCategory)) {
+        return next(new ErrorHander("Invalid sub-category for Fabric", 400));
+    }
+    
+    // Sub-subcategories based on specific Fabric sub-categories
+    const subSubCategories = {
+        "Embroidered": [
+            "Chinon Embroidery", 
+            "Faux Georgette Embroidery", 
+            "Viscose Georgette Embroidery", 
+            "Silk Embroidery", 
+            "Rayon Embroidery", 
+            "Velvet Embroidery", 
+            "Organza Embroidery", 
+            "Cotton Embroidery", 
+            "Shimmer Embroidery"
+        ],
+        "Position Prints": [
+            "Muslin Position Prints", 
+            "Chinon Position Prints", 
+            "Georgette Position Prints", 
+            "Opada Position Prints", 
+            "Dola Silk Jacquard Position Prints", 
+            "Organza Position Prints", 
+            "Tissue Zari Position Prints", 
+            "Crepe Position Prints"
+        ],
+        "Prints": [
+            "Hakoba Prints", 
+            "Satin Prints", 
+            "Georgette Prints", 
+            "Muslin Prints", 
+            "Rayon Prints", 
+            "Velvet Prints", 
+            "Sugarcane Prints", 
+            "Chinon Prints"
+        ],
+        "Plain": [
+            "Hakoba", 
+            "Dyeable", 
+            "Pure/Viscose", 
+            "Semi Pure"
+        ]
+    };
+    
+    // Validate sub-subcategory
+    if (subSubCategories[req.body.subCategory] && !subSubCategories[req.body.subCategory].includes(req.body.subSubCategory)) {
+        return next(new ErrorHander(`Invalid sub-subcategory for ${req.body.subCategory}`, 400));
+    }
         req.body.fabricType = req.body.fabricType || product.fabricType;
         req.body.work = req.body.work || product.work;
         req.body.width = req.body.width || product.width;

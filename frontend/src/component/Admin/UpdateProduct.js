@@ -40,6 +40,7 @@ const UpdateProduct = ({ history, match }) => {
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
   const [subCategory, setSubCategory] = useState(""); // New state for sub-category
+  const [subSubCategory, setSubSubCategory] = useState(""); // New state for sub-category
   const [Stock, setStock] = useState(0);
   const [images, setImages] = useState([]);
   const [oldImages, setOldImages] = useState([]);
@@ -62,6 +63,38 @@ const UpdateProduct = ({ history, match }) => {
 
   const categories = ["Fabric", "Readymade"];
   const fabricSubCategories = ["Position Prints", "Embroidered", "Prints", "Plain"];
+  const positionprintssubCategory = [
+    "Muslin Position Prints",
+    "Chinon Position Prints",
+    "Georgette Position Prints",
+    "Opada Position Prints",
+    "Dola Silk Jacquard Position Prints",
+    "Organza Position Prints",
+    "Tissue Zari Position Prints",
+    "Crepe Position Prints",
+  ];
+  const embroideredsubCategory = [
+    "Chinon Embroidery",
+    "Faux Georgette Embroidery",
+    "Viscose Georgette Embroidery",
+    "Silk Embroidery",
+    "Rayon Embroidery",
+    "Velvet Embroidery",
+    "Organza Embroidery",
+    "Cotton Embroidery",
+    "Shimmer Embroidery",
+  ];
+  const printssubCategory = [
+    "Hakoba Prints",
+    "Satin Prints",
+    "Georgette Prints",
+    "Muslin Prints",
+    "Rayon Prints",
+    "Velvet Prints",
+    "Sugarcane Prints",
+    "Chinon Prints",
+  ];
+  const plainsubCategory = ["Hakoba", "Dyeable", "Pure/Viscose", "Semi Pure"];
   const readymadeSubCategories = ["Kurti Set", "Co-Ord Set"];
 
   const productId = match.params.id;
@@ -86,6 +119,7 @@ const UpdateProduct = ({ history, match }) => {
       setDescription(product.description);
       setCategory(product.category);
       setSubCategory(product.subCategory); // Set the sub-category
+      setSubSubCategory(product.subSubCategory)
       setStock(product.Stock);
       setOldImages(product.images);
       setSizes(product.sizes || {});
@@ -136,6 +170,7 @@ const UpdateProduct = ({ history, match }) => {
     myForm.set("description", description);
     myForm.set("category", category);
     myForm.set("subCategory", subCategory); // Set the sub-category in the form
+    myForm.set("subSubCategory", subSubCategory); // Add sub-category to form data
     myForm.set("Stock", Stock);
 
     if (category === "Fabric") {
@@ -180,6 +215,22 @@ const UpdateProduct = ({ history, match }) => {
   const handleSizeChange = (e) => {
     const { name, checked } = e.target;
     setSizes({ ...sizes, [name]: checked });
+  };
+
+  // Get sub-sub-categories based on selected sub-category for fabrics
+  const getSubSubCategories = () => {
+    switch (subCategory) {
+      case "Position Prints":
+        return positionprintssubCategory;
+      case "Embroidered":
+        return embroideredsubCategory;
+      case "Prints":
+        return printssubCategory;
+      case "Plain":
+        return plainsubCategory;
+      default:
+        return [];
+    }
   };
 
   return (
@@ -267,6 +318,23 @@ const UpdateProduct = ({ history, match }) => {
                   {(category === "Fabric" ? fabricSubCategories : readymadeSubCategories).map((subCate) => (
                     <option key={subCate} value={subCate}>
                       {subCate}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            )}
+
+            {subCategory && category === "Fabric" && (
+              <div>
+                <AccountTreeIcon />
+                <select
+                  onChange={(e) => setSubSubCategory(e.target.value)}
+                  value={subSubCategory}
+                >
+                  <option value="">Choose Sub-Sub-Category</option>
+                  {getSubSubCategories().map((subSubCate) => (
+                    <option key={subSubCate} value={subSubCate}>
+                      {subSubCate}
                     </option>
                   ))}
                 </select>

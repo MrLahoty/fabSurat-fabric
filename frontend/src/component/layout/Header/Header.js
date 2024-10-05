@@ -163,14 +163,14 @@ const Header = () => {
           POSITION PRINTS <span className="arrow"></span>
           </button>
           <div className="dropdown-content">
-            <a href="/fabrics">Muslin Position Prints</a>
-            <a href="/fabrics/">Chinon Position Prints</a>
-            <a href="/fabrics/">Georgette Position Prints</a>
-            <a href="/fabrics/">Opada Position Prints</a>
-            <a href="/fabrics/">Dola Silk Jacquard Position Prints</a>
-            <a href="/fabrics/">Organza Position Prints</a>
-            <a href="/fabrics/">Tissue Zari Position Prints</a>
-            <a href="/fabrics/">Crepe Position Prints</a>
+            <a href="/fabric/positionprints">Muslin Position Prints</a>
+            <a href="/fabric/positionprints">Chinon Position Prints</a>
+            <a href="/fabric/positionprints">Georgette Position Prints</a>
+            <a href="/fabric/positionprints">Opada Position Prints</a>
+            <a href="/fabric/positionprints">Dola Silk Jacquard Position Prints</a>
+            <a href="/fabric/positionprints">Organza Position Prints</a>
+            <a href="/fabric/positionprints">Tissue Zari Position Prints</a>
+            <a href="/fabric/positionprints">Crepe Position Prints</a>
           </div>
         </div>
         <div className="dropdown">
@@ -178,15 +178,15 @@ const Header = () => {
           EMBROIDERED <span className="arrow"></span>
           </button>
           <div className="dropdown-content">
-            <a href="/fabrics">Chinon Embroidery</a>
-            <a href="/fabrics">Faux Georgette Embroidery</a>
-            <a href="/fabrics">Viscose Georgette Embroider</a>
-            <a href="/fabrics">Silk Embroidery</a>
-            <a href="/fabrics">Rayon Embroidery</a>
-            <a href="/fabrics">Velvet Embroidery</a>
-            <a href="/fabrics">Organza Embroidery</a>
-            <a href="/fabrics">Cotton Embroidery</a>
-            <a href="/fabrics">Shimmer Embroidery</a>
+            <a href="/fabric/embroidered">Chinon Embroidery</a>
+            <a href="/fabric/embroidered">Faux Georgette Embroidery</a>
+            <a href="/fabric/embroidered">Viscose Georgette Embroider</a>
+            <a href="/fabric/embroidered">Silk Embroidery</a>
+            <a href="/fabric/embroidered">Rayon Embroidery</a>
+            <a href="/fabric/embroidered">Velvet Embroidery</a>
+            <a href="/fabric/embroidered">Organza Embroidery</a>
+            <a href="/fabric/embroidered">Cotton Embroidery</a>
+            <a href="/fabric/embroidered">Shimmer Embroidery</a>
           </div>
         </div>
         <div className="dropdown">
@@ -194,14 +194,14 @@ const Header = () => {
           PRINTS <span className="arrow"></span>
           </button>
           <div className="dropdown-content">
-            <a href="/fabrics">Hakoba Prints</a>
-            <a href="/fabrics">Satin Prints</a>
-            <a href="/fabrics">Georgette Prints</a>
-            <a href="/fabrics">Muslin Prints</a>
-            <a href="/fabrics">Rayon Prints</a>
-            <a href="/fabrics">Velvet Prints</a>
-            <a href="/fabrics">Sugarcane Prints</a>
-            <a href="/fabrics">Chinon Prints</a>
+            <a href="/fabric/prints">Hakoba Prints</a>
+            <a href="/fabric/prints">Satin Prints</a>
+            <a href="/fabric/prints">Georgette Prints</a>
+            <a href="/fabric/prints">Muslin Prints</a>
+            <a href="/fabric/prints">Rayon Prints</a>
+            <a href="/fabric/prints">Velvet Prints</a>
+            <a href="/fabric/prints">Sugarcane Prints</a>
+            <a href="/fabric/prints">Chinon Prints</a>
           </div>
         </div>
         <div className="dropdown">
@@ -209,10 +209,10 @@ const Header = () => {
             PLAIN <span className="arrow"></span>
           </button>
           <div className="dropdown-content">
-            <a href="/fabrics">Hakoba</a>
-            <a href="/fabrics">Dyeable</a>
-            <a href="/fabrics">Pure/Viscose</a>
-            <a href="/fabrics">Semi Pure</a>
+            <a href="/fabric/plain">Hakoba</a>
+            <a href="/fabric/plain">Dyeable</a>
+            <a href="/fabric/plain">Pure/Viscose</a>
+            <a href="/fabric/plain">Semi Pure</a>
           </div>
         </div>
         <div className="dropdown">

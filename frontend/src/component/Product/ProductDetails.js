@@ -362,16 +362,18 @@ const calculateDiscountPercentage = (mrp, price) => {
                     Submit Review
                   </button>
                   <div className="share-buttons">
-                    <button className="share-btn whatsapp" onClick={() => shareProduct('whatsapp')}>
-                      <i className="fab fa-whatsapp"></i> Share on WhatsApp
-                    </button>
-                    <button className="share-btn instagram" onClick={() => shareProduct('instagram')}>
-                      <i className="fab fa-instagram"></i> Share on Instagram
-                    </button>
-                    <button className="share-btn facebook" onClick={() => shareProduct('facebook')}>
-                      <i className="fab fa-facebook"></i> Share on Facebook
-                    </button>
-                 </div>
+                     <span className="share-text">Share:</span>
+                     <button className="share-btn whatsapp" onClick={() => shareProduct('whatsapp')}>
+                       <i className="fab fa-whatsapp"></i>
+                     </button>
+                     <button className="share-btn instagram" onClick={() => shareProduct('instagram')}>
+                       <i className="fab fa-instagram"></i>
+                     </button>
+                     <button className="share-btn facebook" onClick={() => shareProduct('facebook')}>
+                       <i className="fab fa-facebook"></i>
+                     </button>
+                   </div>
+
 
                 <div className="additionalInfo">
                      <div className="infoItem">

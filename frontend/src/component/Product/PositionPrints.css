@@ -1,0 +1,61 @@
+/* Heading and general product styles */
+.productsHeadingssss {
+    margin: 2.8vmax auto;
+    width: 15vw;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.171);
+    padding: 2vmax;
+    color: rgba(0, 0, 0, 0.731);
+    font: 500 1.6vmax "playfair display";
+    text-align: center;
+    font-weight: bold;
+  }
+
+.categoryBoxssss{
+    list-style: none;
+    position: absolute;
+    top: 10%;
+    right: 3%;
+    background-color: #222222;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+    width: 220px; /* Set a fixed width for better control */
+    height: 350px;
+}
+
+.categoryBoxssss.show {
+    max-height: 32vmax;
+  }
+  
+  .categoryBoxssss.hide {
+    max-height: 0;
+  }
+
+@media screen and (max-width: 700px) {
+
+    .productsHeadingssss {
+        padding-right: 85px;
+        font-size: 19px;
+        margin-top: 38px;
+        font-weight: bold;
+        width: 40vw;
+        border-bottom: 1.2px solid rgba(0, 0, 0, 0.171);
+        white-space: nowrap; /* Prevents wrapping */
+    }
+
+    .categoryBoxssss {
+        top: 8.4%;
+        right: 1%;
+        width: 220px; /* Set a fixed width for better control */
+        height: 650px;
+      }
+      
+      .categoryBoxssss.show {
+        max-height: 58vmax;
+      }
+      
+      .categoryBoxssss.hide {
+        max-height: 0;
+      }
+}  

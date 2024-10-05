@@ -1,0 +1,39 @@
+.categoryBoxsss{
+    list-style: none;
+    position: absolute;
+    top: 10%;
+    right: 3%;
+    background-color: #222222;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+    width: 220px; /* Set a fixed width for better control */
+   height: 170px;
+
+}
+
+.categoryBoxsss.show {
+    max-height: 23vmax;
+  }
+  
+  .categoryBoxsss.hide {
+    max-height: 0;
+  }
+
+  @media screen and (max-width: 700px) {
+    .categoryBoxsss {
+        top: 8.4%;
+        right: 1%;
+        width: 200px; /* Set a fixed width for better control */
+        height: 650px;
+      }
+      
+      .categoryBoxsss.show {
+        max-height: 28vmax;
+      }
+      
+      .categoryBoxsss.hide {
+        max-height: 0;
+      }
+  }  
