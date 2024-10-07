@@ -97,6 +97,7 @@ exports.createProduct = catchAsyncErrors(async (req, res, next) => {
         ],
         "Plain": [
             "Hakoba", 
+            "Velvet",
             "Dyeable", 
             "Pure/Viscose", 
             "Semi Pure"
@@ -284,6 +285,7 @@ exports.updateProduct = catchAsyncErrors(async (req, res, next) => {
         ],
         "Plain": [
             "Hakoba", 
+            "Velvet",
             "Dyeable", 
             "Pure/Viscose", 
             "Semi Pure"

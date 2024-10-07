@@ -88,7 +88,7 @@ const NewProduct = ({ history }) => {
     "Sugarcane Prints",
     "Chinon Prints",
   ];
-  const plainsubCategory = ["Hakoba", "Dyeable", "Pure/Viscose", "Semi Pure"];
+  const plainsubCategory = [ "Hakoba", "Velvet", "Dyeable", "Pure/Viscose", "Semi Pure" ];
   const readymadeSubCategories = ["Kurti Set", "Co-Ord Set"];
 
 

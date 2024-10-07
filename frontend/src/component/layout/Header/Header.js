@@ -163,14 +163,14 @@ const Header = () => {
           POSITION PRINTS <span className="arrow"></span>
           </button>
           <div className="dropdown-content">
-            <a href="/fabric/positionprints">Muslin Position Prints</a>
-            <a href="/fabric/positionprints">Chinon Position Prints</a>
-            <a href="/fabric/positionprints">Georgette Position Prints</a>
-            <a href="/fabric/positionprints">Opada Position Prints</a>
-            <a href="/fabric/positionprints">Dola Silk Jacquard Position Prints</a>
-            <a href="/fabric/positionprints">Organza Position Prints</a>
-            <a href="/fabric/positionprints">Tissue Zari Position Prints</a>
-            <a href="/fabric/positionprints">Crepe Position Prints</a>
+            <a href="/MuslinPositionPrints">Muslin Position Prints</a>
+            <a href="/ChinonPositionPrints">Chinon Position Prints</a>
+            <a href="/GeorgettePositionPrints">Georgette Position Prints</a>
+            <a href="/OpadaPositionPrints">Opada Position Prints</a>
+            <a href="/DolaSilkJacquardPositionPrints">Dola Silk Jacquard Position Prints</a>
+            <a href="/OrganzaPositionPrints">Organza Position Prints</a>
+            <a href="/TissueZariPositionPrints">Tissue Zari Position Prints</a>
+            <a href="/CrepePositionPrints">Crepe Position Prints</a>
           </div>
         </div>
         <div className="dropdown">
@@ -178,15 +178,15 @@ const Header = () => {
           EMBROIDERED <span className="arrow"></span>
           </button>
           <div className="dropdown-content">
-            <a href="/fabric/embroidered">Chinon Embroidery</a>
-            <a href="/fabric/embroidered">Faux Georgette Embroidery</a>
-            <a href="/fabric/embroidered">Viscose Georgette Embroider</a>
-            <a href="/fabric/embroidered">Silk Embroidery</a>
-            <a href="/fabric/embroidered">Rayon Embroidery</a>
-            <a href="/fabric/embroidered">Velvet Embroidery</a>
-            <a href="/fabric/embroidered">Organza Embroidery</a>
-            <a href="/fabric/embroidered">Cotton Embroidery</a>
-            <a href="/fabric/embroidered">Shimmer Embroidery</a>
+            <a href="/ChinonEmbroidery">Chinon Embroidery</a>
+            <a href="/FauxGeorgetteEmbroidery">Faux Georgette Embroidery</a>
+            <a href="/ViscoseGeorgetteEmbroidery">Viscose Georgette Embroidery</a>
+            <a href="/SilkEmbroidery">Silk Embroidery</a>
+            <a href="/RayonEmbroidery">Rayon Embroidery</a>
+            <a href="/VelvetEmbroidery">Velvet Embroidery</a>
+            <a href="/OrganzaEmbroidery">Organza Embroidery</a>
+            <a href="/CottonEmbroidery">Cotton Embroidery</a>
+            <a href="/ShimmerEmbroidery">Shimmer Embroidery</a>
           </div>
         </div>
         <div className="dropdown">
@@ -194,14 +194,14 @@ const Header = () => {
           PRINTS <span className="arrow"></span>
           </button>
           <div className="dropdown-content">
-            <a href="/fabric/prints">Hakoba Prints</a>
-            <a href="/fabric/prints">Satin Prints</a>
-            <a href="/fabric/prints">Georgette Prints</a>
-            <a href="/fabric/prints">Muslin Prints</a>
-            <a href="/fabric/prints">Rayon Prints</a>
-            <a href="/fabric/prints">Velvet Prints</a>
-            <a href="/fabric/prints">Sugarcane Prints</a>
-            <a href="/fabric/prints">Chinon Prints</a>
+            <a href="/HakobaPrints">Hakoba Prints</a>
+            <a href="/SatinPrints">Satin Prints</a>
+            <a href="/GeorgettePrints">Georgette Prints</a>
+            <a href="/MuslinPrints">Muslin Prints</a>
+            <a href="/RayonPrints">Rayon Prints</a>
+            <a href="/VelvetPrints">Velvet Prints</a>
+            <a href="/SugarcanePrints">Sugarcane Prints</a>
+            <a href="/ChinonPrints">Chinon Prints</a>
           </div>
         </div>
         <div className="dropdown">
@@ -209,10 +209,11 @@ const Header = () => {
             PLAIN <span className="arrow"></span>
           </button>
           <div className="dropdown-content">
-            <a href="/fabric/plain">Hakoba</a>
-            <a href="/fabric/plain">Dyeable</a>
-            <a href="/fabric/plain">Pure/Viscose</a>
-            <a href="/fabric/plain">Semi Pure</a>
+            <a href="/Hakoba">Hakoba</a>
+            <a href="/Velvet">Velvet</a>
+            <a href="/Dyeable">Dyeable</a>
+            <a href="/PureViscose">Pure/Viscose</a>
+            <a href="/SemiPure">Semi Pure</a>
           </div>
         </div>
         <div className="dropdown">
@@ -238,19 +239,19 @@ const Header = () => {
       </>
     ) : ( // Mobile view (circle-style links)
       <>
-        <a href="/fabrics">
+        <a href="/fabric/positionprints">
           <img src={FabricsImage} alt="Position Prints" />
           <span>Position Prints</span>
         </a>
-        <a href="/fabrics">
+        <a href="/fabric/embroidered">
           <img src={SareesImage} alt="Embroidered" />
           <span>Embroidered</span>
         </a>
-        <a href="/fabrics">
+        <a href="/fabric/prints">
           <img src={BlousesImage} alt="Prints" />
           <span>Prints</span>
         </a>
-        <a href="/fabrics">
+        <a href="/fabric/plain">
           <img src={JacketImage} alt="Plain" />
           <span>Plain</span>
         </a>

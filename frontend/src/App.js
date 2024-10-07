@@ -46,6 +46,36 @@ import Embroidered from "./component/Product/Embroidered.js";
 import PositionPrints from "./component/Product/PositionPrints.js";
 import Prints from "./component/Product/Prints.js";
 import Plain from "./component/Product/Plain.js";
+import ChinonEmbroidered from "./component/Product/ChinonEmbroidered.js";
+import FauxGeorgetteEmbroidered from "./component/Product/FauxGeorgetteEmbroidered.js";
+import ViscoseGeorgetteEmbroidered from "./component/Product/ViscoseGeorgetteEmbroidered.js";
+import SilkEmbroidered from "./component/Product/SilkEmbroidered.js";
+import RayonEmbroidered from "./component/Product/RayonEmbroidered.js";
+import VelvetEmbroidered from "./component/Product/VelvetEmbroidered.js";
+import OrganzaEmbroidered from "./component/Product/OrganzaEmbroidered.js";
+import CottonEmbroidered from "./component/Product/CottonEmbroidered.js";
+import ShimmerEmbroidered from "./component/Product/ShimmerEmbroidered.js";
+import MuslinPositionPrints from "./component/Product/MuslinPositionPrints.js";
+import ChinonPositionPrints from "./component/Product/ChinonPositionPrints.js";
+import GeorgettePositionPrints from "./component/Product/GeorgettePositionPrints.js";
+import OpadaPositionPrints from "./component/Product/OpadaPositionPrints.js";
+import DolaSilkJacquardPositionPrints from "./component/Product/DolaSilkJacquardPositionPrints.js";
+import OrganzaPositionPrints from "./component/Product/OrganzaPositionPrints.js";
+import TissueZariPositionPrints from "./component/Product/TissueZariPositionPrints.js";
+import CrepePositionPrints from "./component/Product/CrepePositionPrints.js";
+import SatinPrints from "./component/Product/SatinPrints.js";
+import GeorgettePrints from "./component/Product/GeorgettePrints.js";
+import HakobaPrints from "./component/Product/HakobaPrints.js";
+import MuslinPrints from "./component/Product/MuslinPrints.js";
+import RayonPrints from "./component/Product/RayonPrints.js";
+import VelvetPrints from "./component/Product/VelvetPrints.js";
+import SugarcanePrints from "./component/Product/SugarcanePrints.js";
+import ChinonPrints from "./component/Product/ChinonPrints.js";
+import Hakoba from "./component/Product/Hakoba.js";
+import Velvet from "./component/Product/Velvet.js";
+import Dyeable from "./component/Product/Dyeable.js";
+import PureViscose from "./component/Product/PureViscose.js";
+import SemiPure from "./component/Product/SemiPure.js";
 
 function App() {
   
@@ -118,6 +148,36 @@ function App() {
         <Route path="/fabric/positionprints" component={PositionPrints} />
         <Route path="/fabric/prints" component={Prints} />
         <Route path="/fabric/plain" component={Plain} />
+        <Route path="/ChinonEmbroidery" component={ChinonEmbroidered} />
+        <Route path="/FauxGeorgetteEmbroidery" component={FauxGeorgetteEmbroidered} />
+        <Route path="/ViscoseGeorgetteEmbroidery" component={ViscoseGeorgetteEmbroidered} />
+        <Route path="/SilkEmbroidery" component={SilkEmbroidered} />
+        <Route path="/RayonEmbroidery" component={RayonEmbroidered} />
+        <Route path="/VelvetEmbroidery" component={VelvetEmbroidered} />
+        <Route path="/OrganzaEmbroidery" component={OrganzaEmbroidered} />
+        <Route path="/CottonEmbroidery" component={CottonEmbroidered} />
+        <Route path="/ShimmerEmbroidery" component={ShimmerEmbroidered} />
+        <Route path="/MuslinPositionPrints" component={MuslinPositionPrints} />
+        <Route path="/ChinonPositionPrints" component={ChinonPositionPrints} />
+        <Route path="/GeorgettePositionPrints" component={GeorgettePositionPrints} />
+        <Route path="/OpadaPositionPrints" component={OpadaPositionPrints} />
+        <Route path="/DolaSilkJacquardPositionPrints" component={DolaSilkJacquardPositionPrints} />
+        <Route path="/OrganzaPositionPrints" component={OrganzaPositionPrints} />
+        <Route path="/TissueZariPositionPrints" component={TissueZariPositionPrints} />
+        <Route path="/CrepePositionPrints" component={CrepePositionPrints} />
+        <Route path="/SatinPrints" component={SatinPrints} />
+        <Route path="/GeorgettePrints" component={GeorgettePrints} />
+        <Route path="/HakobaPrints" component={HakobaPrints} />
+        <Route path="/MuslinPrints" component={MuslinPrints} />
+        <Route path="/RayonPrints" component={RayonPrints} />
+        <Route path="/VelvetPrints" component={VelvetPrints} />
+        <Route path="/SugarcanePrints" component={SugarcanePrints} />
+        <Route path="/ChinonPrints" component={ChinonPrints} />
+        <Route path="/Hakoba" component={Hakoba} />
+        <Route path="/Velvet" component={Velvet} />
+        <Route path="/Dyeable" component={Dyeable} />
+        <Route path="/PureViscose" component={PureViscose} />
+        <Route path="/SemiPure" component={SemiPure} />
         <Route path="/readymades" component={ReadymadeProducts} />
         <Route exact path="/product/:id" component={ProductDetails} />
         <Route exact path="/products" component={Products} />

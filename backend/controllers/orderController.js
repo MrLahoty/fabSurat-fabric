@@ -9,24 +9,39 @@ exports.cancelOrder = catchAsyncErrors(async (req, res, next) => {
     const order = await Order.findById(req.params.id);
   
     if (!order) {
-      return next(new ErrorHandler("Order not found with this ID", 404));
+        return next(new ErrorHander("Order not found with this ID", 404));
     }
   
     if (order.orderStatus === "Delivered") {
-      return next(new ErrorHandler("You cannot cancel a delivered order", 400));
+        return next(new ErrorHander("You cannot cancel a delivered order", 400));
     }
 
-     // Restore stock for each product in the order
-     for (const item of order.orderItems) {
+    // Restore stock for each product in the order
+    for (const item of order.orderItems) {
         await restoreStock(item.product, item.quantity);
     }
 
+    // Update the order status to "Cancelled"
     order.orderStatus = "Cancelled";
     await order.save();
-  
+
+    // Send order cancellation email
+    const cancelDetails = {
+        orderId: order._id,
+        orderItems: order.orderItems,
+        totalPrice: order.totalPrice,
+        shippingInfo: order.shippingInfo,
+    };
+
+    try {
+        await sendOrderConfirmationEmail(req.user.email, cancelDetails, 'cancelled'); // Pass cancellation status as parameter
+    } catch (error) {
+        return next(new ErrorHander("Error sending cancellation email", 500));
+    }
+
     res.status(200).json({
-      success: true,
-      message: "Order cancelled successfully",
+        success: true,
+        message: "Order cancelled successfully",
     });
 });
 
@@ -42,7 +57,6 @@ async function restoreStock(productId, quantity) {
 
     await product.save({ validateBeforeSave: false });
 }
-
 
 // Create new Order
 exports.newOrder = catchAsyncErrors(async (req, res, next) => {
@@ -110,7 +124,6 @@ async function updateStock(id, quantity) {
     await product.save({ validateBeforeSave: false });
 }
 
-
 //Get Single Order
 exports.getSingleOrder = catchAsyncErrors(async (req, res, next) => {
     const order = await Order.findById(req.params.id).populate(
@@ -173,26 +186,37 @@ exports.updateOrder = catchAsyncErrors(async (req, res, next) => {
     const order = await Order.findById(req.params.id);
 
     if (!order) {
-        return next(new ErrorHandler("Order not found with this Id", 404));
+        return next(new ErrorHander("Order not found with this Id", 404));
     }
 
-    if (order.orderStatus === "Delivered") {
-        return next(new ErrorHandler("You have already delivered this order", 400));
-    }
-
-    // Update the status and tracking ID
+    // Check if the order status is being updated
+    const previousStatus = order.orderStatus;
     order.orderStatus = req.body.status;
-    if (req.body.trackingId) { // Check if trackingId is provided
-        order.trackingId = req.body.trackingId; // Save tracking ID
+
+    // Only update trackingId if it's provided
+    if (req.body.trackingId) {
+        const previousTrackingId = order.trackingId; // Store previous tracking ID
+        order.trackingId = req.body.trackingId; // Save new tracking ID
+
+        // If the tracking ID has changed, send the tracking update email
+        if (previousTrackingId !== order.trackingId) {
+            const trackingUpdateDetails = {
+                orderId: order._id,
+                trackingId: order.trackingId,
+                orderStatus: order.orderStatus,
+                orderItems: order.orderItems, // Include order items if necessary
+            };
+
+            try {
+                await sendOrderConfirmationEmail(req.user.email, trackingUpdateDetails, 'trackingUpdate');
+            } catch (error) {
+                return next(new ErrorHander("Error sending tracking update email", 500));
+            }
+        }
     }
 
-    if (req.body.status === "Shipped") {
-        order.orderItems.forEach(async (o) => {
-            await updateStock(o.product, o.quantity);
-        });
-    }
-
-    if (req.body.status === "Delivered") {
+    // Update the order delivery time if the status is set to Delivered
+    if (order.orderStatus === "Delivered") {
         order.deliveredAt = Date.now();
     }
 
@@ -202,6 +226,7 @@ exports.updateOrder = catchAsyncErrors(async (req, res, next) => {
         success: true,
     });
 });
+
 
 async function updateStock(id,quantity) {
     const product = await Product.findById(id);

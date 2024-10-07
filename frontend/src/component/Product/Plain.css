@@ -9,12 +9,12 @@
     overflow: hidden;
     transition: max-height 0.5s ease-in-out;
     width: 220px; /* Set a fixed width for better control */
-   height: 170px;
+   height: 200px;
 
 }
 
 .categoryBoxsss.show {
-    max-height: 23vmax;
+    max-height: 25vmax;
   }
   
   .categoryBoxsss.hide {
@@ -30,7 +30,7 @@
       }
       
       .categoryBoxsss.show {
-        max-height: 28vmax;
+        max-height: 35vmax;
       }
       
       .categoryBoxsss.hide {

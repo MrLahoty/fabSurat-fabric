@@ -28,7 +28,7 @@ const Plain = ({ match }) => {
   const [subCategoriesVisible, setSubCategoriesVisible] = useState(false);
 
   const plainSubSubCategories = 
-        ["Hakoba", "Dyeable", "Pure/Viscose", "Semi Pure" ]; // Only embroidered sub-categories
+        ["Hakoba", "Velvet", "Dyeable", "Pure/Viscose", "Semi Pure" ]; // Only embroidered sub-categories
 
   const { products, loading, error, productsCount, resultPerPage, filteredProductsCount } = useSelector((state) => state.products);
 
