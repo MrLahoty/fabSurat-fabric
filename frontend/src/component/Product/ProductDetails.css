@@ -1,3 +1,38 @@
+.related-products-section {
+  padding: 8px; /* Padding for the section */
+  border-radius: 8px; /* Rounded corners */
+}
+
+.related-products {
+  display: flex; /* Use Flexbox for layout */
+  flex-wrap: wrap; /* Allow wrapping for responsiveness */
+  justify-content: space-between; /* Space out items evenly */
+  flex: 1 1 calc(20% - 20px); /* 4 items per row with spacing */
+  margin: 5px; /* Spacing between items */
+  min-width: 200px; /* Minimum width for each card */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Card shadow */
+  border-radius: 4px; /* Rounded corners for cards */
+  background-color: #fff; /* White background for product cards */
+  transition: transform 0.2s; /* Smooth scaling on hover */
+  margin-bottom: 30px;
+}
+
+.related-products :hover {
+  transform: scale(1.04); /* Slight zoom effect on hover */
+}
+
+.relatedheading {
+  color: #000000be;
+  font: 600 1.5vmax "Roboto", sans-serif;
+  text-align: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.226);
+  padding: 1vmax;
+  width: 22vmax;
+  margin: auto;
+  margin-bottom: 4vmax;
+  margin-top: 30px;
+}
+
 .meterssText{
   font-weight: bold;
   font-size: 15px;
@@ -427,13 +462,15 @@
 
 .reviewsHeading {
   color: #000000be;
-  font: 500 1.4vmax "Roboto", sans-serif;
+  font: 600 1.5vmax "Roboto", sans-serif;
   text-align: center;
   border-bottom: 1px solid rgba(0, 0, 0, 0.226);
   padding: 1vmax;
-  width: 22vmax;
+  width: 25vmax;
   margin: auto;
   margin-bottom: 4vmax;
+  margin-top: 30px;
+  white-space: nowrap; /* Prevents wrapping */
 }
 
 .reviews {
@@ -893,15 +930,58 @@
 .reviewCard > p {
    font: 600 3vw "Roboto";
 }
+
 .reviewCardComment {
   font: 300 5vw cursive;
 }
+
 .reviewsHeading {
   font-size: medium;
+  margin-top: 50px;
 }
+
 .noReviews {
   font: 400 1.4vmax "Gill Sans";
   text-align: center;
   color: rgba(0, 0, 0, 0.548);
 }
+
+.related-products-section {
+  position: relative;
+  padding-bottom: 30px; /* Adjust padding for pagination space */
+  width: 415px;
+  height: 590px;
+}
+
+.relatedheading {
+  color: #000000be;
+  font: 600 2vmax "Roboto", sans-serif;
+  text-align: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.226);
+  padding: 1vmax;
+  width: 22vmax;
+  margin: auto;
+  margin-bottom: 6vmax;
+  margin-top: 20px;
+}
+
+.swiper-pagination {
+  position: relative; 
+  text-align: center;
+  margin-bottom: -3px; 
+}
+
+.swiper-pagination-bullet {
+  background-color: #222; /* Customize dot color */
+  opacity: 1; /* Adjust dot transparency */
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1;
+}
+
+.swiper-container{
+  padding-bottom: 40px;
+}
+
 }

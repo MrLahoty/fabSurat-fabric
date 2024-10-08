@@ -31,14 +31,15 @@ import {
 } from "../constants/productConstants";
 
 // actions/productAction.js
-// export const getCategoryProducts = (category) => async (dispatch) => {
-//   try {
-//     const { data } = await axios.get(`/api/v1/products?category=${category}`);
-//     return data.products;  // Return the list of products based on category
-//   } catch (error) {
-//     console.error("Error fetching related products", error);
-//   }
-// };
+export const getCategoryProducts = (subSubCategory) => async (dispatch) => {
+  try {
+    dispatch({ type: ALL_PRODUCT_REQUEST });
+    const { data } = await axios.get(`/api/v1/products?subSubCategory=${subSubCategory}`);
+    return data.products;  // Return the list of products based on category
+  } catch (error) {
+    console.error("Error fetching related products", error);
+  }
+};
 
 // Get All Products
 export const getProduct =

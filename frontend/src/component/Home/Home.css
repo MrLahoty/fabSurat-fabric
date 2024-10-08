@@ -520,7 +520,7 @@ html, body {
 }
 
 .productCard {
-  height:420px;
+  height:430px;
   width: 21vmax;
   display: flex;
   flex-direction: column;
@@ -556,7 +556,7 @@ html, body {
 
 .productCard > p {
   font-family: "Playfair Display", serif;
-  font-size: 1.2vmax;
+  font-size: 1.1vmax;
   margin: 1vmax 0.5vmax;
   margin-bottom: 0;
 }
@@ -1140,7 +1140,7 @@ border-radius: 10px}
   .productCard {
     width: 200px;
     margin: 3vw auto;
-    height: 400px;
+    height: 420px;
   }
   
   .productCard > img {
@@ -1153,7 +1153,7 @@ border-radius: 10px}
   }
   
   .productCard > p {
-    font-size: 3.2vw;
+    font-size: 3vw;
     margin: 5px;
     display: flex;
   }

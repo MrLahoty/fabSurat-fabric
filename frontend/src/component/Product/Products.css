@@ -1,5 +1,5 @@
 .productss{
-  height: 1150px;
+  height: 1170px;
 }
 
 /* Heading and general product styles */
@@ -270,17 +270,17 @@
 @media screen and (max-width: 700px) {
 
   .productss{
-    height: 1900px;
+    height: 1980px;
   }
 
   .categories-container {
-    top:7.2%;
+    top: 6.8%;
     right: 1%;
   }
 
   /* Dropdown category box styles */
 .categoryBox {
-  top: 8.9%;
+  top: 8.3%;
   right: 1%;
   width: 180px; /* Set a fixed width for better control */
   height: 280px;
