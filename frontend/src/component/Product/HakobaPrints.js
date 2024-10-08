@@ -10,7 +10,7 @@ import { useAlert } from "react-alert";
 import MetaData from "../layout/MetaData";
 import { Button } from "@material-ui/core";
 import { FilterList } from "@material-ui/icons";
-import "./Embroidered.css";
+import "./HakobaPrints.css";
 
 const HakobaPrints = ({ match }) => {
   const dispatch = useDispatch();
@@ -82,7 +82,7 @@ const HakobaPrints = ({ match }) => {
         <>
           <MetaData title="Hakoba Prints PRODUCTS -- FABSURAT" />
           <div className="productss">
-            <h2 className="productsHeadingsss">Hakoba Prints</h2>
+            <h2 className="productssssssssHeadingsss">Hakoba Prints</h2>
 
             {/* Filter Section */}
             <div className="filterBox">

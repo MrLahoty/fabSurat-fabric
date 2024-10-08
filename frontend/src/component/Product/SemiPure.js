@@ -82,7 +82,7 @@ const SemiPure = ({ match }) => {
         <>
           <MetaData title="Semi Pure PRODUCTS -- FABSURAT" />
           <div className="productss">
-            <h2 className="productsHeadingsss">Semi Pure</h2>
+            <h2 className="produHeadingsss">Semi Pure</h2>
 
             {/* Filter Section */}
             <div className="filterBox">

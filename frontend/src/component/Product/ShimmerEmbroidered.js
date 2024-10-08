@@ -82,7 +82,7 @@ const ShimmerEmbroidered = ({ match }) => {
         <>
           <MetaData title="Shimmer EMBROIDERED PRODUCTS -- FABSURAT" />
           <div className="productss">
-            <h2 className="productsHeadingsss">Shimmer Embroidery</h2>
+            <h2 className="productsssssHeadingsss">Shimmer Embroidery</h2>
 
             {/* Filter Section */}
             <div className="filterBox">

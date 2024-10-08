@@ -82,7 +82,7 @@ const Dyeable = ({ match }) => {
         <>
           <MetaData title="Dyeable PRODUCTS -- FABSURAT" />
           <div className="productss">
-            <h2 className="productsHeadingsss">Dyeable</h2>
+            <h2 className="prodHeadingsss">Dyeable</h2>
 
             {/* Filter Section */}
             <div className="filterBox">

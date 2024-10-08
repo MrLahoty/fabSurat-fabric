@@ -82,7 +82,7 @@ const RayonPrints = ({ match }) => {
         <>
           <MetaData title="Rayon Prints PRODUCTS -- FABSURAT" />
           <div className="productss">
-            <h2 className="productsHeadingsss">Rayon Prints</h2>
+            <h2 className="productssssssssHeadingsss">Rayon Prints</h2>
 
             {/* Filter Section */}
             <div className="filterBox">

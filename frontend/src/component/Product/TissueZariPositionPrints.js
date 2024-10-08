@@ -10,7 +10,7 @@ import { useAlert } from "react-alert";
 import MetaData from "../layout/MetaData";
 import { Button } from "@material-ui/core";
 import { FilterList } from "@material-ui/icons";
-import "./Embroidered.css";
+import "./TissueZariPositionPrints.css";
 
 const TissueZariPositionPrints = ({ match }) => {
   const dispatch = useDispatch();
@@ -82,7 +82,7 @@ const TissueZariPositionPrints = ({ match }) => {
         <>
           <MetaData title="Tissue Zari Position Prints PRODUCTS -- FABSURAT" />
           <div className="productss">
-            <h2 className="productsHeadingsss">Tissue Zari Position Prints</h2>
+            <h2 className="productssssHeadingsss">Tissue Zari Position Prints</h2>
 
             {/* Filter Section */}
             <div className="filterBox">

@@ -76,7 +76,7 @@ const Plain = ({ match }) => {
         currentPage,
         committedPrice,
         "Fabric",
-        "Plain", // The main category is set to Embroidered
+        "Plain", // The main category is set to Plain
         subSubCategory || "", // Filter by selected subSubCategory if available
         committedRatings
       )
@@ -89,7 +89,7 @@ const Plain = ({ match }) => {
         <Loader />
       ) : (
         <>
-          <MetaData title="EMBROIDERED PRODUCTS -- FABSURAT" />
+          <MetaData title="Plain PRODUCTS -- FABSURAT" />
           <div className="productss">
             <h2 className="productsHeadings">Plain</h2>
 

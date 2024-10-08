@@ -10,7 +10,7 @@ import { useAlert } from "react-alert";
 import MetaData from "../layout/MetaData";
 import { Button } from "@material-ui/core";
 import { FilterList } from "@material-ui/icons";
-import "./Embroidered.css";
+import "./ViscoseGeorgetteEmbroidered.css";
 
 const ViscoseGeorgetteEmbroidered = ({ match }) => {
   const dispatch = useDispatch();
@@ -82,7 +82,7 @@ const ViscoseGeorgetteEmbroidered = ({ match }) => {
         <>
           <MetaData title="Viscose Georgette EMBROIDERED PRODUCTS -- FABSURAT" />
           <div className="productss">
-            <h2 className="productsHeadingsss">Viscose Georgette Embroidery</h2>
+            <h2 className="productsssssssHeadingsss">Viscose Georgette Embroidery</h2>
 
             {/* Filter Section */}
             <div className="filterBox">

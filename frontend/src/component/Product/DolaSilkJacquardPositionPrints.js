@@ -10,7 +10,7 @@ import { useAlert } from "react-alert";
 import MetaData from "../layout/MetaData";
 import { Button } from "@material-ui/core";
 import { FilterList } from "@material-ui/icons";
-import "./Embroidered.css";
+import "./DolaSilkJacquardPositionPrints.css";
 
 const DolaSilkJacquardPositionPrints = ({ match }) => {
   const dispatch = useDispatch();
@@ -82,7 +82,7 @@ const DolaSilkJacquardPositionPrints = ({ match }) => {
         <>
           <MetaData title="Dola Silk Jacquard Position Prints PRODUCTS -- FABSURAT" />
           <div className="productss">
-            <h2 className="productsHeadingsss">Dola Silk Jacquard Position Prints</h2>
+            <h2 className="productsssHeadingsss">Dola Silk Jacquard Position Prints</h2>
 
             {/* Filter Section */}
             <div className="filterBox">

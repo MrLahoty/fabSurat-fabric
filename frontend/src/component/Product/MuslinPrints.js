@@ -82,7 +82,7 @@ const MuslinPrints = ({ match }) => {
         <>
           <MetaData title="Muslin Prints PRODUCTS -- FABSURAT" />
           <div className="productss">
-            <h2 className="productsHeadingsss">Muslin Prints</h2>
+            <h2 className="productssssssssHeadingsss">Muslin Prints</h2>
 
             {/* Filter Section */}
             <div className="filterBox">

@@ -98,7 +98,7 @@ const PositionPrints = ({ match }) => {
         <Loader />
       ) : (
         <>
-          <MetaData title="EMBROIDERED PRODUCTS -- FABSURAT" />
+          <MetaData title="Position Prints PRODUCTS -- FABSURAT" />
           <div className="productss">
             <h2 className="productsHeadingssss">Position Prints</h2>
 
