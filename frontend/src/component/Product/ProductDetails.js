@@ -57,7 +57,7 @@ const ProductDetails = ({ match }) => {
     precision: 0.5,
   };
 
-  const [quantity, setQuantity] = useState(product.category === "Fabric" ? 2.5 : 1);
+  const [quantity, setQuantity] = useState(product.category === "Fabric" ? 1 : 1);
   const [selectedSizes, setSelectedSizes] = useState([]); // Store multiple selected sizes
   const [open, setOpen] = useState(false);
   const [rating, setRating] = useState(0);
@@ -417,44 +417,43 @@ const calculateDiscountPercentage = (mrp, price) => {
             </div>
           </div>
 
-          <div className="related-products-section">
-  <h3 className="relatedheading">Related Products</h3>
-  {relatedProducts.length > 0 ? (
-    isMobile ? (
-      <Swiper
-        className="swiper-container"
-        spaceBetween={10}
-        slidesPerView={2} // Show 2 products at a time
-        loop={true} // Optional, for infinite scrolling
-        pagination={{ 
-          clickable: true,
-          el: '.swiper-pagination', 
-        }} 
-        autoplay={{ delay: 2000 }} // Auto-slide every 2 seconds
-        modules={[Autoplay, Pagination, Navigation]} // Register Swiper modules           
-      >
-        {relatedProducts.map((relatedProduct) => (
-          <SwiperSlide key={relatedProduct._id}>
-            <ProductCard product={relatedProduct} />
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    ) : (
+      <div className="related-products-section">
+       <h3 className="relatedheading">Related Products</h3>
+       {relatedProducts.length > 0 ? (
+         isMobile ? (
+           <Swiper
+             className="swiper-container"
+             spaceBetween={10}
+             slidesPerView={2} // Show 2 products at a time
+             loop={true} // Optional, for infinite scrolling
+             pagination={{ 
+               clickable: true,
+               el: '.swiper-pagination', 
+             }} 
+             autoplay={{ delay: 2000 }} // Auto-slide every 2 seconds
+             modules={[Autoplay, Pagination, Navigation]} // Register Swiper modules           
+           >
+             {relatedProducts.map((relatedProduct) => (
+               <SwiperSlide key={relatedProduct._id}>
+                 <ProductCard product={relatedProduct} />
+               </SwiperSlide>
+             ))}
+           </Swiper>
+         ) : (
       <div className="related-products">
         {relatedProducts.map((relatedProduct) => (
           <ProductCard key={relatedProduct._id} product={relatedProduct} />
-        ))}
+      ))}
       </div>
-    )
-  ) : (
-    <div className="no-related-products">
-      <p>No Related Products Available.</p>
+        )
+      ) : (
+        <div className="no-related-products">
+          <p>No Related Products Available.</p>
+        </div>
+      )}
+      {/* Add the pagination element outside of Swiper */}
+      <div className="swiper-pagination"></div>
     </div>
-  )}
-  {/* Add the pagination element outside of Swiper */}
-  <div className="swiper-pagination"></div>
-</div>
-
 
 
           <h3 className="reviewsHeading">CUSTOMER REVIEWS</h3>
