@@ -1,0 +1,24 @@
+/* Heading and general product styles */
+.productsssHeadingsss {
+    margin: 2.8vmax auto;
+    width: 26vw;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.171);
+    padding: 2vmax;
+    color: rgba(0, 0, 0, 0.731);
+    font: 500 1.6vmax "playfair display";
+    text-align: center;
+    font-weight: bold;
+  }
+
+@media screen and (max-width: 700px) {
+    .productsssHeadingsss {
+        margin-left: 115px;
+        padding-right: 58px;
+        font-size: 18px;
+        margin-top: 38px;
+        font-weight: bold;
+        width: 60vw;
+        border-bottom: 1.2px solid rgba(0, 0, 0, 0.171);
+        white-space: nowrap; /* Prevents wrapping */
+      }
+}    

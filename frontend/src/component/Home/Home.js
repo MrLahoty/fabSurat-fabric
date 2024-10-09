@@ -96,6 +96,14 @@ const Home = () => {
     window.location.href = "/products";
   };
 
+  const handleOrderNowClicks = () => {
+    const phoneNumber = "918013267616"; // WhatsApp number in international format
+    const message = "Hello, I'm interested in placing a bulk order for Fabrics/Readymades"; // Optional pre-filled message
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+     // Open WhatsApp chat in a new tab
+  window.open(whatsappURL, '_blank');
+  };
+
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const slides = [
@@ -410,7 +418,7 @@ const Home = () => {
       </p>
       <p><strong>Order now</strong> and get the best fabric for your needs!</p>
       
-      <button className="order-now-button" onClick={handleOrderNowClick}>Order Now</button>
+      <button className="order-now-button" onClick={handleOrderNowClicks}>Order Now</button>
     </div>
 
     <section id="newsletter">

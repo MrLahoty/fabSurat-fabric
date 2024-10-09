@@ -12,6 +12,8 @@
 
 /* Dropdown button */
 .dropbtn {
+  display: flex;
+  align-items: center; /* Align content on the same line */
   background-color: transparent;
   color: black;
   font-size: 15px;
@@ -22,6 +24,17 @@
   letter-spacing: 0.3px;
   position: relative;
   transition: color 0.3s ease; /* Smooth transition for text color */
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-link {
+  text-decoration: none;
+  color: inherit;
+  margin-right: 5px; /* Add space between the text and the arrow */
 }
 
 /* Arrow for the dropdown */

@@ -1,13 +1,14 @@
 .productss{
   height: 1170px;
+  margin-top: -50px;
 }
 
 /* Heading and general product styles */
 .productsHeading {
-  margin: 2.8vmax auto;
+  margin: 2.5vmax auto;
   width: 15vw;
   border-bottom: 1px solid rgba(0, 0, 0, 0.171);
-  padding: 2vmax;
+  padding: 2.5vmax;
   color: rgba(0, 0, 0, 0.731);
   font: 500 1.6vmax "playfair display";
   text-align: center;
@@ -31,7 +32,7 @@
 /* Categories container and toggle button */
 .categories-container {
   position: fixed; /* Keep it fixed relative to the viewport */
-  top: 7%; /* Adjust as needed */
+  top: 10.5%; /* Adjust as needed */
   right: 3%; /* Adjust the horizontal position */
   display: flex;
   align-items: center;
@@ -82,7 +83,7 @@
 .categoryBox {
   list-style: none;
   position: absolute;
-  top: 10%;
+  top: 13.5%;
   right: 3%;
   background-color: #222222;
   padding: 0;
@@ -116,8 +117,8 @@
 /* Filter box styles */
 .filterBox {
   position: fixed;
-  top: 8vmax;
-  left: 3vmax;
+  top: 11%;
+  left: 3%;
 }
 
 /* Filter Button styles */
@@ -140,7 +141,7 @@
 /* Sliding filter section */
 .filter {
   position: fixed;
-  top: 12vmax;
+  top: 14%;
   left: -20vmax;
   width: 20vmax;
   height: 400px;
@@ -271,16 +272,17 @@
 
   .productss{
     height: 1980px;
+    margin-top: 5px;
   }
 
   .categories-container {
-    top: 6.8%;
+    top: 11.3%;
     right: 1%;
   }
 
   /* Dropdown category box styles */
 .categoryBox {
-  top: 8.3%;
+  top: 12.5%;
   right: 1%;
   width: 180px; /* Set a fixed width for better control */
   height: 280px;
@@ -325,21 +327,21 @@
 
   .filterBox {
     width: 20vmax;
-    margin-top: 137px;
+    top: 11.3%;
     left: 1%;
   }
 
   .filterBox > Button {
-    width: 95px;
+   width: 95px;
    height: 29px;
    font: 700 1.5vmax "Playfair Display", serif; /* Make font bolder */
-  padding: 6px 17px;
+   padding: 6px 17px;
   }
 
   /* Sliding filter section */
 .filter {
   position: fixed;
-  top: 30vmax;
+  top: 12.5%;
   left: -40vmax;
   width: 40vmax;
   height: 340px;

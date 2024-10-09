@@ -25,7 +25,7 @@
 /* Categories container and toggle button */
 .categories-containers {
   position: fixed; /* Keep it fixed relative to the viewport */
-  top: 7%; /* Adjust as needed */
+  top: 11.3%; /* Adjust as needed */
   right: 3%; /* Adjust the horizontal position */
   display: flex;
   align-items: center;
@@ -35,7 +35,7 @@
 .categoryBoxs {
     list-style: none;
     position: absolute;
-    top: 10%;
+    top: 14.1%;
     right: 3%;
     background-color: #222222;
     padding: 0;
@@ -75,13 +75,13 @@
   }
 
   .categories-containers {
-    top:7.1%;
+    top:11.3%;
     right: 1%;
   }
 
     /* Dropdown category box styles */
   .categoryBoxs {
-    top: 8.6%;
+    top: 12.5%;
     right: 1%;
     width: 180px; /* Set a fixed width for better control */
     height: 350px;

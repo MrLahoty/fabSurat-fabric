@@ -3,7 +3,6 @@ import { ReactNavbar } from "overlay-navbar";
 import { FaSearch, FaShoppingCart, FaPhone, FaUser } from 'react-icons/fa';
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { useLocation } from "react-router-dom";
 import logo from "../../../images/logo.png";
 
 // Sample category images
@@ -62,7 +61,6 @@ const options = {
 };
 
 const Header = () => {
-  const location = useLocation(); 
   const { isAuthenticated } = useSelector((state) => state.user); 
 
   const [placeholderText, setPlaceholderText] = useState('');
@@ -154,28 +152,31 @@ const Header = () => {
         </div>
         </div>
 
-    {location.pathname === "/" && (
+    {/* {location.pathname === "/" && ( */}
       <div className="category-links">
         {isDesktop ? ( // Desktop view
        <>
         <div className="dropdown">
           <button className="dropbtn">
-          POSITION PRINTS <span className="arrow"></span>
+          <a href="/PositionPrints" className="dropdown-link">POSITION PRINTS</a>
+          <span className="arrow"></span>
           </button>
           <div className="dropdown-content">
             <a href="/MuslinPositionPrints">Muslin Position Prints</a>
             <a href="/ChinonPositionPrints">Chinon Position Prints</a>
             <a href="/GeorgettePositionPrints">Georgette Position Prints</a>
             <a href="/OpadaPositionPrints">Opada Position Prints</a>
-            <a href="/DolaSilkJacquardPositionPrints">Dola Silk Jacquard Position Prints</a>
+            <a href="/JacquardPositionPrints">Jacquard Position Prints</a>
             <a href="/OrganzaPositionPrints">Organza Position Prints</a>
             <a href="/TissueZariPositionPrints">Tissue Zari Position Prints</a>
             <a href="/CrepePositionPrints">Crepe Position Prints</a>
+            <a href="/SilkPositionPrints">Silk Position Prints</a>
           </div>
         </div>
         <div className="dropdown">
           <button className="dropbtn">
-          EMBROIDERED <span className="arrow"></span>
+          <a href="/Embroidered" className="dropdown-link">EMBROIDERED </a>
+          <span className="arrow"></span>
           </button>
           <div className="dropdown-content">
             <a href="/ChinonEmbroidery">Chinon Embroidery</a>
@@ -192,7 +193,8 @@ const Header = () => {
         </div>
         <div className="dropdown">
           <button className="dropbtn">
-          PRINTS <span className="arrow"></span>
+          <a href="/Prints" className="dropdown-link"> PRINTS </a>
+          <span className="arrow"></span>
           </button>
           <div className="dropdown-content">
             <a href="/HakobaPrints">Hakoba Prints</a>
@@ -207,7 +209,8 @@ const Header = () => {
         </div>
         <div className="dropdown">
           <button className="dropbtn">
-            PLAIN <span className="arrow"></span>
+          <a href="/Plain" className="dropdown-link"> PLAIN </a> 
+            <span className="arrow"></span>
           </button>
           <div className="dropdown-content">
             <a href="/Hakoba">Hakoba</a>
@@ -219,7 +222,8 @@ const Header = () => {
         </div>
         <div className="dropdown">
           <button className="dropbtn">
-          READYMADE <span className="arrow"></span>
+          <a href="/readymades" className="dropdown-link"> READYMADE </a>           
+          <span className="arrow"></span>
           </button>
           <div className="dropdown-content">
             <a href="/readymades">Fabric On Sale</a>
@@ -230,7 +234,8 @@ const Header = () => {
         </div>
         <div className="dropdown">
           <button className="dropbtn">
-            SALE <span className="arrow"></span>
+          <a href="/products" className="dropdown-link"> SALE </a>            
+            <span className="arrow"></span>
           </button>
           <div className="dropdown-content">
             <a href="/products">Fabric On Sale</a>
@@ -240,19 +245,19 @@ const Header = () => {
       </>
     ) : ( // Mobile view (circle-style links)
       <>
-        <a href="/fabric/positionprints">
+        <a href="/PositionPrints">
           <img src={FabricsImage} alt="Position Prints" />
           <span>Position Prints</span>
         </a>
-        <a href="/fabric/embroidered">
+        <a href="/Embroidered">
           <img src={SareesImage} alt="Embroidered" />
           <span>Embroidered</span>
         </a>
-        <a href="/fabric/prints">
+        <a href="/Prints">
           <img src={BlousesImage} alt="Prints" />
           <span>Prints</span>
         </a>
-        <a href="/fabric/plain">
+        <a href="/Plain">
           <img src={JacketImage} alt="Plain" />
           <span>Plain</span>
         </a>
@@ -267,7 +272,7 @@ const Header = () => {
       </>
     )}
   </div>
-)}
+
     </div>
   );
 };

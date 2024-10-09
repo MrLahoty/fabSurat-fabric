@@ -1,7 +1,7 @@
 .categoryBoxsss{
     list-style: none;
     position: absolute;
-    top: 10%;
+    top: 14.1%;
     right: 3%;
     background-color: #222222;
     padding: 0;
@@ -23,7 +23,7 @@
 
   @media screen and (max-width: 700px) {
     .categoryBoxsss {
-        top: 8.4%;
+        top: 12.5%;
         right: 1%;
         width: 200px; /* Set a fixed width for better control */
         height: 650px;

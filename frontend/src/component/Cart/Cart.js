@@ -14,21 +14,17 @@ const Cart = ({ history }) => {
   const isReadymade = (size) => !!size;
 
   const increaseQuantity = (id, quantity, stock, size) => {
-    const newQty = isReadymade(size) ? quantity + 1 : quantity + 0.5;
+    let newQty;
 
-    // Check if the new quantity exceeds stock for readymade and fabric
-    if (isReadymade(size) && stock < newQty) {
-      return; // Cannot increase if stock is insufficient for readymade
+    if (isReadymade(size)) {
+      newQty = quantity + 1; // Increase by 1 for readymade
+    } else {
+      newQty = quantity + 0.5; // Increase by 0.5 for fabric
     }
 
-    if (!isReadymade(size)) {
-      // For fabric: Check if newQty exceeds stock or minimum requirements
-      if (newQty > stock) {
-        return; // Prevent increase beyond available stock
-      }
-      if (newQty < 2.5) {
-        return; // Prevent going below minimum quantity
-      }
+    // Check if the new quantity exceeds stock
+    if (newQty > stock) {
+      return; // Prevent increasing beyond available stock
     }
 
     // Update quantity in the cart
@@ -36,16 +32,19 @@ const Cart = ({ history }) => {
   };
 
   const decreaseQuantity = (id, quantity, size) => {
-    const newQty = isReadymade(size) ? quantity - 1 : quantity - 0.5;
+    let newQty;
 
-    if (isReadymade(size) && newQty < 1) {
-      return;
+    if (isReadymade(size)) {
+      newQty = quantity - 1; // Decrease by 1 for readymade
+    } else {
+      newQty = quantity - 0.5; // Decrease by 0.5 for fabric
     }
 
-    if (!isReadymade(size) && newQty < 2.5) {
-      return;
+    if (newQty < 1) {
+      return; // Prevent going below 1 for both categories
     }
 
+    // Update quantity in the cart
     dispatch(addItemsToCart(id, newQty, size));
   };
 
@@ -104,7 +103,7 @@ const Cart = ({ history }) => {
                       +
                     </button>
                   </div>
-                 <p className="cartSubtotal">{`₹${(parseFloat(item.price) * item.quantity).toFixed(2)}`}</p>
+                  <p className="cartSubtotal">{`₹${(parseFloat(item.price) * item.quantity).toFixed(2)}`}</p>
                 </div>
               ))}
 
@@ -113,7 +112,7 @@ const Cart = ({ history }) => {
               <div className="cartGrossProfitBox">
                 <p>Gross Total:</p>
                 <p>{`₹${cartItems.reduce(
-                  (acc, item) => acc + item.quantity *  parseFloat(item.price),
+                  (acc, item) => acc + item.quantity * parseFloat(item.price),
                   0
                 ).toFixed(2)}`}</p>
               </div>

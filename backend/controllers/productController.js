@@ -81,10 +81,11 @@ exports.createProduct = catchAsyncErrors(async (req, res, next) => {
             "Chinon Position Prints", 
             "Georgette Position Prints", 
             "Opada Position Prints", 
-            "Dola Silk Jacquard Position Prints", 
+            "Jacquard Position Prints", 
             "Organza Position Prints", 
             "Tissue Zari Position Prints", 
-            "Crepe Position Prints"
+            "Crepe Position Prints",
+            "Silk Position Prints"
         ],
         "Prints": [
             "Hakoba Prints", 
@@ -270,10 +271,11 @@ exports.updateProduct = catchAsyncErrors(async (req, res, next) => {
             "Chinon Position Prints", 
             "Georgette Position Prints", 
             "Opada Position Prints", 
-            "Dola Silk Jacquard Position Prints", 
+            "Jacquard Position Prints", 
             "Organza Position Prints", 
             "Tissue Zari Position Prints", 
-            "Crepe Position Prints"
+            "Crepe Position Prints",
+            "Silk Position Prints"
         ],
         "Prints": [
             "Hakoba Prints", 

@@ -64,11 +64,7 @@ const ProductDetails = ({ match }) => {
   const [comment, setComment] = useState("");
 
   useEffect(() => {
-    if (product.category === "Fabric") {
-      setQuantity(2.5);
-    } else if (product.category === "Readymade") {
-      setQuantity(1);
-    }
+    setQuantity(1); // Set initial quantity to 1 for both categories
   }, [product.category]);
 
    // Fetch related products
@@ -112,32 +108,32 @@ const ProductDetails = ({ match }) => {
   }, [dispatch, match.params.id, error, alert, reviewError, success]);
 
   const increaseQuantity = () => {
+    if (product.Stock <= quantity) return;
+  
     if (product.category === "Fabric") {
-      if (product.Stock <= quantity) return;
-      setQuantity(quantity + 0.5);
+      setQuantity(quantity + 0.5); // Increment by 0.5 for Fabric
     } else if (product.category === "Readymade") {
-      if (product.Stock <= quantity) return;
-      setQuantity(quantity + 1);
+      setQuantity(quantity + 1);   // Increment by 1 for Readymade
     }
   };
 
   const decreaseQuantity = () => {
-    const minQty = product.category === "Fabric" ? 2.5 : 1;
+    const minQty = product.category === "Fabric" ? 1 : 1; // Initial quantity set to 1 for both categories
     if (quantity <= minQty) return;
-
+  
     if (product.category === "Fabric") {
-      setQuantity(quantity - 0.5);
+      setQuantity(quantity - 0.5); // Decrement by 0.5 for Fabric
     } else if (product.category === "Readymade") {
-      setQuantity(quantity - 1);
+      setQuantity(quantity - 1);   // Decrement by 1 for Readymade
     }
   };
 
   const addToCartHandler = () => {
-    const minQty = product.category === "Fabric" ? 2.5 : 1;
-    if (product.Stock < minQty) {
-      alert.error("Product is out of stock");
-      return;
-    }
+    const minQty = product.category === "Fabric" ? 1 : 1; // Minimum quantity to add to cart is 1 for both categories
+    if (quantity < minQty || product.Stock < minQty) {
+    alert.error("Product is out of stock");
+    return;
+  }
     if (product.category === "Readymade" && selectedSizes.length === 0) {
       alert.error("Please select at least one size");
       return;
@@ -180,8 +176,12 @@ const ProductDetails = ({ match }) => {
     }
   };
 
-  const handleOrderNowClick = () => {
-    window.location.href = "/products";
+  const handleOrderNowClicks = () => {
+    const phoneNumber = "918013267616"; // WhatsApp number in international format
+    const message = "Hello, I'm interested in placing a bulk order for Fabrics/Readymades"; // Optional pre-filled message
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+     // Open WhatsApp chat in a new tab
+  window.open(whatsappURL, '_blank');
   };
 
   function shareProduct(platform) {
@@ -294,7 +294,7 @@ const calculateDiscountPercentage = (mrp, price) => {
                   <button
                     disabled={
                       product.category === "Fabric"
-                        ? product.Stock < 2.5
+                        ? product.Stock < 1
                         : product.Stock < 1
                     }
                     onClick={addToCartHandler}
@@ -308,7 +308,7 @@ const calculateDiscountPercentage = (mrp, price) => {
                   <b
                     className={
                       product.category === "Fabric"
-                        ? product.Stock < 2.5
+                        ? product.Stock < 1
                           ? "redColor"
                           : "greenColor"
                         : product.Stock < 1
@@ -317,7 +317,7 @@ const calculateDiscountPercentage = (mrp, price) => {
                     }
                   >
                     {product.category === "Fabric"
-                      ? product.Stock < 2.5
+                      ? product.Stock < 1
                         ? "OutOfStock"
                         : "InStock"
                       : product.Stock < 1
@@ -417,36 +417,44 @@ const calculateDiscountPercentage = (mrp, price) => {
             </div>
           </div>
 
-      <div className="related-products-section">
-      <h3 className="relatedheading">Related Products</h3>
-      {isMobile ? (
-          <Swiper
-            className="swiper-container"
-            spaceBetween={10}
-            slidesPerView={2} // Show 1 product at a time
-            loop={true} // Optional, for infinite scrolling
-            pagination={{ 
-              clickable: true,
-              el: '.swiper-pagination', }} 
-            autoplay={{ delay: 2000 }} // Auto-slide every 2 seconds
-            modules={[Autoplay, Pagination, Navigation]} // Register Swiper modules           
-          >
-          {relatedProducts.map((relatedProduct) => (
-            <SwiperSlide key={relatedProduct._id}>
-              <ProductCard product={relatedProduct} />
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      ) : (
-        <div className="related-products">
-          {relatedProducts.map((relatedProduct) => (
-            <ProductCard key={relatedProduct._id} product={relatedProduct} />
-          ))}
-        </div>
-      )}
-       {/* Add the pagination element outside of Swiper */}
-       <div className="swiper-pagination"></div>
+          <div className="related-products-section">
+  <h3 className="relatedheading">Related Products</h3>
+  {relatedProducts.length > 0 ? (
+    isMobile ? (
+      <Swiper
+        className="swiper-container"
+        spaceBetween={10}
+        slidesPerView={2} // Show 2 products at a time
+        loop={true} // Optional, for infinite scrolling
+        pagination={{ 
+          clickable: true,
+          el: '.swiper-pagination', 
+        }} 
+        autoplay={{ delay: 2000 }} // Auto-slide every 2 seconds
+        modules={[Autoplay, Pagination, Navigation]} // Register Swiper modules           
+      >
+        {relatedProducts.map((relatedProduct) => (
+          <SwiperSlide key={relatedProduct._id}>
+            <ProductCard product={relatedProduct} />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    ) : (
+      <div className="related-products">
+        {relatedProducts.map((relatedProduct) => (
+          <ProductCard key={relatedProduct._id} product={relatedProduct} />
+        ))}
+      </div>
+    )
+  ) : (
+    <div className="no-related-products">
+      <p>No Related Products Available.</p>
     </div>
+  )}
+  {/* Add the pagination element outside of Swiper */}
+  <div className="swiper-pagination"></div>
+</div>
+
 
 
           <h3 className="reviewsHeading">CUSTOMER REVIEWS</h3>
@@ -498,7 +506,7 @@ const calculateDiscountPercentage = (mrp, price) => {
       </p>
       <p><strong>Order now</strong> and get the best fabric for your needs!</p>
       
-      <button className="order-now-button" onClick={handleOrderNowClick}>Order Now</button>
+      <button className="order-now-button" onClick={handleOrderNowClicks}>Order Now</button>
     </div>
         </>
       )}

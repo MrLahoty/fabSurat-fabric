@@ -1,5 +1,6 @@
 .emptyCart {
   margin: auto;
+  margin-top: -50px;
   text-align: center;
   padding: 10vmax;
   height: 100vh;
@@ -35,6 +36,7 @@
 
 .cartPage {
   padding: 5vmax;
+  margin-top: -50px;
 }
 
 .cartHeader {
@@ -196,18 +198,19 @@
 
   .emptyCart {
     padding: 4vmax;
+    margin-top: -70px;
   }
 
   .emptyCart > svg {
-    font-size: 8vmax;
+    font-size: 6vmax;
   }
 
   .emptyCart > p {
-    font-size: 3vmax;
+    font-size: 2.5vmax;
   }
 
   .emptyCart > a {
     padding: 2vmax 4vmax;
-    font-size: 2vmax;
+    font-size: 1.7vmax;
   }
 }

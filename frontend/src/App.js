@@ -60,10 +60,11 @@ import MuslinPositionPrints from "./component/Product/MuslinPositionPrints.js";
 import ChinonPositionPrints from "./component/Product/ChinonPositionPrints.js";
 import GeorgettePositionPrints from "./component/Product/GeorgettePositionPrints.js";
 import OpadaPositionPrints from "./component/Product/OpadaPositionPrints.js";
-import DolaSilkJacquardPositionPrints from "./component/Product/DolaSilkJacquardPositionPrints.js";
+import JacquardPositionPrints from "./component/Product/JacquardPositionPrints.js";
 import OrganzaPositionPrints from "./component/Product/OrganzaPositionPrints.js";
 import TissueZariPositionPrints from "./component/Product/TissueZariPositionPrints.js";
 import CrepePositionPrints from "./component/Product/CrepePositionPrints.js";
+import SilkPositionPrints from "./component/Product/SilkPositionPrints.js";
 import SatinPrints from "./component/Product/SatinPrints.js";
 import GeorgettePrints from "./component/Product/GeorgettePrints.js";
 import HakobaPrints from "./component/Product/HakobaPrints.js";
@@ -145,10 +146,10 @@ function App() {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/fabrics" component={FabricProducts} />
-        <Route path="/fabric/embroidered" component={Embroidered} />
-        <Route path="/fabric/positionprints" component={PositionPrints} />
-        <Route path="/fabric/prints" component={Prints} />
-        <Route path="/fabric/plain" component={Plain} />
+        <Route path="/Embroidered" component={Embroidered} />
+        <Route path="/PositionPrints" component={PositionPrints} />
+        <Route path="/Prints" component={Prints} />
+        <Route path="/Plain" component={Plain} />
         <Route path="/ChinonEmbroidery" component={ChinonEmbroidered} />
         <Route path="/FauxGeorgetteEmbroidery" component={FauxGeorgetteEmbroidered} />
         <Route path="/ViscoseGeorgetteEmbroidery" component={ViscoseGeorgetteEmbroidered} />
@@ -163,10 +164,11 @@ function App() {
         <Route path="/ChinonPositionPrints" component={ChinonPositionPrints} />
         <Route path="/GeorgettePositionPrints" component={GeorgettePositionPrints} />
         <Route path="/OpadaPositionPrints" component={OpadaPositionPrints} />
-        <Route path="/DolaSilkJacquardPositionPrints" component={DolaSilkJacquardPositionPrints} />
+        <Route path="/JacquardPositionPrints" component={JacquardPositionPrints} />
         <Route path="/OrganzaPositionPrints" component={OrganzaPositionPrints} />
         <Route path="/TissueZariPositionPrints" component={TissueZariPositionPrints} />
         <Route path="/CrepePositionPrints" component={CrepePositionPrints} />
+        <Route path="/SilkPositionPrints" component={SilkPositionPrints} />
         <Route path="/SatinPrints" component={SatinPrints} />
         <Route path="/GeorgettePrints" component={GeorgettePrints} />
         <Route path="/HakobaPrints" component={HakobaPrints} />

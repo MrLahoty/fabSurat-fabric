@@ -151,7 +151,7 @@ const ReadymadeProducts = ({ match }) => {
                     </div>
                   </div>
 
-                  <ul className={`categoryBox ${subCategoriesVisible ? "show" : "hide"}`}>
+                  <ul className={`categoryBoxs ${subCategoriesVisible ? "show" : "hide"}`}>
                     {subCategories.map((category) => (
                       <li
                         className="category-link"

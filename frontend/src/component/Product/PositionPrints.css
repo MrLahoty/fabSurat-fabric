@@ -13,7 +13,7 @@
 .categoryBoxssss{
     list-style: none;
     position: absolute;
-    top: 10%;
+    top: 14.1%;
     right: 3%;
     background-color: #222222;
     padding: 0;
@@ -21,7 +21,7 @@
     overflow: hidden;
     transition: max-height 0.5s ease-in-out;
     width: 220px; /* Set a fixed width for better control */
-    height: 350px;
+    height: 365px;
 }
 
 .categoryBoxssss.show {
@@ -45,14 +45,14 @@
     }
 
     .categoryBoxssss {
-        top: 8.4%;
+        top: 12.5%;
         right: 1%;
-        width: 220px; /* Set a fixed width for better control */
+        width: 235px; /* Set a fixed width for better control */
         height: 650px;
       }
       
       .categoryBoxssss.show {
-        max-height: 58vmax;
+        max-height: 62vmax;
       }
       
       .categoryBoxssss.hide {

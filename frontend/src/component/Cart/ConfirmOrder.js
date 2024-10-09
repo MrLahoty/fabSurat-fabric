@@ -39,7 +39,7 @@ const ConfirmOrder = ({ history }) => {
     if (subtotal < 2500) {
       shippingCharges = 180; // COD: Rs 180 for orders below 2500
     } else {
-      shippingCharges = subtotal * 0.08; // COD: 8% of subtotal for orders above 2500
+      shippingCharges = subtotal * 0.07; // COD: 7% of subtotal for orders above 2500
     }
   }
 
