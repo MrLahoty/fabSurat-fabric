@@ -51,7 +51,6 @@ const NewProduct = ({ history }) => {
     XL: false,
     XXL: false,
   });
-
   
   const categories = ["Fabric", "Readymade"];
 
@@ -77,6 +76,7 @@ const NewProduct = ({ history }) => {
     "Organza Embroidery",
     "Cotton Embroidery",
     "Shimmer Embroidery",
+    "Net Embroidery",
   ];
   const printssubCategory = [
     "Hakoba Prints",

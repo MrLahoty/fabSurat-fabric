@@ -1,3 +1,58 @@
+.cart-notification {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  max-width: 800px; /* Slightly smaller max-width */
+  padding: 1px; /* Reduced padding for a compact look */
+  padding-left: 5px;
+  /* background-color: #f4f4f4; */
+  border-radius: 8px; /* Slightly smaller border-radius */
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1); /* Slightly smaller shadow */
+  margin: 1px 1px; /* Less margin to take up less space */
+  animation: slide-in 0.4s ease-out; /* Slightly faster animation */
+}
+
+.cart-notification span {
+  white-space: nowrap;
+  font-size: 14px; /* Smaller font size */
+  color: #fff;
+  flex: 1;
+}
+
+.view-cart-button {
+  padding: 4px 15px; /* Smaller button padding */
+  font-size: 12px; /* Smaller font size */
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px; /* Reduced border-radius */
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease; /* Slightly faster transitions */
+  margin-left: 20px; /* Reduced space between text and button */
+}
+
+.view-cart-button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px); /* Smaller hover movement */
+}
+
+.view-cart-button:active {
+  transform: translateY(0);
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px); /* Slightly reduced initial movement */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
 .related-products-section {
   padding: 8px; /* Padding for the section */
   border-radius: 8px; /* Rounded corners */
@@ -972,16 +1027,22 @@
 }
 
 .swiper-pagination-bullet {
-  background-color: #222; /* Customize dot color */
-  opacity: 1; /* Adjust dot transparency */
+  background-color: #222; 
+  opacity: 0.7; 
+  transition: background-color 0.5s ease, transform 0.5s ease;
 }
 
 .swiper-pagination-bullet-active {
+  background-color: #FFD700; /* Golden color for the active dot */
+  transform: scale(1.2); /* Slightly enlarge the active dot */
   opacity: 1;
 }
 
-.swiper-container{
+/* Add smooth background transition */
+.swiper-container {
   padding-bottom: 40px;
+  background-position: 100% 0;
+  transition: background-position 0.5s ease-in-out; /* Smooth movement */
 }
 
 }

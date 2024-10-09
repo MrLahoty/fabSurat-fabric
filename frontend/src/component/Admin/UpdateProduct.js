@@ -83,6 +83,7 @@ const UpdateProduct = ({ history, match }) => {
     "Organza Embroidery",
     "Cotton Embroidery",
     "Shimmer Embroidery",
+    "Net Embroidery",
   ];
   const printssubCategory = [
     "Hakoba Prints",

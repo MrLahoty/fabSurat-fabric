@@ -187,6 +187,7 @@ const Header = () => {
             <a href="/OrganzaEmbroidery">Organza Embroidery</a>
             <a href="/CottonEmbroidery">Cotton Embroidery</a>
             <a href="/ShimmerEmbroidery">Shimmer Embroidery</a>
+            <a href="/NetEmbroidery">Net Embroidery</a>
           </div>
         </div>
         <div className="dropdown">

@@ -143,8 +143,18 @@ const ProductDetails = ({ match }) => {
       return;
     }
     dispatch(addItemsToCart(match.params.id, quantity, selectedSizes));
-    alert.success("Item Added To Cart");
-  };
+    // Show the alert with the "View Cart" button
+    alert.success(
+      <div className="cart-notification">
+      <span>Item Added To Cart</span>
+      <a href="/cart">
+        <button className="view-cart-button">
+          View Cart
+        </button>
+      </a>
+    </div>
+);
+};
 
   const submitReviewToggle = () => {
     setOpen(!open);
@@ -199,7 +209,6 @@ const calculateDiscountPercentage = (mrp, price) => {
   const discount = ((mrp - price) / mrp) * 100;
   return Math.round(discount);
 };
-
 
   return (
     <>

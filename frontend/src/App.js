@@ -55,6 +55,7 @@ import VelvetEmbroidered from "./component/Product/VelvetEmbroidered.js";
 import OrganzaEmbroidered from "./component/Product/OrganzaEmbroidered.js";
 import CottonEmbroidered from "./component/Product/CottonEmbroidered.js";
 import ShimmerEmbroidered from "./component/Product/ShimmerEmbroidered.js";
+import NetEmbroidery from "./component/Product/NetEmbroidery.js"
 import MuslinPositionPrints from "./component/Product/MuslinPositionPrints.js";
 import ChinonPositionPrints from "./component/Product/ChinonPositionPrints.js";
 import GeorgettePositionPrints from "./component/Product/GeorgettePositionPrints.js";
@@ -157,6 +158,7 @@ function App() {
         <Route path="/OrganzaEmbroidery" component={OrganzaEmbroidered} />
         <Route path="/CottonEmbroidery" component={CottonEmbroidered} />
         <Route path="/ShimmerEmbroidery" component={ShimmerEmbroidered} />
+        <Route path="/NetEmbroidery" component={NetEmbroidery} />
         <Route path="/MuslinPositionPrints" component={MuslinPositionPrints} />
         <Route path="/ChinonPositionPrints" component={ChinonPositionPrints} />
         <Route path="/GeorgettePositionPrints" component={GeorgettePositionPrints} />

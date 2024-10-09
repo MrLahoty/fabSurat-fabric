@@ -35,7 +35,8 @@ const Embroidered = ({ match }) => {
     "Velvet Embroidery",
     "Organza Embroidery",
     "Cotton Embroidery",
-    "Shimmer Embroidery"
+    "Shimmer Embroidery",
+    "Net Embroidery"
   ]; // Only embroidered sub-categories
 
   const { products, loading, error, productsCount, resultPerPage, filteredProductsCount } = useSelector((state) => state.products);

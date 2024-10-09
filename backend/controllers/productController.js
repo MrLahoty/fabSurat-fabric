@@ -73,7 +73,8 @@ exports.createProduct = catchAsyncErrors(async (req, res, next) => {
             "Velvet Embroidery", 
             "Organza Embroidery", 
             "Cotton Embroidery", 
-            "Shimmer Embroidery"
+            "Shimmer Embroidery",
+            "Net Embroidery"
         ],
         "Position Prints": [
             "Muslin Position Prints", 
@@ -261,7 +262,8 @@ exports.updateProduct = catchAsyncErrors(async (req, res, next) => {
             "Velvet Embroidery", 
             "Organza Embroidery", 
             "Cotton Embroidery", 
-            "Shimmer Embroidery"
+            "Shimmer Embroidery",
+            "Net Embroidery"
         ],
         "Position Prints": [
             "Muslin Position Prints", 

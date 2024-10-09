@@ -49,7 +49,7 @@ const productScheme = mongoose.Schema({
     subSubCategory: {
         type: String,
         required: [true, "Please Enter Product Sub-Sub-Category"],
-        enum: ["Chinon Embroidery", "Faux Georgette Embroidery", "Viscose Georgette Embroider", "Silk Embroidery", "Rayon Embroidery", "Velvet Embroidery", "Organza Embroidery", "Cotton Embroidery", "Shimmer Embroidery", "Muslin Position Prints", "Chinon Position Prints", "Georgette Position Prints", "Opada Position Prints", "Dola Silk Jacquard Position Prints", "Organza Position Prints", "Tissue Zari Position Prints", "Crepe Position Prints", "Hakoba Prints", "Satin Prints" ,"Georgette Prints", "Muslin Prints", "Rayon Prints", "Velvet Prints", "Sugarcane Prints", "Chinon Prints", "Hakoba", "Velvet", "Dyeable", "Pure/Viscose", "Semi Pure"], // Enum for valid sub-categories
+        enum: ["Chinon Embroidery", "Faux Georgette Embroidery", "Viscose Georgette Embroider", "Silk Embroidery", "Rayon Embroidery", "Velvet Embroidery", "Organza Embroidery", "Cotton Embroidery", "Shimmer Embroidery", "Net Embroidery", "Muslin Position Prints", "Chinon Position Prints", "Georgette Position Prints", "Opada Position Prints", "Dola Silk Jacquard Position Prints", "Organza Position Prints", "Tissue Zari Position Prints", "Crepe Position Prints", "Hakoba Prints", "Satin Prints" ,"Georgette Prints", "Muslin Prints", "Rayon Prints", "Velvet Prints", "Sugarcane Prints", "Chinon Prints", "Hakoba", "Velvet", "Dyeable", "Pure/Viscose", "Semi Pure"], // Enum for valid sub-categories
     },
     Stock: {
         type: Number,
