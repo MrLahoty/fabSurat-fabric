@@ -19,10 +19,13 @@
   align-items: center;
 }
 
-.profileContainer > div:first-child > h1 {
-  color: rgba(0, 0, 0, 0.555);
-  font: 500 2.2vmax "playfair display";
+.profileContainer > div:first-child > h2 {
+  color: rgba(0, 0, 0, 0.731);
+  font: 500 2.4vmax "playfair display";
   transform: translateX(-10vmax) translateY(-2vmax);
+  margin-left: 275px;
+  margin-top: 30px;
+  margin-bottom: -10px;
 }
 
 .profileContainer > div:first-child > img {
@@ -43,7 +46,7 @@
   text-decoration: none;
   padding: 0.5vmax;
   width: 40%;
-  margin: 4vmax;
+  margin: 2vmax;
   text-align: center;
   transition: all 0.5s;
 }
@@ -92,7 +95,16 @@
   background-color: rgb(133, 109, 109);
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
+
+  .profileContainer > div:first-child > h2 {
+    color: rgba(0, 0, 0, 0.76);
+    font: 500 2.5vmax "playfair display",serif;   
+    margin-left: 157px;
+    align-items: center;
+    justify-content: center;   
+  }
+
   .profileContainer {
     flex-direction: column;
     justify-content: center;
@@ -100,9 +112,9 @@
     background-color: white;
     padding: 3vmax;
     width: 100vw;
-    height: 130vh;
+    height: 160vh;
     position: fixed;
-    top: -12%;;
+    top: -20%;;
     left: 0;
     max-width: 100%;
   }
@@ -117,13 +129,11 @@
     max-width: 100%;
   }
 
-
-
   .profileContainer > div:first-child > img {
     width: 20vmax;
     border-radius: 100%;
     transition: all 0.5s;
-    margin-bottom: 1vmax;
+    margin-bottom: 2vmax;
   }
 
   .profileContainer > div:first-child > img:hover {
@@ -133,14 +143,14 @@
   .profileContainer > div:first-child > a {
     border: none;
     background-color: #222222; /* Brighter tomato color for better contrast */
-    font: 400 1.7vmax "playfair display";
+    font: 400 1.7vmax "playfair display",serif;
     color: white;
     text-decoration: none;
     padding: 1vmax;
     width: 70%;
     text-align: center;
     transition: all 0.5s;
-    margin-top: 1vmax;
+    margin-top: 2vmax;
     border-radius: 5px; /* Rounded corners */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow for depth */
   }
@@ -157,17 +167,17 @@
   }
 
   .profileContainer > div:last-child > div {
-    margin-bottom: 2vmax; /* Adds gap between each section */
+    margin-bottom: 3vmax; /* Adds gap between each section */
   }
   
   .profileContainer > div:last-child > div > h4 {
-    font: 400 2.5vmax "playfair display";
+    font: 400 2.5vmax "playfair display",serif;
     color: rgba(0, 0, 0, 1); /* Darker font for name, email, etc. */
     margin-bottom: 0.5vmax; /* Reduced space below headings */
   }
   
   .profileContainer > div:last-child > div > p {
-    font: 400 2vmax "playfair display";
+    font: 400 2vmax "playfair display",serif;
     color: #222222; /* Darker font for details */
     margin: 0.5vmax 0;
   }
@@ -182,7 +192,7 @@
   .profileContainer > div:last-child > div:last-child > a {
     border: none;
     background-color: #222222; /* Attractive background color for buttons */
-    font: 400 1.8vmax "playfair display";
+    font: 400 1.8vmax "playfair display",serif;
     color: white;
     text-decoration: none;
     padding: 1vmax;

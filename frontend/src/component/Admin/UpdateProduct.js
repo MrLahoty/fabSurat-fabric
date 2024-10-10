@@ -421,6 +421,8 @@ const UpdateProduct = ({ history, match }) => {
                 placeholder="Stock"
                 required
                 value={Stock}
+    step="0.01"  // Allows decimal values
+
                 onChange={(e) => setStock(e.target.value)}
               />
             </div>

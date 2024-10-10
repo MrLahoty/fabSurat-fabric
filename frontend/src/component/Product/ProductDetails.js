@@ -498,6 +498,8 @@ const calculateDiscountPercentage = (mrp, price) => {
           ) : (
             <p className="noReviews">No Reviews Yet</p>
           )}
+
+          
            <div className="bulk-orders-section">
       <h2>We take <span className="highlight">Bulk Orders</span> too!</h2>
       <p>

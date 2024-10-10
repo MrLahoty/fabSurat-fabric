@@ -367,15 +367,17 @@ const NewProduct = ({ history }) => {
               </>
             )}
 
-            <div>
-              <StorageIcon />
-              <input
-                type="number"
-                placeholder="Stock"
-                required
-                onChange={(e) => setStock(e.target.value)}
-              />
-            </div>
+<div>
+  <StorageIcon />
+  <input
+    type="number"
+    placeholder="Stock"
+    required
+    step="0.01"  // Allows decimal values
+    onChange={(e) => setStock(e.target.value)}
+  />
+</div>
+
 
             <div id="createProductFormFile">
               <input
