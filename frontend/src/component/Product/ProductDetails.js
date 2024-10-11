@@ -32,7 +32,8 @@ import "swiper/css/navigation"; // If you're using navigation
 // Importing Material-UI Icons
 import LocalShippingIcon from "@material-ui/icons/LocalShipping";
 import VerifiedUserIcon from "@material-ui/icons/VerifiedUser";
-import ReplayIcon from "@material-ui/icons/Replay";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHandHoldingUsd } from '@fortawesome/free-solid-svg-icons'; // Best fit for COD
 
 const ProductDetails = ({ match }) => {
   const [isOpen, setIsOpen] = useState(false); 
@@ -304,7 +305,7 @@ const calculateDiscountPercentage = (mrp, price) => {
                 </div>
 
                 <p>
-                  Status :
+                  Status : 
                   <b
                     className={
                       product.category === "Fabric"
@@ -410,8 +411,8 @@ const calculateDiscountPercentage = (mrp, price) => {
                   <span>Assured quality</span>
                 </div>
                 <div className="infoItem">
-                  <ReplayIcon />
-                  <span>7 days return</span>
+                <FontAwesomeIcon icon={faHandHoldingUsd} />
+                  <span>COD  Available</span>
                 </div>
               </div>
             </div>

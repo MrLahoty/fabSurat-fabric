@@ -63,6 +63,11 @@ const options = {
 const Header = () => {
   const { isAuthenticated } = useSelector((state) => state.user); 
 
+  const cartItems = useSelector((state) => state.cart.cartItems); // Access cart items from Redux state
+
+  // Calculate total cart quantity
+  const totalQuantity = cartItems.reduce((acc, item) => acc + item.quantity, 0); 
+
   const [placeholderText, setPlaceholderText] = useState('');
   const [textIndex, setTextIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
@@ -134,13 +139,22 @@ const Header = () => {
               <FaPhone />
             </div>
           </a>
+
           <Link to="/cart" data-title="My Cart">
             <div className="cart-icons">
               <FaShoppingCart />
+              {/* Display the total quantity as a badge only if the user is authenticated and totalQuantity > 0 */}
+              {isAuthenticated && totalQuantity >= 0 && (
+                <span className="cart-badge">{totalQuantity}</span>
+              )}
+              {/* If not authenticated, don't show the badge at all */}
+              {!isAuthenticated && totalQuantity >= 0 && (
+                <span className="cart-badges" style={{ totalQuantity}}>0</span>
+              )}
             </div>
           </Link>
         </div>
-
+    
         <div>
           {!isAuthenticated && (
             <div className="auth-buttons">

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, useCallback } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import "./Home.css";
 import ProductCard from "./ProductCard.js";
 import MetaData from "../layout/MetaData";
@@ -8,7 +8,7 @@ import { useSelector, useDispatch } from "react-redux";
 import Loader from "../layout/Loader/Loader";
 import { useAlert } from "react-alert";
 import { Link } from "react-router-dom";
-import axios from 'axios';
+// import axios from 'axios';
 import videoFile from '../../images/video.mp4';
 import videoFiles from '../../images/video1.mp4';
 
@@ -23,7 +23,7 @@ import Image1 from '../../images/fab.avif';
 import Image2 from '../../images/fabs.avif';
 import Image3 from '../../images/fabss.avif';
 
-import NewsletterPopup from './NewsletterPopup';
+// import NewsletterPopup from './NewsletterPopup';
 import LatestCollection from './LatestCollection'; // Import the new component
 import BestSellers from './BestSellers'; 
 import HappyCustomers from './HappyCustomers'; // Add this import
@@ -35,50 +35,50 @@ const Home = () => {
   const { loading, error, products = [] } = useSelector((state) => state.products);
   const [searchTerm] = useState("");
 
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
-  const [messageType, setMessageType] = useState(''); 
+  // const [email, setEmail] = useState('');
+  // const [message, setMessage] = useState('');
+  // const [messageType, setMessageType] = useState(''); 
  
-  const [placeholderText, setPlaceholderText] = useState('');
-  const [textIndex, setTextIndex] = useState(0);
-  const [fullText, setFullText] = useState('Your email address...');
-  const [charIndex, setCharIndex] = useState(0);
+  // const [ setPlaceholderText] = useState('');
+  // const [textIndex, setTextIndex] = useState(0);
+  // const [fullText, setFullText] = useState('Your email address...');
+  // const [charIndex, setCharIndex] = useState(0);
 
-  const placeholderOptions = useMemo(() => [
-    'Your email address...',
-  ], []);
+  // const placeholderOptions = useMemo(() => [
+  //   'Your email address...',
+  // ], []);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCharIndex((prevCharIndex) => {
-        const newCharIndex = (prevCharIndex + 1) % (fullText.length + 1);
-        if (newCharIndex === 0) {
-          setTextIndex((prevTextIndex) => (prevTextIndex + 1) % placeholderOptions.length);
-          setFullText(placeholderOptions[(textIndex + 1) % placeholderOptions.length]);
-        }
-        return newCharIndex;
-      });
-    }, 100);
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setCharIndex((prevCharIndex) => {
+  //       const newCharIndex = (prevCharIndex + 1) % (fullText.length + 1);
+  //       if (newCharIndex === 0) {
+  //         setTextIndex((prevTextIndex) => (prevTextIndex + 1) % placeholderOptions.length);
+  //         setFullText(placeholderOptions[(textIndex + 1) % placeholderOptions.length]);
+  //       }
+  //       return newCharIndex;
+  //     });
+  //   }, 100);
 
-    return () => clearInterval(interval);
-  }, [charIndex, fullText, textIndex, placeholderOptions]);
+  //   return () => clearInterval(interval);
+  // }, [charIndex, fullText, textIndex, placeholderOptions]);
 
-  useEffect(() => {
-    setPlaceholderText(fullText.substring(0, charIndex));
-  }, [charIndex, fullText]);
+  // useEffect(() => {
+  //   setPlaceholderText(fullText.substring(0, charIndex));
+  // }, [charIndex, fullText]);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const { data } = await axios.post('/api/v1/subscribers/subscribe', { email });
-      setMessage(data.msg);
-      setMessageType('success'); // Set message type to success
-      setEmail('');
-    } catch ({ response }) {
-      setMessage(response.data.msg);
-      setMessageType('error'); // Set message type to error
-    }
-  };
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     const { data } = await axios.post('/api/v1/subscribers/subscribe', { email });
+  //     setMessage(data.msg);
+  //     setMessageType('success'); // Set message type to success
+  //     setEmail('');
+  //   } catch ({ response }) {
+  //     setMessage(response.data.msg);
+  //     setMessageType('error'); // Set message type to error
+  //   }
+  // };
 
   useEffect(() => {
     if (error) {
@@ -134,7 +134,7 @@ const Home = () => {
         <>
           <MetaData title="FabSurat" />
 
-          <NewsletterPopup />
+          {/* <NewsletterPopup /> */}
 
           <div className="slideshow-container">
             <div className="slides" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
@@ -421,7 +421,7 @@ const Home = () => {
       <button className="order-now-button" onClick={handleOrderNowClicks}>Order Now</button>
     </div>
 
-    <section id="newsletter">
+    {/* <section id="newsletter">
       
           <div className="newstext">
             <h3>Subscribe to receive exciting offers!</h3>
@@ -439,9 +439,9 @@ const Home = () => {
               placeholder={placeholderText}
             />
             <button className="normal" type="submit">Subscribe</button>
-          </form>
+          </form> */}
           
-    </section>
+    {/* </section> */}
     </>  
   );
 };

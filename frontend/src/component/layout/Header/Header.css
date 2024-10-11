@@ -230,7 +230,53 @@
   display: flex;
   align-items: center;
   gap: 1.2vmax; /* Adjust gap between icons */
-  margin-left: 855px;
+  margin-left: 835px;
+}
+
+.cart-badge {
+  position: fixed;
+  top: 21px;
+  right: 70px;
+  background-color: #222222;
+  color: #fff;
+  border-radius: 50%;
+  width: 2.1em; /* Fixed width */
+  height: 2.1em; /* Fixed height */
+  line-height: 2.1em; /* Center text vertically */
+  font-size: 10.5px; /* Adjust font size */
+  font-weight: bold;
+  text-align: center; /* Center text horizontally */
+  padding: 0; /* Remove padding to avoid size issues */
+  pointer-events: none; /* Prevent hover interaction */
+}
+
+.cart-badge:hover {
+  position: fixed !important;
+  top: 25px !important;
+  right: 70px !important;
+}
+
+.cart-badges {
+  position: fixed;
+  top: 23px;
+  right: 131px;
+  background-color: #222222;
+  color: #fff;
+  border-radius: 50%;
+  width: 2.1em; /* Fixed width */
+  height: 2.1em; /* Fixed height */
+  line-height: 2.1em; /* Center text vertically */
+  font-size: 10.5px; /* Adjust font size */
+  font-weight: bold;
+  text-align: center; /* Center text horizontally */
+  padding: 0; /* Remove padding to avoid size issues */
+  pointer-events: none; /* Prevent hover interaction */
+}
+
+.cart-badges:hover {
+  position: fixed !important;
+  top: 25px !important;
+  right: 70px !important;
 }
 
 .cart-icons, .phone-icons {
@@ -243,7 +289,6 @@
 .phone-icons {
   transform: scaleX(-1);
 }
-
 
 .cart-icons:hover, .phone-icons:hover {
   color: #ABB747;
@@ -265,57 +310,6 @@
 
 .phone-icons:hover, .cart-icons:hover, .auth-button:hover {
   color: #555; /* Slightly changes the icon color when hovering */
-}
-
-/* Custom hover effect with a triangle tooltip */
-a[data-title]:hover::after {
-  content: attr(data-title);
-  position: absolute;
-  background-color: #000;
-  color: #fff;
-  padding: 5px 10px;
-  border-radius: 5px;
-  top: 45px;
-  left: 50%;
-  transform: translateX(-50%) translateY(10px);
-  font-size: 14px;
-  white-space: nowrap;
-  z-index: 10;
-  opacity: 0;
-  transition: all 0.3s ease;
-  animation: fadeInSlideUp 0.3s forwards;
-}
-
-/* Triangle shape */
-a[data-title]:hover::before {
-  content: "";
-  position: absolute;
-  top: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  border-left: 8px solid transparent;
-  border-right: 8px solid transparent;
-  border-bottom: 8px solid #000;
-  z-index: 9;
-  opacity: 0;
-  animation: fadeInSlideUp 0.3s forwards;
-}
-
-/* Positioning */
-a[data-title]:hover {
-  position: relative;
-}
-
-/* Fade-in and slide-up animation */
-@keyframes fadeInSlideUp {
-  0% {
-    opacity: 0;
-    transform: translateX(-50%) translateY(10px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0px);
-  }
 }
 
 .auth-buttons {
@@ -479,7 +473,53 @@ a[data-title]:hover {
     display: flex;
     align-items: center;
     gap: 1.2vmax; /* Adjust gap between icons */
-    margin-left: -230px;
+    margin-left: -240px;
+  }
+
+  .cart-badge {
+    position: fixed;
+    top: 36px;
+    right: 60px;
+    background-color: #222222;
+    color: #fff;
+    border-radius: 50%;
+    width: 2.1em; /* Fixed width */
+    height: 2.1em; /* Fixed height */
+    line-height: 2.1em; /* Center text vertically */
+    font-size: 10.5px; /* Adjust font size */
+    font-weight: bold;
+    text-align: center; /* Center text horizontally */
+    padding: 0; /* Remove padding to avoid size issues */
+    pointer-events: none; /* Prevent hover interaction */
+  }
+  
+  .cart-badge:hover {
+    position: fixed !important;
+    top: 25px !important;
+    right: 70px !important;
+  }
+  
+  .cart-badges {
+    position: fixed;
+    top: 35px;
+    right: 60px;
+    background-color: #222222;
+    color: #fff;
+    border-radius: 50%;
+    width: 2.1em; /* Fixed width */
+    height: 2.1em; /* Fixed height */
+    line-height: 2.1em; /* Center text vertically */
+    font-size: 10.5px; /* Adjust font size */
+    font-weight: bold;
+    text-align: center; /* Center text horizontally */
+    padding: 0; /* Remove padding to avoid size issues */
+    pointer-events: none; /* Prevent hover interaction */
+  }
+  
+  .cart-badges:hover {
+    position: fixed !important;
+    top: 25px !important;
+    right: 70px !important;
   }
 
   .cart-icons, .phone-icons {
