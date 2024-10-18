@@ -75,7 +75,7 @@ const ProductDetails = ({ match }) => {
       dispatch(getCategoryProducts(product.subSubCategory)).then((related) => {
         // Exclude the current product from related products
         const filteredProducts = related.filter(p => p._id !== product._id);
-        setRelatedProducts(filteredProducts.slice(0, 4));
+        setRelatedProducts(filteredProducts.slice(0, 7));
       });
     }
   }, [dispatch, product.subSubCategory, product._id]);

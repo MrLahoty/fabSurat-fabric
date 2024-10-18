@@ -1,16 +1,19 @@
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
-import { FaInstagram, FaWhatsapp } from "react-icons/fa";
+import { FaInstagram, FaWhatsapp, FaYoutube } from "react-icons/fa";
 import '@fortawesome/fontawesome-free/css/all.css';
 import "./Footer.css";
 
 const Footer = () => {
+
   const [instagramColor, setInstagramColor] = useState("#2c2c2c");
   const [whatsappColor, setWhatsappColor] = useState("#2c2c2c");
   const [instagramTextColor, setInstagramTextColor] = useState("#2c2c2c");
   const [whatsappTextColor, setWhatsappTextColor] = useState("#2c2c2c");
+  const [youtubeColor, setYoutubeColor] = useState("#2c2c2c");
+  const [youtubeTextColor, setYoutubeTextColor] = useState("#2c2c2c");
   const phoneNumber = "+917003798513";
-  const emailAddress = "mohit80132@gmail.com";
+  const emailAddress = "officialfabsurat@gmail.com";
   const addressUrl = "https://maps.app.goo.gl/qEM4PxPP3q62CjKD7";
   const location = useLocation();
   const isLoginPage = location.pathname === "/login";
@@ -51,11 +54,12 @@ const Footer = () => {
       </a>
 
       <div className="footer-links">
-        <a href="/products"><i className="fas fa-box"></i> Products</a>
-        <a href="/contact"><i className="fas fa-building"></i> Offices</a>
-        <a href="/about"><i className="fas fa-info-circle"></i> About</a>
-        <a href="/contact"><i className="fas fa-envelope"></i> Contact</a>
-        <a href="/login"><i className="fas fa-user-plus"></i> Sign Up</a>
+      <a href="/PrivacyPolicy"><i className="fas fa-shield-alt"></i> Privacy Policy</a>
+      <a href="/Return&Refund"><i className="fas fa-undo-alt"></i> Return/Refund Policy</a>
+      <a href="/Shipping&Payment"><i className="fas fa-credit-card"></i> Shipping & Payment Policy</a>
+      <a href="/Terms&Condition"><i className="fas fa-file-contract"></i> Terms & Conditions</a>
+      <a href="/about"><i className="fas fa-info-circle"></i> About Us</a>
+      <a href="/contact"><i className="fas fa-envelope"></i> Contact Us</a>
       </div>
 
        <div className="svgs"> 
@@ -78,7 +82,7 @@ const Footer = () => {
   </div>
 
   <div className="copyrights">
-      <h6> &copy; 2024 FabSurat. All Rights Reserved.</h6>
+      <h6> &copy; {new Date().getFullYear()} FabSurat. All rights reserved.</h6>
   </div>
 </div>
 
@@ -112,10 +116,25 @@ const Footer = () => {
           }}
           style={{ color: whatsappTextColor }}
         >
-          <FaWhatsapp style={{ color: whatsappColor }} />
+          <FaWhatsapp style={{ color: whatsappColor, marginRight: "2px" }} />
           WhatsApp
         </a>
-</div>
+        <a
+         href="https://www.youtube.com/@fabsurat_fabric" // Replace with your actual YouTube link if necessary
+        onMouseEnter={() => {
+          setYoutubeColor("#FF0000"); // Change color on hover
+          setYoutubeTextColor("#FF0000");
+        }}
+        onMouseLeave={() => {
+          setYoutubeColor("#2c2c2c"); // Default color
+          setYoutubeTextColor("#2c2c2c");
+        }}
+        style={{ color: youtubeTextColor }} // Set color for text
+      >
+         <FaYoutube style={{ color: youtubeColor, marginRight: "7px" }} /> {/* Add marginRight */}
+        YouTube 
+      </a>
+    </div>
 
     </footer>
 

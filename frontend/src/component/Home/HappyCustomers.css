@@ -9,6 +9,7 @@
     font-weight: bold;
     position: relative; /* Position relative to allow absolute positioning of lines */
     font-family: "Playfair Display", serif;
+    margin-top: 50px;
 }
 
 .happy-customers-heading::before,

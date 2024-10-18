@@ -126,7 +126,7 @@ const BestSellers = () => {
 
   return (
     <>
-      <h2 className="best-collection-heading">Best Sellers</h2>
+      <h2 className="best-collection-heading">All Time Best Seller</h2>
       <div className="best-collection-container">
         <button className="best-slide-nav prev" onClick={prevLatestSlide} disabled={isSliding}>
           &#10094;

@@ -40,44 +40,51 @@ import ProductReviews from "./component/Admin/ProductReviews";
 import Contact from "./component/layout/Contact/Contact";
 import About from "./component/layout/About/About";
 import 'bootstrap/dist/css/bootstrap.css';
-import FabricProducts from "./component/Product/FabricProducts.js";
-import ReadymadeProducts from "./component/Product/ReadymadeProducts.js";
-import Embroidered from "./component/Product/Embroidered.js";
-import PositionPrints from "./component/Product/PositionPrints.js";
-import Prints from "./component/Product/Prints.js";
-import Plain from "./component/Product/Plain.js";
-import ChinonEmbroidered from "./component/Product/ChinonEmbroidered.js";
-import FauxGeorgetteEmbroidered from "./component/Product/FauxGeorgetteEmbroidered.js";
-import ViscoseGeorgetteEmbroidered from "./component/Product/ViscoseGeorgetteEmbroidered.js";
-import SilkEmbroidered from "./component/Product/SilkEmbroidered.js";
-import RayonEmbroidered from "./component/Product/RayonEmbroidered.js";
-import VelvetEmbroidered from "./component/Product/VelvetEmbroidered.js";
-import OrganzaEmbroidered from "./component/Product/OrganzaEmbroidered.js";
-import CottonEmbroidered from "./component/Product/CottonEmbroidered.js";
-import ShimmerEmbroidered from "./component/Product/ShimmerEmbroidered.js";
-import NetEmbroidery from "./component/Product/NetEmbroidery.js"
-import MuslinPositionPrints from "./component/Product/MuslinPositionPrints.js";
-import ChinonPositionPrints from "./component/Product/ChinonPositionPrints.js";
-import GeorgettePositionPrints from "./component/Product/GeorgettePositionPrints.js";
-import OpadaPositionPrints from "./component/Product/OpadaPositionPrints.js";
-import JacquardPositionPrints from "./component/Product/JacquardPositionPrints.js";
-import OrganzaPositionPrints from "./component/Product/OrganzaPositionPrints.js";
-import TissueZariPositionPrints from "./component/Product/TissueZariPositionPrints.js";
-import CrepePositionPrints from "./component/Product/CrepePositionPrints.js";
-import SilkPositionPrints from "./component/Product/SilkPositionPrints.js";
-import SatinPrints from "./component/Product/SatinPrints.js";
-import GeorgettePrints from "./component/Product/GeorgettePrints.js";
-import HakobaPrints from "./component/Product/HakobaPrints.js";
-import MuslinPrints from "./component/Product/MuslinPrints.js";
-import RayonPrints from "./component/Product/RayonPrints.js";
-import VelvetPrints from "./component/Product/VelvetPrints.js";
-import SugarcanePrints from "./component/Product/SugarcanePrints.js";
-import ChinonPrints from "./component/Product/ChinonPrints.js";
-import Hakoba from "./component/Product/Hakoba.js";
-import Velvet from "./component/Product/Velvet.js";
-import Dyeable from "./component/Product/Dyeable.js";
-import PureViscose from "./component/Product/PureViscose.js";
-import SemiPure from "./component/Product/SemiPure.js";
+import FabricProducts from "./component/Product/FabricProducts";
+import ReadymadeProducts from "./component/Product/ReadymadeProducts";
+import Embroidered from "./component/Product/Embroidered";
+import PositionPrints from "./component/Product/PositionPrints";
+import Prints from "./component/Product/Prints";
+import Plain from "./component/Product/Plain";
+import ChinonEmbroidered from "./component/Product/ChinonEmbroidered";
+import FauxGeorgetteEmbroidered from "./component/Product/FauxGeorgetteEmbroidered";
+import ViscoseGeorgetteEmbroidered from "./component/Product/ViscoseGeorgetteEmbroidered";
+import SilkEmbroidered from "./component/Product/SilkEmbroidered";
+import RayonEmbroidered from "./component/Product/RayonEmbroidered";
+import VelvetEmbroidered from "./component/Product/VelvetEmbroidered";
+import OrganzaEmbroidered from "./component/Product/OrganzaEmbroidered";
+import CottonEmbroidered from "./component/Product/CottonEmbroidered";
+import ShimmerEmbroidered from "./component/Product/ShimmerEmbroidered";
+import NetEmbroidery from "./component/Product/NetEmbroidery"
+import MuslinPositionPrints from "./component/Product/MuslinPositionPrints";
+import ChinonPositionPrints from "./component/Product/ChinonPositionPrints";
+import GeorgettePositionPrints from "./component/Product/GeorgettePositionPrints";
+import OpadaPositionPrints from "./component/Product/OpadaPositionPrints";
+import JacquardPositionPrints from "./component/Product/JacquardPositionPrints";
+import OrganzaPositionPrints from "./component/Product/OrganzaPositionPrints";
+import TissueZariPositionPrints from "./component/Product/TissueZariPositionPrints";
+import CrepePositionPrints from "./component/Product/CrepePositionPrints";
+import SilkPositionPrints from "./component/Product/SilkPositionPrints";
+import SatinPrints from "./component/Product/SatinPrints";
+import GeorgettePrints from "./component/Product/GeorgettePrints";
+import HakobaPrints from "./component/Product/HakobaPrints";
+import MuslinPrints from "./component/Product/MuslinPrints";
+import RayonPrints from "./component/Product/RayonPrints";
+import VelvetPrints from "./component/Product/VelvetPrints";
+import SugarcanePrints from "./component/Product/SugarcanePrints";
+import ChinonPrints from "./component/Product/ChinonPrints";
+import Hakoba from "./component/Product/Hakoba";
+import Velvet from "./component/Product/Velvet";
+import Dyeable from "./component/Product/Dyeable";
+import PureViscose from "./component/Product/PureViscose";
+import SemiPure from "./component/Product/SemiPure";
+import Under299 from "./component/Home/Under299";
+import Under199 from "./component/Home/Under199";
+import Under399 from "./component/Home/Under399";
+import PrivacyPolicy from './component/layout/Footer/PrivacyPolicy.js';
+import ReturnRefund from './component/layout/Footer/ReturnRefund.js';
+import ShippingPayment from './component/layout/Footer/ShippingPayment.js';
+import TermsCondition from './component/layout/Footer/TermsCondition.js';
 
 function App() {
   
@@ -145,6 +152,13 @@ function App() {
 
       <Switch>
         <Route exact path="/" component={Home} />
+        <Route path="/PrivacyPolicy" component={PrivacyPolicy} />
+        <Route path="/Return&Refund" component={ReturnRefund} />
+        <Route path="/Shipping&Payment" component={ShippingPayment} />
+        <Route path="/Terms&Condition" component={TermsCondition} />
+        <Route path="/under299" component={Under299} />
+        <Route path="/under199" component={Under199} />
+        <Route path="/under399" component={Under399} />
         <Route path="/fabrics" component={FabricProducts} />
         <Route path="/Embroidered" component={Embroidered} />
         <Route path="/PositionPrints" component={PositionPrints} />

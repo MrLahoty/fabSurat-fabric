@@ -15,6 +15,18 @@
   font-weight: bold;
 }
 
+/* Heading and general product styles */
+.productsH {
+  margin: 2.5vmax auto;
+  width: 15vw;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.171);
+  padding: 2.5vmax;
+  color: rgba(0, 0, 0, 0.731);
+  font: 500 1.6vmax "playfair display";
+  text-align: center;
+  font-weight: bold;
+}
+
 /* Toggle button initial state */
 .categories-toggle {
   background: transparent;
@@ -323,6 +335,16 @@
     font-weight: bold;
     width: 22vw;
     border-bottom: 1.2px solid rgba(0, 0, 0, 0.171);
+  }
+
+  .productsH {
+    padding-right: 110px;
+    font-size: 18px;
+    margin-top: 35px;
+    font-weight: bold;
+    width: 25vw;
+    border-bottom: 1.2px solid rgba(0, 0, 0, 0.171);
+    white-space: nowrap;
   }
 
   .filterBox {

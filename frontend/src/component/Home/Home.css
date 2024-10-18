@@ -7,6 +7,71 @@ html, body {
   overflow-x: hidden; /* Temporarily hidden to diagnose */
 }
 
+/* Container for the "Shop By Price" section */
+.shop-by-price {
+  text-align: center;
+  margin-top: 50px;
+  padding: 20px;
+  background-color: #f9f9f9; /* Light background for the section */
+  border-radius: 10px; /* Softly rounded corners */
+}
+
+/* Heading style */
+.shop-by-price h2 {
+  font-family: 'Playfair Display', serif; /* Playfair font */
+  font-size: 2.4rem; /* Large heading size */
+  color: #333; /* Dark color for the heading */
+  margin-bottom: 20px; /* Space below the heading */
+}
+
+/* General button styles */
+.btn-under299 {
+  background-color: #000; /* Black background */
+  color: #fff; /* White text */
+  border: none; /* No border */
+  padding: 10px 20px; /* Padding inside the button */
+  font-size: 1.2rem; /* Slightly larger text */
+  font-family: 'Playfair Display', serif; /* Consistent font with heading */
+  border-radius: 5px; /* Rounded button corners */
+  margin: 10px; /* Space between buttons */
+  cursor: pointer;
+  transition: all 0.3s ease-in-out; /* Smooth animation on hover */
+  position: relative;
+  overflow: hidden; /* To contain the hover animation */
+}
+
+/* Hover effect */
+.btn-under299:hover {
+  background-color: #fff; /* White background on hover */
+  color: #000; /* Black text on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Light shadow effect on hover */
+  animation: pulse 1s infinite;
+}
+
+/* Button hover animation: background color fill from left to right */
+.btn-under299::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 300%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.15); /* Translucent overlay */
+  transform: skewX(-45deg);
+  transition: left 0.5s ease-in-out;
+}
+
+/* Hover animation - slide effect */
+.btn-under299:hover::before {
+  left: 100%; /* Moves the animation overlay */
+}
+
+/* Button focus and active states */
+.btn-under299:focus, .btn-under299:active {
+  outline: none; /* Remove the default button outline */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Slight glow on active */
+}
+
 .latest-collection-container {
   position: relative;
   width: 100%;
@@ -475,7 +540,7 @@ html, body {
   border-bottom: 0.8px solid rgba(21, 21, 21, 0.5);
   width: 17vmax;
   padding: 1vmax;
-  margin: 2vmax auto; /* Adjusted the top margin to move it up */
+  margin: 4vmax auto; /* Adjusted the top margin to move it up */
   color: #000;
 }
 
@@ -1027,6 +1092,7 @@ html, body {
 
 .bulk-orders-section .order-now-button:hover {
   background-color: #a9ba9d;
+  animation: pulse 1s infinite;
 }
 
 .productCard{-webkit-box-shadow : -10px 0px 30px -12px rgba(189,189,189,1);
@@ -1036,9 +1102,33 @@ border-radius: 10px}
 
 @media (max-width: 768px) {
 
-  .bulk-orders-section {
+  /* Heading style */
+.shop-by-price h2 {
+  font-family: 'Playfair Display', serif; /* Playfair font */
+  font-size: 2rem; /* Large heading size */
+  color: #333; /* Dark color for the heading */
+  margin-bottom: 20px; /* Space below the heading */
+}
+
+/* General button styles */
+.btn-under299 {
+  background-color: #000; /* Black background */
+  color: #fff; /* White text */
+  border: none; /* No border */
+  padding: 10px 20px; /* Padding inside the button */
+  font-size: 1.1rem; /* Slightly larger text */
+  font-family: 'Playfair Display', serif; /* Consistent font with heading */
+  border-radius: 5px; /* Rounded button corners */
+  margin: 10px; /* Space between buttons */
+  cursor: pointer;
+  transition: all 0.3s ease-in-out; /* Smooth animation on hover */
+  position: relative;
+  overflow: hidden; /* To contain the hover animation */
+}
+
+.bulk-orders-section {
     height: 620px;
-  }
+}
 
   .bulk-orders-section h2 {
     font-size: 1.8rem;
@@ -1127,9 +1217,9 @@ border-radius: 10px}
   }
 
   .homeHeading {
-    font-size: 4.5vw;
-    width: 230px;
-    margin: 3vw auto;
+    font-size: 4.7vw;
+    width: 180px;
+    margin: 6.5vmax auto; /* Adjusted the top margin to move it up */
     border-bottom: 1px solid rgba(21, 21, 21, 0.5);
   }
 

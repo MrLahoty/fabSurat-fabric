@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 
 import LatestCollectionImage1 from '../../images/box10.jpg';
 import LatestCollectionImage2 from '../../images/box11.jpg';
-import LatestCollectionImage3 from '../../images/box8.jpg';
-import LatestCollectionImage4 from '../../images/box14.jpg';
-import LatestCollectionImage5 from '../../images/box6.jpg';
-import LatestCollectionImage6 from '../../images/box7.jpg';
-import LatestCollectionImage7 from '../../images/box8.jpg';
+// import LatestCollectionImage3 from '../../images/box8.jpg';
+// import LatestCollectionImage4 from '../../images/box14.jpg';
+// import LatestCollectionImage5 from '../../images/box6.jpg';
+// import LatestCollectionImage6 from '../../images/box7.jpg';
+// import LatestCollectionImage7 from '../../images/box8.jpg';
 import LatestCollectionImage8 from '../../images/box18.jpg';
 import LatestCollectionImage9 from '../../images/box19.jpg';
 import LatestCollectionImage10 from '../../images/box20.jpg';
@@ -18,16 +18,16 @@ const LatestCollection = () => {
   const [isSliding, setIsSliding] = useState(false);
 
   const latestSlides = [
-    { image: LatestCollectionImage1, alt: 'Latest 1', name: 'FABRICS' },
-    { image: LatestCollectionImage8, alt: 'Latest 8', name: 'FAB1' },
-    { image: LatestCollectionImage9, alt: 'Latest 9', name: 'FAB2' },
-    { image: LatestCollectionImage10, alt: 'Latest 10', name: 'FAB3' },
-    { image: LatestCollectionImage2, alt: 'Latest 2', name: 'READYMADES' },
-    { image: LatestCollectionImage3, alt: 'Latest 3', name: 'COTTON FABRICS' },
-    { image: LatestCollectionImage4, alt: 'Latest 4', name: 'EMBROIDERED' },
-    { image: LatestCollectionImage5, alt: 'Latest 5', name: 'SILK' },
-    { image: LatestCollectionImage6, alt: 'Latest 6', name: 'KURTI-SET' },
-    { image: LatestCollectionImage7, alt: 'Latest 7', name: 'CO-ORD SET' },
+    { image: LatestCollectionImage1, alt: 'Latest 1', name: 'Chinon Position Prints', link: '/ChinonEmbroidery' },
+    { image: LatestCollectionImage8, alt: 'Latest 8', name: 'Shimmer Embroidery', link: '/ShimmerEmbroidery' },
+    { image: LatestCollectionImage9, alt: 'Latest 9', name: 'Jacquard Position Prints', link: '/JacquardPositionPrints' },
+    { image: LatestCollectionImage10, alt: 'Latest 10', name: 'Georgette Prints', link: '/GeorgettePrints'  },
+    { image: LatestCollectionImage2, alt: 'Latest 2', name: 'Tissue Zari Position Prints', link: '/TissueZariPositionPrints' },
+    // { image: LatestCollectionImage3, alt: 'Latest 3', name: 'COTTON FABRICS' },
+    // { image: LatestCollectionImage4, alt: 'Latest 4', name: 'EMBROIDERED' },
+    // { image: LatestCollectionImage5, alt: 'Latest 5', name: 'SILK' },
+    // { image: LatestCollectionImage6, alt: 'Latest 6', name: 'KURTI-SET' },
+    // { image: LatestCollectionImage7, alt: 'Latest 7', name: 'CO-ORD SET' },
   ];
 
   const slidesToShow = 4;
@@ -68,7 +68,7 @@ const LatestCollection = () => {
 
   return (
     <>
-      <h2 className="latest-collection-heading">Your everyday luxury, That lasts forever</h2>
+      <h2 className="latest-collection-heading">Browse By Category</h2>
       <div className="latest-collection-container">
         <button className="latest-slide-nav prev" onClick={prevLatestSlide} disabled={isSliding}>
           &#10094;
@@ -76,8 +76,8 @@ const LatestCollection = () => {
         <div className={`latest-slide-show ${isSliding ? 'sliding' : ''}`}>
           {getVisibleSlides().map((slide, index) => (
             <div className="latest-slide" key={index}>
-              <Link to = "/products">
-              <img src={slide.image} alt={slide.alt} />
+              <Link to={slide.link}>
+                <img src={slide.image} alt={slide.alt} />
               </Link>
               <p className="latest-slide-name">{slide.name}</p>
             </div>

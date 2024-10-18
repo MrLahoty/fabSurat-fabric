@@ -9,7 +9,7 @@ import Loader from "../layout/Loader/Loader";
 import { useAlert } from "react-alert";
 import { Link } from "react-router-dom";
 // import axios from 'axios';
-import videoFile from '../../images/video.mp4';
+// import videoFile from '../../images/video.mp4';
 import videoFiles from '../../images/video1.mp4';
 
 import MakeInIndia from "../../images/india_map.webp";
@@ -88,6 +88,18 @@ const Home = () => {
     dispatch(getProduct());
   }, [dispatch, error, alert]);
 
+  const handleUnder199Click = () => {
+    window.location.href = "/under199";
+  };
+
+  const handleUnder299Click = () => {
+    window.location.href = "/under299";
+  };
+
+  const handleUnder399Click = () => {
+    window.location.href = "/under399";
+  };
+
   const filteredProducts = products.filter((product) =>
     product.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
@@ -125,6 +137,9 @@ const Home = () => {
 
     return () => clearInterval(interval);
   }, [nextSlide]);
+
+   // Create a duplicate array for infinite scrolling
+   const infiniteProducts = [...filteredProducts, ...filteredProducts, ...filteredProducts]; // Duplicate the array three times
 
   return (
     <>
@@ -165,6 +180,25 @@ const Home = () => {
             </div>
           </div>
 
+          {/* New Arrivals Section */}
+          <h2 className="homeHeading">New Arrival</h2>
+          <div className="container" id="container">
+            {filteredProducts.length > 0 && (
+              <Carousel className="custom-carousel" interval={4000}>
+                {infiniteProducts.map((product, index) => (
+                  <Carousel.Item key={product._id} style={{ width: '100%', height: '100%' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%', height: '100%' }}>
+                      <ProductCard product={infiniteProducts[index % filteredProducts.length]} style={{ flex: '1 1 auto' }} />
+                      {index + 1 < infiniteProducts.length && <ProductCard product={infiniteProducts[(index + 1) % filteredProducts.length]} style={{ flex: '1 1 auto' }} />}
+                      {index + 2 < infiniteProducts.length && <ProductCard product={infiniteProducts[(index + 2) % filteredProducts.length]} style={{ flex: '1 1 auto' }} />}
+                    </div>
+                    {index < infiniteProducts.length - 3 && <hr style={{ margin: '20px 0', width: '100%' }} />}
+                  </Carousel.Item>
+                ))}
+              </Carousel>
+            )}
+          </div>
+
           <div className="feature-section">
             <div className="feature-box">
               <img src={MakeInIndia} alt="Make in India" />
@@ -191,48 +225,53 @@ const Home = () => {
               <p>Custom Printing</p>
             </div>
           </div>
-
-          <h2 className="homeHeading">Featured Products</h2>
-          <div className="container" id="container">
-            {filteredProducts.length > 0 && (
-              <Carousel className="custom-carousel" style={{ width: '100%', height: '100%' }}>
-                {filteredProducts.map((product, index) => (
-                  <Carousel.Item key={product._id} style={{ width: '100%', height: '100%' }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%', height: '100%' }}>
-                      <ProductCard product={filteredProducts[index]} style={{ flex: '1 1 auto' }} />
-                      {index + 1 < filteredProducts.length && <ProductCard product={filteredProducts[index + 1]} style={{ flex: '1 1 auto' }} />}
-                      {index + 2 < filteredProducts.length && <ProductCard product={filteredProducts[index + 2]} style={{ flex: '1 1 auto' }} />}
-                    </div>
-                    {index < filteredProducts.length - 3 && <hr style={{ margin: '20px 0', width: '100%' }} />} {/* Add a horizontal line between items */}
-                  </Carousel.Item>
-                ))}
-              </Carousel>
-            )}
-          </div>
         </>
       )}
-      
-      <BestSellers/>
 
-      <Link to = {"/products"}>
+    <LatestCollection/>
+
+    <div className="bulk-orders-section">
+      <h2>We take <span className="highlight">Bulk Orders</span> too!</h2>
+      <p>
+        Looking for bulk fabric orders? Look no further! Our extensive selection features <strong>premium quality</strong> materials, including luxurious silks, durable cottons, versatile blends, and more, all designed to elevate your creations. Whether you're crafting elegant evening wear, comfortable everyday outfits, or bespoke home decor, we have the perfect fabric to bring your vision to life. Enjoy exceptional customer service, fast shipping, and competitive prices that make it easy to get exactly what you need. Don't miss out on the opportunity to transform your projects with the best fabrics available—order now and experience the difference!
+      </p>
+      <p><strong>Order now</strong> and get the best fabric for your needs!</p>
+      
+      <button className="order-now-button" onClick={handleOrderNowClicks}>Order Now</button>
+    </div>
+
+    <BestSellers/>
+
+    <Link to = {"/products"}>
      <div className="video-sections">
         <video autoPlay muted loop playsInline>
           <source src={videoFiles} type="video/mp4" />
        </video>
      </div>
-     </Link>
+    </Link>
 
-      <LatestCollection/>
+    <div className="shop-by-price">
+      <h2>Shop By Price</h2>
+        <button onClick={handleUnder199Click} className="btn-under299">
+          Under ₹199
+        </button>
+        <button onClick={handleUnder299Click} className="btn-under299">
+          Under ₹299
+        </button>
+        <button onClick={handleUnder399Click} className="btn-under299">
+          Under ₹399
+        </button>
+    </div>
 
-      <HappyCustomers /> 
+    <HappyCustomers /> 
      
-      <Link to = {"/products"}>
+      {/* <Link to = {"/products"}>
      <div className="video-section">
         <video autoPlay muted loop playsInline>
           <source src={videoFile} type="video/mp4" />
        </video>
      </div>
-     </Link>
+     </Link> */}
 
 
       {/* <h2 className="shop">NEW ARRIVALS</h2>
@@ -410,16 +449,6 @@ const Home = () => {
               </div>
             </div>
           </div> */}
-         
-          <div className="bulk-orders-section">
-      <h2>We take <span className="highlight">Bulk Orders</span> too!</h2>
-      <p>
-        Looking for bulk fabric orders? Look no further! Our extensive selection features <strong>premium quality</strong> materials, including luxurious silks, durable cottons, versatile blends, and more, all designed to elevate your creations. Whether you're crafting elegant evening wear, comfortable everyday outfits, or bespoke home decor, we have the perfect fabric to bring your vision to life. Enjoy exceptional customer service, fast shipping, and competitive prices that make it easy to get exactly what you need. Don't miss out on the opportunity to transform your projects with the best fabrics available—order now and experience the difference!
-      </p>
-      <p><strong>Order now</strong> and get the best fabric for your needs!</p>
-      
-      <button className="order-now-button" onClick={handleOrderNowClicks}>Order Now</button>
-    </div>
 
     {/* <section id="newsletter">
       
