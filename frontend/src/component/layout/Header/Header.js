@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { ReactNavbar } from "overlay-navbar";
 import { FaSearch, FaShoppingCart, FaPhone, FaUser } from 'react-icons/fa';
-import { Link } from "react-router-dom";
+import { Link, useLocation  } from "react-router-dom";
 import { useSelector } from "react-redux";
 import logo from "../../../images/logo.png";
 
@@ -79,6 +79,9 @@ const Header = () => {
 
   const [isDesktop, setIsDesktop] = useState(window.innerWidth > 768); // Define state for desktop check
 
+   // Get current page path
+   const location = useLocation();
+
   useEffect(() => {
     const handleResize = () => {
       setIsDesktop(window.innerWidth > 768); // Update state on resize
@@ -109,6 +112,13 @@ const Header = () => {
   useEffect(() => {
     setPlaceholderText(placeholderOptions[textIndex].substring(0, charIndex));
   }, [charIndex, textIndex, placeholderOptions]);
+
+  const hideCategoryLinksInMobile = !isDesktop && [
+    "/Shipping&Payment",
+    "/Return&Refund",
+    "/PrivacyPolicy",
+    "/Terms&Condition",
+  ].includes(location.pathname);
 
 
   return (
@@ -167,8 +177,10 @@ const Header = () => {
         </div>
 
     {/* {location.pathname === "/" && ( */}
-      <div className="category-links">
-        {isDesktop ? ( // Desktop view
+       {/* Conditionally render the category-links based on the page and screen size */}
+       {!hideCategoryLinksInMobile && (
+        <div className="category-links">
+          {isDesktop ? ( // Desktop view
        <>
         <div className="dropdown">
           <button className="dropbtn">
@@ -286,7 +298,7 @@ const Header = () => {
       </>
     )}
   </div>
-
+)}
     </div>
   );
 };

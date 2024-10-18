@@ -56,7 +56,7 @@ const LoginSignUp = ({ history, location }) => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
 
-  const redirect = location.search ? location.search.split("=")[1] : "/account";
+  const redirect = location.search ? location.search.split("=")[1] : "/";
 
   useEffect(() => {
     if (error) {

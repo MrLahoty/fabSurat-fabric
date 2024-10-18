@@ -56,7 +56,7 @@
   height: 2px;
   bottom: 0;
   left: 0;
-  background-color: #fa7e1e; /* Underline color */
+  background-color: #acb445; /* Underline color */
   visibility: hidden;
   transition: all 0.3s ease-in-out;
 }
@@ -68,7 +68,7 @@
 }
 
 .dropdown:hover .dropbtn {
-  color: #fa7e1e; /* Change text color on hover */
+  color: #acb445; /* Change text color on hover */
 }
 
 /* Dropdown content */
@@ -125,7 +125,7 @@
 
 /* Hover effect for the arrow color */
 .dropdown:hover .arrow {
-  border-top-color: #fa7e1e; /* Change arrow color on hover */
+  border-top-color: #acb445; /* Change arrow color on hover */
 }
 
 .navbar{
@@ -205,10 +205,10 @@
 }
 
 .search-icon {
-  background-color: #000000; /* Black background similar to the screenshot */
+  background-color: #acb445; /* Black background similar to the screenshot */
   border: 0;
   outline: 0;
-  color: #f1f0f0; /* White color for the search icon */
+  color: #222; /* White color for the search icon */
   font-size: 18px; /* Decreased font-size slightly to give a lighter appearance */
   line-height: 1; /* Adjusted line-height for better alignment */
   cursor: pointer;
@@ -222,7 +222,7 @@
 }
 
 .search-icon:hover {
-  color: #ABB747; /* Hover effect color */
+  color: #fff; /* Hover effect color */
   letter-spacing: -0.5px; /* Tighten the spacing for a thinner appearance on hover */
 }
 
