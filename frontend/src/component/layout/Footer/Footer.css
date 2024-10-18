@@ -256,7 +256,7 @@ animation: fadeInUp 1s ease-out;
 @media screen and (max-width: 600px) {
   
   footer {
-    height: 1050px; /* Adjust height to fit content */
+    height: 1070px; /* Adjust height to fit content */
     margin-top: 0px;
     display: flex;
     flex-direction: column;
@@ -274,25 +274,27 @@ animation: fadeInUp 1s ease-out;
     font-size: 22px;
     font-weight: bold;
     margin: 10px 0; /* Space between logo and next section */
-    margin-top: 20px;
+    margin-top: 25px;
     text-align: center;
     letter-spacing: 1px;
+    margin-left: 12px;
   }
 
   /* Follow Us section after logo */
   .footer-social-icon {
     order: 2; /* Second item */
-    width: 100%; /* Full width */
+    width: 120%; /* Full width */
     display: flex;
-    justify-content: center;
     gap: 8px;
     margin-bottom: -55px; /* Space between social icons and next section */
     margin-top: -20px;
+    margin-right: 230px;
   }
 
   .footer-social-icon a {
     font-size: 20px;
     padding: 10px;
+    margin-left: 60px;
   }
 
   /* Footer links section after Follow Us */
@@ -303,7 +305,7 @@ animation: fadeInUp 1s ease-out;
     align-items: flex-start;
     justify-content: flex-start;
     text-align: left;
-    gap: 8px;
+    gap: 11px;
     width: 130%; /* Full width */
     margin-left: -70px; /* Align links to the left */
   }
@@ -322,10 +324,11 @@ animation: fadeInUp 1s ease-out;
     width: 100%; /* Full width */
     box-sizing: border-box; /* Include padding in width */
     text-align: left; /* Align contact information to the left */
+    margin-bottom: 15px;
   }
 
   .leftFooter h5 {
-    font-size: 18px;
+    font-size: 19px;
     margin-bottom: 10px;
     font-family: "Playfair Display",serif;
   }
