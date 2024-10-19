@@ -56,7 +56,7 @@
   height: 2px;
   bottom: 0;
   left: 0;
-  background-color: #acb445; /* Underline color */
+  background-color: rgb(161, 161, 225); /* Underline color */
   visibility: hidden;
   transition: all 0.3s ease-in-out;
 }
@@ -68,7 +68,7 @@
 }
 
 .dropdown:hover .dropbtn {
-  color: #acb445; /* Change text color on hover */
+  color: rgb(161, 161, 225); /* Change text color on hover */
 }
 
 /* Dropdown content */
@@ -125,7 +125,7 @@
 
 /* Hover effect for the arrow color */
 .dropdown:hover .arrow {
-  border-top-color: #acb445; /* Change arrow color on hover */
+  border-top-color: rgb(161, 161, 225); /* Change arrow color on hover */
 }
 
 .navbar{
@@ -205,10 +205,10 @@
 }
 
 .search-icon {
-  background-color: #acb445; /* Black background similar to the screenshot */
+  background-color: rgb(161, 161, 225); /* Black background similar to the screenshot */
   border: 0;
   outline: 0;
-  color: #222; /* White color for the search icon */
+  color: #f1f1f1; /* White color for the search icon */
   font-size: 18px; /* Decreased font-size slightly to give a lighter appearance */
   line-height: 1; /* Adjusted line-height for better alignment */
   cursor: pointer;
@@ -222,7 +222,7 @@
 }
 
 .search-icon:hover {
-  color: #fff; /* Hover effect color */
+  color: rgb(235, 68, 68); /* Hover effect color */
   letter-spacing: -0.5px; /* Tighten the spacing for a thinner appearance on hover */
 }
 
@@ -237,8 +237,8 @@
   position: fixed;
   top: 21px;
   right: 70px;
-  background-color: #222222;
-  color: #fff;
+  background-color: #222;
+  color: rgb(161, 161, 225);
   border-radius: 50%;
   width: 2.1em; /* Fixed width */
   height: 2.1em; /* Fixed height */
@@ -260,8 +260,8 @@
   position: fixed;
   top: 23px;
   right: 131px;
-  background-color: #222222;
-  color: #fff;
+  background-color: rgb(161, 161, 225);
+  color: #222;
   border-radius: 50%;
   width: 2.1em; /* Fixed width */
   height: 2.1em; /* Fixed height */
@@ -281,7 +281,7 @@
 
 .cart-icons, .phone-icons {
   font-size: 1.7vmax;
-  color: #222222;
+  color: rgb(161, 161, 225);
   cursor: pointer;
   transition: color 0.3s ease;
 }
@@ -304,7 +304,7 @@
 
 .phone-icons, .cart-icons, .auth-button {
   font-size: 24px;
-  color: #333;
+  color: rgb(161, 161, 225);
   transition: color 0.3s ease;
 }
 
