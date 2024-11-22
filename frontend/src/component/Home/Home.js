@@ -10,7 +10,7 @@ import { useAlert } from "react-alert";
 import { Link } from "react-router-dom";
 // import axios from 'axios';
 // import videoFile from '../../images/video.mp4';
-import videoFiles from '../../images/video1.mp4';
+import videoFiles from '../../images/video2.mp4';
 
 import MakeInIndia from "../../images/india_map.webp";
 import Quality from "../../images/ThumbsUp.png";
