@@ -20,10 +20,10 @@ const BestSellers = () => {
   const [isSliding, setIsSliding] = useState(false);
 
   const latestSlides = [
-    { id: "661fb9bfc8635135460c6e8f", image: LatestCollectionImage1, alt: 'Latest 1', name: 'FABRICS', 
-        originalPrice: "249.00",
-        discountedPrice: "211.65",
-        discount: "15" ,
+    { id: "66f665f0b66fcbfff13ba494", image: LatestCollectionImage1, alt: 'Latest 1', name: 'Morpeach Plain Crushed Korean Velvet Fabric', 
+        originalPrice: "385.00",
+        discountedPrice: "290.00",
+        discount: "25" ,
         ratings: "5",
         numOfReviews: "1" },
     { id: "661fc27ebacffa0ac73492f9", image: LatestCollectionImage8, alt: 'Latest 8', name: 'FAB1', 

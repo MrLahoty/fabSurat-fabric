@@ -2,16 +2,16 @@ import React, { useState, useEffect, useCallback } from 'react';
 import './LatestCollection.css';
 import { Link } from "react-router-dom";
 
-import LatestCollectionImage1 from '../../images/box10.jpg';
-import LatestCollectionImage2 from '../../images/box11.jpg';
+import LatestCollectionImage1 from '../../images/CHINON POSITION PRINT.jpg';
+import LatestCollectionImage2 from '../../images/TISSUE ZARI POSITION PRINT.jpg';
 // import LatestCollectionImage3 from '../../images/box8.jpg';
 // import LatestCollectionImage4 from '../../images/box14.jpg';
 // import LatestCollectionImage5 from '../../images/box6.jpg';
 // import LatestCollectionImage6 from '../../images/box7.jpg';
 // import LatestCollectionImage7 from '../../images/box8.jpg';
 import LatestCollectionImage8 from '../../images/box18.jpg';
-import LatestCollectionImage9 from '../../images/box19.jpg';
-import LatestCollectionImage10 from '../../images/box20.jpg';
+import LatestCollectionImage9 from '../../images/JACQUARD POSITION PRINT.jpg';
+import LatestCollectionImage10 from '../../images/GEORGETTE PRINTS (1).jpg';
 
 const LatestCollection = () => {
   const [currentLatestSlide, setCurrentLatestSlide] = useState(0);
