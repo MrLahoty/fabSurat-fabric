@@ -348,14 +348,6 @@ const NewProduct = ({ history }) => {
                     onChange={(e) => setCareInstructions(e.target.value)}
                   />
                 </div>
-                 {/* <div>
-                  <input
-                    type="text"
-                    placeholder="Color"
-                    value={color}
-                    onChange={(e) => setColor(e.target.value)}
-                  />
-                </div> */}
                 <div>
                   <WarningIcon />
                   <textarea

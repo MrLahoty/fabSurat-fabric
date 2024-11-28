@@ -3,16 +3,14 @@ import './BestSellers.css';
 import { Link } from "react-router-dom";
 import { Rating } from "@material-ui/lab";
 
-import LatestCollectionImage1 from '../../images/box5.jpg';
-import LatestCollectionImage2 from '../../images/box11.jpg';
-import LatestCollectionImage3 from '../../images/box8.jpg';
-import LatestCollectionImage4 from '../../images/box14.jpg';
-import LatestCollectionImage5 from '../../images/box6.jpg';
-import LatestCollectionImage6 from '../../images/box7.jpg';
-import LatestCollectionImage7 from '../../images/box8.jpg';
-import LatestCollectionImage8 from '../../images/box18.jpg';
-import LatestCollectionImage9 from '../../images/box19.jpg';
-import LatestCollectionImage10 from '../../images/box20.jpg';
+import LatestCollectionImage1 from '../../images/b1.jpeg';
+import LatestCollectionImage2 from '../../images/b5.jpeg';
+import LatestCollectionImage3 from '../../images/b6.jpeg';
+import LatestCollectionImage4 from '../../images/b7.jpeg';
+import LatestCollectionImage5 from '../../images/b8.jpeg';
+import LatestCollectionImage8 from '../../images/b2.jpeg';
+import LatestCollectionImage9 from '../../images/b3.jpeg';
+import LatestCollectionImage10 from '../../images/b4.jpeg';
 
 const BestSellers = () => {
   
@@ -20,66 +18,54 @@ const BestSellers = () => {
   const [isSliding, setIsSliding] = useState(false);
 
   const latestSlides = [
-    { id: "66f665f0b66fcbfff13ba494", image: LatestCollectionImage1, alt: 'Latest 1', name: 'Morpeach Plain Crushed Korean Velvet Fabric', 
-        originalPrice: "385.00",
+    { id: "6744790ce65e98a568966266", image: LatestCollectionImage1, alt: 'Latest 1', name: 'Red Position Print On Chinon Fabric', 
+        originalPrice: "290.00",
         discountedPrice: "290.00",
-        discount: "25" ,
+        discount: "0" ,
         ratings: "5",
         numOfReviews: "1" },
-    { id: "661fc27ebacffa0ac73492f9", image: LatestCollectionImage8, alt: 'Latest 8', name: 'FAB1', 
-        originalPrice: '229.00',
-        discountedPrice: '206.1',
-        discount: '10' ,
-        ratings: '0',  
-        numOfReviews: '0' },
-    { id:"661fc3817b484217e77b5176", image: LatestCollectionImage9, alt: 'Latest 9', name: 'FAB2', 
-        originalPrice: '145.00',
-        discountedPrice: '134.85',
-        discount: '7' ,
+    { id: "6707c723b3c98a75e8c5c988", image: LatestCollectionImage8, alt: 'Latest 8', name: 'Yellow Floral Position Print On Chinon Fabric', 
+        originalPrice: '325.00',
+        discountedPrice: '325.00',
+        discount: '0' ,
+        ratings: '4.5',  
+        numOfReviews: '2' },
+    { id:"66fa8a7a92a3d36fbf35e01e", image: LatestCollectionImage9, alt: 'Latest 9', name: 'Abstract Blue Position Print On Chinon Fabric', 
+        originalPrice: '250.00',
+        discountedPrice: '199.00',
+        discount: '20' ,
         ratings: "4.5",  
         numOfReviews: "2" },
-    { id: "661fc4001e4226bc07a4805a", image: LatestCollectionImage10, alt: 'Latest 10', name: 'FAB3',
-        originalPrice: '456.00',
-        discountedPrice: '378.48',
-        discount: '17' ,
+    { id: "67090ccb67b1f3c9d02d8fd9", image: LatestCollectionImage10, alt: 'Latest 10', name: 'Pichhwai Print With Crochet Work On Rayon Fabric',
+        originalPrice: '180.00',
+        discountedPrice: '180.00',
+        discount: '0' ,
         ratings: "4",  
         numOfReviews: "1" },
-    { id: "661fc650cdd55940cf1e8ec3", image: LatestCollectionImage2, alt: 'Latest 2', name: 'READYMADES' ,
-        originalPrice: '2491.00',
-        discountedPrice: '1768.61',
-        discount: '29' ,
-        ratings: "3.5" ,
-        numOfReviews: "2" },
-    { id: "661fc71c0bc3eb7b9408d89f", image: LatestCollectionImage3, alt: 'Latest 3', name: 'COTTON FABRICS' ,
-        originalPrice: '491.00',
-        discountedPrice: '392.8',
-        discount: '20',
-        ratings: "5" ,
-        numOfReviews: "2" },
-    { id: "661fc80ea040cb5b8debc656", image: LatestCollectionImage4, alt: 'Latest 4', name: 'EMBROIDERED' ,
-        originalPrice: '249.00',
-        discountedPrice: '236.55',
-        discount: '5' ,
-        ratings: "4" ,
-        numOfReviews: "5" },
-    { id: "661fed3301b5cf7b14fc35ff", image: LatestCollectionImage5, alt: 'Latest 5', name: 'SILK' ,
-        originalPrice: '543.00',
-        discountedPrice: '477.84',
-        discount: '12' ,
-        ratings: "0" ,
-        numOfReviews: "0" },
-    { id: "661fedb9dc26c4b094560ffa", image: LatestCollectionImage6, alt: 'Latest 6', name: 'KURTI-SET',
-        originalPrice: '481.00',
-        discountedPrice: '418.47',
-        discount: '13' ,
+    { id: "66f699323d598e3f6464b768", image: LatestCollectionImage2, alt: 'Latest 2', name: 'Lavender Floral Position Print On Pure Chinon/Chiffon' ,
+        originalPrice: '570.00',
+        discountedPrice: '450.00',
+        discount: '21' ,
         ratings: "4.5" ,
         numOfReviews: "3" },
-    { id: "661fedb9dc26c4b094560ffa", image: LatestCollectionImage7, alt: 'Latest 7', name: 'CO-ORD SET' ,
-        originalPrice: '2491.00',
-        discountedPrice: '1992.8',
+    { id: "67443cdbe9d358e06380350a", image: LatestCollectionImage3, alt: 'Latest 3', name: 'Blue Position Print On Organza Fabric' ,
+        originalPrice: '295.00',
+        discountedPrice: '295.00',
+        discount: '0',
+        ratings: "5" ,
+        numOfReviews: "3" },
+    { id: "6703c85a516ca6840fe6d0aa", image: LatestCollectionImage4, alt: 'Latest 4', name: 'Pink Cutwork Sequins Embroidered On Faux georgette Fabric' ,
+        originalPrice: '619.00',
+        discountedPrice: '495.00',
         discount: '20' ,
-        ratings: "3.5" ,
-        numOfReviews: "2" },
+        ratings: "4" ,
+        numOfReviews: "5" },
+    { id: "6745b920d15a2f6adf1782a6", image: LatestCollectionImage5, alt: 'Latest 5', name: 'Dyeable Lucknawi Thread Work Mirror Embroidered Fabric' ,
+        originalPrice: '300.00',
+        discountedPrice: '300.00',
+        discount: '0' ,
+        ratings: "4.5" ,
+        numOfReviews: "4" },
   ];
 
   const options = (rating) => ({

@@ -6,10 +6,10 @@ import { useSelector } from "react-redux";
 import logo from "../../../images/logo.png";
 
 // Sample category images
-import FabricsImage from "../../../images/box1.jpg";
-import SareesImage from "../../../images/box3.jpg";
-import BlousesImage from "../../../images/box4.jpg";
-import JacketImage from "../../../images/box5.jpg";
+import FabricsImage from "../../../images/c1.jpg";
+import SareesImage from "../../../images/c2.jpg";
+import BlousesImage from "../../../images/c3.jpg";
+import JacketImage from "../../../images/c4.jpg";
 import MensWearImage from "../../../images/box6.jpg";
 import Fabric from "../../../images/box6.jpg";
 
@@ -277,7 +277,7 @@ const Header = () => {
         </a>
         <a href="/Embroidered">
           <img src={SareesImage} alt="Embroidered" />
-          <span>Embroidered</span>
+          <span>Embroidery</span>
         </a>
         <a href="/Prints">
           <img src={BlousesImage} alt="Prints" />

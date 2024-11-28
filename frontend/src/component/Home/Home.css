@@ -481,8 +481,8 @@ html, body {
   display: flex;
   align-items: center; /* Align items horizontally */
   padding: 10px;
-  border: 1px solid #ABB747;
-  border-radius: 5px;
+  border: 1.3px solid rgb(161, 161, 225);
+  border-radius: 6px;
   transition: transform 0.3s;
   max-width: 300px; /* Added to prevent boxes from getting too wide */
   margin: 10px; /* Added margin for spacing between boxes */
@@ -496,13 +496,13 @@ html, body {
 .feature-box p {
   margin: 0;
   font-weight: normal;
-  font-size: 1rem; /* Adjust font size if needed */
-  color: #333; /* Adjust color for better readability */
+  font-size: 1.05rem; /* Adjust font size if needed */
+  color: rgb(161, 161, 225); /* Adjust color for better readability */
 }
 
 .feature-box:hover {
   transform: scale(1.05);
-  border-color: #ABB747;
+  border-color:rgb(161, 161, 225);
 }
 
 

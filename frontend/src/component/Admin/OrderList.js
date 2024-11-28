@@ -18,11 +18,9 @@ import { DELETE_ORDER_RESET } from "../../constants/orderConstants";
 
 const OrderList = ({ history }) => {
   const dispatch = useDispatch();
-
   const alert = useAlert();
 
   const { error, orders } = useSelector((state) => state.allOrders);
-
   const { error: deleteError, isDeleted } = useSelector((state) => state.order);
 
   const deleteOrderHandler = (id) => {
@@ -51,17 +49,30 @@ const OrderList = ({ history }) => {
 
   const columns = [
     { field: "id", headerName: "Order ID", minWidth: 300, flex: 1 },
-
+    {
+      field: "date",
+      headerName: "Order Date",
+      minWidth: 200,
+      flex: 0.6,
+      valueFormatter: (params) => {
+        // Format the order date to a readable format
+        const date = new Date(params.value);
+        return date.toLocaleDateString("en-GB", {
+          day: "2-digit",
+          month: "2-digit",
+          year: "numeric",
+        });
+      },
+    },
     {
       field: "status",
       headerName: "Status",
       minWidth: 150,
       flex: 0.5,
-      cellClassName: (params) => {
-        return params.getValue(params.id, "status") === "Delivered"
+      cellClassName: (params) =>
+        params.getValue(params.id, "status") === "Delivered"
           ? "greenColor"
-          : "redColor";
-      },
+          : "redColor",
     },
     {
       field: "itemsQty",
@@ -70,7 +81,6 @@ const OrderList = ({ history }) => {
       minWidth: 150,
       flex: 0.4,
     },
-
     {
       field: "amount",
       headerName: "Amount",
@@ -78,12 +88,10 @@ const OrderList = ({ history }) => {
       minWidth: 270,
       flex: 0.5,
       valueFormatter: (params) => {
-        // Format the amount to two decimal places
         const amount = parseFloat(params.value);
         return isNaN(amount) ? "" : `₹${amount.toFixed(2)}`;
       },
     },
-
     {
       field: "actions",
       flex: 0.3,
@@ -117,9 +125,9 @@ const OrderList = ({ history }) => {
     orders.forEach((item) => {
       rows.push({
         id: item._id,
+        date: item.createdAt, // Assuming `createdAt` holds the order date
         itemsQty: item.orderItems.length,
-        // Format the amount directly here
-        amount: parseFloat(item.totalPrice).toFixed(2), // Format to 2 decimal places
+        amount: parseFloat(item.totalPrice).toFixed(2),
         status: item.orderStatus,
       });
     });

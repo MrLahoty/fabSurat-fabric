@@ -369,7 +369,7 @@ const calculateDiscountPercentage = (mrp, price) => {
      
            {isOpen && (
              <div className="details-content">
-               Description - <p>{product.description}</p>
+               {/* Description - <p>{product.description}</p> */}
      
                {product.category === "Fabric" && (
                  <div className="detailsBlocks-3">
