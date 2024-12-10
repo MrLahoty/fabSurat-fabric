@@ -20,8 +20,7 @@ animation: fadeInUp 1s ease-out;
 }
 
 .leftFooter:hover {
-  transform: translateY(-5px);
-  
+  transform: translateY(-5px);  
 }
 
 .leftFooter h5 {
@@ -51,7 +50,7 @@ animation: fadeInUp 1s ease-out;
 }
 
 .leftFooter a:hover {
-  color: #007bff;
+  color: #A1A1E1;
   transform: scale(1.05);
 }
 
@@ -157,7 +156,7 @@ animation: fadeInUp 1s ease-out;
 }
 
 .footer-links a:hover {
-  background-color: #007bff;
+  background-color: #A1A1E1;
   color: #fff;
 }
 
@@ -191,7 +190,7 @@ animation: fadeInUp 1s ease-out;
 }
 
 .copyrights h6:hover {
-  background-color: #007bff; /* Blue background on hover */
+  background-color: #A1A1E1; /* Blue background on hover */
   color: #fff; /* White text on hover */
   padding: 5px 6px; /* Ensure padding remains consistent on hover */
 }

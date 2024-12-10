@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.1290d67c.css",
-    "main.js": "/static/js/main.410af6f3.js",
+    "main.css": "/static/css/main.23e0a4cf.css",
+    "main.js": "/static/js/main.db712d40.js",
     "static/media/CHINON POSITION PRINT.jpg": "/static/media/CHINON POSITION PRINT.c12853df644a8fe0336c.jpg",
     "static/media/GEORGETTE EMBROIDERY.jpg": "/static/media/GEORGETTE EMBROIDERY.b1439d682017511294d0.jpg",
     "static/media/c2.jpg": "/static/media/c2.633301e7c3d8e0920985.jpg",
@@ -10,6 +10,7 @@
     "static/media/c3.jpg": "/static/media/c3.fc4d672e162f6c1e88bd.jpg",
     "static/media/box14.jpg": "/static/media/box14.7febf01344b6592ef014.jpg",
     "static/media/box8.jpg": "/static/media/box8.2242c5270c5c43540512.jpg",
+    "static/media/f.png": "/static/media/f.5e2aa5f44851f57606b8.png",
     "static/media/b6.jpeg": "/static/media/b6.3f97b69b4a44e22015ae.jpeg",
     "static/media/TISSUE ZARI POSITION PRINT.jpg": "/static/media/TISSUE ZARI POSITION PRINT.4fbd08fb74a2c943e517.jpg",
     "static/media/b3.jpeg": "/static/media/b3.42740f88e3a2ea66af48.jpeg",
@@ -31,22 +32,19 @@
     "static/media/fa-solid-900.woff2": "/static/media/fa-solid-900.4d986b00ff9ca3828fbd.woff2",
     "static/media/fa-brands-400.woff2": "/static/media/fa-brands-400.455ea818179b4def0c43.woff2",
     "static/media/fa-regular-400.ttf": "/static/media/fa-regular-400.eb91f7b948a42799f678.ttf",
+    "static/media/Customized_printing1.webp": "/static/media/Customized_printing1.d4804d50d8e6ec68ae6c.webp",
     "static/media/fa-regular-400.woff2": "/static/media/fa-regular-400.21cb8f55d8e0c5b89751.woff2",
     "static/media/logo.png": "/static/media/logo.dbe975136f81fcbff8a8.png",
-    "static/media/fabss.avif": "/static/media/fabss.cea0369c224a9ce95eec.avif",
-    "static/media/fab.avif": "/static/media/fab.dadca08fa944b173306b.avif",
-    "static/media/Customized_printing.webp": "/static/media/Customized_printing.7ce0a1c2d608a4f708dc.webp",
     "static/media/Profile.png": "/static/media/Profile.697fdcd21f6d157b9073.png",
-    "static/media/fabs.avif": "/static/media/fabs.7ce3c353b9de48a7f37e.avif",
     "static/media/fa-v4compatibility.ttf": "/static/media/fa-v4compatibility.c8e090db312b0bea2aa2.ttf",
     "static/media/fa-v4compatibility.woff2": "/static/media/fa-v4compatibility.cf7f5903d06b79ad60f1.woff2",
     "index.html": "/index.html",
-    "static/media/india_map.webp": "/static/media/india_map.00b4d22ef9da87e34964.webp",
-    "main.1290d67c.css.map": "/static/css/main.1290d67c.css.map",
-    "main.410af6f3.js.map": "/static/js/main.410af6f3.js.map"
+    "static/media/india_map1.webp": "/static/media/india_map1.a9dff0bc410ac99cdc1e.webp",
+    "main.23e0a4cf.css.map": "/static/css/main.23e0a4cf.css.map",
+    "main.db712d40.js.map": "/static/js/main.db712d40.js.map"
   },
   "entrypoints": [
-    "static/css/main.1290d67c.css",
-    "static/js/main.410af6f3.js"
+    "static/css/main.23e0a4cf.css",
+    "static/js/main.db712d40.js"
   ]
 }

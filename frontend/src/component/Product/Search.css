@@ -54,13 +54,13 @@
   background-color: rgb(55, 97, 214);
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
 
   .search-logo {
     width: 310px;
     height: auto;
-    margin: 20px auto; /* Center the logo horizontally */
-    padding-bottom: 130px; /* Adjust for spacing from the top */
+    margin: -90px auto; /* Center the logo horizontally */
+    padding-bottom: 140px; /* Adjust for spacing from the top */
     display: block;
     padding-left: 80px;
   }

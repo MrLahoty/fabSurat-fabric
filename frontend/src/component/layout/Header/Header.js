@@ -25,10 +25,10 @@ const options = {
   link2Text: "Products",
   link3Text: "Login",
   link4Text: "About",
-  link1Font: "Playfair Display, serif", // Add font-family to link1
-  link2Font: "Playfair Display, serif", // Add font-family to link2
-  link3Font: "Playfair Display, serif", // Add font-family to link3
-  link4Font: "Playfair Display, serif", // Add font-family to link4
+  link1Font: "Playfair Display, serif", 
+  link2Font: "Playfair Display, serif",
+  link3Font: "Playfair Display, serif",
+  link4Font: "Playfair Display, serif",
   link1Url: "/",
   link2Url: "/products",
   link3Url: "/login",

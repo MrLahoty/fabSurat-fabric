@@ -536,18 +536,18 @@
 
   .category-links a {
     flex: 0 0 auto; /* Prevent items from shrinking */
-    margin: 17px 3px; /* Add margin between items for spacing */
+    margin: 17px 2px; /* Add margin between items for spacing */
   }
 
   .category-links img {
-    border: 2.3px solid #ffc3cd; /* Reduce border width for mobile */
+    border: 2.3px solid #A1A1E1; /* Reduce border width for mobile */
     width: 70px; /* Reduce image width for mobile */
     height: 70px; /* Reduce image height for mobile */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1); /* Soft, elegant shadow */
   }
 
   .category-links span {
-    font-family: "Playfair Display", serif;;
+    font-family: "Playfair Display", serif;
   }
 }
 
