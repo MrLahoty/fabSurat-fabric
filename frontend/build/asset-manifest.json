@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.23e0a4cf.css",
-    "main.js": "/static/js/main.db712d40.js",
+    "main.css": "/static/css/main.ab5bc284.css",
+    "main.js": "/static/js/main.9f6d9331.js",
     "static/media/CHINON POSITION PRINT.jpg": "/static/media/CHINON POSITION PRINT.c12853df644a8fe0336c.jpg",
     "static/media/GEORGETTE EMBROIDERY.jpg": "/static/media/GEORGETTE EMBROIDERY.b1439d682017511294d0.jpg",
     "static/media/c2.jpg": "/static/media/c2.633301e7c3d8e0920985.jpg",
@@ -10,6 +10,7 @@
     "static/media/c3.jpg": "/static/media/c3.fc4d672e162f6c1e88bd.jpg",
     "static/media/box14.jpg": "/static/media/box14.7febf01344b6592ef014.jpg",
     "static/media/box8.jpg": "/static/media/box8.2242c5270c5c43540512.jpg",
+    "static/media/winter sale.mp4": "/static/media/winter sale.88d78c014a8fddd42a67.mp4",
     "static/media/f.png": "/static/media/f.5e2aa5f44851f57606b8.png",
     "static/media/b6.jpeg": "/static/media/b6.3f97b69b4a44e22015ae.jpeg",
     "static/media/TISSUE ZARI POSITION PRINT.jpg": "/static/media/TISSUE ZARI POSITION PRINT.4fbd08fb74a2c943e517.jpg",
@@ -40,11 +41,11 @@
     "static/media/fa-v4compatibility.woff2": "/static/media/fa-v4compatibility.cf7f5903d06b79ad60f1.woff2",
     "index.html": "/index.html",
     "static/media/india_map1.webp": "/static/media/india_map1.a9dff0bc410ac99cdc1e.webp",
-    "main.23e0a4cf.css.map": "/static/css/main.23e0a4cf.css.map",
-    "main.db712d40.js.map": "/static/js/main.db712d40.js.map"
+    "main.ab5bc284.css.map": "/static/css/main.ab5bc284.css.map",
+    "main.9f6d9331.js.map": "/static/js/main.9f6d9331.js.map"
   },
   "entrypoints": [
-    "static/css/main.23e0a4cf.css",
-    "static/js/main.db712d40.js"
+    "static/css/main.ab5bc284.css",
+    "static/js/main.9f6d9331.js"
   ]
 }

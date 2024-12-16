@@ -639,10 +639,31 @@ html, body {
 box-shadow: -10px 0px 30px -12px rgba(189,189,189,1);
 border-radius: 10px}
 
+/* Mobile-specific styles */
+.mobile-video-container {
+  display: none; /* Hide by default */
+}
+
 @media (max-width: 768px) {
 
   .shop-by-price{
     margin-top: -4px;
+  }
+
+  .mobile-video-container {
+    display: block;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .mobile-video {
+    width: 100%;
+    height: auto;
+  }
+
+  .desktop-view {
+    display: none;
   }
 
   /* Heading style */

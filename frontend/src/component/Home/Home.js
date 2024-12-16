@@ -18,6 +18,7 @@ import EasyReturns from "../../images/Package1.png";
 import CustomPainting from "../../images/Customized_printing1.webp";
 
 import Image1 from '../../images/f.png';
+import videoFile from '../../images/winter sale.mp4'; // Corrected import
 
 import LatestCollection from './LatestCollection';
 import BestSellers from './BestSellers'; 
@@ -104,9 +105,24 @@ const Home = () => {
                   className={`slide ${index === currentSlide ? 'active' : ''}`}
                   key={index}
                 >
-                  <Link to="/products">
-                    <img src={slide.image} alt={slide.alt} />
-                  </Link>
+                  {/* Video for mobile view */}
+                <div className="mobile-video-container">
+                <Link to="/products">
+                 <video
+                   className="mobile-video"
+                   src={videoFile}
+                   autoPlay
+                   muted
+                   loop
+                 />
+                 </Link>
+                </div>
+                  {/* Render Link and image only for desktop view */}
+                  <div className="desktop-view">
+                    <Link to="/products">
+                      <img src={slide.image} alt={slide.alt} />
+                    </Link>
+                  </div>
                   <div className="shop-now-button-container">
                     <button onClick={handleOrderNowClick}>Shop Now</button>
                   </div>

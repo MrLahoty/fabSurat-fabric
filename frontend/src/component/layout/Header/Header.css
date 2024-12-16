@@ -115,7 +115,7 @@
 
 /* Hover effect for dropdown items */
 .dropdown-content a:hover {
-  background-color: #f1f1f1;
+  background-color: rgb(171, 171, 215);
 }
 
 /* Show dropdown content on hover */
@@ -319,7 +319,7 @@
 
 .auth-button {
   padding: 0.1vmax 0.1vmax;
-  color: #222222;
+  color: rgb(161, 161, 225);
   border: none;
   border-radius: 5px;
   text-decoration: none;
