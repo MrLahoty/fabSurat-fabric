@@ -32,9 +32,9 @@
   justify-content: center;
 }
 .dashboardSummary > div > p {
-  background-color: rgba(70, 117, 218, 0.932);
+  background-color: rgb(119, 119, 223);
   color: white;
-  font: 300 1.3rem "Playfair Display", serif;
+  font: 300 1.3rem 'Playwrite Deutschland Grundschrift';
   text-align: center;
   padding: 1.5rem;
   width: 100%;
@@ -42,7 +42,7 @@
 }
 .dashboardSummaryBox2 > a {
   color: rgb(0, 0, 0);
-  font: 300 1.7rem "Playfair Display", serif;
+  font: 300 1.6rem 'Playwrite Deutschland Grundschrift';
   text-align: center;
   background-color: rgb(255, 233, 174);
   text-decoration: none;
@@ -78,6 +78,7 @@
 }
 
 @media screen and (max-width: 600px) {
+
   .dashboard {
     grid-template-columns: 1fr;
   }
@@ -93,7 +94,7 @@
   .dashboardSummaryBox2 > a {
     padding: 0.5rem;
     margin: 1rem;
-    font: 300 0.9rem "Playfair Display", serif;
+    font: 300 0.9rem 'Playwrite Deutschland Grundschrift';
     height: 90px;
     width: 90px;
   }

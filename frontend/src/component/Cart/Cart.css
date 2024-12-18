@@ -20,12 +20,12 @@
 }
 
 .emptyCart > a {
-  background-color: rgb(51, 51, 51);
+  background-color: rgb(161, 161, 225);
   color: white;
   border: none;
   padding: 1vmax 3vmax;
   cursor: pointer;
-  font: 400 1vmax "Roboto";
+  font: 400 1.1vmax "Roboto";
   text-decoration: none;
 }
 
