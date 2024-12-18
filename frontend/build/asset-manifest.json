@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.ab5bc284.css",
-    "main.js": "/static/js/main.9f6d9331.js",
+    "main.css": "/static/css/main.7b6ad90e.css",
+    "main.js": "/static/js/main.94e5ea86.js",
     "static/media/CHINON POSITION PRINT.jpg": "/static/media/CHINON POSITION PRINT.c12853df644a8fe0336c.jpg",
     "static/media/GEORGETTE EMBROIDERY.jpg": "/static/media/GEORGETTE EMBROIDERY.b1439d682017511294d0.jpg",
     "static/media/c2.jpg": "/static/media/c2.633301e7c3d8e0920985.jpg",
@@ -41,11 +41,11 @@
     "static/media/fa-v4compatibility.woff2": "/static/media/fa-v4compatibility.cf7f5903d06b79ad60f1.woff2",
     "index.html": "/index.html",
     "static/media/india_map1.webp": "/static/media/india_map1.a9dff0bc410ac99cdc1e.webp",
-    "main.ab5bc284.css.map": "/static/css/main.ab5bc284.css.map",
-    "main.9f6d9331.js.map": "/static/js/main.9f6d9331.js.map"
+    "main.7b6ad90e.css.map": "/static/css/main.7b6ad90e.css.map",
+    "main.94e5ea86.js.map": "/static/js/main.94e5ea86.js.map"
   },
   "entrypoints": [
-    "static/css/main.ab5bc284.css",
-    "static/js/main.9f6d9331.js"
+    "static/css/main.7b6ad90e.css",
+    "static/js/main.94e5ea86.js"
   ]
 }

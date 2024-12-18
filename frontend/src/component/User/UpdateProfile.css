@@ -107,7 +107,7 @@
 }
 
 .updateProfileBtn:hover {
-  background-color: rgb(179, 66, 46);
+  background-color: rgb(161, 161, 225);
 }
 
 @media screen and (max-width: 600px) {

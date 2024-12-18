@@ -50,12 +50,17 @@ const OrderList = ({ history }) => {
   const columns = [
     { field: "id", headerName: "Order ID", minWidth: 300, flex: 1 },
     {
+      field: "customerName",
+      headerName: "Customer Name",
+      minWidth: 200,
+      flex: 0.6,
+    },
+    {
       field: "date",
       headerName: "Order Date",
       minWidth: 200,
       flex: 0.6,
       valueFormatter: (params) => {
-        // Format the order date to a readable format
         const date = new Date(params.value);
         return date.toLocaleDateString("en-GB", {
           day: "2-digit",
@@ -125,6 +130,7 @@ const OrderList = ({ history }) => {
     orders.forEach((item) => {
       rows.push({
         id: item._id,
+        customerName: item.user ? item.user.name : "N/A", // Assuming `user.name` contains the customer's name
         date: item.createdAt, // Assuming `createdAt` holds the order date
         itemsQty: item.orderItems.length,
         amount: parseFloat(item.totalPrice).toFixed(2),
