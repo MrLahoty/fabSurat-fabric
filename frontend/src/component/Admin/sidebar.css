@@ -21,7 +21,7 @@
 }
 
 .sidebar > a > img:hover {
-  filter: drop-shadow(0 0 10px tomato);
+  filter: drop-shadow(0 0 10px rgb(161,161,225));
 }
 
 .sidebar a {
@@ -32,7 +32,7 @@
   transition: all 0.5s;
 }
 .sidebar a:hover {
-  color: tomato;
+  color: rgb(161,161,225);
   transform: scale(1.1);
 }
 

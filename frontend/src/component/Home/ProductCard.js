@@ -39,8 +39,8 @@ const ProductCard = ({ product }) => {
               ? `${formatPrice(product.price)} /meter`
               : formatPrice(product.price)}
           </span>
-          {/* Display discount percentage if there's a discount */}
-          {product.price < product.mrp && (
+           {/* Display discount percentage when greater than or equal to 0% */}
+           {product.price <= product.mrp && (
             <span className="discount-percentage" style={{ color: '#C84450', marginLeft: '8px', fontWeight: 'bold' }}>
               {`(-${calculateDiscountPercentage(product.mrp, product.price)}%)`}
             </span>

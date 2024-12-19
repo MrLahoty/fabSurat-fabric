@@ -9,7 +9,7 @@ import Slider from "@material-ui/core/Slider";
 import { useAlert } from "react-alert";
 import MetaData from "../layout/MetaData";
 import { Button } from "@material-ui/core";
-import { FilterList } from "@material-ui/icons"; // Import filter icon
+import { FilterList } from "@material-ui/icons";
 
 const categories = ["Fabric", "Readymade"];
 
@@ -18,15 +18,15 @@ const Products = ({ match }) => {
   const alert = useAlert();
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [price, setPrice] = useState([0, 10000]); // Local price state
-  const [committedPrice, setCommittedPrice] = useState([0, 10000]); // For API fetch
+  const [price, setPrice] = useState([0, 10000]); 
+  const [committedPrice, setCommittedPrice] = useState([0, 10000]); 
   const [category, setCategory] = useState("");
   const [categoriesVisible, setCategoriesVisible] = useState(false);
   const [showFilters, setShowFilters] = useState(false);
   
   // Separate states for ratings
-  const [ratings, setRatings] = useState(0); // Local rating state
-  const [committedRatings, setCommittedRatings] = useState(0); // For API fetch
+  const [ratings, setRatings] = useState(0); 
+  const [committedRatings, setCommittedRatings] = useState(0); 
 
   const {
     products,
@@ -45,22 +45,22 @@ const Products = ({ match }) => {
 
   // Handle price slider change without triggering product fetch
   const priceHandler = (event, newPrice) => {
-    setPrice(newPrice); // Only update local state while sliding
+    setPrice(newPrice); 
   };
 
   // Trigger product fetch only when the slider interaction is committed
   const priceChangeCommitted = (event, newPrice) => {
-    setCommittedPrice(newPrice); // Set the committed price to be used in fetch
+    setCommittedPrice(newPrice); 
   };
 
   // Handle ratings slider change without triggering product fetch
   const ratingsHandler = (event, newRating) => {
-    setRatings(newRating); // Only update local state while sliding
+    setRatings(newRating); 
   };
 
   // Trigger product fetch only when the slider interaction is committed
   const ratingsChangeCommitted = (event, newRating) => {
-    setCommittedRatings(newRating); // Set the committed rating to be used in fetch
+    setCommittedRatings(newRating); 
   };
 
   const toggleFilters = () => {
@@ -77,7 +77,7 @@ const Products = ({ match }) => {
 
     // Fetch products with committed price and ratings
     dispatch(getProduct(keyword, currentPage, committedPrice, category, committedRatings));
-  }, [dispatch, keyword, currentPage, committedPrice, category, committedRatings, alert, error]); // No "ratings" here to avoid re-fetch during sliding
+  }, [dispatch, keyword, currentPage, committedPrice, category, committedRatings, alert, error]);
 
   const toggleCategories = () => {
     setCategoriesVisible(!categoriesVisible);
@@ -85,7 +85,7 @@ const Products = ({ match }) => {
 
   const selectCategory = (selectedCategory) => {
     setCategory(selectedCategory);
-    setCategoriesVisible(false); // Close the dropdown when a category is selected
+    setCategoriesVisible(false); 
   };
 
   return (
@@ -117,8 +117,8 @@ const Products = ({ match }) => {
                     <>
                       <Slider
                         value={price}
-                        onChange={priceHandler} // Update local state while sliding
-                        onChangeCommitted={priceChangeCommitted} // Trigger fetch on commit
+                        onChange={priceHandler} 
+                        onChangeCommitted={priceChangeCommitted} 
                         valueLabelDisplay="auto"
                         aria-labelledby="range-slider"
                         min={0}
@@ -138,8 +138,8 @@ const Products = ({ match }) => {
                     <>
                       <Slider
                         value={ratings}
-                        onChange={ratingsHandler} // Update local state while sliding
-                        onChangeCommitted={ratingsChangeCommitted} // Trigger fetch on commit
+                        onChange={ratingsHandler} 
+                        onChangeCommitted={ratingsChangeCommitted} 
                         aria-labelledby="continuous-slider"
                         valueLabelDisplay="auto"
                         min={0}

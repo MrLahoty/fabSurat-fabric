@@ -201,7 +201,7 @@
 }
 
 .search-input:hover {
-  color: #ABB747;
+  color: rgb(152, 152, 255);
 }
 
 .search-icon {
@@ -222,7 +222,7 @@
 }
 
 .search-icon:hover {
-  color: rgb(235, 68, 68); /* Hover effect color */
+  color: #222222; /* Hover effect color */
   letter-spacing: -0.5px; /* Tighten the spacing for a thinner appearance on hover */
 }
 

@@ -26,7 +26,7 @@ html, body {
 
 /* General button styles */
 .btn-under299 {
-  background-color: #000; /* Black background */
+  background-color: rgb(147, 147, 254); /* Black background */
   color: #fff; /* White text */
   border: none; /* No border */
   padding: 10px 20px; /* Padding inside the button */
@@ -677,7 +677,7 @@ border-radius: 10px}
 
 /* General button styles */
 .btn-under299 {
-  background-color: #000; /* Black background */
+  background-color: rgb(147, 147, 254); /* Black background */
   color: #fff; /* White text */
   border: none; /* No border */
   padding: 10px 20px; /* Padding inside the button */
@@ -798,20 +798,35 @@ border-radius: 10px}
   height: 420px;
 }
 
+/* Ensure all elements respect box-sizing */
+* {
+  box-sizing: border-box;
+}
+
+/* Product Card Image */
 .productCard > img {
   height: 260px;
   width: 200px;
+  display: block; /* Ensure the image doesn't affect margins */
+  margin: 0 auto; /* Center the image horizontally if needed */
 }
 
+/* Product Card Container */
 .productCard > div {
   margin: 1.5vw;
 }
 
+/* Product Card Title */
 .productCard > p {
   font-size: 3vw;
-  margin: 5px;
+  margin: 5px auto; /* Center the text horizontally */
   display: flex;
+  justify-content: center; /* Center the text within the container */
+  overflow-wrap: break-word; /* Ensure long words break properly */
+  text-align: left; /* Align text in the center */
+  max-width: 90%; /* Prevent overflow beyond the container */
 }
+
 
 .productCard > span {
   font-size: 3vw;

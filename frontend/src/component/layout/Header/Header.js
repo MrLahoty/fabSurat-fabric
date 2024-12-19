@@ -14,13 +14,13 @@ import MensWearImage from "../../../images/box6.jpg";
 import Fabric from "../../../images/box6.jpg";
 
 const options = {
-  burgerColorHover: "#eb4034",
+  burgerColorHover: "rgb(161,161,225)",
   logo,
   logoHeight: "6vmax",
   logoWidth: "10vmax",
   navColor1: "#e9f3ff",
-  logoHoverSize: "15px",
-  logoHoverColor: "#eb4034",
+  logoHoverSize: "17px",
+  logoHoverColor: "rgb(161,161,225)",
   link1Text: "Home",
   link2Text: "Products",
   link3Text: "Login",
@@ -39,7 +39,7 @@ const options = {
   nav2justifyContent: "flex-end",
   nav3justifyContent: "flex-start",
   nav4justifyContent: "flex-start",
-  link1ColorHover:  "#ABB747",
+  link1ColorHover:  "rgb(161,161,225)",
   link1Margin: "1vmax",
   profileIconUrl: "/login",
   profileIconColor: "rgba(35, 35, 35,0.8)",
@@ -48,9 +48,9 @@ const options = {
   searchIconSize: "1.8vmax",
   searchIconColor: "rgba(35, 35, 35,0.8)",
   cartIconColor: "rgba(35, 35, 35,0.8)",
-  profileIconColorHover: "#ABB747",
-  searchIconColorHover: "#ABB747",
-  cartIconColorHover: "#ABB747",
+  profileIconColorHover: "rgb(161,161,225)",
+  searchIconColorHover: "rgb(161,161,225)",
+  cartIconColorHover: "rgb(161,161,225)",
   cartIconMargin: "1.5vmax",
   profileIcon: true,
   ProfileIconElement: FaUser,  // Profile icon

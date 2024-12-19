@@ -25,22 +25,22 @@
 
 .categoryBoxss.show {
     max-height: 30vmax;
-  }
+}
   
-  .categoryBoxss.hide {
+.categoryBoxss.hide {
     max-height: 0;
-  }
+}
 
 @media screen and (max-width: 700px) {
 
-    .productsHeadingsss {
-        padding-right: 58px;
-        font-size: 19px;
-        margin-top: 38px;
-        font-weight: bold;
-        width: 34vw;
-        border-bottom: 1.2px solid rgba(0, 0, 0, 0.171);
-      }
+  .productsHeadingsss {
+      padding-right: 58px;
+      font-size: 19px;
+      margin-top: 38px;
+      font-weight: bold;
+      width: 34vw;
+      border-bottom: 1.2px solid rgba(0, 0, 0, 0.171);
+  }
 
   .categoryBoxss {
     top: 12.5%;
@@ -56,4 +56,5 @@
   .categoryBoxss.hide {
     max-height: 0;
   }
+
 }    

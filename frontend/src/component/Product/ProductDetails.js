@@ -278,7 +278,7 @@ const calculateDiscountPercentage = (mrp, price) => {
                   </div>     
                   <div className="sony">
                     {/* Calculate and display the discount percentage */}
-                    {product.price < product.mrp && (
+                    {product.price <= product.mrp && (
                       <span className="discountpercentagess">
                         {`(-${calculateDiscountPercentage(product.mrp, product.price)}%)`}
                       </span>

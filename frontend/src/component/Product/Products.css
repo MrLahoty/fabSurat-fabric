@@ -320,10 +320,10 @@
   .products {
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* 2 columns of equal width */
-    gap: 0px; /* Adjust gap between rows and columns */
+    gap: 5px; 
     width: auto;
-    margin-right: 90px; /* Reduced margin to decrease overall width */
-    padding: 3px; /* Reduced padding for smaller size */
+    margin-right: 90px; 
+    padding: 3px; 
     margin-left: 110px;
     margin-top: 30px;
   }
