@@ -246,18 +246,19 @@ const Header = () => {
             <a href="/SemiPure">Semi Pure</a>
           </div>
         </div>
-        <div className="dropdown">
-          <button className="dropbtn">
-          <a href="/readymades" className="dropdown-link"> READYMADE </a>           
-          <span className="arrow"></span>
-          </button>
-          <div className="dropdown-content">
-            <a href="/readymades">Fabric On Sale</a>
-            <a href="/readymades">Jacket On Sale</a>
-            <a href="/readymades">Blouse On Sale</a>
-            <a href="/readymades">Saree On Sale</a>
-          </div>
-        </div>
+      <div className="dropdown">
+       <button className="dropbtn">
+       <a href="/Comingsoon" className="dropdown-link"> READYMADE </a>           
+       <span className="arrow"></span>
+       </button>
+      <div className="dropdown-content">
+        <a href="/Comingsoon">Kurti On Sale</a>
+        <a href="/Comingsoon">Co-Ord Set On Sale</a>
+        <a href="/Comingsoon">Pure Muslin Kurti On Sale</a>
+        <a href="/Comingsoon">Floral Print Co-ord set On Sale</a>
+      </div>
+      </div>
+
         <div className="dropdown">
           <button className="dropbtn">
           <a href="/products" className="dropdown-link"> SALE </a>            
@@ -287,8 +288,8 @@ const Header = () => {
           <img src={JacketImage} alt="Plain" />
           <span>Plain</span>
         </a>
-        <a href="/readymades">
-          <img src={MensWearImage} alt="Readymade" />
+        <a href="/Comingsoon">
+          <img src={MensWearImage} alt="Comingsoon" />
           <span>Readymade</span>
         </a>
         <a href="/products">

@@ -85,6 +85,7 @@ import PrivacyPolicy from './component/layout/Footer/PrivacyPolicy.js';
 import ReturnRefund from './component/layout/Footer/ReturnRefund.js';
 import ShippingPayment from './component/layout/Footer/ShippingPayment.js';
 import TermsCondition from './component/layout/Footer/TermsCondition.js';
+import Comingsoon from "./component/layout/Header/Comingsoon";
 
 function App() {
   
@@ -152,6 +153,7 @@ function App() {
 
       <Switch>
         <Route exact path="/" component={Home} />
+        <Route path="/Comingsoon" component={Comingsoon} />
         <Route path="/PrivacyPolicy" component={PrivacyPolicy} />
         <Route path="/Return&Refund" component={ReturnRefund} />
         <Route path="/Shipping&Payment" component={ShippingPayment} />

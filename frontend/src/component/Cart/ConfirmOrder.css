@@ -122,7 +122,7 @@
 }
 
 .orderSummary > button:hover {
-  background-color: rgb(101, 101, 101);
+  background-color: rgb(161, 161, 225);
   transform: scale(1.1);
 }
 
@@ -234,7 +234,7 @@
 
 .coupon-container button {
   padding: 10px 15px;
-  background-color: #007bff;
+  background-color: rgb(139, 139, 254);
   color: white;
   border: none;
   border-radius: 5px;
@@ -245,7 +245,7 @@
 
 /* Hover effect for buttons */
 .coupon-container button:hover {
-  background-color: #0056b3;
+  background-color: #326ba8;
   transform: translateY(-2px); /* Lift the button slightly on hover */
 }
 

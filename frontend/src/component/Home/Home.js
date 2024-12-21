@@ -19,6 +19,7 @@ import CustomPainting from "../../images/Customized_printing1.webp";
 
 import Image1 from '../../images/f.png';
 import videoFile from '../../images/winter sale.mp4'; // Corrected import
+import videoFiless from '../../images/winter salessss.mp4'; // Corrected import
 
 import LatestCollection from './LatestCollection';
 import BestSellers from './BestSellers'; 
@@ -117,12 +118,24 @@ const Home = () => {
                  />
                  </Link>
                 </div>
-                  {/* Render Link and image only for desktop view */}
-                  <div className="desktop-view">
+                {/* Render Link, video and image only for desktop view */}
+                <div className="desktop-view">
+                  <Link to="/products">
+                    <video
+                      className="desktop-video"
+                      src={videoFiless} // Your video file
+                      autoPlay
+                      muted
+                      loop
+                      type="video/mp4" // Set the video type if needed
+                    />
+                  </Link>
+                </div>
+                  {/* <div className="desktop-view">
                     <Link to="/products">
                       <img src={slide.image} alt={slide.alt} />
                     </Link>
-                  </div>
+                  </div> */}
                   <div className="shop-now-button-container">
                     <button onClick={handleOrderNowClick}>Shop Now</button>
                   </div>

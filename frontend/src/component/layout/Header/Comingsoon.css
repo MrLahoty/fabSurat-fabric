@@ -1,0 +1,90 @@
+/* Coming Soon Page Styles */
+.coming-soon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #4e342ecb, #996e5e); /* Chocolate to soft brown gradient */
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .coming-soon-content {
+    text-align: center;
+    color: white;
+    font-family: 'Poppins', sans-serif; /* Sleek and modern font */
+    animation: fadeIn 2s ease-in-out;
+  }
+  
+  .coming-soon-content h1 {
+    font-size: 4rem;
+    text-transform: uppercase;
+    background: linear-gradient(to right, #fee86c, #7b68ee); /* Golden to violet gradient */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
+    animation: bounce 1.5s infinite;
+    font-family: 'Poppins', sans-serif; /* Consistent sleek font */
+  }
+  
+  .coming-soon-content p {
+    font-size: 1.5rem;
+    animation: bounce 1.5s infinite;
+    background: linear-gradient(to right, #fee86c, #7b68ee); /* Lighter golden to purple gradient */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  
+  /* Keyframe Animations */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  @keyframes slideUp {
+    0% {
+      transform: translateY(30px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    
+    .coming-soon-content h1 {
+        font-size: 2.7rem;
+        text-transform: uppercase;
+        background: linear-gradient(to right, #fee86c, #7b68ee); /* Golden to violet gradient */
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 1rem;
+        animation: bounce 1.5s infinite;
+        font-family: 'Poppins', sans-serif; /* Consistent sleek font */
+      }
+    
+      .coming-soon-content p {
+        font-size: 1.2rem;
+        animation: bounce 1.5s infinite;
+        background: linear-gradient(to right, #fee86c, #7b68ee); /* Lighter golden to purple gradient */
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+  }
+  
