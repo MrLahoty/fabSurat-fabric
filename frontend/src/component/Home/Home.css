@@ -181,17 +181,11 @@ html, body {
   right: 10px;
 }
 
-.desktop-video {
-  width: 100%;  /* Cover full width */
-  height: auto; /* Maintain aspect ratio */
-  object-fit: cover; /* Ensures the video covers the entire width */
-}
-
 /* Slideshow Container */
 .slideshow-container {
   position: relative;
   width: 375px;
-  height: 650px;
+  height: 470px;
   margin: -5px auto;
   overflow: hidden;
   border-radius: 15px;
@@ -651,17 +645,6 @@ border-radius: 10px}
 }
 
 @media (max-width: 768px) {
-
-  /* Slideshow Container */
-.slideshow-container {
-  position: relative;
-  width: 375px;
-  height: 470px;
-  margin: -5px auto;
-  overflow: hidden;
-  border-radius: 15px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-}
 
   .shop-by-price{
     margin-top: -4px;

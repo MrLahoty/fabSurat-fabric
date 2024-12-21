@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
-import { FaInstagram, FaWhatsapp, FaYoutube } from "react-icons/fa";
+import { FaAppStore, FaInstagram, FaSnapchat, FaWhatsapp, FaYoutube } from "react-icons/fa";
 import '@fortawesome/fontawesome-free/css/all.css';
 import "./Footer.css";
 
@@ -12,6 +12,11 @@ const Footer = () => {
   const [whatsappTextColor, setWhatsappTextColor] = useState("#2c2c2c");
   const [youtubeColor, setYoutubeColor] = useState("#2c2c2c");
   const [youtubeTextColor, setYoutubeTextColor] = useState("#2c2c2c");
+  const [snapchatColor, setSnapchatColor] = useState("#2c2c2c");
+  const [snapchatTextColor, setSnapchatTextColor] = useState("#2c2c2c");
+  const [mojColor, setMojColor] = useState("#2c2c2c");
+  const [mojTextColor, setMojTextColor] = useState("#2c2c2c");
+
   const phoneNumber = "+917003798513";
   const emailAddress = "officialfabsurat@gmail.com";
   const addressUrl = "https://maps.app.goo.gl/qEM4PxPP3q62CjKD7";
@@ -86,57 +91,91 @@ const Footer = () => {
   </div>
 </div>
 
-        <div className="footer-social-icon">
-        <h5>Follow Us</h5>
-        <a
-          href="https://instagram.com/fabsurat_fabric"
+<div className="footer-social-icon">
+  <h5>Follow Us</h5>
+  <a
+    href="https://instagram.com/fabsurat_fabric"
+    onMouseEnter={() => {
+      setInstagramColor("#eb4034");
+      setInstagramTextColor("#eb4034");
+    }}
+    onMouseLeave={() => {
+      setInstagramColor("#2c2c2c");
+      setInstagramTextColor("#2c2c2c");
+    }}
+    target="_blank" rel="noopener noreferrer"
+    style={{ color: instagramTextColor }}
+  >
+    <FaInstagram style={{ color: instagramColor, marginRight: "3px" }} />
+    Instagram
+  </a>
+  <a
+    href="https://chat.whatsapp.com/CNHjXO1ZgLODaQcHMStFFk"
+    onMouseEnter={() => {
+      setWhatsappColor("green");
+      setWhatsappTextColor("green");
+    }}
+    onMouseLeave={() => {
+      setWhatsappColor("#2c2c2c");
+      setWhatsappTextColor("#2c2c2c");
+    }}
+    target="_blank" rel="noopener noreferrer"
+    style={{ color: whatsappTextColor }}
+  >
+    <FaWhatsapp style={{ color: whatsappColor, marginLeft: "2px" }} />
+    WhatsApp
+  </a>
+  <a
+    href="https://www.youtube.com/@fabsurat_fabric"
+    onMouseEnter={() => {
+      setYoutubeColor("#FF0000");
+      setYoutubeTextColor("#FF0000");
+    }}
+    onMouseLeave={() => {
+      setYoutubeColor("#2c2c2c");
+      setYoutubeTextColor("#2c2c2c");
+    }}
+    target="_blank" rel="noopener noreferrer"
+    style={{ color: youtubeTextColor }}
+  >
+    <FaYoutube style={{ color: youtubeColor, marginRight: "7px" }} />
+    YouTube
+  </a>
+  <a
+    href="https://www.snapchat.com/add/fabsurat?share_id=tFRAN8MIVSw&locale=en-IN"
+    onMouseEnter={() => {
+      setSnapchatColor("rgb(255, 255, 0)"); // Lighter yellow
+      setSnapchatTextColor("rgba(10, 10, 5, 0.8)"); // Lighter yellow
+    }}
+    onMouseLeave={() => {
+      setSnapchatColor("#2c2c2c");
+      setSnapchatTextColor("#2c2c2c");
+    }}
+    target="_blank" rel="noopener noreferrer"
+    style={{ color: snapchatTextColor }}
+  >
+    <FaSnapchat style={{ color: snapchatColor, marginRight: "7px" }} />
+    Snapchat
+  </a>
+  <a
+    href="https://mojapp.in/@fabsurat?referrer=UXaYIxl-1Hnx5pF" 
+    onMouseEnter={() => {
+      setMojColor("#FF4500");
+      setMojTextColor("#FF4500");
+    }}
+    onMouseLeave={() => {
+      setMojColor("#2c2c2c");
+      setMojTextColor("#2c2c2c");
+    }}
+    target="_blank" rel="noopener noreferrer"
+    style={{ color: mojTextColor }}
+  >
+    <FaAppStore style={{ color: mojColor, marginRight: "7px", marginLeft: "-40px" }} />
+    Moj
+  </a>
+  </div>
 
-          onMouseEnter={() => {
-            setInstagramColor("#eb4034");
-            setInstagramTextColor("#eb4034");
-          }}
-          onMouseLeave={() => {
-            setInstagramColor("#2c2c2c");
-            setInstagramTextColor("#2c2c2c");
-          }}
-          style={{ color: instagramTextColor }}
-        >
-          <FaInstagram style={{ color: instagramColor }} />
-          Instagram
-        </a>
-        <a
-           href="https://chat.whatsapp.com/CNHjXO1ZgLODaQcHMStFFk"
-          onMouseEnter={() => {
-            setWhatsappColor("green");
-            setWhatsappTextColor("green");
-          }}
-          onMouseLeave={() => {
-            setWhatsappColor("#2c2c2c");
-            setWhatsappTextColor("#2c2c2c");
-          }}
-          style={{ color: whatsappTextColor }}
-        >
-          <FaWhatsapp style={{ color: whatsappColor, marginRight: "2px" }} />
-          WhatsApp
-        </a>
-        <a
-         href="https://www.youtube.com/@fabsurat_fabric" // Replace with your actual YouTube link if necessary
-        onMouseEnter={() => {
-          setYoutubeColor("#FF0000"); // Change color on hover
-          setYoutubeTextColor("#FF0000");
-        }}
-        onMouseLeave={() => {
-          setYoutubeColor("#2c2c2c"); // Default color
-          setYoutubeTextColor("#2c2c2c");
-        }}
-        style={{ color: youtubeTextColor }} // Set color for text
-      >
-         <FaYoutube style={{ color: youtubeColor, marginRight: "7px" }} /> {/* Add marginRight */}
-        YouTube 
-      </a>
-    </div>
-
-    </footer>
+</footer>
 
   );
 };
