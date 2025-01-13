@@ -38,6 +38,7 @@ const PositionPrints = ({ match }) => {
     "Tissue Zari Position Prints",
     "Crepe Position Prints",
     "Silk Position Prints",
+    "Chanderi Position Prints",
   ];
 
   const { products, loading, error, productsCount, resultPerPage, filteredProductsCount } = useSelector((state) => state.products);

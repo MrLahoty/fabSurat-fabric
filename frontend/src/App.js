@@ -55,7 +55,10 @@ import VelvetEmbroidered from "./component/Product/VelvetEmbroidered";
 import OrganzaEmbroidered from "./component/Product/OrganzaEmbroidered";
 import CottonEmbroidered from "./component/Product/CottonEmbroidered";
 import ShimmerEmbroidered from "./component/Product/ShimmerEmbroidered";
-import NetEmbroidery from "./component/Product/NetEmbroidery"
+import NetEmbroidery from "./component/Product/NetEmbroidery";
+import SatinEmbroidery from "./component/Product/SatinEmbroidery";
+import SpaceSilkEmbroidery from "./component/Product/SpaceSilkEmbroidery";
+import CrepeEmbroidery from "./component/Product/CrepeEmbroidery";
 import MuslinPositionPrints from "./component/Product/MuslinPositionPrints";
 import ChinonPositionPrints from "./component/Product/ChinonPositionPrints";
 import GeorgettePositionPrints from "./component/Product/GeorgettePositionPrints";
@@ -65,6 +68,7 @@ import OrganzaPositionPrints from "./component/Product/OrganzaPositionPrints";
 import TissueZariPositionPrints from "./component/Product/TissueZariPositionPrints";
 import CrepePositionPrints from "./component/Product/CrepePositionPrints";
 import SilkPositionPrints from "./component/Product/SilkPositionPrints";
+import ChanderiPositionPrints from "./component/Product/ChanderiPositionPrints";
 import SatinPrints from "./component/Product/SatinPrints";
 import GeorgettePrints from "./component/Product/GeorgettePrints";
 import HakobaPrints from "./component/Product/HakobaPrints";
@@ -73,6 +77,7 @@ import RayonPrints from "./component/Product/RayonPrints";
 import VelvetPrints from "./component/Product/VelvetPrints";
 import SugarcanePrints from "./component/Product/SugarcanePrints";
 import ChinonPrints from "./component/Product/ChinonPrints";
+import SilkPrints from "./component/Product/SilkPrints";
 import Hakoba from "./component/Product/Hakoba";
 import Velvet from "./component/Product/Velvet";
 import Dyeable from "./component/Product/Dyeable";
@@ -176,6 +181,9 @@ function App() {
         <Route path="/CottonEmbroidery" component={CottonEmbroidered} />
         <Route path="/ShimmerEmbroidery" component={ShimmerEmbroidered} />
         <Route path="/NetEmbroidery" component={NetEmbroidery} />
+        <Route path="/SatinEmbroidery" component={SatinEmbroidery} />
+        <Route path="/SpaceSilkEmbroidery" component={SpaceSilkEmbroidery} />
+        <Route path="/CrepeEmbroidery" component={CrepeEmbroidery} />
         <Route path="/MuslinPositionPrints" component={MuslinPositionPrints} />
         <Route path="/ChinonPositionPrints" component={ChinonPositionPrints} />
         <Route path="/GeorgettePositionPrints" component={GeorgettePositionPrints} />
@@ -185,6 +193,7 @@ function App() {
         <Route path="/TissueZariPositionPrints" component={TissueZariPositionPrints} />
         <Route path="/CrepePositionPrints" component={CrepePositionPrints} />
         <Route path="/SilkPositionPrints" component={SilkPositionPrints} />
+        <Route path="/ChanderiPositionPrints" component={ChanderiPositionPrints} />
         <Route path="/SatinPrints" component={SatinPrints} />
         <Route path="/GeorgettePrints" component={GeorgettePrints} />
         <Route path="/HakobaPrints" component={HakobaPrints} />
@@ -193,6 +202,7 @@ function App() {
         <Route path="/VelvetPrints" component={VelvetPrints} />
         <Route path="/SugarcanePrints" component={SugarcanePrints} />
         <Route path="/ChinonPrints" component={ChinonPrints} />
+        <Route path="/SilkPrints" component={SilkPrints} />
         <Route path="/Hakoba" component={Hakoba} />
         <Route path="/Velvet" component={Velvet} />
         <Route path="/Dyeable" component={Dyeable} />

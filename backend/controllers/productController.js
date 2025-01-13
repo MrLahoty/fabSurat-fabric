@@ -74,7 +74,10 @@ exports.createProduct = catchAsyncErrors(async (req, res, next) => {
             "Organza Embroidery", 
             "Cotton Embroidery", 
             "Shimmer Embroidery",
-            "Net Embroidery"
+            "Net Embroidery",
+            "Satin Embroidery",
+            "Space Silk Embroidery",
+            "Crepe Embroidery"
         ],
         "Position Prints": [
             "Muslin Position Prints", 
@@ -85,7 +88,8 @@ exports.createProduct = catchAsyncErrors(async (req, res, next) => {
             "Organza Position Prints", 
             "Tissue Zari Position Prints", 
             "Crepe Position Prints",
-            "Silk Position Prints"
+            "Silk Position Prints",
+            "Chanderi Position Prints"
         ],
         "Prints": [
             "Hakoba Prints", 
@@ -95,7 +99,8 @@ exports.createProduct = catchAsyncErrors(async (req, res, next) => {
             "Rayon Prints", 
             "Velvet Prints", 
             "Sugarcane Prints", 
-            "Chinon Prints"
+            "Chinon Prints",
+            "Silk Prints"
         ],
         "Plain": [
             "Hakoba", 
@@ -264,7 +269,10 @@ exports.updateProduct = catchAsyncErrors(async (req, res, next) => {
             "Organza Embroidery", 
             "Cotton Embroidery", 
             "Shimmer Embroidery",
-            "Net Embroidery"
+            "Net Embroidery",
+            "Satin Embroidery",
+            "Space Silk Embroidery",
+            "Crepe Embroidery"
         ],
         "Position Prints": [
             "Muslin Position Prints", 
@@ -275,7 +283,8 @@ exports.updateProduct = catchAsyncErrors(async (req, res, next) => {
             "Organza Position Prints", 
             "Tissue Zari Position Prints", 
             "Crepe Position Prints",
-            "Silk Position Prints"
+            "Silk Position Prints",
+            "Chanderi Position Prints"
         ],
         "Prints": [
             "Hakoba Prints", 
@@ -285,7 +294,8 @@ exports.updateProduct = catchAsyncErrors(async (req, res, next) => {
             "Rayon Prints", 
             "Velvet Prints", 
             "Sugarcane Prints", 
-            "Chinon Prints"
+            "Chinon Prints",
+            "Silk Prints"
         ],
         "Plain": [
             "Hakoba", 

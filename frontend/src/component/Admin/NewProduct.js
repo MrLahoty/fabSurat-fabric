@@ -66,6 +66,7 @@ const NewProduct = ({ history }) => {
     "Tissue Zari Position Prints",
     "Crepe Position Prints",
     "Silk Position Prints",
+    "Chanderi Position Prints",
   ];
   const embroideredsubCategory = [
     "Chinon Embroidery",
@@ -78,6 +79,9 @@ const NewProduct = ({ history }) => {
     "Cotton Embroidery",
     "Shimmer Embroidery",
     "Net Embroidery",
+    "Satin Embroidery",
+    "Space Silk Embroidery",
+    "Crepe Embroidery",
   ];
   const printssubCategory = [
     "Hakoba Prints",
@@ -88,6 +92,7 @@ const NewProduct = ({ history }) => {
     "Velvet Prints",
     "Sugarcane Prints",
     "Chinon Prints",
+    "Silk Prints",
   ];
   const plainsubCategory = [ "Hakoba", "Velvet", "Dyeable", "Pure/Viscose", "Semi Pure" ];
   const readymadeSubCategories = ["Kurti Set", "Co-Ord Set"];

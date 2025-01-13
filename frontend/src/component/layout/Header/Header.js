@@ -197,6 +197,8 @@ const Header = () => {
             <a href="/TissueZariPositionPrints">Tissue Zari Position Prints</a>
             <a href="/CrepePositionPrints">Crepe Position Prints</a>
             <a href="/SilkPositionPrints">Silk Position Prints</a>
+            <a href="/ChanderiPositionPrints">Chanderi Position Prints</a>
+
           </div>
         </div>
         <div className="dropdown">
@@ -215,6 +217,10 @@ const Header = () => {
             <a href="/CottonEmbroidery">Cotton Embroidery</a>
             <a href="/ShimmerEmbroidery">Shimmer Embroidery</a>
             <a href="/NetEmbroidery">Net Embroidery</a>
+            <a href="/SatinEmbroidery">Satin Embroidery</a>
+            <a href="/SpaceSilkEmbroidery">Space Silk Embroidery</a>
+            <a href="/CrepeEmbroidery">Crepe Embroidery</a>
+
           </div>
         </div>
         <div className="dropdown">
@@ -231,6 +237,8 @@ const Header = () => {
             <a href="/VelvetPrints">Velvet Prints</a>
             <a href="/SugarcanePrints">Sugarcane Prints</a>
             <a href="/ChinonPrints">Chinon Prints</a>
+            <a href="/SilkPrints">Silk Prints</a>
+
           </div>
         </div>
         <div className="dropdown">

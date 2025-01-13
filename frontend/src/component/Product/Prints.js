@@ -28,14 +28,17 @@ const Prints = ({ match }) => {
   const [subCategoriesVisible, setSubCategoriesVisible] = useState(false);
   
   const printsSubSubCategories = 
-    ["Hakoba Prints",
+  [
+    "Hakoba Prints",
     "Satin Prints",
     "Georgette Prints",
     "Muslin Prints",
     "Rayon Prints",
     "Velvet Prints",
     "Sugarcane Prints",
-    "Chinon Prints"]  // Only embroidered sub-categories
+    "Chinon Prints",
+    "Silk Prints"
+  ]  // Only embroidered sub-categories
 
   const { products, loading, error, productsCount, resultPerPage, filteredProductsCount } = useSelector((state) => state.products);
 
