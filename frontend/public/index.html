@@ -20,38 +20,37 @@
     <title>FABSURAT</title>
 
     <style>
+      /* Marquee Style */
+      .marquee {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgb(161, 161, 225);
+        color: #ffffff;
+        padding: 8px 0;
+        font-size: 16px;
+        text-align: center;
+        z-index: 1000;
+        overflow: hidden;
+      }
 
- /* Marquee Style */
-.marquee {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: rgb(161, 161, 225);
-  color: #ffffff;
-  padding: 8px 0;
-  font-size: 16px;
-  text-align: center;
-  z-index: 1000; 
-  overflow: hidden; 
-}
+      .marquee-content {
+        white-space: nowrap;
+        animation: marquee 25s linear infinite;
+      }
 
-.marquee-content {
-  white-space: nowrap;
-  animation: marquee 25s linear infinite;
-}
+      @keyframes marquee {
+        0% {
+          transform: translateX(100%);
+        }
+        100% {
+          transform: translateX(-100%);
+        }
+      }
 
-@keyframes marquee {
-  0% {
-    transform: translateX(100%); 
-  }
-  100% {
-    transform: translateX(-100%); 
-  }
-}
-
-      /* WhatsApp Icon Style */
-      .whatsapp-icon {
+       /* WhatsApp Icon Style */
+       .whatsapp-icon {
         position: fixed;
         bottom: 30px;
         right: 26px;
@@ -73,8 +72,58 @@
         transform: scale(1.1);
       }
 
-      @media screen and (max-width: 600px) {
+      /* Language Selector Icon Style */
+      .language-icon {
+        position: fixed;
+        bottom: 90px;
+        right: 28px;
+        background-color: whitesmoke;
+        border-radius: 50%;
+        padding: 5px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        z-index: 1000;
+        transition: transform 0.2s ease-in-out;
+      }
 
+      .language-icon img {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+      }
+
+      .language-icon:hover {
+        transform: scale(1.1);
+      }
+
+      .language-dropdown {
+        display: none;
+        position: fixed;
+        bottom: 150px;
+        right: 20px;
+        background-color: #ffffff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        padding: 10px;
+        font-family: Arial, sans-serif;
+      }
+
+      .language-dropdown select {
+        width: 100%;
+        padding: 6px;
+        font-size: 14px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        outline: none;
+      }
+
+      .language-dropdown.show {
+        display: block;
+      }
+
+      @media screen and (max-width: 600px) {
         .whatsapp-icon {
           bottom: 10px;
           right: 10px;
@@ -85,8 +134,49 @@
           width: 37px;
           height: 37px;
         }
+
+        .language-icon {
+          bottom: 70px;
+          right: 12px;
+        }
+
+        .language-icon img {
+        width: 37px;
+        height: 37px;
+        border-radius: 50%;
+      }
+
+      .language-icon:hover {
+        transform: scale(1.1);
+      }
+
+        .language-dropdown {
+          bottom: 120px;
+          right: 10px;
+        }
       }
     </style>
+
+    <!-- Google Translate Script -->
+    <script>
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement(
+          {
+            pageLanguage: "en",
+            includedLanguages: "en,hi,te,ta,ml,kn,gu,bn,pa,mr,or,as", // Add desired languages
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+            autoDisplay: false,
+          },
+          "google_translate_element"
+        );
+      }
+
+      function toggleLanguageDropdown() {
+        const dropdown = document.querySelector(".language-dropdown");
+        dropdown.classList.toggle("show");
+      }
+    </script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -99,12 +189,24 @@
     </div>
 
     <!-- WhatsApp Icon -->
-    <a href="https://wa.me/917003798513?text=Welcome%20to%20FabSurat%2C%20your%20ultimate%20destination%20for%20premium%20quality%20fabrics%21%20%F0%9F%8C%9F%20We%27re%20delighted%20to%20have%20you%20here.%20I%27m%20here%20to%20help%20you%20every%20step%20of%20the%20way." 
-       class="whatsapp-icon" 
-       target="_blank" 
-       aria-label="Chat with us on WhatsApp">
-      <img src="%PUBLIC_URL%\Whatsapp1.png" alt="WhatsApp">
+    <a
+      href="https://wa.me/917003798513?text=Welcome%20to%20FabSurat%2C%20your%20ultimate%20destination%20for%20premium%20quality%20fabrics%21%20%F0%9F%8C%9F%20We%27re%20delighted%20to%20have%20you%20here.%20I%27m%20here%20to%20help%20you%20every%20step%20of%20the%20way."
+      class="whatsapp-icon"
+      target="_blank"
+      aria-label="Chat with us on WhatsApp"
+    >
+      <img src="%PUBLIC_URL%/Whatsapp1.png" alt="WhatsApp" />
     </a>
+
+    <!-- Language Selector Icon -->
+    <div class="language-icon" onclick="toggleLanguageDropdown()">
+      <img src="%PUBLIC_URL%/language.png" alt="Select Language" />
+    </div>
+
+    <!-- Language Dropdown -->
+    <div class="language-dropdown">
+      <div id="google_translate_element"></div>
+    </div>
 
     <div id="root"></div>
   </body>
