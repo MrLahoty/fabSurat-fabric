@@ -13,18 +13,18 @@
 .categoryBoxss{
     list-style: none;
     position: absolute;
-    top: 14.1%;
+    top: 13.3%;
     right: 3%;
     background-color: #222222;
     padding: 0;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.5s ease-in-out;
-    width: 220px; /* Set a fixed width for better control */
+    width: 240px; /* Set a fixed width for better control */
 }
 
 .categoryBoxss.show {
-    max-height: 30vmax;
+    max-height: 65vmax;
 }
   
 .categoryBoxss.hide {
@@ -43,14 +43,14 @@
   }
 
   .categoryBoxss {
-    top: 12.5%;
+    top: 11.4%;
     right: 1%;
-    width: 200px; /* Set a fixed width for better control */
-    height: 650px;
+    width: 250px; /* Set a fixed width for better control */
+    height: 750px;
   }
   
   .categoryBoxss.show {
-    max-height: 72vmax;
+    max-height: 89vmax;
   }
   
   .categoryBoxss.hide {

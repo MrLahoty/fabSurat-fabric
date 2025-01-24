@@ -81,7 +81,7 @@
 .related-products {
   display: flex; /* Use Flexbox for layout */
   flex-wrap: wrap; /* Allow wrapping for responsiveness */
-  justify-content: space-between; /* Space out items evenly */
+  justify-content: space-around; /* Space out items evenly */
   flex: 1 1 calc(20% - 20px); /* 4 items per row with spacing */
   margin: 5px; /* Spacing between items */
   min-width: 200px; /* Minimum width for each card */
@@ -653,6 +653,12 @@
   border-color: #4267B2; /* Match border color with Facebook background */
 }
 
+.snapchat{
+  background-color: #FFEB3B; /* Softer yellow */
+  color: #000; /* Black text/icon for contrast */
+
+}
+
 /* Hover color changes for each button */
 .whatsapp:hover {
   background-color: #20B45B;
@@ -991,7 +997,7 @@
 /* Reduce the gap between buttons */
 .share-buttons {
   gap: 12px; /* Reduce gap for mobile */
-  margin-right: 80px;
+  margin-right: 60px;
 }
 
 /* Adjust the share text size for mobile */

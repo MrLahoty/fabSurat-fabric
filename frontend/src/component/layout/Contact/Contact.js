@@ -2,7 +2,7 @@ import React from "react";
 import "./Contact.css";
 
 const phoneNumber = "+917003798513";
-const emailAddress = "mohit80132@gmail.com";
+const emailAddress = "officialfabsurat@gmail.com";
 const addressUrl = "https://maps.app.goo.gl/qEM4PxPP3q62CjKD7";
 
 const Contact = () => {

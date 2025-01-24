@@ -288,13 +288,13 @@
   }
 
   .categories-container {
-    top: 11.3%;
+    top: 10.2%;
     right: 1%;
   }
 
   /* Dropdown category box styles */
 .categoryBox {
-  top: 12.5%;
+  top: 11.3%;
   right: 1%;
   width: 180px; /* Set a fixed width for better control */
   height: 280px;
@@ -349,7 +349,7 @@
 
   .filterBox {
     width: 20vmax;
-    top: 11.3%;
+    top: 10.3%;
     left: 1%;
   }
 
@@ -363,7 +363,7 @@
   /* Sliding filter section */
 .filter {
   position: fixed;
-  top: 12.5%;
+  top: 11.5%;
   left: -40vmax;
   width: 40vmax;
   height: 340px;

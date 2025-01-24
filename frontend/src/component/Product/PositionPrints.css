@@ -10,10 +10,19 @@
     font-weight: bold;
   }
 
+  /* Categories container and toggle button */
+  .categories-containerss {
+  position: fixed; /* Keep it fixed relative to the viewport */
+  top: 10.5%; /* Adjust as needed */
+  right: 3%; /* Adjust the horizontal position */
+  display: flex;
+  align-items: center;
+ }
+
 .categoryBoxssss{
     list-style: none;
     position: absolute;
-    top: 14.1%;
+    top: 13.3%;
     right: 3%;
     background-color: #222222;
     padding: 0;
@@ -21,7 +30,7 @@
     overflow: hidden;
     transition: max-height 0.5s ease-in-out;
     width: 220px; /* Set a fixed width for better control */
-    height: 365px;
+    height: 405px;
 }
 
 .categoryBoxssss.show {
@@ -44,15 +53,24 @@
         white-space: nowrap; /* Prevents wrapping */
     }
 
+     /* Categories container and toggle button */
+  .categories-containerss {
+    position: fixed; /* Keep it fixed relative to the viewport */
+    top: 10.3%; /* Adjust as needed */
+    right: 1.2%; /* Adjust the horizontal position */
+    display: flex;
+    align-items: center;
+   }
+
     .categoryBoxssss {
-        top: 12.5%;
+        top: 11.5%;
         right: 1%;
         width: 235px; /* Set a fixed width for better control */
-        height: 650px;
+        height: 670px;
       }
       
       .categoryBoxssss.show {
-        max-height: 62vmax;
+        max-height: 70vmax;
       }
       
       .categoryBoxssss.hide {

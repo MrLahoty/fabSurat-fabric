@@ -146,7 +146,7 @@ const Plain = ({ match }) => {
 
             {/* Sub-category Toggle Section */}
             <div className="subCategory-container">
-              <div className="categories-containers">
+              <div className="categories-containersss">
                 <div className="square-box" onClick={toggleSubCategories}>
                   <div className="categories-heading">Categories</div>
                   <button

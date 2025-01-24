@@ -75,7 +75,7 @@ const ProductDetails = ({ match }) => {
       dispatch(getCategoryProducts(product.subSubCategory)).then((related) => {
         // Exclude the current product from related products
         const filteredProducts = related.filter(p => p._id !== product._id);
-        setRelatedProducts(filteredProducts.slice(0, 7));
+        setRelatedProducts(filteredProducts.slice(0, 8));
       });
     }
   }, [dispatch, product.subSubCategory, product._id]);
@@ -195,6 +195,8 @@ const ProductDetails = ({ match }) => {
        shareLink = `https://www.instagram.com/direct/new/?text=${encodeURIComponent('Check out this product: ' + productUrl)}`;
     } else if (platform === 'facebook') {
        shareLink = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(productUrl)}`;
+    } else if (platform === 'snapchat') {
+      shareLink =  "https://www.snapchat.com/add/fabsurat?share_id=tFRAN8MIVSw&locale=en-IN";
     }
  
     window.open(shareLink, '_blank');
@@ -266,7 +268,7 @@ const calculateDiscountPercentage = (mrp, price) => {
                     {product.mrp && (
                       <h2 className="crossed-out-price">
                         <del>
-                          <span className="currency-symbol">₹</span> {formatPrice(product.mrp)}
+                          <span className="currency-symbol"></span> {formatPrice(product.mrp)}
                         </del>
                       </h2>
                     )}
@@ -395,6 +397,9 @@ const calculateDiscountPercentage = (mrp, price) => {
                      </button>
                      <button className="share-btn facebook" onClick={() => shareProduct('facebook')}>
                        <i className="fab fa-facebook"></i>
+                     </button>
+                     <button className="share-btn snapchat" onClick={() => shareProduct('snapchat')}>
+                       <i className="fab fa-snapchat"></i>
                      </button>
                    </div>
 

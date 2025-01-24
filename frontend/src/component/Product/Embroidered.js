@@ -158,7 +158,7 @@ const Embroidered = ({ match }) => {
 
             {/* Sub-category Toggle Section */}
             <div className="subCategory-container">
-              <div className="categories-containers">
+              <div className="categories-containerss">
                 <div className="square-box" onClick={toggleSubCategories}>
                   <div className="categories-heading">Categories</div>
                   <button
