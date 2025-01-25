@@ -49,8 +49,8 @@
         }
       }
 
-       /* WhatsApp Icon Style */
-       .whatsapp-icon {
+      /* WhatsApp Icon Style */
+      .whatsapp-icon {
         position: fixed;
         bottom: 30px;
         right: 26px;
@@ -141,14 +141,14 @@
         }
 
         .language-icon img {
-        width: 37px;
-        height: 37px;
-        border-radius: 50%;
-      }
+          width: 37px;
+          height: 37px;
+          border-radius: 50%;
+        }
 
-      .language-icon:hover {
-        transform: scale(1.1);
-      }
+        .language-icon:hover {
+          transform: scale(1.1);
+        }
 
         .language-dropdown {
           bottom: 120px;
@@ -163,7 +163,7 @@
         new google.translate.TranslateElement(
           {
             pageLanguage: "en",
-            includedLanguages: "en,hi,te,ta,ml,kn,gu,bn,pa,mr,or,as", // Add desired languages
+            includedLanguages: "en,hi,te,ta,ml,kn,gu,bn,pa,mr,or,as",
             layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
             autoDisplay: false,
           },
@@ -175,6 +175,48 @@
         const dropdown = document.querySelector(".language-dropdown");
         dropdown.classList.toggle("show");
       }
+
+      function hideIconsForAdminPages() {
+    // Paths where icons should be hidden
+    const hiddenPaths = ["/admin/products", "/admin/orders", "/admin/users"];
+    const currentPath = window.location.pathname;
+
+    // Check if the current path is in the hiddenPaths array
+    if (hiddenPaths.includes(currentPath.trim())) {
+      const whatsappIcon = document.querySelector(".whatsapp-icon");
+      const languageIcon = document.querySelector(".language-icon");
+
+      // Hide icons if the current path matches any of the hidden paths
+      if (whatsappIcon) whatsappIcon.style.display = "none";
+      if (languageIcon) languageIcon.style.display = "none";
+    } else {
+      // Show icons on other pages
+      const whatsappIcon = document.querySelector(".whatsapp-icon");
+      const languageIcon = document.querySelector(".language-icon");
+
+      if (whatsappIcon) whatsappIcon.style.display = "block";
+      if (languageIcon) languageIcon.style.display = "block";
+    }
+  }
+
+  // Initial check when the page loads
+  document.addEventListener("DOMContentLoaded", hideIconsForAdminPages);
+
+  // Listen for route changes using the popstate event
+  window.addEventListener("popstate", hideIconsForAdminPages);
+
+  // Listen for manual navigation or custom route changes
+  const originalPushState = history.pushState;
+  history.pushState = function (...args) {
+    originalPushState.apply(history, args);
+    hideIconsForAdminPages();
+  };
+
+  const originalReplaceState = history.replaceState;
+  history.replaceState = function (...args) {
+    originalReplaceState.apply(history, args);
+    hideIconsForAdminPages();
+  };
     </script>
     <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   </head>
