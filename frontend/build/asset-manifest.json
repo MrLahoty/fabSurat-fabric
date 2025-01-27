@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.0837534b.css",
-    "main.js": "/static/js/main.014007ec.js",
+    "main.js": "/static/js/main.0712e19b.js",
     "static/media/CHINON POSITION PRINT.jpg": "/static/media/CHINON POSITION PRINT.c12853df644a8fe0336c.jpg",
     "static/media/GEORGETTE EMBROIDERY.jpg": "/static/media/GEORGETTE EMBROIDERY.b1439d682017511294d0.jpg",
     "static/media/c2.jpg": "/static/media/c2.633301e7c3d8e0920985.jpg",
@@ -42,10 +42,10 @@
     "index.html": "/index.html",
     "static/media/india_map1.webp": "/static/media/india_map1.a9dff0bc410ac99cdc1e.webp",
     "main.0837534b.css.map": "/static/css/main.0837534b.css.map",
-    "main.014007ec.js.map": "/static/js/main.014007ec.js.map"
+    "main.0712e19b.js.map": "/static/js/main.0712e19b.js.map"
   },
   "entrypoints": [
     "static/css/main.0837534b.css",
-    "static/js/main.014007ec.js"
+    "static/js/main.0712e19b.js"
   ]
 }
