@@ -100,14 +100,15 @@ exports.createProduct = catchAsyncErrors(async (req, res, next) => {
             "Velvet Prints", 
             "Sugarcane Prints", 
             "Chinon Prints",
-            "Silk Prints"
+            "Silk Prints",
+            "Cotton Prints"
         ],
         "Plain": [
             "Hakoba", 
             "Velvet",
             "Dyeable", 
             "Pure/Viscose", 
-            "Semi Pure"
+            "Others"
         ]
     };
     
@@ -295,14 +296,15 @@ exports.updateProduct = catchAsyncErrors(async (req, res, next) => {
             "Velvet Prints", 
             "Sugarcane Prints", 
             "Chinon Prints",
-            "Silk Prints"
+            "Silk Prints",
+            "Cotton Prints"
         ],
         "Plain": [
             "Hakoba", 
             "Velvet",
             "Dyeable", 
             "Pure/Viscose", 
-            "Semi Pure"
+            "Others"
         ]
     };
     

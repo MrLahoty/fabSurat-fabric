@@ -1,144 +1,144 @@
 .payment-container {
-  max-width: 600px;
-  margin: 50px auto;
-  margin-top: 100px;
-  margin-bottom: 300px;
-  padding: 20px;
-  border: 1px solid #eaeaea;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background-color: #e9f3ff;
-  text-align: center;
-}
-
-.payment-title {
-  font-size: 24px;
-  font-weight: 700;
-  color: #333;
-  margin-bottom: 20px;
-}
-
-.payment-options {
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 20px;
-}
-
-.payment-options label {
-  font-size: 18px;
-  font-weight: 500;
-  color: #666;
-  cursor: pointer;
-}
-
-.payment-options input {
-  margin-right: 10px;
-}
-
-.payment-submit {
-  display: inline-block;
-  background-color: #007bff;
-  color: #fff;
-  padding: 10px 20px;
-  font-size: 18px;
-  font-weight: 600;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.payment-submit:hover {
-  background-color: #0056b3;
-}
-
-.payment-options label input {
-  accent-color: #007bff; /* For styling radio buttons in modern browsers */
-}
-
-.payment-container {
-  max-width: 500px;
-  margin: 0 auto;
-  margin-top: 40px;
-  margin-bottom: 200px;
-  padding: 50px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.payment-title {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.payment-options {
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 20px;
-}
-
-/* .coupon-container {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
-}
-
-.coupon-container input {
-  flex: 1;
-  margin-right: 10px;
-  padding: 5px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-}
-
-.coupon-container button {
-  padding: 5px 10px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.coupon-container button:hover {
-  background-color: #0056b3;
-} */
-
-.payment-submit {
-  width: 100%;
-  padding: 10px;
-  background-color: #28a745;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.payment-submit:hover {
-  background-color: #218838;
-}
-
-
-@media (max-width: 768px) {
-  .payment-container {
-    padding: 15px;
+    max-width: 600px;
+    margin: 50px auto;
+    margin-top: 100px;
+    margin-bottom: 300px;
+    padding: 20px;
+    border: 1px solid #eaeaea;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #e9f3ff;
+    text-align: center;
   }
-
+  
   .payment-title {
-    font-size: 20px;
+    font-size: 24px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 20px;
   }
-
+  
   .payment-options {
-    flex-direction: column;
-    align-items: flex-start;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
   }
-
+  
   .payment-options label {
-    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #666;
+    cursor: pointer;
   }
-
+  
+  .payment-options input {
+    margin-right: 10px;
+  }
+  
+  .payment-submit {
+    display: inline-block;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: 600;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .payment-submit:hover {
+    background-color: #0056b3;
+  }
+  
+  .payment-options label input {
+    accent-color: #007bff; /* For styling radio buttons in modern browsers */
+  }
+  
+  .payment-container {
+    max-width: 500px;
+    margin: 0 auto;
+    margin-top: 40px;
+    margin-bottom: 200px;
+    padding: 50px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .payment-title {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .payment-options {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+  }
+  
+  /* .coupon-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .coupon-container input {
+    flex: 1;
+    margin-right: 10px;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .coupon-container button {
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .coupon-container button:hover {
+    background-color: #0056b3;
+  } */
+  
   .payment-submit {
     width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
   }
-}
+  
+  .payment-submit:hover {
+    background-color: #218838;
+  }
+  
+  
+  @media (max-width: 768px) {
+    .payment-container {
+      padding: 15px;
+    }
+  
+    .payment-title {
+      font-size: 20px;
+    }
+  
+    .payment-options {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .payment-options label {
+      margin-bottom: 10px;
+    }
+  
+    .payment-submit {
+      width: 100%;
+    }
+  }

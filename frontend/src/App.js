@@ -78,11 +78,12 @@ import VelvetPrints from "./component/Product/VelvetPrints";
 import SugarcanePrints from "./component/Product/SugarcanePrints";
 import ChinonPrints from "./component/Product/ChinonPrints";
 import SilkPrints from "./component/Product/SilkPrints";
+import CottonPrints from "./component/Product/CottonPrints";
 import Hakoba from "./component/Product/Hakoba";
 import Velvet from "./component/Product/Velvet";
 import Dyeable from "./component/Product/Dyeable";
 import PureViscose from "./component/Product/PureViscose";
-import SemiPure from "./component/Product/SemiPure";
+import Others from "./component/Product/Others";
 import Under299 from "./component/Home/Under299";
 import Under199 from "./component/Home/Under199";
 import Under399 from "./component/Home/Under399";
@@ -203,11 +204,12 @@ function App() {
         <Route path="/SugarcanePrints" component={SugarcanePrints} />
         <Route path="/ChinonPrints" component={ChinonPrints} />
         <Route path="/SilkPrints" component={SilkPrints} />
+        <Route path="/CottonPrints" component={CottonPrints} />
         <Route path="/Hakoba" component={Hakoba} />
         <Route path="/Velvet" component={Velvet} />
         <Route path="/Dyeable" component={Dyeable} />
         <Route path="/PureViscose" component={PureViscose} />
-        <Route path="/SemiPure" component={SemiPure} />
+        <Route path="/Others" component={Others} />
         <Route path="/readymades" component={ReadymadeProducts} />
         <Route exact path="/product/:id" component={ProductDetails} />
         <Route exact path="/products" component={Products} />

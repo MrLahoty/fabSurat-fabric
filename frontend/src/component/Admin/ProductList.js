@@ -53,7 +53,7 @@ const ProductList = ({ history }) => {
     {
       field: "image",
       headerName: "Image",
-      minWidth: 120,
+      minWidth: 150,
       flex: 0.4,
       renderCell: (params) => (
         <img

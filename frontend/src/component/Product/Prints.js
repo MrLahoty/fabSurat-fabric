@@ -37,7 +37,8 @@ const Prints = ({ match }) => {
     "Velvet Prints",
     "Sugarcane Prints",
     "Chinon Prints",
-    "Silk Prints"
+    "Silk Prints",
+    "Cotton Prints",
   ]  // Only embroidered sub-categories
 
   const { products, loading, error, productsCount, resultPerPage, filteredProductsCount } = useSelector((state) => state.products);

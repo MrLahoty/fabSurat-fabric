@@ -238,6 +238,7 @@ const Header = () => {
             <a href="/SugarcanePrints">Sugarcane Prints</a>
             <a href="/ChinonPrints">Chinon Prints</a>
             <a href="/SilkPrints">Silk Prints</a>
+            <a href="/CottonPrints">Cotton Prints</a>
 
           </div>
         </div>
@@ -251,7 +252,7 @@ const Header = () => {
             <a href="/Velvet">Velvet</a>
             <a href="/Dyeable">Dyeable</a>
             <a href="/PureViscose">Pure/Viscose</a>
-            <a href="/SemiPure">Semi Pure</a>
+            <a href="/Others">Others</a>
           </div>
         </div>
       <div className="dropdown">
@@ -262,6 +263,8 @@ const Header = () => {
       <div className="dropdown-content">
         <a href="/Comingsoon">Kurti On Sale</a>
         <a href="/Comingsoon">Co-Ord Set On Sale</a>
+        <a href="/Comingsoon">Dupatta</a>
+        <a href="/Comingsoon">Others</a>
         <a href="/Comingsoon">Pure Muslin Kurti On Sale</a>
         <a href="/Comingsoon">Floral Print Co-ord set On Sale</a>
       </div>

@@ -100,8 +100,9 @@ const UpdateProduct = ({ history, match }) => {
     "Sugarcane Prints",
     "Chinon Prints",
     "Silk Prints",
+    "Cotton Prints",
   ];
-  const plainsubCategory = ["Hakoba", "Velvet", "Dyeable", "Pure/Viscose", "Semi Pure"];
+  const plainsubCategory = ["Hakoba", "Velvet", "Dyeable", "Pure/Viscose", "Others"];
   const readymadeSubCategories = ["Kurti Set", "Co-Ord Set"];
 
   const productId = match.params.id;
