@@ -9,8 +9,6 @@ const shortid = require('shortid');
 const Razorpay = require('razorpay');
 const couponRoute = require('./routes/couponRoute');
 const subscriberRoutes = require('./routes/subscriberRoutes');
-const helmet = require("helmet");
-const compression = require("compression");
 
 // Config
 if (process.env.NODE_ENV !== "PRODUCTION") {
@@ -24,11 +22,9 @@ const razorpay = new Razorpay({
 });
 
 app.use(cors());
-app.use(helmet()); // Security
-app.use(compression()); // Gzip compression for performance
-app.use(express.json({ limit: "10mb" }));
+app.use(express.json());
 app.use(cookieParser());
-app.use(bodyParser.urlencoded({ extended: true, limit: "10mb" }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(fileUpload());
 
 app.get('/logo.png', (req, res) => {
@@ -86,4 +82,4 @@ app.get("*", (req, res) => {
 const errorMiddleware = require("./middleware/error");
 app.use(errorMiddleware);
 
-module.exports = app;
+module.exports = app; 
