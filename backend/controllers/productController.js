@@ -153,7 +153,7 @@ exports.getAllProducts = catchAsyncErrors(async (req, res, next) => {
     const resultPerPage = 8;
     const productsCount = await Product.countDocuments();
 
-    const apiFeature = new ApiFeatures(Product.find(), req.query)
+    const apiFeature = new ApiFeatures(Product.find().sort({ createdAt: -1 }), req.query)
         .search()
         .filter();
 
@@ -176,7 +176,7 @@ exports.getAllProducts = catchAsyncErrors(async (req, res, next) => {
 
 //Get All Products (Admin)
 exports.getAdminProducts = catchAsyncErrors(async (req, res, next) => {
-    const products = await Product.find();
+    const products = await Product.find().sort({ createdAt: -1 });
   
     res.status(200).json({
         success: true,
