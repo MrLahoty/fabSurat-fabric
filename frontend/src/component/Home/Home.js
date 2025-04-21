@@ -17,7 +17,8 @@ import FastShipping from "../../images/Fast_Delivery1.png";
 import EasyReturns from "../../images/Package1.png";
 import CustomPainting from "../../images/Customized_printing1.webp";
 
-import Image1 from '../../images/f.png';
+// import Image1 from '../../images/f.png';
+import Image2 from '../../images/banner.mp4';
 import videoFile from '../../images/winter sale.mp4'; // Corrected import
 
 import LatestCollection from './LatestCollection';
@@ -70,7 +71,8 @@ const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const slides = [
-    { image: Image1, alt: 'Slide 1' }
+    // { image: Image1, alt: 'Slide 1' },
+    {video: Image2, alt: 'Slide 2'}
   ];
 
   const nextSlide = useCallback(() => {
@@ -120,7 +122,14 @@ const Home = () => {
                   {/* Render Link and image only for desktop view */}
                   <div className="desktop-view">
                     <Link to="/products">
-                      <img src={slide.image} alt={slide.alt} />
+                      <video 
+                       src={slide.video}
+                       alt={slide.alt}
+                       autoPlay
+                       muted
+                       loop
+                       playsInline
+                       style={{ width: "100%", height: "auto", objectFit: "cover" }} />
                     </Link>
                   </div>
                   <div className="shop-now-button-container">
