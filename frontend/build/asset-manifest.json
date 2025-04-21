@@ -1,13 +1,14 @@
 {
   "files": {
-    "main.css": "/static/css/main.0837534b.css",
-    "main.js": "/static/js/main.a9502017.js",
+    "main.css": "/static/css/main.0150c168.css",
+    "main.js": "/static/js/main.40065fb8.js",
     "static/media/CHINON POSITION PRINT.jpg": "/static/media/CHINON POSITION PRINT.c12853df644a8fe0336c.jpg",
     "static/media/GEORGETTE EMBROIDERY.jpg": "/static/media/GEORGETTE EMBROIDERY.b1439d682017511294d0.jpg",
     "static/media/c2.jpg": "/static/media/c2.633301e7c3d8e0920985.jpg",
     "static/media/JACQUARD POSITION PRINT.jpg": "/static/media/JACQUARD POSITION PRINT.461b24ee2153ad9d6c27.jpg",
     "static/media/c1.jpg": "/static/media/c1.af23305f0f9e77ef4cc7.jpg",
     "static/media/c3.jpg": "/static/media/c3.fc4d672e162f6c1e88bd.jpg",
+    "static/media/CottonEmbroideryy.jpeg": "/static/media/CottonEmbroideryy.be2b5797c635a58df7c9.jpeg",
     "static/media/box14.jpg": "/static/media/box14.7febf01344b6592ef014.jpg",
     "static/media/box8.jpg": "/static/media/box8.2242c5270c5c43540512.jpg",
     "static/media/winter sale.mp4": "/static/media/winter sale.88d78c014a8fddd42a67.mp4",
@@ -27,6 +28,8 @@
     "static/media/c4.jpg": "/static/media/c4.8c9434feb77207690835.jpg",
     "static/media/GEORGETTE PRINTS (1).jpg": "/static/media/GEORGETTE PRINTS (1).aa22aa6d5d5e2363db55.jpg",
     "static/media/fa-solid-900.ttf": "/static/media/fa-solid-900.bacd5de623fb563b961a.ttf",
+    "static/media/HakobaFabrics.jpeg": "/static/media/HakobaFabrics.2d034243584713397791.jpeg",
+    "static/media/UnstitchedCombo.jpeg": "/static/media/UnstitchedCombo.ebbd5d152a1382b43616.jpeg",
     "static/media/box19.jpg": "/static/media/box19.02eadd154830adf3b9bc.jpg",
     "static/media/fa-brands-400.ttf": "/static/media/fa-brands-400.60127e352b7a11f7f1bc.ttf",
     "static/media/box5.jpg": "/static/media/box5.a2e30723daabfb8f64ee.jpg",
@@ -41,11 +44,11 @@
     "index.html": "/index.html",
     "static/media/fa-v4compatibility.woff2": "/static/media/fa-v4compatibility.cf7f5903d06b79ad60f1.woff2",
     "static/media/india_map1.webp": "/static/media/india_map1.a9dff0bc410ac99cdc1e.webp",
-    "main.0837534b.css.map": "/static/css/main.0837534b.css.map",
-    "main.a9502017.js.map": "/static/js/main.a9502017.js.map"
+    "main.0150c168.css.map": "/static/css/main.0150c168.css.map",
+    "main.40065fb8.js.map": "/static/js/main.40065fb8.js.map"
   },
   "entrypoints": [
-    "static/css/main.0837534b.css",
-    "static/js/main.a9502017.js"
+    "static/css/main.0150c168.css",
+    "static/js/main.40065fb8.js"
   ]
 }

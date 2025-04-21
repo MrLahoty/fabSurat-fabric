@@ -10,7 +10,9 @@ import FabricsImage from "../../../images/c1.jpg";
 import SareesImage from "../../../images/c2.jpg";
 import BlousesImage from "../../../images/c3.jpg";
 import JacketImage from "../../../images/c4.jpg";
-import MensWearImage from "../../../images/box6.jpg";
+import HakobaImage from "../../../images/HakobaFabrics.jpeg";
+import CottonImage from "../../../images/CottonEmbroideryy.jpeg";
+// import MensWearImage from "../../../images/box6.jpg";
 import Fabric from "../../../images/box6.jpg";
 
 const options = {
@@ -225,11 +227,32 @@ const Header = () => {
         </div>
         <div className="dropdown">
           <button className="dropbtn">
+          <a href="/hakobafabric" className="dropdown-link">HAKOBA FABRIC </a>
+          <span className="arrow"></span>
+          </button>
+          <div className="dropdown-content">
+            <a href="/DyeableHakobafabric">Dyeable Hakoba Fabric</a>
+            <a href="/PrintedHakobaFabric">Printed Hakoba Fabric</a>
+          </div>
+        </div>
+        <div className="dropdown">
+          <button className="dropbtn">
+          <a href="/cottonfabric" className="dropdown-link">COTTON FABRIC </a>
+          <span className="arrow"></span>
+          </button>
+          <div className="dropdown-content">
+            <a href="/UnstitchedCombo">Unstitched Combo</a>
+            <a href="/DyeableCottonEmbroidery">Dyeable Cotton Embroidery</a>
+            <a href="/AlloverCottonEmbroidery">AllOver Cotton Embroidery</a>
+          </div>
+        </div>
+        <div className="dropdown">
+          <button className="dropbtn">
           <a href="/Prints" className="dropdown-link"> PRINTS </a>
           <span className="arrow"></span>
           </button>
           <div className="dropdown-content">
-            <a href="/HakobaPrints">Hakoba Prints</a>
+            {/* <a href="/HakobaPrints">Hakoba Prints</a> */}
             <a href="/SatinPrints">Satin Prints</a>
             <a href="/GeorgettePrints">Georgette Prints</a>
             <a href="/MuslinPrints">Muslin Prints</a>
@@ -248,14 +271,14 @@ const Header = () => {
             <span className="arrow"></span>
           </button>
           <div className="dropdown-content">
-            <a href="/Hakoba">Hakoba</a>
+            {/* <a href="/Hakoba">Hakoba</a> */}
             <a href="/Velvet">Velvet</a>
             <a href="/Dyeable">Dyeable</a>
             <a href="/PureViscose">Pure/Viscose</a>
             <a href="/Others">Others</a>
           </div>
         </div>
-      <div className="dropdown">
+      {/* <div className="dropdown">
        <button className="dropbtn">
        <a href="/Comingsoon" className="dropdown-link"> READYMADE </a>           
        <span className="arrow"></span>
@@ -268,7 +291,7 @@ const Header = () => {
         <a href="/Comingsoon">Pure Muslin Kurti On Sale</a>
         <a href="/Comingsoon">Floral Print Co-ord set On Sale</a>
       </div>
-      </div>
+      </div> */}
 
         <div className="dropdown">
           <button className="dropbtn">
@@ -291,6 +314,14 @@ const Header = () => {
           <img src={SareesImage} alt="Embroidered" />
           <span>Embroidery</span>
         </a>
+        <a href="/hakobafabric">
+          <img src={HakobaImage} alt="Hakoba" />
+          <span>Hakoba</span>
+        </a>
+        <a href="/cottonfabric">
+          <img src={CottonImage} alt="Cotton" />
+          <span>Cotton</span>
+        </a>
         <a href="/Prints">
           <img src={BlousesImage} alt="Prints" />
           <span>Prints</span>
@@ -299,10 +330,10 @@ const Header = () => {
           <img src={JacketImage} alt="Plain" />
           <span>Plain</span>
         </a>
-        <a href="/Comingsoon">
+        {/* <a href="/Comingsoon">
           <img src={MensWearImage} alt="Comingsoon" />
           <span>Readymade</span>
-        </a>
+        </a> */}
         <a href="/products">
           <img src={Fabric} alt="Sale" />
           <span>Sale</span>

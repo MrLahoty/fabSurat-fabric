@@ -44,12 +44,12 @@ const productScheme = mongoose.Schema({
     subCategory: {
         type: String,
         required: [true, "Please Enter Product Sub-Category"],
-        enum: ["Position Prints", "Embroidered", "Prints", "Plain", "Kurti Set", "Co-Ord Set"], // Enum for valid sub-categories
+        enum: ["Position Prints", "Embroidered", "Prints", "Plain", "Hakoba Fabric", "Cotton Fabric", "Kurti Set", "Co-Ord Set"], // Enum for valid sub-categories
     },
     subSubCategory: {
         type: String,
         required: [true, "Please Enter Product Sub-Sub-Category"],
-        enum: ["Chinon Embroidery", "Faux Georgette Embroidery", "Viscose Georgette Embroidery", "Silk Embroidery", "Rayon Embroidery", "Velvet Embroidery", "Organza Embroidery", "Cotton Embroidery", "Shimmer Embroidery", "Net Embroidery","Satin Embroidery","Space Silk Embroidery","Crepe Embroidery", "Muslin Position Prints", "Chinon Position Prints", "Georgette Position Prints", "Opada Position Prints", "Jacquard Position Prints", "Organza Position Prints", "Tissue Zari Position Prints", "Crepe Position Prints", "Silk Position Prints","Chanderi Position Prints", "Hakoba Prints", "Satin Prints" ,"Georgette Prints", "Muslin Prints", "Rayon Prints", "Velvet Prints", "Sugarcane Prints", "Chinon Prints","Silk Prints","Cotton Prints", "Hakoba", "Velvet", "Dyeable", "Pure/Viscose", "Others"], // Enum for valid sub-categories
+        enum: ["Chinon Embroidery", "Faux Georgette Embroidery", "Viscose Georgette Embroidery", "Silk Embroidery", "Rayon Embroidery", "Velvet Embroidery", "Organza Embroidery", "Cotton Embroidery", "Shimmer Embroidery", "Net Embroidery","Satin Embroidery","Space Silk Embroidery","Crepe Embroidery", "Muslin Position Prints", "Chinon Position Prints", "Georgette Position Prints", "Opada Position Prints", "Jacquard Position Prints", "Organza Position Prints", "Tissue Zari Position Prints", "Crepe Position Prints", "Silk Position Prints","Chanderi Position Prints", "Hakoba Prints", "Satin Prints" ,"Georgette Prints", "Muslin Prints", "Rayon Prints", "Velvet Prints", "Sugarcane Prints", "Chinon Prints","Silk Prints","Cotton Prints", "Hakoba", "Velvet", "Dyeable", "Pure/Viscose", "Others", "Dyeable Hakoba Fabric", "Printed Hakoba Fabric", "Unstitched Combo", "Dyeable Cotton Embroidery", "Allover Cotton Embroidery" ], // Enum for valid sub-categories
     },
     Stock: {
         type: Number,

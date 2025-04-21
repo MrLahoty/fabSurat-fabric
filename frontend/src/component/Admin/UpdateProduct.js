@@ -62,7 +62,7 @@ const UpdateProduct = ({ history, match }) => {
   });
 
   const categories = ["Fabric", "Readymade"];
-  const fabricSubCategories = ["Position Prints", "Embroidered", "Prints", "Plain"];
+  const fabricSubCategories = ["Position Prints", "Embroidered", "Prints", "Plain", "Hakoba Fabric", "Cotton Fabric"];
   const positionprintssubCategory = [
     "Muslin Position Prints",
     "Chinon Position Prints",
@@ -103,6 +103,8 @@ const UpdateProduct = ({ history, match }) => {
     "Cotton Prints",
   ];
   const plainsubCategory = ["Hakoba", "Velvet", "Dyeable", "Pure/Viscose", "Others"];
+  const hakobafabricsubCategory = [ "Dyeable Hakoba Fabric", "Printed Hakoba Fabric" ];
+  const cottonfabricsubCategory = [ "Unstitched Combo", "Dyeable Cotton Embroidery", "Allover Cotton Embroidery" ];
   const readymadeSubCategories = ["Kurti Set", "Co-Ord Set"];
 
   const productId = match.params.id;
@@ -236,6 +238,10 @@ const UpdateProduct = ({ history, match }) => {
         return printssubCategory;
       case "Plain":
         return plainsubCategory;
+      case "Hakoba Fabric":
+        return hakobafabricsubCategory;
+      case "Cotton Fabric":
+        return cottonfabricsubCategory;  
       default:
         return [];
     }
@@ -427,7 +433,7 @@ const UpdateProduct = ({ history, match }) => {
                 placeholder="Stock"
                 required
                 value={Stock}
-    step="0.01"  // Allows decimal values
+                step="0.01"  // Allows decimal values
 
                 onChange={(e) => setStock(e.target.value)}
               />

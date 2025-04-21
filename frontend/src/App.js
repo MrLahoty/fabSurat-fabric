@@ -44,8 +44,15 @@ import FabricProducts from "./component/Product/FabricProducts";
 import ReadymadeProducts from "./component/Product/ReadymadeProducts";
 import Embroidered from "./component/Product/Embroidered";
 import PositionPrints from "./component/Product/PositionPrints";
+import HakobaFabric from "./component/Product/HakobaFabric";
+import CottonFabric from "./component/Product/CottonFabric";
 import Prints from "./component/Product/Prints";
 import Plain from "./component/Product/Plain";
+import UnstitchedCombo from "./component/Product/UnstitchedCombo";
+import DyeableCottonEmbroidery from "./component/Product/DyeableCottonEmbroidery";
+import AlloverCottonEmbroidery from "./component/Product/AlloverCottonEmbroidery";
+import DyeableHakobaFabric from "./component/Product/DyeableHakobaFabric";
+import PrintedHakobaFabric from "./component/Product/PrintedHakobaFabric";
 import ChinonEmbroidered from "./component/Product/ChinonEmbroidered";
 import FauxGeorgetteEmbroidered from "./component/Product/FauxGeorgetteEmbroidered";
 import ViscoseGeorgetteEmbroidered from "./component/Product/ViscoseGeorgetteEmbroidered";
@@ -170,8 +177,15 @@ function App() {
         <Route path="/fabrics" component={FabricProducts} />
         <Route path="/Embroidered" component={Embroidered} />
         <Route path="/PositionPrints" component={PositionPrints} />
+        <Route path="/hakobafabric" component={HakobaFabric} />
+        <Route path="/cottonfabric" component={CottonFabric} />
         <Route path="/Prints" component={Prints} />
         <Route path="/Plain" component={Plain} />
+        <Route path="/DyeableHakobafabric" component={DyeableHakobaFabric} />
+        <Route path="/PrintedHakobaFabric" component={PrintedHakobaFabric} />
+        <Route path="/UnstitchedCombo" component={UnstitchedCombo} />
+        <Route path="/DyeableCottonEmbroidery" component={DyeableCottonEmbroidery} />
+        <Route path="/AlloverCottonEmbroidery" component={AlloverCottonEmbroidery} />       
         <Route path="/ChinonEmbroidery" component={ChinonEmbroidered} />
         <Route path="/FauxGeorgetteEmbroidery" component={FauxGeorgetteEmbroidered} />
         <Route path="/ViscoseGeorgetteEmbroidery" component={ViscoseGeorgetteEmbroidered} />

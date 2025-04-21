@@ -8,6 +8,11 @@ import LatestCollectionImage8 from '../../images/GEORGETTE EMBROIDERY.jpg';
 import LatestCollectionImage9 from '../../images/JACQUARD POSITION PRINT.jpg';
 import LatestCollectionImage10 from '../../images/GEORGETTE PRINTS (1).jpg';
 
+import LatestCollectionImage3 from '../../images/HakobaFabrics.jpeg';
+import LatestCollectionImage4 from '../../images/CottonEmbroideryy.jpeg';
+import LatestCollectionImage5 from '../../images/UnstitchedCombo.jpeg';
+
+
 const LatestCollection = () => {
   const [currentLatestSlide, setCurrentLatestSlide] = useState(0);
   const [isSliding, setIsSliding] = useState(false);
@@ -18,6 +23,11 @@ const LatestCollection = () => {
     { image: LatestCollectionImage9, alt: 'Latest 9', name: 'Jacquard Position Prints', link: '/JacquardPositionPrints' },
     { image: LatestCollectionImage10, alt: 'Latest 10', name: 'Georgette Prints', link: '/GeorgettePrints'  },
     { image: LatestCollectionImage2, alt: 'Latest 2', name: 'Tissue Zari Position Prints', link: '/TissueZariPositionPrints' },
+
+    { image: LatestCollectionImage3, alt: 'Latest 3', name: 'Hakoba Fabric', link: '/hakobafabric' },
+    { image: LatestCollectionImage4, alt: 'Latest 4', name: 'Cotton Embroidery', link: '/CottonEmbroidery' },
+    { image: LatestCollectionImage5, alt: 'Latest 5', name: 'Unstitched Combo', link: '/UnstitchedCombo' },
+
   ];
 
   const slidesToShow = 4;

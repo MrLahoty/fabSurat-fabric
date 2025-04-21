@@ -54,7 +54,7 @@ const NewProduct = ({ history }) => {
   
   const categories = ["Fabric", "Readymade"];
 
-  const fabricSubCategories = ["Position Prints", "Embroidered", "Prints", "Plain"];
+  const fabricSubCategories = ["Position Prints", "Embroidered", "Prints", "Plain", "Hakoba Fabric", "Cotton Fabric"];
   
   const positionprintssubCategory = [
     "Muslin Position Prints",
@@ -96,6 +96,8 @@ const NewProduct = ({ history }) => {
     "Cotton Prints",
   ];
   const plainsubCategory = [ "Hakoba", "Velvet", "Dyeable", "Pure/Viscose", "Others" ];
+  const hakobafabricsubCategory = [ "Dyeable Hakoba Fabric", "Printed Hakoba Fabric" ];
+  const cottonfabricsubCategory = [ "Unstitched Combo", "Dyeable Cotton Embroidery", "Allover Cotton Embroidery" ];
   const readymadeSubCategories = ["Kurti Set", "Co-Ord Set"];
 
 
@@ -187,6 +189,10 @@ const NewProduct = ({ history }) => {
         return printssubCategory;
       case "Plain":
         return plainsubCategory;
+      case "Hakoba Fabric":
+        return hakobafabricsubCategory;
+      case "Cotton Fabric":
+        return cottonfabricsubCategory;    
       default:
         return [];
     }
@@ -365,16 +371,16 @@ const NewProduct = ({ history }) => {
               </>
             )}
 
-<div>
-  <StorageIcon />
-  <input
-    type="number"
-    placeholder="Stock"
-    required
-    step="0.01"  // Allows decimal values
-    onChange={(e) => setStock(e.target.value)}
-  />
-</div>
+            <div>
+              <StorageIcon />
+              <input
+                type="number"
+                placeholder="Stock"
+                required
+                step="0.01"  // Allows decimal values
+                onChange={(e) => setStock(e.target.value)}
+              />
+            </div>
 
 
             <div id="createProductFormFile">

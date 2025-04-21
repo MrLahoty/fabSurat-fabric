@@ -1,0 +1,79 @@
+/* Heading and general product styles */
+.productsHeadingssss {
+    margin: 2.8vmax auto;
+    width: 15vw;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.171);
+    padding: 2vmax;
+    color: rgba(0, 0, 0, 0.731);
+    font: 500 1.6vmax "playfair display";
+    text-align: center;
+    font-weight: bold;
+  }
+
+  /* Categories container and toggle button */
+  .categories-containerss {
+  position: fixed; /* Keep it fixed relative to the viewport */
+  top: 10.5%; /* Adjust as needed */
+  right: 3%; /* Adjust the horizontal position */
+  display: flex;
+  align-items: center;
+ }
+
+.categoryBoxyyyy{
+    list-style: none;
+    position: absolute;
+    top: 13.3%;
+    right: 3%;
+    background-color: #222222;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+    width: 250px; /* Set a fixed width for better control */
+    height: 405px;
+}
+
+.categoryBoxyyyy.show {
+    max-height: 10vmax;
+  }
+  
+  .categoryBoxyyyy.hide {
+    max-height: 0;
+  }
+
+@media screen and (max-width: 700px) {
+
+    .productsHeadingssss {
+        padding-right: 85px;
+        font-size: 19px;
+        margin-top: 38px;
+        font-weight: bold;
+        width: 40vw;
+        border-bottom: 1.2px solid rgba(0, 0, 0, 0.171);
+        white-space: nowrap; /* Prevents wrapping */
+    }
+
+     /* Categories container and toggle button */
+  .categories-containerss {
+    position: fixed; /* Keep it fixed relative to the viewport */
+    top: 10.3%; /* Adjust as needed */
+    right: 1.2%; /* Adjust the horizontal position */
+    display: flex;
+    align-items: center;
+   }
+
+    .categoryBoxyyyy {
+        top: 11.5%;
+        right: 1%;
+        width: 235px; /* Set a fixed width for better control */
+        height: 670px;
+      }
+      
+      .categoryBoxyyyy.show {
+        max-height: 24vmax;
+      }
+      
+      .categoryBoxyyyy.hide {
+        max-height: 0;
+      }
+}  

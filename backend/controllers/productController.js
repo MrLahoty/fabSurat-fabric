@@ -55,7 +55,7 @@ exports.createProduct = catchAsyncErrors(async (req, res, next) => {
 
   // Handle fabric-specific fields and sub-categories
     if (req.body.category === "Fabric") {
-    const validSubCategories = ["Position Prints", "Embroidered", "Prints", "Plain"];
+    const validSubCategories = ["Position Prints", "Embroidered", "Prints", "Plain", "Hakoba Fabric", "Cotton Fabric"];
     
     // Check if sub-category is valid for Fabric
     if (!validSubCategories.includes(req.body.subCategory)) {
@@ -109,6 +109,15 @@ exports.createProduct = catchAsyncErrors(async (req, res, next) => {
             "Dyeable", 
             "Pure/Viscose", 
             "Others"
+        ],
+        "Hakoba Fabric": [
+            "Dyeable Hakoba Fabric",
+            "Printed Hakoba Fabric"
+        ],
+        "Cotton Fabric": [
+            "Unstitched Combo",
+            "Dyeable Cotton Embroidery",
+            "Allover Cotton Embroidery"
         ]
     };
     
@@ -251,7 +260,7 @@ exports.updateProduct = catchAsyncErrors(async (req, res, next) => {
 
    // Handle fabric-specific fields and sub-categories
     if (req.body.category === "Fabric") {
-    const validSubCategories = ["Position Prints", "Embroidered", "Prints", "Plain"];
+    const validSubCategories = ["Position Prints", "Embroidered", "Prints", "Plain", "Hakoba Fabric", "Cotton Fabric"];
     
     // Check if sub-category is valid for Fabric
     if (!validSubCategories.includes(req.body.subCategory)) {
@@ -305,6 +314,15 @@ exports.updateProduct = catchAsyncErrors(async (req, res, next) => {
             "Dyeable", 
             "Pure/Viscose", 
             "Others"
+        ],
+        "Hakoba Fabric": [
+            "Dyeable Hakoba Fabric",
+            "Printed Hakoba Fabric"
+        ],
+        "Cotton Fabric": [
+            "Unstitched Combo",
+            "Dyeable Cotton Embroidery",
+            "Allover Cotton Embroidery"
         ]
     };
     

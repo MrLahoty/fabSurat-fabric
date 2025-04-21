@@ -27,7 +27,7 @@ const FabricProducts = ({ match }) => {
   
   // New state for sub-category toggle
   const [subCategoriesVisible, setSubCategoriesVisible] = useState(false);
-  const subCategories = ["Position Prints", "Embroidered", "Prints", "Plain"]; // Define your sub-categories here
+  const subCategories = ["Position Prints", "Embroidered", "Prints", "Plain", "Hakoba Fabric", "Cotton Fabric"]; // Define your sub-categories here
 
   const { products, loading, error, productsCount, resultPerPage, filteredProductsCount } = useSelector((state) => state.products);
   
