@@ -384,6 +384,7 @@
   font: 400 1.6vmax "Franklin Gothic Medium";
   margin: 1vmax 0;
 }
+
 .detailsBlock-3-1 {
   display: flex;
   align-items: center;
@@ -397,6 +398,7 @@
   color: white;
   transition: all 0.5s;
 }
+
 .detailsBlock-3-1-1 > button:hover {
   background-color: rgba(0, 0, 0, 0.767);
 }
@@ -411,7 +413,7 @@
   color: rgba(0, 0, 0, 0.868);
 }
 
-.detailsBlock-3-1 > button:last-child {
+.detailsBlock-3-1 > button {
   border: none;
   cursor: pointer;
   color: white;
@@ -424,7 +426,24 @@
   outline: none;
 }
 
-.detailsBlock-3-1 > button:last-child:hover {
+.detailsBlock-3-1 > button:hover {
+  background-color: rgb(102, 101, 101);
+  transform: scale(1.1);
+}
+
+.buynoe{
+  border: none;
+  cursor: pointer;
+  color: white;
+  transition: all 0.5s;
+  background-color: #222222;
+  font: 500 0.9vmax "Roboto";
+  border-radius: 20px;
+  padding: 0.5vmax 2vmax;
+  outline: none;
+}
+
+.buynoe:hover{
   background-color: rgb(102, 101, 101);
   transform: scale(1.1);
 }
@@ -952,11 +971,18 @@
     font: 500 2.2vmax "Roboto";
   }
 
-  .detailsBlock-3-1 > button:last-child {
+  .detailsBlock-3-1 > button {
     font: 500 1.7vmax "Roboto";
     padding: 1.5vmax;
     width: 20vmax;
     margin: 3vmax 0;
+  }
+
+  .buynoe{
+    font: 500 1.7vmax "Roboto";
+    padding: 1.5vmax;
+    width: 20vmax;
+    margin: 0.7vmax;
   }
 
   .detailsBlock-3 > p {

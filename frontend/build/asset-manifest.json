@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.771ab413.css",
-    "main.js": "/static/js/main.15320e73.js",
+    "main.css": "/static/css/main.993d6c48.css",
+    "main.js": "/static/js/main.f57d5abb.js",
     "static/media/banner.mp4": "/static/media/banner.6a6a10eb9c3f6a6c3b5c.mp4",
     "static/media/CHINON POSITION PRINT.jpg": "/static/media/CHINON POSITION PRINT.c12853df644a8fe0336c.jpg",
     "static/media/GEORGETTE EMBROIDERY.jpg": "/static/media/GEORGETTE EMBROIDERY.b1439d682017511294d0.jpg",
@@ -12,7 +12,6 @@
     "static/media/CottonEmbroideryy.jpeg": "/static/media/CottonEmbroideryy.be2b5797c635a58df7c9.jpeg",
     "static/media/box14.jpg": "/static/media/box14.7febf01344b6592ef014.jpg",
     "static/media/box8.jpg": "/static/media/box8.2242c5270c5c43540512.jpg",
-    "static/media/winter sale.mp4": "/static/media/winter sale.88d78c014a8fddd42a67.mp4",
     "static/media/b6.jpeg": "/static/media/b6.3f97b69b4a44e22015ae.jpeg",
     "static/media/TISSUE ZARI POSITION PRINT.jpg": "/static/media/TISSUE ZARI POSITION PRINT.4fbd08fb74a2c943e517.jpg",
     "static/media/b3.jpeg": "/static/media/b3.42740f88e3a2ea66af48.jpeg",
@@ -21,7 +20,6 @@
     "static/media/b8.jpeg": "/static/media/b8.33a92cbde742223ea675.jpeg",
     "static/media/box6.jpg": "/static/media/box6.67eedd9c7e91a316099d.jpg",
     "static/media/box11.jpg": "/static/media/box11.c53b757e5797820169c8.jpg",
-    "static/media/video2.mp4": "/static/media/video2.d07539fa12a13b95968b.mp4",
     "static/media/b1.jpeg": "/static/media/b1.fcbed1362b6f44687236.jpeg",
     "static/media/b4.jpeg": "/static/media/b4.38efd903437b1dcb7dda.jpeg",
     "static/media/b7.jpeg": "/static/media/b7.d4cb866ead3f216dfdfe.jpeg",
@@ -44,11 +42,11 @@
     "index.html": "/index.html",
     "static/media/fa-v4compatibility.woff2": "/static/media/fa-v4compatibility.cf7f5903d06b79ad60f1.woff2",
     "static/media/india_map1.webp": "/static/media/india_map1.a9dff0bc410ac99cdc1e.webp",
-    "main.771ab413.css.map": "/static/css/main.771ab413.css.map",
-    "main.15320e73.js.map": "/static/js/main.15320e73.js.map"
+    "main.993d6c48.css.map": "/static/css/main.993d6c48.css.map",
+    "main.f57d5abb.js.map": "/static/js/main.f57d5abb.js.map"
   },
   "entrypoints": [
-    "static/css/main.771ab413.css",
-    "static/js/main.15320e73.js"
+    "static/css/main.993d6c48.css",
+    "static/js/main.f57d5abb.js"
   ]
 }

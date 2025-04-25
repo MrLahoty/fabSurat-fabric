@@ -8,7 +8,7 @@ import { useSelector, useDispatch } from "react-redux";
 import Loader from "../layout/Loader/Loader";
 import { useAlert } from "react-alert";
 import { Link } from "react-router-dom";
-import videoFiles from '../../images/video2.mp4';
+import videoFiles from '../../images/banner.mp4';
 
 import MakeInIndia from "../../images/india_map1.webp";
 import Quality from "../../images/ThumbsUp1.png";
@@ -19,7 +19,7 @@ import CustomPainting from "../../images/Customized_printing1.webp";
 
 // import Image1 from '../../images/f.png';
 import Image2 from '../../images/banner.mp4';
-import videoFile from '../../images/winter sale.mp4'; // Corrected import
+import videoFile from '../../images/banner.mp4'; // Corrected import
 
 import LatestCollection from './LatestCollection';
 import BestSellers from './BestSellers'; 

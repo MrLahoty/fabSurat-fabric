@@ -17,7 +17,7 @@
     position: relative;
     overflow: hidden;
     border-radius: 5px;
-    margin-bottom: 60px;
+    margin-bottom: 70px;
 }
 
 .best-slide-show {
@@ -61,7 +61,7 @@
 .best-slide-name {
     font-family: "Roboto";
     margin-top: 15px;
-    font-size: 15px;
+    font-size: 14px;
     color: #222222;
     letter-spacing: 0.5px;
     display:flex;
@@ -88,7 +88,7 @@
 
 .discount {
     color: #cb2432;
-    font-size: 15px;
+    font-size: 14px;
     margin-left: 5px;
 }
 
@@ -158,20 +158,20 @@
 
     .best-slide-name {
         font-family: "roboto";
-        font-size: 13px;
+        font-size: 11px;
     }
 
     .product-price {
-        font-size: 14px;
+        font-size: 12px;
     }
 
     .ratingss {
-        margin-top: -15px; 
-        margin-bottom: 36px;
+        margin-top: -21px; 
+        margin-bottom: 40px;
     }
     
     .bestSellersratings {
-        font-size: 11px;
+        font-size: 10px;
     }
 
     .best-slide-nav {

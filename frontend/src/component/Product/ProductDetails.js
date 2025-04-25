@@ -304,8 +304,13 @@ const calculateDiscountPercentage = (mrp, price) => {
                   >
                     Add to Cart
                   </button>
+                  <div className="detail">
+                  <button className="buynoe">
+                    Buy now
+                  </button>
+                  </div>                 
                 </div>
-
+               
                 <p>
                   Status : 
                   <b

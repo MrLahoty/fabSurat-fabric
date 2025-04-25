@@ -570,7 +570,7 @@ html, body {
 
 .video-sections video {
   width: 100%; /* Full width to cover the section */
-  height: 610px; /* Maintain aspect ratio */
+  height: 630px; /* Maintain aspect ratio */
   display: block; /* Remove default inline spacing */
   object-fit: cover; /* Ensure the video covers the entire section */
 }

@@ -22,7 +22,7 @@
 .categoryBoxzzzz{
     list-style: none;
     position: absolute;
-    top: 13.3%;
+    top: 6.8%;
     right: 3%;
     background-color: #222222;
     padding: 0;
@@ -63,7 +63,7 @@
    }
 
     .categoryBoxzzzz {
-        top: 11.5%;
+        top: 5.7%;
         right: 1%;
         width: 235px; /* Set a fixed width for better control */
         height: 670px;

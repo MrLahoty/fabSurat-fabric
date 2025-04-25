@@ -1,5 +1,5 @@
 .productss{
-  height: 1170px;
+  height: 3080px;
   margin-top: -50px;
 }
 
@@ -44,7 +44,7 @@
 /* Categories container and toggle button */
 .categories-container {
   position: fixed; /* Keep it fixed relative to the viewport */
-  top: 10.5%; /* Adjust as needed */
+  top: 5.2%; /* Adjust as needed */
   right: 3%; /* Adjust the horizontal position */
   display: flex;
   align-items: center;
@@ -95,7 +95,7 @@
 .categoryBox {
   list-style: none;
   position: absolute;
-  top: 13.5%;
+  top: 6.5%;
   right: 3%;
   background-color: #222222;
   padding: 0;
@@ -129,7 +129,7 @@
 /* Filter box styles */
 .filterBox {
   position: fixed;
-  top: 11%;
+  top: 5.4%;
   left: 3%;
 }
 
@@ -153,7 +153,7 @@
 /* Sliding filter section */
 .filter {
   position: fixed;
-  top: 14%;
+  top: 6.7%;
   left: -20vmax;
   width: 20vmax;
   height: 400px;
@@ -283,18 +283,18 @@
 @media screen and (max-width: 700px) {
 
   .productss{
-    height: 1980px;
+    height: 5610px;
     margin-top: 5px;
   }
 
   .categories-container {
-    top: 10.2%;
+    top: 5%;
     right: 1%;
   }
 
   /* Dropdown category box styles */
 .categoryBox {
-  top: 11.3%;
+  top: 5.6%;
   right: 1%;
   width: 180px; /* Set a fixed width for better control */
   height: 280px;
@@ -349,7 +349,7 @@
 
   .filterBox {
     width: 20vmax;
-    top: 10.3%;
+    top: 5.1%;
     left: 1%;
   }
 
@@ -363,7 +363,7 @@
   /* Sliding filter section */
 .filter {
   position: fixed;
-  top: 11.5%;
+  top: 5.7%;
   left: -40vmax;
   width: 40vmax;
   height: 340px;

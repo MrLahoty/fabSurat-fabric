@@ -149,7 +149,7 @@ const HakobaFabric = ({ match }) => {
 
             {/* Sub-category Toggle Section */}
             <div className="subCategory-container">
-              <div className="categories-containerss">
+              <div className="categories-con">
                 <div className="square-box" onClick={toggleSubCategories}>
                   <div className="categories-heading">Categories</div>
                   <button

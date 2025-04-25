@@ -157,7 +157,7 @@ const Prints = ({ match }) => {
 
             {/* Sub-category Toggle Section */}
             <div className="subCategory-container">
-              <div className="categories-containerssssss">
+              <div className="categories-con">
                 <div className="square-box" onClick={toggleSubCategories}>
                   <div className="categories-heading">Categories</div>
                   <button

@@ -11,9 +11,9 @@
   }
 
   /* Categories container and toggle button */
-  .categories-containerss {
+  .categories-con {
   position: fixed; /* Keep it fixed relative to the viewport */
-  top: 10.5%; /* Adjust as needed */
+  top: 5.5%; /* Adjust as needed */
   right: 3%; /* Adjust the horizontal position */
   display: flex;
   align-items: center;
@@ -22,7 +22,7 @@
 .categoryBoxssss{
     list-style: none;
     position: absolute;
-    top: 13.3%;
+    top: 6.9%;
     right: 3%;
     background-color: #222222;
     padding: 0;
@@ -54,16 +54,16 @@
     }
 
      /* Categories container and toggle button */
-  .categories-containerss {
+  .categories-con {
     position: fixed; /* Keep it fixed relative to the viewport */
-    top: 10.3%; /* Adjust as needed */
+    top: 5.05%; /* Adjust as needed */
     right: 1.2%; /* Adjust the horizontal position */
     display: flex;
     align-items: center;
    }
 
     .categoryBoxssss {
-        top: 11.5%;
+        top: 5.7%;
         right: 1%;
         width: 235px; /* Set a fixed width for better control */
         height: 670px;
