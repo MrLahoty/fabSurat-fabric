@@ -50,7 +50,7 @@
     display: flex; /* Use flexbox for layout */
     justify-content: space-between; /* Space between children */
     align-items: flex-start; /* Align items to the start */
-    min-height: 400px; /* Set a minimum height for better appearance */
+    min-height: 600px; /* remove fixed min-height */
     position: relative; /* For the child elements */
 }
 
@@ -66,24 +66,27 @@
 
 .customer-info h3 {
     font-size: 18px; /* Smaller font size for the name */
-    margin-bottom: 15px; /* Space between name and rating */
-    margin-top: 15px;
+    margin-bottom: 8px; /* Space between name and rating */
+    margin-top: 17px;
+    margin-left: 27px;
 }
 
 .customer-ratings {
     font-size:small; /* Font size for rating */
     margin-top: 3px;
+    margin-left: 22px;
 }
 
 .comment {
     font-family: Inter, sans-serif;
     font-size: 12.5px; /* Smaller font size for the comment */
-    margin-top: 20px; /* Space above comments */
+    margin-top: 15px; /* Space above comments */
     line-height: 1.5; /* Improve readability with line height */
     max-height: 70px; /* Limit the height */
     overflow: hidden;
     text-overflow: ellipsis;
-    transition: max-height 0.3s ease;
+    transition: max-height 0.4s ease;
+    margin-left: 10px;
 }
 
 .show-full {
@@ -102,13 +105,15 @@
     padding: 5px 0;
     font-size: 14px;
     text-decoration: underline;
+    margin-left: 10px;
   }
 
-.customer-box img {
-    max-width: 40%; /* Adjust width of the image */
-    height: auto; /* Maintain aspect ratio */
+  .customer-box img {
+    width: 340px; /* or any fixed value like 150px */
+    height: 270px; /* same as width for square */
+    object-fit: cover; /* Ensures image fills box without distortion */
     border-radius: 4px;
-    margin-left: 10px; /* Space between image and text */
+    margin-left: 30px;
 }
 
 .dots-container {
@@ -144,6 +149,7 @@
 
 /* Media Query for Mobile Devices */
 @media (max-width: 768px) {
+
     .happy-customers-container {
         flex-direction: row; /* Stack the customer boxes vertically */
         align-items: center; /* Center align the boxes */
@@ -152,7 +158,7 @@
     .customer-box {
         flex: 0 0 100%; /* Full width for customer boxes */
         margin-bottom: 10px; /* Space between boxes */
-        min-height: 430px; /* Adjust minimum height for mobile */
+        min-height: 620px; /* Adjust minimum height for mobile */
         background-color: #eaeaea;
     }
 
@@ -178,15 +184,34 @@
     }
 
     .customer-box img {
-        max-width: 40%; /* Adjust image width for mobile */
+        width: 340px; /* or any fixed value like 150px */
+        height: 270px; /* same as width for square */
         margin-left: 0; /* Remove margin */
         margin-top: 13px;
+    }
+
+    .customer-info {
+        flex: 1; /* Take the remaining space */
+        text-align: left; /* Align text to the left */
+    }
+
+    .customer-info h3 {
+        font-size: 18px; /* Smaller font size for the name */
+        margin-bottom: 8px; /* Space between name and rating */
+        margin-top: 17px;
+        margin-left: 5px;
+    }
+
+    .customer-ratings {
+        font-size:small; /* Font size for rating */
+        margin-top: 3px;
+        margin-left: 2px;
     }
 
     .customer-text {
         position: absolute; /* Set position to absolute */
         bottom: 15px; /* Adjust as needed */
-        left: 20px; /* Align to the left */
+        left: 35px; /* Align to the left */
         font-size: 16px; /* Font size for the Customer text */
         color: #333; /* Text color */
         margin: 0; /* Remove default margin */
@@ -202,5 +227,5 @@
 
     .show-less {
         max-height: 115px; /* Limit content again */
-      }
+    }
 }

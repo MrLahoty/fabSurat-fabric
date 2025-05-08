@@ -16,6 +16,8 @@
     "aftership": "^8.1.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.2",
+    "cashfree-pg": "^5.0.8",
+    "cashfree-sdk": "^0.1.1",
     "cloudinary": "^1.41.3",
     "compression": "^1.8.0",
     "cookie-parser": "^1.4.6",

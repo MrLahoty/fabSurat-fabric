@@ -188,6 +188,7 @@ const HappyCustomers = () => {
         {visibleCustomers.map((customer, index) => (
           <div className="customer-box" key={index}>
             <div className="customer-info">
+              <img src={customer.image} alt={`Product by ${customer.name}`} />
               <h3>{customer.name}</h3>
               <Rating name="customer-rating" value={customer.rating} readOnly className="customer-ratings" />
               <p className={`comment ${showMore[index] ? 'show-full' : 'show-less'}`}>
@@ -197,7 +198,6 @@ const HappyCustomers = () => {
                 {showMore[index] ? 'Show less' : 'Show more'}
               </button>
             </div>
-            <img src={customer.image} alt={`Product by ${customer.name}`} />
             <p className="customer-text">Customer</p>
           </div>
         ))}
