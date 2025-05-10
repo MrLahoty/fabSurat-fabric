@@ -17,9 +17,9 @@ import FastShipping from "../../images/Fast_Delivery1.png";
 import EasyReturns from "../../images/Package1.png";
 import CustomPainting from "../../images/Customized_printing1.webp";
 
-// import Image1 from '../../images/f.png';
-import Image2 from '../../images/banner.mp4';
-import videoFile from '../../images/banner.mp4'; // Corrected import
+import Image1 from '../../images/SHOP NOW.png';
+// import Image2 from '../../images/banner.mp4';
+// import videoFile from '../../images/banner.mp4'; 
 
 import LatestCollection from './LatestCollection';
 import BestSellers from './BestSellers'; 
@@ -72,7 +72,7 @@ const Home = () => {
 
   const slides = [
     // { image: Image1, alt: 'Slide 1' },
-    {video: Image2, alt: 'Slide 2'}
+    {image: Image1, alt: 'Slide 2'}
   ];
 
   const nextSlide = useCallback(() => {
@@ -107,31 +107,29 @@ const Home = () => {
                   className={`slide ${index === currentSlide ? 'active' : ''}`}
                   key={index}
                 >
-                  {/* Video for mobile view */}
-                <div className="mobile-video-container">
-                <Link to="/products">
-                 <video
-                   className="mobile-video"
-                   src={videoFile}
-                   autoPlay
-                   muted
-                   loop
+                {/* Image for mobile view */}
+              <div className="mobile-image-container">
+               <Link to="/products">
+                 <img
+                   className="mobile-image"
+                   src={slide.image} // Replace with slide.mobileImage if separate mobile image
+                   alt={slide.alt}
+                   style={{ width: '100%', height: 'auto', objectFit: 'cover' }}
                  />
-                 </Link>
-                </div>
-                  {/* Render Link and image only for desktop view */}
-                  <div className="desktop-view">
-                    <Link to="/products">
-                      <video 
-                       src={slide.video}
-                       alt={slide.alt}
-                       autoPlay
-                       muted
-                       loop
-                       playsInline
-                       style={{ width: "100%", height: "auto", objectFit: "cover" }} />
-                    </Link>
-                  </div>
+               </Link>
+              </div>
+
+              {/* Image for desktop view */}
+              <div className="desktop-view">
+                <Link to="/products">
+                  <img
+                    src={slide.image} // Replace with slide.desktopImage if separate desktop image
+                    alt={slide.alt}
+                    style={{ width: '100%', height: 'auto', objectFit: 'cover' }}
+                  />
+                </Link>
+              </div>
+
                   <div className="shop-now-button-container">
                     <button onClick={handleOrderNowClick}>Shop Now</button>
                   </div>

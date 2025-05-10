@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.71f4a604.css",
-    "main.js": "/static/js/main.fc88a5dd.js",
+    "main.css": "/static/css/main.38da0cdb.css",
+    "main.js": "/static/js/main.eabde481.js",
     "static/media/banner.mp4": "/static/media/banner.6a6a10eb9c3f6a6c3b5c.mp4",
     "static/media/CHINON POSITION PRINT.jpg": "/static/media/CHINON POSITION PRINT.c12853df644a8fe0336c.jpg",
     "static/media/GEORGETTE EMBROIDERY.jpg": "/static/media/GEORGETTE EMBROIDERY.b1439d682017511294d0.jpg",
@@ -9,6 +9,7 @@
     "static/media/JACQUARD POSITION PRINT.jpg": "/static/media/JACQUARD POSITION PRINT.461b24ee2153ad9d6c27.jpg",
     "static/media/c1.jpg": "/static/media/c1.af23305f0f9e77ef4cc7.jpg",
     "static/media/c3.jpg": "/static/media/c3.fc4d672e162f6c1e88bd.jpg",
+    "static/media/SHOP NOW.png": "/static/media/SHOP NOW.0fc4c48eb2787955d0a5.png",
     "static/media/CottonEmbroideryy.jpeg": "/static/media/CottonEmbroideryy.be2b5797c635a58df7c9.jpeg",
     "static/media/b6.jpeg": "/static/media/b6.3f97b69b4a44e22015ae.jpeg",
     "static/media/TISSUE ZARI POSITION PRINT.jpg": "/static/media/TISSUE ZARI POSITION PRINT.4fbd08fb74a2c943e517.jpg",
@@ -57,11 +58,11 @@
     "index.html": "/index.html",
     "static/media/fa-v4compatibility.woff2": "/static/media/fa-v4compatibility.cf7f5903d06b79ad60f1.woff2",
     "static/media/india_map1.webp": "/static/media/india_map1.a9dff0bc410ac99cdc1e.webp",
-    "main.71f4a604.css.map": "/static/css/main.71f4a604.css.map",
-    "main.fc88a5dd.js.map": "/static/js/main.fc88a5dd.js.map"
+    "main.38da0cdb.css.map": "/static/css/main.38da0cdb.css.map",
+    "main.eabde481.js.map": "/static/js/main.eabde481.js.map"
   },
   "entrypoints": [
-    "static/css/main.71f4a604.css",
-    "static/js/main.fc88a5dd.js"
+    "static/css/main.38da0cdb.css",
+    "static/js/main.eabde481.js"
   ]
 }

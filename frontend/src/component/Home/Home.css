@@ -234,6 +234,7 @@ html, body {
   font-weight: bold;
   text-transform: uppercase; /* Uppercase text for emphasis */
   cursor: pointer;
+  animation: pulse 1.2s infinite;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
   transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Added transition for box-shadow */
 }
@@ -241,6 +242,7 @@ html, body {
 .shop-now-button-container button:hover {
   transform: translateY(-5px) scale(1.05); /* Slight lift and scale on hover */
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+  animation: pulse 1s infinite;
 }
 
 .shop-now-button-container button:active {
@@ -261,10 +263,6 @@ html, body {
     transform: scale(1);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
-}
-
-.shop-now-button-container button:hover {
-  animation: pulse 1s infinite;
 }
 
 /* Navigation Dots */
@@ -640,8 +638,50 @@ box-shadow: -10px 0px 30px -12px rgba(189,189,189,1);
 border-radius: 10px}
 
 /* Mobile-specific styles */
-.mobile-video-container {
-  display: none; /* Hide by default */
+/* .mobile-video-container {
+  display: none;
+} */
+
+/* Base styles */
+.slideshow-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+  min-width: 100%;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.mobile-image-container,
+.desktop-view {
+  width: 100%;
+  height: 100%;
+}
+
+img.mobile-image,
+.desktop-view img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Ensures full image is visible */
+  display: block;
+}
+
+/* Hide desktop view by default on small screens */
+.desktop-view {
+  display: none;
+}
+
+/* Show mobile view by default */
+.mobile-image-container {
+  display: block;
 }
 
 @media (max-width: 768px) {
@@ -650,7 +690,23 @@ border-radius: 10px}
     margin-top: -4px;
   }
 
-  .mobile-video-container {
+  .slideshow-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    height: 100%;
+    margin-top: 7px;
+}
+
+  .desktop-view {
+    display: block;
+  }
+
+  .mobile-image-container {
+    display: none;
+  }
+
+  /* .mobile-video-container {
     display: block;
     position: relative;
     width: 100%;
@@ -664,7 +720,7 @@ border-radius: 10px}
 
   .desktop-view {
     display: none;
-  }
+  } */
 
   /* Heading style */
 .shop-by-price h2 {
@@ -902,9 +958,18 @@ border-radius: 10px}
     margin-top: 2.5vw; /* Adjust margin */
 }
 
+@keyframes mobilePulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
 .shop-now-button-container button{
-padding: 10px 10px; /* Increased padding for a more substantial feel */
-font-size: 0.7rem; 
+padding: 13px 50px; /* Increased padding for a more substantial feel */
+font-size: 0.8rem;
+margin-bottom: 5px;
+margin-right: 150px; 
+animation: mobilePulse 1.2s infinite;
 }
 
 .prev {
