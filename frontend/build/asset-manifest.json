@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.38da0cdb.css",
-    "main.js": "/static/js/main.eabde481.js",
+    "main.css": "/static/css/main.97fc6cc8.css",
+    "main.js": "/static/js/main.8db43582.js",
     "static/media/banner.mp4": "/static/media/banner.6a6a10eb9c3f6a6c3b5c.mp4",
     "static/media/CHINON POSITION PRINT.jpg": "/static/media/CHINON POSITION PRINT.c12853df644a8fe0336c.jpg",
     "static/media/GEORGETTE EMBROIDERY.jpg": "/static/media/GEORGETTE EMBROIDERY.b1439d682017511294d0.jpg",
@@ -21,6 +21,7 @@
     "static/media/b1.jpeg": "/static/media/b1.fcbed1362b6f44687236.jpeg",
     "static/media/b4.jpeg": "/static/media/b4.38efd903437b1dcb7dda.jpeg",
     "static/media/b7.jpeg": "/static/media/b7.d4cb866ead3f216dfdfe.jpeg",
+    "static/media/POSITION PRINT hero.png": "/static/media/POSITION PRINT hero.5b793a3de99fb5a7af16.png",
     "static/media/c4.jpg": "/static/media/c4.8c9434feb77207690835.jpg",
     "static/media/GEORGETTE PRINTS (1).jpg": "/static/media/GEORGETTE PRINTS (1).aa22aa6d5d5e2363db55.jpg",
     "static/media/fa-solid-900.ttf": "/static/media/fa-solid-900.bacd5de623fb563b961a.ttf",
@@ -58,11 +59,11 @@
     "index.html": "/index.html",
     "static/media/fa-v4compatibility.woff2": "/static/media/fa-v4compatibility.cf7f5903d06b79ad60f1.woff2",
     "static/media/india_map1.webp": "/static/media/india_map1.a9dff0bc410ac99cdc1e.webp",
-    "main.38da0cdb.css.map": "/static/css/main.38da0cdb.css.map",
-    "main.eabde481.js.map": "/static/js/main.eabde481.js.map"
+    "main.97fc6cc8.css.map": "/static/css/main.97fc6cc8.css.map",
+    "main.8db43582.js.map": "/static/js/main.8db43582.js.map"
   },
   "entrypoints": [
-    "static/css/main.38da0cdb.css",
-    "static/js/main.eabde481.js"
+    "static/css/main.97fc6cc8.css",
+    "static/js/main.8db43582.js"
   ]
 }
