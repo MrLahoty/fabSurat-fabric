@@ -1,7 +1,7 @@
 export default async function displayRazorpay() {
     try {
       // Determine base URL based on environment
-      const baseURL = process.env.NODE_ENV === 'PRODUCTION' ? 'https://fabsurat.com' : 'http://localhost:4000';
+      const baseURL = process.env.NODE_ENV === 'PRODUCTION' ? 'http://localhost:4000' : 'https://fabsurat.com';
   
       // Fetch Razorpay key and other necessary data
     //   const { data: { key } } = await fetch(`${baseURL}/api/v1/razorpay-key`).then(response => response.json());
