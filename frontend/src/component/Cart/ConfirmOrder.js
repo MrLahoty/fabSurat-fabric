@@ -65,7 +65,7 @@ const ConfirmOrder = ({ history }) => {
         },
       };
 
-      const baseURL = process.env.NODE_ENV === 'PRODUCTION' ? 'http://localhost:4000' : 'https://fabsurat.com';
+      const baseURL = process.env.NODE_ENV === 'PRODUCTION' ? 'https://fabsurat.com' : 'http://localhost:4000';
 
       const { data: { key } } = await axios.get(`${baseURL}/api/v1/razorpay-key`);
       const paymentAmount = Math.round(amount * 100); // Convert to paise
